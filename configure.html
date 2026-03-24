@@ -930,6 +930,13 @@
                                         <span class="sub-price">$98/mo</span>
                                     </label>
                                 </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="aws_2xlarge" data-monthly="196" data-ram="32">
+                                    <label for="">
+                                        <span>t4g.2xlarge: 32GB RAM</span>
+                                        <span class="sub-price">$196/mo</span>
+                                    </label>
+                                </div>
                             </div>
                         </label>
                     </div>
@@ -1366,6 +1373,13 @@
                         </div>
                     </div>
                 </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <label for="custom-integrations-text" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Tell us about any other integrations or tools you need:</label>
+                    <textarea id="custom-integrations-text" placeholder="e.g., Salesforce, HubSpot, Zapier, custom internal API, specific workflow automations..." style="width: 100%; min-height: 100px; padding: 0.75rem 1rem; border: 1px solid var(--border-subtle); border-radius: var(--radius); font-family: 'Inter', sans-serif; font-size: 0.95rem; background: var(--bg-card); color: var(--text-primary); resize: vertical; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--border-accent)'" onblur="this.style.borderColor='var(--border-subtle)'"></textarea>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">We'll review your needs and include a custom quote if required.</p>
+                </div>
+
                 <p class="integration-note">First 2 integrations are included free. Each additional standard integration is $500. Custom integrations start at $1,000.</p>
 
                 <div class="running-price">
@@ -2157,7 +2171,8 @@
         aws_small: 't4g.small: 2GB RAM',
         aws_medium: 't4g.medium: 4GB RAM',
         aws_large: 't4g.large: 8GB RAM',
-        aws_xlarge: 't4g.xlarge: 16GB RAM'
+        aws_xlarge: 't4g.xlarge: 16GB RAM',
+        aws_2xlarge: 't4g.2xlarge: 32GB RAM'
     };
 
     const MAC_LABELS = {
@@ -2228,6 +2243,10 @@
         html += summaryRow('Agents', AGENT_LABELS[state.agents] || '--');
         html += summaryRow('Channels', state.channels.length > 0 ? state.channels.map(c => CHANNEL_LABELS[c]).join(', ') : 'None selected');
         html += summaryRow('Integrations', state.integrations.length > 0 ? state.integrations.map(i => INTEGRATION_LABELS[i]).join(', ') : 'None selected');
+        const customIntText = document.getElementById('custom-integrations-text') ? document.getElementById('custom-integrations-text').value.trim() : '';
+        if (customIntText) {
+            html += summaryRow('Custom Integration Notes', customIntText);
+        }
         html += summaryRow('Managed Care', CARE_LABELS[state.managedCare] || '--');
         html += '</div>';
 
@@ -2340,6 +2359,7 @@
             'Agents: ' + (AGENT_LABELS[cfg.agents] || '--'),
             'Channels: ' + (cfg.channels && cfg.channels.length > 0 ? cfg.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None'),
             'Integrations: ' + (cfg.integrations && cfg.integrations.length > 0 ? cfg.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None'),
+            'Custom Integration Notes: ' + (document.getElementById('custom-integrations-text') ? (document.getElementById('custom-integrations-text').value.trim() || 'None') : 'None'),
             'Managed Care: ' + (CARE_LABELS[cfg.managedCare] || '--'),
             'One-time Total: ' + formatPrice(cfg.oneTimeTotal),
             'Monthly Recurring: ' + (cfg.monthlyTotal > 0 ? formatPrice(cfg.monthlyTotal) + '/mo' : '$0')
