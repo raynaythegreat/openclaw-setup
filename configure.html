@@ -1018,6 +1018,7 @@
                                     <div class="option-name">2-node cluster</div>
                                     <div class="option-price">+$5,000</div>
                                 </div>
+                                <div class="option-desc">Run multiple models simultaneously</div>
                             </label>
                             <label class="option-card" data-value="3">
                                 <input type="radio" name="cluster_size" value="3">
@@ -1025,6 +1026,7 @@
                                     <div class="option-name">3-node cluster</div>
                                     <div class="option-price">+$10,000</div>
                                 </div>
+                                <div class="option-desc">Dedicated agent per node</div>
                             </label>
                             <label class="option-card" data-value="4">
                                 <input type="radio" name="cluster_size" value="4">
@@ -1032,6 +1034,7 @@
                                     <div class="option-name">4-node cluster</div>
                                     <div class="option-price">+$15,000</div>
                                 </div>
+                                <div class="option-desc">Enterprise redundancy + load balancing</div>
                             </label>
                         </div>
                     </div>
@@ -1595,7 +1598,7 @@
 
     function calcIntegrationCost() {
         const sorted = [...state.integrations].sort((a, b) => {
-            return (INTEGRATION_COSTS[b] || 0) - (INTEGRATION_COSTS[a] || 0);
+            return (INTEGRATION_COSTS[a] || 0) - (INTEGRATION_COSTS[b] || 0);
         });
         let total = 0;
         sorted.forEach((item, i) => {
@@ -1608,7 +1611,49 @@
 
     function calcClusterCost() {
         const extra = Math.max(0, state.clusterSize - 1);
-        return extra * 5000;
+        const hardwareCost = extra * (state.macCost || 0);
+        const setupCost = extra * 2000;
+        return hardwareCost + setupCost;
+    }
+
+    function updateClusterPrices() {
+        const cost = state.macCost || 0;
+        const modelName = getSelectedMacName();
+        const cards = document.querySelectorAll('#cluster-options .option-card');
+
+        cards.forEach(card => {
+            const val = parseInt(card.dataset.value);
+            if (val <= 1) return;
+            const extra = val - 1;
+            const hw = extra * cost;
+            const setup = extra * 2000;
+            const total = hw + setup;
+            const priceEl = card.querySelector('.option-price');
+            const descEl = card.querySelector('.option-desc');
+            if (priceEl) priceEl.textContent = '+' + formatPrice(total);
+            if (descEl) {
+                descEl.textContent = extra + '× ' + modelName + ' ($' + cost.toLocaleString() + ' ea) + $' + (extra * 2000).toLocaleString() + ' setup';
+            }
+        });
+
+        // Update cluster section header
+        const header = document.querySelector('#cluster-section h3');
+        if (header && cost > 0) {
+            header.textContent = 'Want a cluster? Add more ' + modelName + ' nodes:';
+        }
+    }
+
+    function getSelectedMacName() {
+        const labels = {
+            'm4_16_256': 'M4 16GB/256GB',
+            'm4_16_512': 'M4 16GB/512GB',
+            'm4_24_512': 'M4 24GB/512GB',
+            'm4pro_24_512': 'M4 Pro 24GB/512GB',
+            'm4pro_48_1tb': 'M4 Pro 48GB/1TB',
+            'm4pro_64_1tb': 'M4 Pro 64GB/1TB',
+            'm5_wait': 'M5 (TBD)'
+        };
+        return labels[state.macModel] || 'Mac Mini';
     }
 
     function calcOneTime() {
@@ -1841,11 +1886,16 @@
             state.macModel = radio.value;
             state.macCost = parseInt(radio.dataset.cost) || 0;
 
+            // Reset AI model selection since available models depend on RAM
+            state.aiModel = '';
+            state.aiModelDetail = '';
+
             document.querySelectorAll('#mac-model-options .option-card').forEach(c => c.classList.remove('selected'));
             this.classList.add('selected');
 
             document.getElementById('next-2').disabled = false;
             updateAllPrices();
+            updateClusterPrices();
         });
     });
 
@@ -2189,10 +2239,16 @@
         html += summaryRow('Base setup fee', formatPrice(baseCost));
 
         if (state.hosting === 'mac_mini' && state.macCost > 0) {
-            html += summaryRow('Hardware (Mac Mini)', formatPrice(state.macCost));
-        }
-        if (state.hosting === 'mac_mini' && calcClusterCost() > 0) {
-            html += summaryRow('Cluster (' + state.clusterSize + ' nodes)', '+' + formatPrice(calcClusterCost()));
+            const macName = getSelectedMacName();
+            if (state.clusterSize > 1) {
+                const totalHardwareCost = state.macCost * state.clusterSize;
+                html += summaryRow('Hardware (' + macName + ' × ' + state.clusterSize + ')', formatPrice(totalHardwareCost));
+                const extraNodes = state.clusterSize - 1;
+                const clusterSetupCost = extraNodes * 2000;
+                html += summaryRow('Cluster setup (' + extraNodes + ' nodes × $2,000)', '+' + formatPrice(clusterSetupCost));
+            } else {
+                html += summaryRow('Hardware (' + macName + ')', formatPrice(state.macCost));
+            }
         }
 
         const agentCost = AGENT_PRICES[state.agents] || 0;
