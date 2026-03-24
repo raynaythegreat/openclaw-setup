@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The AI 101 | Your AI Agent, Deployed and Running in 48 Hours</title>
     <meta name="description" content="The AI 101 — OpenClaw Setup-as-a-Service. We deploy autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — 24/7. White-glove setup, self-hosted option, 100% uptime SLA.">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,21 +17,21 @@
         }
 
         :root {
-            --bg-primary: #0a0b14;
-            --bg-secondary: #111227;
-            --bg-card: #161833;
-            --bg-card-hover: #1c1f45;
-            --text-primary: #f0f0f5;
-            --text-secondary: #a0a3bd;
-            --text-muted: #6b6f8d;
-            --accent-blue: #4f6ef7;
-            --accent-purple: #8b5cf6;
+            --bg-primary: #0f1729;
+            --bg-secondary: #131d33;
+            --bg-card: #1a2744;
+            --bg-card-hover: #1f3055;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-blue: #3b82f6;
             --accent-cyan: #22d3ee;
-            --accent-glow: rgba(79, 110, 247, 0.15);
-            --gradient-primary: linear-gradient(135deg, #4f6ef7 0%, #8b5cf6 100%);
-            --gradient-hero: linear-gradient(135deg, #4f6ef7 0%, #8b5cf6 50%, #22d3ee 100%);
-            --border-subtle: rgba(255, 255, 255, 0.06);
-            --border-accent: rgba(79, 110, 247, 0.3);
+            --accent-teal: #06b6d4;
+            --accent-glow: rgba(34, 211, 238, 0.15);
+            --gradient-primary: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --gradient-hero: linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #06b6d4 100%);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(34, 211, 238, 0.3);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -68,7 +69,7 @@
             right: 0;
             z-index: 1000;
             padding: 0.75rem 2rem;
-            background: rgba(10, 11, 20, 0.85);
+            background: rgba(15, 23, 41, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border-subtle);
@@ -88,10 +89,6 @@
             align-items: center;
             gap: 0.6rem;
             text-decoration: none;
-        }
-
-        .nav-brand svg {
-            flex-shrink: 0;
         }
 
         .nav-logo-text {
@@ -156,7 +153,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(10, 11, 20, 0.97);
+                background: rgba(15, 23, 41, 0.97);
                 backdrop-filter: blur(20px);
                 padding: 1.5rem 2rem;
                 gap: 1rem;
@@ -237,7 +234,7 @@
             transform: translateX(-50%);
             width: 900px;
             height: 900px;
-            background: radial-gradient(circle, rgba(79, 110, 247, 0.15) 0%, rgba(139, 92, 246, 0.08) 30%, rgba(34, 211, 238, 0.04) 55%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, rgba(6, 182, 212, 0.08) 30%, rgba(59, 130, 246, 0.04) 55%, transparent 70%);
             pointer-events: none;
             animation: heroGlow 8s ease-in-out infinite alternate;
         }
@@ -254,7 +251,11 @@
         }
 
         .hero-logo {
+            width: 150px;
+            height: auto;
             margin-bottom: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(34, 211, 238, 0.25), 0 0 80px rgba(34, 211, 238, 0.1);
             animation: float 6s ease-in-out infinite;
         }
 
@@ -267,12 +268,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(79, 110, 247, 0.1);
+            background: rgba(34, 211, 238, 0.1);
             border: 1px solid var(--border-accent);
             padding: 0.45rem 1.25rem;
             border-radius: 999px;
             font-size: 0.88rem;
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
             font-weight: 500;
             margin-bottom: 2rem;
         }
@@ -282,7 +283,7 @@
             font-weight: 900;
             line-height: 1.08;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, #c4c8f0 60%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 60%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -344,7 +345,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(79, 110, 247, 0.35);
+            box-shadow: 0 8px 30px rgba(6, 182, 212, 0.35);
         }
 
         .btn-secondary {
@@ -365,7 +366,7 @@
 
         .btn-secondary:hover {
             border-color: var(--border-accent);
-            background: rgba(79, 110, 247, 0.05);
+            background: rgba(34, 211, 238, 0.05);
             transform: translateY(-1px);
         }
 
@@ -410,12 +411,13 @@
             border-radius: var(--radius-lg);
             padding: 2rem 1.5rem;
             text-align: center;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .stat-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
         }
 
         .stat-number {
@@ -476,7 +478,7 @@
         .possibility-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(79, 110, 247, 0.08);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
         }
 
         .possibility-icon {
@@ -532,7 +534,7 @@
         .feature-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(79, 110, 247, 0.1);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.1);
         }
 
         .feature-icon {
@@ -572,15 +574,16 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--text-secondary);
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
             cursor: default;
         }
 
         .integration-badge:hover {
             border-color: var(--border-accent);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(79, 110, 247, 0.12);
+            box-shadow: 0 6px 20px rgba(34, 211, 238, 0.12);
             background: var(--bg-card-hover);
+            color: var(--accent-cyan);
         }
 
         .integration-badge .badge-emoji {
@@ -589,7 +592,7 @@
 
         .integrations-more {
             text-align: center;
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
             font-size: 0.95rem;
             font-weight: 500;
         }
@@ -608,7 +611,7 @@
             transform: translate(-50%, -50%);
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -672,7 +675,7 @@
         }
 
         .terminal-box {
-            background: #0d1117;
+            background: #0a1220;
             border: 1px solid rgba(34, 211, 238, 0.2);
             border-radius: var(--radius-lg);
             padding: 1.75rem 2rem;
@@ -731,7 +734,7 @@
         }
 
         .terminal-dim {
-            color: #6b7f99;
+            color: #64748b;
         }
 
         /* ── How It Works ── */
@@ -755,7 +758,7 @@
             left: 12.5%;
             right: 12.5%;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-cyan));
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue), var(--accent-cyan));
             opacity: 0.3;
         }
 
@@ -781,12 +784,13 @@
             padding: 2rem 1.5rem;
             text-align: center;
             position: relative;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .step-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
         }
 
         .step-number {
@@ -859,17 +863,17 @@
         .pricing-card:hover {
             transform: translateY(-6px);
             border-color: var(--border-accent);
-            box-shadow: 0 12px 40px rgba(79, 110, 247, 0.1);
+            box-shadow: 0 12px 40px rgba(34, 211, 238, 0.1);
         }
 
         .pricing-card.featured {
             border: 2px solid transparent;
             background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                        linear-gradient(135deg, #4f6ef7, #8b5cf6, #22d3ee, #4f6ef7) border-box;
+                        linear-gradient(135deg, #06b6d4, #3b82f6, #22d3ee, #06b6d4) border-box;
             background-size: 100% 100%, 300% 300%;
             animation: borderGlow 4s ease infinite;
             transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(79, 110, 247, 0.15), 0 0 100px rgba(139, 92, 246, 0.08);
+            box-shadow: 0 0 50px rgba(34, 211, 238, 0.15), 0 0 100px rgba(6, 182, 212, 0.08);
         }
 
         @keyframes borderGlow {
@@ -943,7 +947,7 @@
 
         .pricing-features li::before {
             content: '\2713';
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
             font-weight: 700;
             flex-shrink: 0;
             margin-top: 1px;
@@ -978,12 +982,13 @@
             display: flex;
             align-items: center;
             gap: 1.25rem;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .addon-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 211, 238, 0.08);
         }
 
         .addon-price {
@@ -1033,12 +1038,13 @@
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
             padding: 2rem;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .managed-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
         }
 
         .managed-tier {
@@ -1078,7 +1084,7 @@
 
         .managed-features li::before {
             content: '\2713';
-            color: var(--accent-purple);
+            color: var(--accent-cyan);
             font-weight: 700;
             flex-shrink: 0;
         }
@@ -1111,12 +1117,13 @@
             border-radius: var(--radius-lg);
             padding: 2rem;
             position: relative;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .testimonial-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.08);
         }
 
         .testimonial-quote {
@@ -1178,12 +1185,12 @@
         }
 
         .faq-question:hover {
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
         }
 
         .faq-chevron {
             font-size: 1.3rem;
-            transition: transform 0.3s;
+            transition: transform 0.3s, color 0.3s;
             flex-shrink: 0;
             color: var(--text-muted);
             font-weight: 300;
@@ -1191,6 +1198,11 @@
 
         .faq-item.open .faq-chevron {
             transform: rotate(45deg);
+            color: var(--accent-cyan);
+        }
+
+        .faq-item.open .faq-question {
+            color: var(--accent-cyan);
         }
 
         .faq-answer {
@@ -1225,7 +1237,7 @@
             transform: translateX(-50%);
             width: 700px;
             height: 500px;
-            background: radial-gradient(circle, rgba(79, 110, 247, 0.12) 0%, rgba(139, 92, 246, 0.06) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, rgba(6, 182, 212, 0.06) 40%, transparent 70%);
             pointer-events: none;
         }
 
@@ -1237,7 +1249,7 @@
             font-size: clamp(2rem, 5vw, 3.2rem);
             font-weight: 900;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #c4c8f0 100%);
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1280,7 +1292,7 @@
         }
 
         .contact-info a:hover {
-            color: var(--accent-blue);
+            color: var(--accent-cyan);
         }
 
         .footer-bottom {
@@ -1332,14 +1344,7 @@
     <nav>
         <div class="nav-inner">
             <a href="#" class="nav-brand">
-                <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-                    <path d="M50 15 C32 15 18 32 18 50 C18 68 32 85 50 85 C68 85 82 68 82 50 C82 32 68 15 50 15Z" fill="url(#cg-nav)" opacity="0.9"/>
-                    <path d="M35 35 C25 20 15 25 20 40 L35 50Z" fill="#22d3ee"/>
-                    <path d="M65 35 C75 20 85 25 80 40 L65 50Z" fill="#22d3ee"/>
-                    <path d="M40 58 Q50 68 60 58" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <circle cx="38" cy="42" r="4" fill="#fff"/><circle cx="62" cy="42" r="4" fill="#fff"/>
-                    <defs><linearGradient id="cg-nav" x1="18" y1="15" x2="82" y2="85"><stop offset="0%" stop-color="#4f6ef7"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
-                </svg>
+                <img src="logo-small.png" alt="The AI 101" style="height: 40px; width: 40px; border-radius: 8px;">
                 <span class="nav-logo-text">The AI 101</span>
             </a>
             <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Toggle menu">&#9776;</button>
@@ -1357,15 +1362,8 @@
     <!-- ═══════════════════════ HERO ═══════════════════════ -->
     <section class="hero" id="hero">
         <div class="hero-content">
-            <div class="hero-logo">
-                <svg width="80" height="80" viewBox="0 0 100 100" fill="none">
-                    <path d="M50 15 C32 15 18 32 18 50 C18 68 32 85 50 85 C68 85 82 68 82 50 C82 32 68 15 50 15Z" fill="url(#cg-hero)" opacity="0.9"/>
-                    <path d="M35 35 C25 20 15 25 20 40 L35 50Z" fill="#22d3ee"/>
-                    <path d="M65 35 C75 20 85 25 80 40 L65 50Z" fill="#22d3ee"/>
-                    <path d="M40 58 Q50 68 60 58" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
-                    <circle cx="38" cy="42" r="4" fill="#fff"/><circle cx="62" cy="42" r="4" fill="#fff"/>
-                    <defs><linearGradient id="cg-hero" x1="18" y1="15" x2="82" y2="85"><stop offset="0%" stop-color="#4f6ef7"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
-                </svg>
+            <div>
+                <img src="logo.png" alt="The AI 101 Logo" class="hero-logo">
             </div>
             <div class="hero-badge">&#129408; Powered by OpenClaw &mdash; The #1 Open-Source AI Agent</div>
             <h1>Your AI Agent, Deployed and Running in 48 Hours</h1>
@@ -1725,7 +1723,7 @@
                         <li>Dedicated support channel</li>
                         <li>60-day priority support</li>
                     </ul>
-                    <a href="#contact" class="btn-secondary">Contact Us</a>
+                    <a href="https://square.link/u/kc8unzWA" target="_blank" class="btn-secondary">Contact Us</a>
                 </div>
 
             </div>
