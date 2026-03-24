@@ -1962,6 +1962,113 @@
             font-weight: 400;
             color: var(--text-muted);
         }
+
+        .pricing-section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-section-header h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .pricing-section-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin: 3rem 0;
+        }
+
+        .byod-requirements {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .byod-requirements h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .req-tier {
+            margin-bottom: 1rem;
+        }
+
+        .req-tier-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .req-tier-label.minimum { color: #f59e0b; }
+        .req-tier-label.recommended { color: #16a34a; }
+        .req-tier-label.ideal { color: #dc2626; }
+
+        .req-tier p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .enterprise-banner {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 2px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .enterprise-banner h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .enterprise-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enterprise-banner .btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .addons-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .addons-note a {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -2278,7 +2385,7 @@
                         <li>24/7 monitoring included</li>
                     </ul>
                     <div class="deploy-price">Setup from $2,500 + from $64/mo</div>
-                    <a href="#pricing-cloud" class="btn-primary">See Cloud Plans</a>
+                    <a href="#section-vps" class="btn-primary">See Cloud Plans</a>
                 </div>
 
                 <!-- LOCAL HOSTING -->
@@ -2298,7 +2405,7 @@
                         <li>Build your setup with add-ons</li>
                     </ul>
                     <div class="deploy-price">One-time from $4,500 + $0/mo</div>
-                    <a href="#pricing-local" class="btn-secondary">Build Your Setup</a>
+                    <a href="#section-mac" class="btn-secondary">Build Your Setup</a>
                 </div>
             </div>
         </div>
@@ -2390,22 +2497,22 @@
         <h2 class="section-title fade-in">Choose Your Path</h2>
         <p class="section-subtitle fade-in">Setup includes everything: deployment, configuration, security audit, training, and documentation. Managed care plans available separately.</p>
 
-        <!-- ═══ CLOUD HOSTING ═══ -->
-        <div class="pricing-track fade-in" id="pricing-cloud">
+        <!-- ═══════════ SECTION 1: VPS HOSTING ═══════════ -->
+        <div class="pricing-track fade-in" id="section-vps">
           <div class="track-header">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-            <h3>Cloud Hosting</h3>
-            <p>Your agent runs 24/7 on a cloud VPS. Powered by Hostinger.</p>
+            <h3>VPS Hosting</h3>
+            <p>Your agent runs 24/7 on a cloud server. Powered by Hostinger.</p>
           </div>
 
           <!-- AI TOGGLE -->
           <div class="ai-toggle">
-            <button class="ai-toggle-btn active" onclick="toggleCloudAI('credits')">AI Credits</button>
-            <button class="ai-toggle-btn" onclick="toggleCloudAI('selfhosted')">Self-Hosted AI</button>
+            <button class="ai-toggle-btn active" onclick="toggleVpsAI('credits')">Cloud AI Credits</button>
+            <button class="ai-toggle-btn" onclick="toggleVpsAI('selfhosted')">Self-Hosted AI</button>
           </div>
 
-          <!-- CLOUD + AI CREDITS -->
-          <div id="cloud-credits" class="toggle-content active">
+          <!-- VPS + AI CREDITS -->
+          <div id="vps-credits" class="toggle-content active">
             <p class="toggle-desc">AI credits for Claude, GPT, Gemini &amp; more included in your monthly fee. No API keys needed.<br><strong>&#127873; First-time bonus: $200 in free AI credits with every plan!</strong></p>
             <div class="pricing-grid">
 
@@ -2418,7 +2525,7 @@
                 <ul class="pricing-features">
                   <li>Hostinger KVM 1 (4GB RAM)</li>
                   <li>1 AI agent</li>
-                  <li>Cloud AI (Claude, GPT, Gemini)</li>
+                  <li>$40/mo AI credits included</li>
                   <li>1 channel (Telegram or Discord)</li>
                   <li>5 skills installed</li>
                   <li>NemoClaw secure sandbox</li>
@@ -2437,7 +2544,7 @@
                 <ul class="pricing-features">
                   <li>Hostinger KVM 2 (8GB RAM)</li>
                   <li>Up to 3 agents</li>
-                  <li>$75/mo in AI credits</li>
+                  <li>$75/mo AI credits included</li>
                   <li>Multi-channel</li>
                   <li>10+ skills</li>
                   <li>Notion CRM integration</li>
@@ -2457,7 +2564,7 @@
                 <ul class="pricing-features">
                   <li>Hostinger KVM 4 (16GB RAM)</li>
                   <li>Up to 3 agents</li>
-                  <li>$150/mo in AI credits (all providers)</li>
+                  <li>$150/mo AI credits (all providers)</li>
                   <li>All integrations included</li>
                   <li>Cron automation</li>
                   <li>NemoClaw secure sandbox</li>
@@ -2467,26 +2574,11 @@
                 <a href="https://square.link/u/ErYXi4eV" target="_blank" class="btn-primary">Get Started</a>
               </div>
 
-              <div class="pricing-card">
-                <div class="pricing-tier">Enterprise</div>
-                <div class="pricing-price">Custom</div>
-                <div class="pricing-monthly">Book a Call</div>
-                <ul class="pricing-features">
-                  <li>5+ agents</li>
-                  <li>Unlimited AI credits</li>
-                  <li>Custom integrations</li>
-                  <li>Oracle/AWS available</li>
-                  <li>SOC2/HIPAA compliance</li>
-                  <li>Dedicated support</li>
-                  <li>60-day support</li>
-                </ul>
-                <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
-              </div>
             </div>
           </div>
 
-          <!-- CLOUD + SELF-HOSTED -->
-          <div id="cloud-selfhosted" class="toggle-content" style="display:none">
+          <!-- VPS + SELF-HOSTED -->
+          <div id="vps-selfhosted" class="toggle-content" style="display:none">
             <p class="toggle-desc">Self-hosted Ollama models on your VPS. Higher setup fee, but <strong>$0 AI cost forever</strong>. No API keys, no rate limits, full privacy.</p>
             <div class="pricing-grid">
 
@@ -2534,7 +2626,7 @@
                 <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
                 <ul class="pricing-features">
                   <li>Hostinger KVM 8 (32GB RAM)</li>
-                  <li>5+ agents</li>
+                  <li>Up to 5 agents</li>
                   <li>Self-hosted Ollama (27B model)</li>
                   <li>Priority support</li>
                   <li>No rate limits</li>
@@ -2545,53 +2637,190 @@
                 <a href="configure.html" class="btn-secondary">Configure</a>
               </div>
 
-              <div class="pricing-card">
-                <div class="pricing-tier">Enterprise</div>
-                <div class="pricing-price">Custom</div>
-                <div class="pricing-monthly">Book a Call</div>
-                <ul class="pricing-features">
-                  <li>5+ agents, dedicated nodes</li>
-                  <li>Self-hosted 70B+ models</li>
-                  <li>Oracle/AWS compute</li>
-                  <li>SOC2/HIPAA compliance</li>
-                  <li>Custom integrations</li>
-                  <li>Dedicated support</li>
-                  <li>60-day support</li>
-                </ul>
-                <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
-              </div>
             </div>
           </div>
         </div>
 
-        <!-- ═══ OR DIVIDER ═══ -->
-        <div class="track-divider fade-in"><span>OR</span></div>
+        <!-- ═══ DIVIDER ═══ -->
+        <div class="section-divider fade-in"></div>
 
-        <!-- ═══ LOCAL HOSTING ═══ -->
-        <div class="pricing-track fade-in" id="pricing-local">
+        <!-- ═══════════ SECTION 2: BYOD ═══════════ -->
+        <div class="pricing-track fade-in" id="section-byod">
           <div class="track-header">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
-            <h3>Local Hosting</h3>
-            <p>Your agent runs on your own hardware. One-time setup, you own everything.</p>
+            <h3>Bring Your Own Device (BYOD)</h3>
+            <p>You already have a Mac, server, or powerful machine. We remote in and set everything up.</p>
           </div>
 
-          <!-- AI TOGGLE FOR LOCAL -->
+          <!-- Device Requirements -->
+          <div class="byod-requirements">
+            <h4>Device Requirements</h4>
+            <div class="req-tier">
+              <div class="req-tier-label minimum">Minimum</div>
+              <p>8GB RAM, macOS/Linux/Windows+WSL2, 50GB free storage, stable internet</p>
+            </div>
+            <div class="req-tier">
+              <div class="req-tier-label recommended">Recommended</div>
+              <p>16GB+ RAM, Apple Silicon or x86 AVX2, SSD, 100GB+ free storage</p>
+            </div>
+            <div class="req-tier">
+              <div class="req-tier-label ideal">Ideal</div>
+              <p>48GB+ RAM, dedicated machine, GPU optional but faster</p>
+            </div>
+          </div>
+
+          <!-- AI TOGGLE -->
           <div class="ai-toggle">
-            <button class="ai-toggle-btn active" onclick="toggleLocalAI('selfhosted')">Self-Hosted AI ($0/mo)</button>
-            <button class="ai-toggle-btn" onclick="toggleLocalAI('credits')">Cloud AI Credits</button>
+            <button class="ai-toggle-btn active" onclick="toggleByodAI('credits')">Cloud AI Credits</button>
+            <button class="ai-toggle-btn" onclick="toggleByodAI('selfhosted')">Self-Hosted AI</button>
           </div>
 
-          <!-- LOCAL SELF-HOSTED (default) -->
-          <div id="local-selfhosted" class="toggle-content active">
+          <!-- BYOD + AI CREDITS -->
+          <div id="byod-credits" class="toggle-content active">
+            <p class="toggle-desc">Your device, powered by cloud AI. Best if your hardware has limited RAM but you want local control.<br><strong>&#127873; First-time bonus: $200 in free AI credits with every plan!</strong></p>
+            <div class="pricing-grid">
+
+              <div class="pricing-card">
+                <div class="pricing-tier">BYOD Essentials</div>
+                <div class="pricing-price">$4,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $40/mo <span class="price-label">credits</span></div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $40/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>1 AI agent</li>
+                  <li>1 channel (Telegram or Discord)</li>
+                  <li>5 skills installed</li>
+                  <li>$40/mo AI credits included</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>14-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+              <div class="pricing-card featured">
+                <div class="pricing-badge">Popular</div>
+                <div class="pricing-tier">BYOD Professional</div>
+                <div class="pricing-price">$6,000 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $75/mo <span class="price-label">credits</span></div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $75/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>Up to 3 agents</li>
+                  <li>Multi-channel</li>
+                  <li>10+ skills</li>
+                  <li>Notion CRM integration</li>
+                  <li>$75/mo AI credits included</li>
+                  <li>30-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-primary">Configure</a>
+              </div>
+
+              <div class="pricing-card">
+                <div class="pricing-tier">BYOD Power</div>
+                <div class="pricing-price">$8,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $150/mo <span class="price-label">credits</span></div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $150/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>Up to 5 agents</li>
+                  <li>Multi-channel + custom</li>
+                  <li>All integrations included</li>
+                  <li>$150/mo AI credits included</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>60-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- BYOD + SELF-HOSTED -->
+          <div id="byod-selfhosted" class="toggle-content" style="display:none">
             <p class="toggle-desc">Ollama runs directly on your device. <strong>$0/month forever.</strong> Setup fee is one-time &mdash; you own everything.</p>
+            <div class="pricing-grid">
+
+              <div class="pricing-card">
+                <div class="pricing-tier">BYOD Essentials</div>
+                <div class="pricing-price">$4,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">$0/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>1 AI agent</li>
+                  <li>1 channel (Telegram or Discord)</li>
+                  <li>5 skills installed</li>
+                  <li>Ollama setup included</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>14-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+              <div class="pricing-card featured">
+                <div class="pricing-badge">Popular</div>
+                <div class="pricing-tier">BYOD Professional</div>
+                <div class="pricing-price">$6,000 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">$0/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>Up to 3 agents</li>
+                  <li>Multi-channel</li>
+                  <li>10+ skills</li>
+                  <li>Notion CRM integration</li>
+                  <li>Ollama setup included</li>
+                  <li>30-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-primary">Configure</a>
+              </div>
+
+              <div class="pricing-card">
+                <div class="pricing-tier">BYOD Power</div>
+                <div class="pricing-price">$8,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">$0/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>Up to 5 agents</li>
+                  <li>Multi-channel + custom</li>
+                  <li>All integrations included</li>
+                  <li>Ollama setup included</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>60-day support</li>
+                </ul>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ DIVIDER ═══ -->
+        <div class="section-divider fade-in"></div>
+
+        <!-- ═══════════ SECTION 3: MAC MINI (WE PROVIDE) ═══════════ -->
+        <div class="pricing-track fade-in" id="section-mac">
+          <div class="track-header">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            <h3>Mac Mini (We Provide)</h3>
+            <p>We buy, configure, and deliver a Mac Mini with everything installed. Fully turnkey.</p>
+          </div>
+
+          <!-- AI TOGGLE -->
+          <div class="ai-toggle">
+            <button class="ai-toggle-btn" onclick="toggleMacAI('credits')">Cloud AI Credits</button>
+            <button class="ai-toggle-btn active" onclick="toggleMacAI('selfhosted')">Self-Hosted AI</button>
+          </div>
+
+          <!-- MAC + AI CREDITS -->
+          <div id="mac-credits" class="toggle-content" style="display:none">
+            <p class="toggle-desc">Mac Mini hardware + cloud AI credits. Best if you want turnkey hardware with cloud-powered AI.<br><strong>&#127873; First-time bonus: $200 in free AI credits!</strong></p>
 
             <div style="text-align: left;">
                 <!-- Step 1: Base Package -->
                 <div style="margin-bottom: 2.5rem;">
                     <div class="builder-step-title"><span>1</span> Choose Base Package</div>
                     <div class="local-base-grid">
-                        <div class="base-card" data-base="4500" onclick="selectBase(this, 4500)">
-                            <div class="base-name">Local Essentials</div>
+                        <div class="base-card mac-base-card" data-base="4500" onclick="selectBase(this, 4500)">
+                            <div class="base-name">Essentials</div>
                             <div class="base-price">$4,500</div>
                             <ul>
                                 <li>1 agent</li>
@@ -2600,9 +2829,9 @@
                                 <li>14-day support</li>
                             </ul>
                         </div>
-                        <div class="base-card selected" data-base="6000" onclick="selectBase(this, 6000)">
+                        <div class="base-card mac-base-card selected" data-base="6000" onclick="selectBase(this, 6000)">
                             <div class="deploy-badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">Popular</div>
-                            <div class="base-name">Local Professional</div>
+                            <div class="base-name">Professional</div>
                             <div class="base-price">$6,000</div>
                             <ul>
                                 <li>Up to 3 agents</li>
@@ -2611,8 +2840,8 @@
                                 <li>30-day support</li>
                             </ul>
                         </div>
-                        <div class="base-card" data-base="8500" onclick="selectBase(this, 8500)">
-                            <div class="base-name">Local Enterprise</div>
+                        <div class="base-card mac-base-card" data-base="8500" onclick="selectBase(this, 8500)">
+                            <div class="base-name">Power</div>
                             <div class="base-price">$8,500</div>
                             <ul>
                                 <li>5+ agents</li>
@@ -2626,18 +2855,141 @@
 
                 <!-- Step 2: Hardware -->
                 <div style="margin-bottom: 2.5rem;">
-                    <div class="builder-step-title"><span>2</span> Choose Hardware</div>
+                    <div class="builder-step-title"><span>2</span> Choose Mac Mini Model</div>
                     <div class="hw-pills">
-                        <div class="hw-pill selected" data-hw="0" onclick="selectHardware(this, 0)">BYOD (Your Device) <span class="hw-price">+$0</span></div>
-                        <div class="hw-pill" data-hw="599" onclick="selectHardware(this, 599)">M4 16GB <span class="hw-price">+$599</span></div>
-                        <div class="hw-pill" data-hw="799" onclick="selectHardware(this, 799)">M4 16GB/512GB <span class="hw-price">+$799</span></div>
-                        <div class="hw-pill" data-hw="999" onclick="selectHardware(this, 999)">M4 24GB <span class="hw-price">+$999</span></div>
-                        <div class="hw-pill" data-hw="1399" onclick="selectHardware(this, 1399)">M4 Pro 24GB <span class="hw-price">+$1,399</span></div>
-                        <div class="hw-pill" data-hw="1999" onclick="selectHardware(this, 1999)">M4 Pro 48GB <span class="hw-price">+$1,999</span></div>
-                        <div class="hw-pill" data-hw="2399" onclick="selectHardware(this, 2399)">M4 Pro 64GB <span class="hw-price">+$2,399</span></div>
+                        <div class="hw-pill mac-hw-pill selected" data-hw="599" onclick="selectHardware(this, 599)">M4 16GB <span class="hw-price">+$599</span></div>
+                        <div class="hw-pill mac-hw-pill" data-hw="799" onclick="selectHardware(this, 799)">M4 16GB/512GB <span class="hw-price">+$799</span></div>
+                        <div class="hw-pill mac-hw-pill" data-hw="999" onclick="selectHardware(this, 999)">M4 24GB <span class="hw-price">+$999</span></div>
+                        <div class="hw-pill mac-hw-pill" data-hw="1399" onclick="selectHardware(this, 1399)">M4 Pro 24GB <span class="hw-price">+$1,399</span></div>
+                        <div class="hw-pill mac-hw-pill" data-hw="1999" onclick="selectHardware(this, 1999)">M4 Pro 48GB <span class="hw-price">+$1,999</span></div>
+                        <div class="hw-pill mac-hw-pill" data-hw="2399" onclick="selectHardware(this, 2399)">M4 Pro 64GB <span class="hw-price">+$2,399</span></div>
+                    </div>
+                    <div class="cluster-option" id="clusterOptionCredits">
+                        <p>Add cluster nodes? Each additional: +$<span id="clusterHwPriceCredits">599</span> hardware + $1,500 setup</p>
+                        <div class="cluster-counter">
+                            <button onclick="changeCluster(-1)">&#8722;</button>
+                            <div class="cluster-val" id="clusterValCredits">1</div>
+                            <button onclick="changeCluster(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: AI Credits -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>3</span> Monthly AI Credits</div>
+                    <div style="background: #fff5f5; border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1.25rem;">
+                      <div class="ai-credits-options" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(40, this)">
+                          <input type="radio" name="mac_credits" value="40" style="display:none">
+                          <span>$40/mo &mdash; Basic</span>
+                        </label>
+                        <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid #dc2626; border-radius: 999px; cursor: pointer; transition: all 0.2s; background: #fff5f5;" onclick="selectLocalCredits(75, this)">
+                          <input type="radio" name="mac_credits" value="75" style="display:none">
+                          <span>$75/mo &mdash; Standard</span>
+                        </label>
+                        <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(150, this)">
+                          <input type="radio" name="mac_credits" value="150" style="display:none">
+                          <span>$150/mo &mdash; Power</span>
+                        </label>
+                      </div>
+                      <div class="welcome-badge" style="margin-top: 0.75rem; display: inline-block;">&#127873; +$200 welcome credits FREE with any package</div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Add-ons -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>4</span> Optional Add-ons</div>
+                    <div class="addons-checklist">
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="1500"> Extra AI agent <span class="addon-check-price">+$1,500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; Slack <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; WhatsApp <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; Email <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Notion CRM <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> GitHub integration <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="250"> Training session <span class="addon-check-price">+$250</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Running Total -->
+                <div class="local-total-bar">
+                    <div class="local-total-text">
+                        Your Setup: <span class="total-amount" id="localTotal">$6,599</span> <span class="total-monthly" id="localMonthlyLabel">+ $75/mo (AI credits)</span>
+                    </div>
+                    <a href="configure.html" class="btn-primary">Build This Setup &rarr;</a>
+                </div>
+            </div>
+          </div>
+
+          <!-- MAC + SELF-HOSTED -->
+          <div id="mac-selfhosted" class="toggle-content active">
+            <p class="toggle-desc">Ollama runs directly on your Mac Mini. <strong>$0/month forever.</strong> Setup fee is one-time &mdash; you own everything.</p>
+
+            <div style="text-align: left;">
+                <!-- Step 1: Base Package -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>1</span> Choose Base Package</div>
+                    <div class="local-base-grid">
+                        <div class="base-card mac-base-card-sh" data-base="4500" onclick="selectBase(this, 4500)">
+                            <div class="base-name">Essentials</div>
+                            <div class="base-price">$4,500</div>
+                            <ul>
+                                <li>1 agent</li>
+                                <li>1 channel</li>
+                                <li>5 skills</li>
+                                <li>14-day support</li>
+                            </ul>
+                        </div>
+                        <div class="base-card mac-base-card-sh selected" data-base="6000" onclick="selectBase(this, 6000)">
+                            <div class="deploy-badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">Popular</div>
+                            <div class="base-name">Professional</div>
+                            <div class="base-price">$6,000</div>
+                            <ul>
+                                <li>Up to 3 agents</li>
+                                <li>Multi-channel</li>
+                                <li>10+ skills + Notion</li>
+                                <li>30-day support</li>
+                            </ul>
+                        </div>
+                        <div class="base-card mac-base-card-sh" data-base="8500" onclick="selectBase(this, 8500)">
+                            <div class="base-name">Power</div>
+                            <div class="base-price">$8,500</div>
+                            <ul>
+                                <li>5+ agents</li>
+                                <li>Multi-channel + custom</li>
+                                <li>All integrations</li>
+                                <li>60-day support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Hardware -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>2</span> Choose Mac Mini Model</div>
+                    <div class="hw-pills">
+                        <div class="hw-pill mac-hw-pill-sh selected" data-hw="599" onclick="selectHardware(this, 599)">M4 16GB <span class="hw-price">+$599</span></div>
+                        <div class="hw-pill mac-hw-pill-sh" data-hw="799" onclick="selectHardware(this, 799)">M4 16GB/512GB <span class="hw-price">+$799</span></div>
+                        <div class="hw-pill mac-hw-pill-sh" data-hw="999" onclick="selectHardware(this, 999)">M4 24GB <span class="hw-price">+$999</span></div>
+                        <div class="hw-pill mac-hw-pill-sh" data-hw="1399" onclick="selectHardware(this, 1399)">M4 Pro 24GB <span class="hw-price">+$1,399</span></div>
+                        <div class="hw-pill mac-hw-pill-sh" data-hw="1999" onclick="selectHardware(this, 1999)">M4 Pro 48GB <span class="hw-price">+$1,999</span></div>
+                        <div class="hw-pill mac-hw-pill-sh" data-hw="2399" onclick="selectHardware(this, 2399)">M4 Pro 64GB <span class="hw-price">+$2,399</span></div>
                     </div>
                     <div class="cluster-option" id="clusterOption">
-                        <p>Add cluster nodes? Each additional: +$<span id="clusterHwPrice">0</span> hardware + $1,500 setup</p>
+                        <p>Add cluster nodes? Each additional: +$<span id="clusterHwPrice">599</span> hardware + $1,500 setup</p>
                         <div class="cluster-counter">
                             <button onclick="changeCluster(-1)">&#8722;</button>
                             <div class="cluster-val" id="clusterVal">1</div>
@@ -2669,9 +3021,6 @@
                             <input type="checkbox" data-addon="500"> GitHub integration <span class="addon-check-price">+$500</span>
                         </label>
                         <label class="addon-check" onclick="toggleAddon(this)">
-                            <input type="checkbox" data-addon="1500"> Hardware sourcing <span class="addon-check-price">+$1,500</span>
-                        </label>
-                        <label class="addon-check" onclick="toggleAddon(this)">
                             <input type="checkbox" data-addon="250"> Training session <span class="addon-check-price">+$250</span>
                         </label>
                     </div>
@@ -2681,40 +3030,26 @@
                 <!-- Running Total -->
                 <div class="local-total-bar">
                     <div class="local-total-text">
-                        Your Setup: <span class="total-amount" id="localTotal">$6,000</span> one-time <span class="total-monthly" id="localMonthlyLabel">| $0/mo forever</span>
+                        Your Setup: <span class="total-amount" id="localTotalSH">$6,599</span> <span class="total-monthly" id="localMonthlyLabelSH">| $0/mo forever</span>
                     </div>
                     <a href="configure.html" class="btn-primary">Build This Setup &rarr;</a>
                 </div>
             </div>
           </div>
+        </div>
 
-          <!-- LOCAL + AI CREDITS -->
-          <div id="local-credits" class="toggle-content" style="display:none">
-            <p class="toggle-desc">Your device, powered by cloud AI. Best if your hardware has limited RAM but you want local control.<br><strong>Monthly AI credits based on usage.</strong></p>
-            <div style="background: #fff5f5; border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
-              <h4 style="margin-bottom: 0.75rem; color: #1a1a2e;">Choose your AI credits package:</h4>
-              <div class="ai-credits-options" style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(40, this)">
-                  <input type="radio" name="local_credits" value="40" style="display:none">
-                  <span>$40/mo &mdash; Basic</span>
-                </label>
-                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(75, this)">
-                  <input type="radio" name="local_credits" value="75" style="display:none">
-                  <span>$75/mo &mdash; Standard</span>
-                </label>
-                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(150, this)">
-                  <input type="radio" name="local_credits" value="150" style="display:none">
-                  <span>$150/mo &mdash; Power</span>
-                </label>
-              </div>
-              <div class="welcome-badge" style="margin-top: 0.75rem; display: inline-block;">&#127873; +$200 welcome credits FREE with any package</div>
-            </div>
-            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Use the builder above (switch to "Self-Hosted AI" tab) to configure your base package, hardware, and add-ons. Your monthly AI credits will be added to the running total.</p>
+        <!-- ═══════════ ENTERPRISE BANNER ═══════════ -->
+        <div class="enterprise-banner fade-in">
+          <h3>Enterprise &mdash; Custom Solutions</h3>
+          <p>Need 5+ agents, Oracle/AWS heavy compute, SOC2/HIPAA compliance, or custom skill development?</p>
+          <div class="btn-row">
+            <a href="#contact" class="btn-primary">Book a Discovery Call</a>
+            <a href="configure.html" class="btn-secondary">Fill Out Our Questionnaire</a>
           </div>
         </div>
 
-        <!-- NOTE ABOUT ORACLE/AWS -->
-        <p class="pricing-note fade-in" style="margin-top: 2rem; text-align: center; color: var(--text-muted);">Need Oracle Cloud or AWS for heavy compute or compliance? <a href="#contact" style="color: #dc2626; text-decoration: none; font-weight: 600;">Book a call</a> for a custom quote.</p>
+        <!-- ═══════════ ADD-ONS NOTE ═══════════ -->
+        <p class="addons-note fade-in">Add-ons available with any plan: Extra agents (+$1,500), Extra channels (+$500), Notion CRM (+$500), GitHub (+$500), Hardware sourcing (+$1,500), Training (+$250/hr). Need a custom skill? <a href="#contact">Book a call</a> &mdash; prices vary.</p>
 
       </div>
     </section>
@@ -3079,27 +3414,38 @@
         });
 
         // ── Pricing Toggle Switchers ──
-        function toggleCloudAI(type) {
-            document.getElementById('cloud-credits').style.display = type === 'credits' ? 'block' : 'none';
-            document.getElementById('cloud-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
-            var btns = document.querySelectorAll('#pricing-cloud .ai-toggle-btn');
+        var macAIMode = 'selfhosted';
+
+        function toggleVpsAI(type) {
+            document.getElementById('vps-credits').style.display = type === 'credits' ? 'block' : 'none';
+            document.getElementById('vps-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
+            var btns = document.querySelectorAll('#section-vps .ai-toggle-btn');
             btns.forEach(function(b) { b.classList.remove('active'); });
             event.target.classList.add('active');
         }
 
-        function toggleLocalAI(type) {
-            document.getElementById('local-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
-            document.getElementById('local-credits').style.display = type === 'credits' ? 'block' : 'none';
-            var btns = document.querySelectorAll('#pricing-local .ai-toggle-btn');
+        function toggleByodAI(type) {
+            document.getElementById('byod-credits').style.display = type === 'credits' ? 'block' : 'none';
+            document.getElementById('byod-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
+            var btns = document.querySelectorAll('#section-byod .ai-toggle-btn');
+            btns.forEach(function(b) { b.classList.remove('active'); });
+            event.target.classList.add('active');
+        }
+
+        function toggleMacAI(type) {
+            macAIMode = type;
+            document.getElementById('mac-credits').style.display = type === 'credits' ? 'block' : 'none';
+            document.getElementById('mac-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
+            var btns = document.querySelectorAll('#section-mac .ai-toggle-btn');
             btns.forEach(function(b) { b.classList.remove('active'); });
             event.target.classList.add('active');
             updateLocalTotal();
         }
 
-        var localCreditsMonthly = 0;
+        var localCreditsMonthly = 75;
         function selectLocalCredits(amount, el) {
             localCreditsMonthly = amount;
-            document.querySelectorAll('.ai-credits-options .option-pill').forEach(function(p) {
+            document.querySelectorAll('#mac-credits .ai-credits-options .option-pill').forEach(function(p) {
                 p.style.borderColor = 'var(--border-subtle)';
                 p.style.background = 'transparent';
             });
@@ -3164,37 +3510,62 @@
         planSelect.addEventListener('change', updateCalculator);
         updateCalculator();
 
-        // ── Local Builder ──
+        // ── Mac Mini Builder ──
         var selectedBase = 6000;
-        var selectedHardware = 0;
+        var selectedHardware = 599;
         var clusterCount = 1;
 
         function selectBase(el, cost) {
-            document.querySelectorAll('.base-card').forEach(function(c) { c.classList.remove('selected'); });
+            // Only deselect siblings within the same toggle panel
+            var panel = el.closest('.toggle-content');
+            if (panel) {
+                panel.querySelectorAll('.base-card').forEach(function(c) { c.classList.remove('selected'); });
+            }
             el.classList.add('selected');
             selectedBase = cost;
             updateLocalTotal();
         }
 
         function selectHardware(el, cost) {
-            document.querySelectorAll('.hw-pill').forEach(function(c) { c.classList.remove('selected'); });
+            // Only deselect siblings within the same toggle panel
+            var panel = el.closest('.toggle-content');
+            if (panel) {
+                panel.querySelectorAll('.hw-pill').forEach(function(c) { c.classList.remove('selected'); });
+            }
             el.classList.add('selected');
             selectedHardware = cost;
+            // Update all cluster option elements
             var clusterOpt = document.getElementById('clusterOption');
+            var clusterOptCredits = document.getElementById('clusterOptionCredits');
             if (cost > 0) {
-                clusterOpt.classList.add('visible');
-                document.getElementById('clusterHwPrice').textContent = cost.toLocaleString();
+                if (clusterOpt) {
+                    clusterOpt.classList.add('visible');
+                    var hwP = document.getElementById('clusterHwPrice');
+                    if (hwP) hwP.textContent = cost.toLocaleString();
+                }
+                if (clusterOptCredits) {
+                    clusterOptCredits.classList.add('visible');
+                    var hwPC = document.getElementById('clusterHwPriceCredits');
+                    if (hwPC) hwPC.textContent = cost.toLocaleString();
+                }
             } else {
-                clusterOpt.classList.remove('visible');
+                if (clusterOpt) clusterOpt.classList.remove('visible');
+                if (clusterOptCredits) clusterOptCredits.classList.remove('visible');
                 clusterCount = 1;
-                document.getElementById('clusterVal').textContent = '1';
+                var cv = document.getElementById('clusterVal');
+                var cvC = document.getElementById('clusterValCredits');
+                if (cv) cv.textContent = '1';
+                if (cvC) cvC.textContent = '1';
             }
             updateLocalTotal();
         }
 
         function changeCluster(delta) {
             clusterCount = Math.max(1, Math.min(4, clusterCount + delta));
-            document.getElementById('clusterVal').textContent = clusterCount;
+            var cv = document.getElementById('clusterVal');
+            var cvC = document.getElementById('clusterValCredits');
+            if (cv) cv.textContent = clusterCount;
+            if (cvC) cvC.textContent = clusterCount;
             updateLocalTotal();
         }
 
@@ -3211,24 +3582,32 @@
         }
 
         function updateLocalTotal() {
+            // Gather add-ons from the currently visible panel
             var addonsTotal = 0;
-            document.querySelectorAll('.addons-checklist input[type="checkbox"]:checked').forEach(function(cb) {
-                addonsTotal += parseInt(cb.getAttribute('data-addon'));
-            });
+            var activePanel = macAIMode === 'credits' ? document.getElementById('mac-credits') : document.getElementById('mac-selfhosted');
+            if (activePanel) {
+                activePanel.querySelectorAll('.addons-checklist input[type="checkbox"]:checked').forEach(function(cb) {
+                    addonsTotal += parseInt(cb.getAttribute('data-addon'));
+                });
+            }
             var extraNodes = Math.max(0, clusterCount - 1);
             var clusterCost = extraNodes * (selectedHardware + 1500);
             var total = selectedBase + selectedHardware + clusterCost + addonsTotal;
-            document.getElementById('localTotal').textContent = '$' + total.toLocaleString();
 
-            // Update monthly label based on whether local credits toggle is active
-            var localCreditsVisible = document.getElementById('local-credits') && document.getElementById('local-credits').style.display !== 'none';
-            var monthlyLabel = document.getElementById('localMonthlyLabel');
-            if (monthlyLabel) {
-                if (localCreditsVisible && localCreditsMonthly > 0) {
-                    monthlyLabel.textContent = '| + $' + localCreditsMonthly + '/mo AI credits';
-                } else {
-                    monthlyLabel.textContent = '| $0/mo forever';
-                }
+            // Update credits builder total
+            var creditsTotal = document.getElementById('localTotal');
+            var creditsMonthly = document.getElementById('localMonthlyLabel');
+            if (creditsTotal) creditsTotal.textContent = '$' + total.toLocaleString();
+            if (creditsMonthly) {
+                creditsMonthly.textContent = '+ $' + localCreditsMonthly + '/mo (AI credits)';
+            }
+
+            // Update self-hosted builder total
+            var shTotal = document.getElementById('localTotalSH');
+            var shMonthly = document.getElementById('localMonthlyLabelSH');
+            if (shTotal) shTotal.textContent = '$' + total.toLocaleString();
+            if (shMonthly) {
+                shMonthly.textContent = '| $0/mo forever';
             }
         }
 
