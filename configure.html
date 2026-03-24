@@ -736,7 +736,7 @@
         }
     </style>
 </head>
-<body>
+<body data-formspree="https://formspree.io/f/xcontact">
     <!-- Navigation -->
     <nav>
         <div class="nav-inner">
@@ -2261,8 +2261,11 @@
     }
 
     // ═══════════════════════════════════════════════════
-    // Form Submissions
+    // Form Submissions (Formspree + localStorage fallback)
     // ═══════════════════════════════════════════════════
+    const FORMSPREE_ENDPOINT = document.body.getAttribute('data-formspree') || 'https://formspree.io/f/xcontact';
+    const FALLBACK_EMAIL = 'aisublime101@gmail.com';
+
     function getConfigData() {
         return {
             ...state,
@@ -2272,58 +2275,151 @@
         };
     }
 
+    function getConfigSummaryText() {
+        const cfg = getConfigData();
+        return [
+            'Hosting: ' + (HOSTING_LABELS[cfg.hosting] || '--'),
+            'VPS/Server: ' + ((cfg.serverProvider ? (SERVER_LABELS[cfg.serverProvider] || '') + ' - ' + (PLAN_LABELS[cfg.serverPlan] || '') : 'N/A')),
+            'AI Model: ' + (MODEL_LABELS[cfg.aiModel] || '--'),
+            'Agents: ' + (AGENT_LABELS[cfg.agents] || '--'),
+            'Channels: ' + (cfg.channels && cfg.channels.length > 0 ? cfg.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None'),
+            'Integrations: ' + (cfg.integrations && cfg.integrations.length > 0 ? cfg.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None'),
+            'Managed Care: ' + (CARE_LABELS[cfg.managedCare] || '--'),
+            'One-time Total: ' + formatPrice(cfg.oneTimeTotal),
+            'Monthly Recurring: ' + (cfg.monthlyTotal > 0 ? formatPrice(cfg.monthlyTotal) + '/mo' : '$0')
+        ].join('\n');
+    }
+
+    function buildFormData(fields) {
+        var fd = new FormData();
+        for (var key in fields) {
+            if (fields.hasOwnProperty(key)) {
+                fd.append(key, fields[key]);
+            }
+        }
+        return fd;
+    }
+
+    function showMailtoFallback(containerId) {
+        var container = document.getElementById(containerId);
+        if (!container) return;
+        var fallback = document.createElement('div');
+        fallback.style.cssText = 'margin-top:1rem;padding:1rem;background:#fff5f5;border:1px solid var(--border-accent);border-radius:8px;font-size:0.9rem;color:var(--text-secondary);';
+        fallback.innerHTML = 'Something went wrong submitting the form. Please email us directly at <a href="mailto:' + FALLBACK_EMAIL + '" style="color:var(--accent-red);font-weight:600;">' + FALLBACK_EMAIL + '</a> with your configuration details.';
+        container.appendChild(fallback);
+    }
+
     function submitContactForm() {
-        const name = document.getElementById('contact-name').value.trim();
-        const email = document.getElementById('contact-email').value.trim();
+        var name = document.getElementById('contact-name').value.trim();
+        var email = document.getElementById('contact-email').value.trim();
 
         if (!name || !email) {
             alert('Please fill in your name and email.');
             return;
         }
 
-        const data = {
+        var configSummary = getConfigSummaryText();
+        var data = {
+            _subject: 'New AI 101 Contact Message from ' + name,
+            _replyto: email,
             type: 'message',
             name: name,
             email: email,
             phone: document.getElementById('contact-phone').value.trim(),
             message: document.getElementById('contact-message').value.trim(),
-            config: getConfigData()
+            hosting: HOSTING_LABELS[state.hosting] || '--',
+            vps_server: state.serverProvider ? ((SERVER_LABELS[state.serverProvider] || '') + ' - ' + (PLAN_LABELS[state.serverPlan] || '')) : 'N/A',
+            ai_model: MODEL_LABELS[state.aiModel] || '--',
+            agents: AGENT_LABELS[state.agents] || '--',
+            channels: state.channels.length > 0 ? state.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None',
+            integrations: state.integrations.length > 0 ? state.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None',
+            managed_care: CARE_LABELS[state.managedCare] || '--',
+            one_time_total: formatPrice(calcOneTime()),
+            monthly_total: calcMonthly() > 0 ? formatPrice(calcMonthly()) + '/mo' : '$0',
+            configuration_summary: configSummary
         };
 
-        // Store in localStorage
-        const submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
+        // Store in localStorage as backup
+        var submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
         submissions.push(data);
         localStorage.setItem('ai101_submissions', JSON.stringify(submissions));
 
-        // Show success
-        document.getElementById('message-form').style.display = 'none';
-        document.getElementById('message-success').classList.add('visible');
+        // POST to Formspree
+        fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: buildFormData(data),
+            headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+            if (response.ok) {
+                document.getElementById('message-form').style.display = 'none';
+                document.getElementById('message-success').classList.add('visible');
+            } else {
+                document.getElementById('message-form').style.display = 'none';
+                document.getElementById('message-success').classList.add('visible');
+                showMailtoFallback('message-success');
+            }
+        }).catch(function() {
+            document.getElementById('message-form').style.display = 'none';
+            document.getElementById('message-success').classList.add('visible');
+            showMailtoFallback('message-success');
+        });
     }
 
     function submitPaymentForm() {
-        const name = document.getElementById('pay-name').value.trim();
-        const email = document.getElementById('pay-email').value.trim();
+        var name = document.getElementById('pay-name').value.trim();
+        var email = document.getElementById('pay-email').value.trim();
 
         if (!name || !email) {
             alert('Please fill in your name and email.');
             return;
         }
 
-        const data = {
+        var configSummary = getConfigSummaryText();
+        var data = {
+            _subject: '[PAYMENT REQUEST] AI 101 - ' + name,
+            _replyto: email,
             type: 'payment_request',
             name: name,
             email: email,
             phone: document.getElementById('pay-phone').value.trim(),
             notes: document.getElementById('pay-notes').value.trim(),
-            config: getConfigData()
+            hosting: HOSTING_LABELS[state.hosting] || '--',
+            vps_server: state.serverProvider ? ((SERVER_LABELS[state.serverProvider] || '') + ' - ' + (PLAN_LABELS[state.serverPlan] || '')) : 'N/A',
+            ai_model: MODEL_LABELS[state.aiModel] || '--',
+            agents: AGENT_LABELS[state.agents] || '--',
+            channels: state.channels.length > 0 ? state.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None',
+            integrations: state.integrations.length > 0 ? state.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None',
+            managed_care: CARE_LABELS[state.managedCare] || '--',
+            one_time_total: formatPrice(calcOneTime()),
+            monthly_total: calcMonthly() > 0 ? formatPrice(calcMonthly()) + '/mo' : '$0',
+            configuration_summary: configSummary,
+            payment_note: 'THIS IS A PAYMENT REQUEST. Customer wants to proceed with payment.'
         };
 
-        const submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
+        // Store in localStorage as backup
+        var submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
         submissions.push(data);
         localStorage.setItem('ai101_submissions', JSON.stringify(submissions));
 
-        document.getElementById('payment-form').style.display = 'none';
-        document.getElementById('payment-success').classList.add('visible');
+        // POST to Formspree
+        fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: buildFormData(data),
+            headers: { 'Accept': 'application/json' }
+        }).then(function(response) {
+            if (response.ok) {
+                document.getElementById('payment-form').style.display = 'none';
+                document.getElementById('payment-success').classList.add('visible');
+            } else {
+                document.getElementById('payment-form').style.display = 'none';
+                document.getElementById('payment-success').classList.add('visible');
+                showMailtoFallback('payment-success');
+            }
+        }).catch(function() {
+            document.getElementById('payment-form').style.display = 'none';
+            document.getElementById('payment-success').classList.add('visible');
+            showMailtoFallback('payment-success');
+        });
     }
 
     // ═══════════════════════════════════════════════════
