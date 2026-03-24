@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Your AI Agent | The AI 101</title>
+    <meta name="description" content="Build your perfect AI agent configuration. Choose hosting, models, channels, and integrations — get an instant price quote.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #fafafa;
+            --bg-secondary: #f1f1f1;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fff5f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555566;
+            --text-muted: #888899;
+            --accent-red: #dc2626;
+            --accent-dark: #b91c1c;
+            --accent-glow: rgba(220, 38, 38, 0.12);
+            --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            --gradient-hero: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-accent: rgba(220, 38, 38, 0.3);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            height: 36px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-back {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-back:hover { color: var(--accent-red); }
+
+        /* ── Main Content ── */
+        .wizard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 7rem 1.5rem 4rem;
+        }
+
+        /* ── Progress Bar ── */
+        .progress-section {
+            margin-bottom: 2rem;
+        }
+
+        .progress-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-label span {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-secondary);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 99px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ── Step Cards ── */
+        .step {
+            display: none;
+            animation: fadeSlideIn 0.45s ease-out;
+        }
+
+        .step.active { display: block; }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .step-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* ── Option Cards (Radio) ── */
+        .option-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-card {
+            position: relative;
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--bg-card);
+        }
+
+        .option-card:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+        }
+
+        .option-card.selected {
+            border-color: var(--accent-red);
+            background: #fef2f2;
+            box-shadow: 0 0 0 1px var(--accent-red);
+        }
+
+        .option-card input[type="radio"],
+        .option-card input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .option-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .option-price {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--accent-red);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .option-desc {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.35rem;
+            line-height: 1.5;
+        }
+
+        .option-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 99px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── Sub-options ── */
+        .sub-options {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .sub-options.visible { display: block; }
+
+        .sub-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s;
+            font-size: 0.9rem;
+        }
+
+        .sub-option:hover { background: #fef2f2; }
+
+        .sub-option input[type="radio"] {
+            accent-color: var(--accent-red);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .sub-option label {
+            cursor: pointer;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sub-option .sub-price {
+            color: var(--accent-red);
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* ── Checkbox Cards ── */
+        .checkbox-card {
+            position: relative;
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .checkbox-card:hover {
+            border-color: var(--border-accent);
+            background: var(--bg-card-hover);
+        }
+
+        .checkbox-card.selected {
+            border-color: var(--accent-red);
+            background: #fef2f2;
+        }
+
+        .checkbox-card input[type="checkbox"] {
+            accent-color: var(--accent-red);
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-content { flex: 1; }
+
+        .checkbox-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .checkbox-price {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--accent-red);
+            white-space: nowrap;
+        }
+
+        .checkbox-price.free { color: #16a34a; }
+
+        .checkbox-desc {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.15rem;
+        }
+
+        /* ── Text Input ── */
+        .text-input-group {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .text-input-group.visible { display: block; }
+
+        .text-input-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 2px solid var(--border-subtle);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--accent-red);
+        }
+
+        textarea.text-input {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* ── Navigation Buttons ── */
+        .step-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+            color: var(--text-primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-red);
+            border: 2px solid var(--accent-red);
+        }
+
+        .btn-outline:hover {
+            background: #fef2f2;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 12px;
+        }
+
+        /* ── Running Price ── */
+        .running-price {
+            text-align: right;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .running-price-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        .running-price-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .running-monthly {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+
+        /* ── Summary (Step 8) ── */
+        .summary-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-section-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0;
+            font-size: 0.92rem;
+        }
+
+        .summary-row .label {
+            color: var(--text-secondary);
+        }
+
+        .summary-row .value {
+            font-weight: 600;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-top: 0.5rem;
+            border-top: 2px solid var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .summary-total .value {
+            color: var(--accent-red);
+            font-size: 1.4rem;
+        }
+
+        .summary-monthly-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .summary-monthly-total .value {
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+
+        /* ── Action Buttons (Step 8) ── */
+        .action-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .action-card {
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+
+        .action-card:hover { border-color: var(--border-accent); }
+
+        .action-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            background: var(--bg-card);
+            transition: background 0.2s;
+        }
+
+        .action-header:hover { background: var(--bg-card-hover); }
+
+        .action-title {
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .action-arrow {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+        }
+
+        .action-card.open .action-arrow {
+            transform: rotate(180deg);
+        }
+
+        .action-body {
+            display: none;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            background: #fafafa;
+        }
+
+        .action-card.open .action-body { display: block; }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        .form-group .required { color: var(--accent-red); }
+
+        /* ── Success Message ── */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.visible { display: block; }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .success-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ── Misc ── */
+        .note {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: #92400e;
+            margin-top: 1rem;
+        }
+
+        .info-note {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: #1e40af;
+            margin-top: 0.75rem;
+        }
+
+        .channel-note, .integration-note {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .wizard-container {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .step-card {
+                padding: 1.5rem;
+                border-radius: var(--radius);
+            }
+
+            .step-title { font-size: 1.25rem; }
+
+            .option-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .option-price { align-self: flex-start; }
+
+            .btn {
+                padding: 0.65rem 1.25rem;
+                font-size: 0.88rem;
+            }
+
+            .summary-total .value { font-size: 1.2rem; }
+
+            .running-price-value { font-size: 1.4rem; }
+
+            .action-options .btn-lg {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">
+                <img src="logo-crab.png" alt="The AI 101">
+                <span class="nav-logo-text">The AI 101</span>
+            </a>
+            <a class="nav-back" href="index.html">&#8592; Back to main site</a>
+        </div>
+    </nav>
+
+    <div class="wizard-container">
+        <!-- Progress Bar -->
+        <div class="progress-section">
+            <div class="progress-label">
+                <span id="progress-text">Step 1 of 8</span>
+                <span id="progress-price">$2,500</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill" style="width: 12.5%"></div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 1: Hosting -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step active" id="step-1">
+            <div class="step-card">
+                <h2 class="step-title">How would you like to host your AI agent?</h2>
+                <p class="step-subtitle">Choose where your agent will live and run. This determines your base setup cost and ongoing expenses.</p>
+
+                <div class="option-list" id="hosting-options">
+                    <label class="option-card" data-value="cloud_only">
+                        <input type="radio" name="hosting" value="cloud_only">
+                        <div class="option-header">
+                            <div class="option-name">Cloud Only (No Server)</div>
+                            <div class="option-price">From $2,500</div>
+                        </div>
+                        <div class="option-desc">Use your existing devices. AI runs via cloud API (OpenRouter, OpenAI, etc.). You pay API costs separately (~$5-15/day).</div>
+                    </label>
+
+                    <label class="option-card" data-value="vps_cloud_api">
+                        <input type="radio" name="hosting" value="vps_cloud_api">
+                        <div class="option-header">
+                            <div class="option-name">VPS + Cloud AI</div>
+                            <div class="option-price">From $2,000</div>
+                        </div>
+                        <div class="option-desc">We set up a cloud server running your agent 24/7. You provide your own API key for the AI brain. Cheapest hosted option.</div>
+                    </label>
+
+                    <label class="option-card" data-value="vps_self_hosted">
+                        <input type="radio" name="hosting" value="vps_self_hosted">
+                        <div class="option-header">
+                            <div class="option-name">VPS + Self-Hosted AI</div>
+                            <div class="option-price">From $3,000</div>
+                        </div>
+                        <div class="option-desc">Cloud server with Ollama installed. Zero ongoing API costs. Your AI runs entirely on the server.</div>
+                    </label>
+
+                    <label class="option-card" data-value="byod">
+                        <input type="radio" name="hosting" value="byod">
+                        <div class="option-header">
+                            <div class="option-name">Your Own Device (BYOD)</div>
+                            <div class="option-price">From $5,000</div>
+                        </div>
+                        <div class="option-desc">You have a Mac, server, or machine. We remote in and set everything up.</div>
+                    </label>
+
+                    <label class="option-card" data-value="mac_mini">
+                        <input type="radio" name="hosting" value="mac_mini">
+                        <div class="option-header">
+                            <div class="option-name">We Provide a Mac Mini</div>
+                            <div class="option-price">From $5,999</div>
+                        </div>
+                        <div class="option-desc">We buy, configure, and deliver a Mac Mini with everything installed. Fully turnkey.</div>
+                    </label>
+                </div>
+
+                <div class="step-nav">
+                    <div></div>
+                    <button class="btn btn-primary" id="next-1" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 2: Server Selection (VPS) -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-2">
+            <div class="step-card">
+                <h2 class="step-title" id="step2-title">Choose your server</h2>
+                <p class="step-subtitle" id="step2-subtitle">Select a VPS provider and plan. We'll handle all the setup and configuration.</p>
+
+                <!-- VPS Server Options -->
+                <div id="vps-options">
+                    <div class="option-list" id="server-options">
+                        <label class="option-card" data-value="hostinger">
+                            <input type="radio" name="server_provider" value="hostinger">
+                            <div class="option-header">
+                                <div class="option-name">Hostinger <span class="option-badge">Recommended</span></div>
+                            </div>
+                            <div class="option-desc">Fast AMD EPYC servers, Ollama pre-configured template, easiest setup</div>
+                            <div class="sub-options" id="sub-hostinger">
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="hostinger_kvm1" data-monthly="4.99" data-ram="4">
+                                    <label for="">
+                                        <span>KVM 1: 4GB RAM, 50GB</span>
+                                        <span class="sub-price">$4.99/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="hostinger_kvm2" data-monthly="6.99" data-ram="8">
+                                    <label for="">
+                                        <span>KVM 2: 8GB RAM, 100GB</span>
+                                        <span class="sub-price">$6.99/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="hostinger_kvm4" data-monthly="12.99" data-ram="16">
+                                    <label for="">
+                                        <span>KVM 4: 16GB RAM, 200GB <span class="option-badge">Recommended</span></span>
+                                        <span class="sub-price">$12.99/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="hostinger_kvm8" data-monthly="19.99" data-ram="32">
+                                    <label for="">
+                                        <span>KVM 8: 32GB RAM, 400GB</span>
+                                        <span class="sub-price">$19.99/mo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="option-card" data-value="oracle">
+                            <input type="radio" name="server_provider" value="oracle">
+                            <div class="option-header">
+                                <div class="option-name">Oracle Cloud</div>
+                            </div>
+                            <div class="option-desc">Cheapest option, free tier available (24GB RAM!), but harder to provision</div>
+                            <div class="sub-options" id="sub-oracle">
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="oracle_free" data-monthly="0" data-ram="24">
+                                    <label for="">
+                                        <span>Free Tier: 4 vCPU, 24GB RAM, 200GB</span>
+                                        <span class="sub-price" style="color: #16a34a">$0/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="oracle_paid" data-monthly="14" data-ram="24">
+                                    <label for="">
+                                        <span>Paid: Custom config</span>
+                                        <span class="sub-price">~$6-22/mo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="option-card" data-value="aws">
+                            <input type="radio" name="server_provider" value="aws">
+                            <div class="option-header">
+                                <div class="option-name">AWS</div>
+                            </div>
+                            <div class="option-desc">Enterprise-grade, SOC2/HIPAA compliance, best for regulated industries</div>
+                            <div class="sub-options" id="sub-aws">
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="aws_small" data-monthly="12" data-ram="2">
+                                    <label for="">
+                                        <span>t4g.small: 2GB RAM</span>
+                                        <span class="sub-price">$12/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="aws_medium" data-monthly="25" data-ram="4">
+                                    <label for="">
+                                        <span>t4g.medium: 4GB RAM</span>
+                                        <span class="sub-price">$25/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="aws_large" data-monthly="49" data-ram="8">
+                                    <label for="">
+                                        <span>t4g.large: 8GB RAM</span>
+                                        <span class="sub-price">$49/mo</span>
+                                    </label>
+                                </div>
+                                <div class="sub-option">
+                                    <input type="radio" name="server_plan" value="aws_xlarge" data-monthly="98" data-ram="16">
+                                    <label for="">
+                                        <span>t4g.xlarge: 16GB RAM</span>
+                                        <span class="sub-price">$98/mo</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Mac Mini Options (Step 2B) -->
+                <div id="mac-options" style="display:none">
+                    <div class="option-list" id="mac-model-options">
+                        <label class="option-card" data-value="m4_16_256">
+                            <input type="radio" name="mac_model" value="m4_16_256" data-cost="599">
+                            <div class="option-header">
+                                <div class="option-name">M4 -- 16GB / 256GB</div>
+                                <div class="option-price">$599</div>
+                            </div>
+                            <div class="option-desc">Runs basic 8B models</div>
+                        </label>
+
+                        <label class="option-card" data-value="m4_16_512">
+                            <input type="radio" name="mac_model" value="m4_16_512" data-cost="799">
+                            <div class="option-header">
+                                <div class="option-name">M4 -- 16GB / 512GB</div>
+                                <div class="option-price">$799</div>
+                            </div>
+                            <div class="option-desc">Runs basic 8B models</div>
+                        </label>
+
+                        <label class="option-card" data-value="m4_24_512">
+                            <input type="radio" name="mac_model" value="m4_24_512" data-cost="999">
+                            <div class="option-header">
+                                <div class="option-name">M4 -- 24GB / 512GB <span class="option-badge">Popular</span></div>
+                                <div class="option-price">$999</div>
+                            </div>
+                            <div class="option-desc">Runs 14B models -- good all-rounder</div>
+                        </label>
+
+                        <label class="option-card" data-value="m4pro_24_512">
+                            <input type="radio" name="mac_model" value="m4pro_24_512" data-cost="1399">
+                            <div class="option-header">
+                                <div class="option-name">M4 Pro -- 24GB / 512GB</div>
+                                <div class="option-price">$1,399</div>
+                            </div>
+                            <div class="option-desc">Runs 14B models fast</div>
+                        </label>
+
+                        <label class="option-card" data-value="m4pro_48_1tb">
+                            <input type="radio" name="mac_model" value="m4pro_48_1tb" data-cost="1999">
+                            <div class="option-header">
+                                <div class="option-name">M4 Pro -- 48GB / 1TB <span class="option-badge">Best Value</span></div>
+                                <div class="option-price">$1,999</div>
+                            </div>
+                            <div class="option-desc">Runs 70B models -- excellent</div>
+                        </label>
+
+                        <label class="option-card" data-value="m4pro_64_1tb">
+                            <input type="radio" name="mac_model" value="m4pro_64_1tb" data-cost="2399">
+                            <div class="option-header">
+                                <div class="option-name">M4 Pro -- 64GB / 1TB</div>
+                                <div class="option-price">$2,399</div>
+                            </div>
+                            <div class="option-desc">Runs 70B models premium quality</div>
+                        </label>
+
+                        <label class="option-card" data-value="waiting_m5">
+                            <input type="radio" name="mac_model" value="waiting_m5" data-cost="0">
+                            <div class="option-header">
+                                <div class="option-name">Waiting for M5 (Est. June 2026)</div>
+                                <div class="option-price">TBD</div>
+                            </div>
+                            <div class="option-desc">We'll contact you when M5 releases</div>
+                        </label>
+                    </div>
+
+                    <div id="cluster-section" style="margin-top:1.5rem">
+                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">Want a cluster? How many Mac Minis?</h3>
+                        <div class="option-list" id="cluster-options">
+                            <label class="option-card" data-value="1">
+                                <input type="radio" name="cluster_size" value="1" checked>
+                                <div class="option-header">
+                                    <div class="option-name">Just 1</div>
+                                    <div class="option-price">+$0</div>
+                                </div>
+                            </label>
+                            <label class="option-card" data-value="2">
+                                <input type="radio" name="cluster_size" value="2">
+                                <div class="option-header">
+                                    <div class="option-name">2-node cluster</div>
+                                    <div class="option-price">+$5,000</div>
+                                </div>
+                            </label>
+                            <label class="option-card" data-value="3">
+                                <input type="radio" name="cluster_size" value="3">
+                                <div class="option-header">
+                                    <div class="option-name">3-node cluster</div>
+                                    <div class="option-price">+$10,000</div>
+                                </div>
+                            </label>
+                            <label class="option-card" data-value="4">
+                                <input type="radio" name="cluster_size" value="4">
+                                <div class="option-header">
+                                    <div class="option-name">4-node cluster</div>
+                                    <div class="option-price">+$15,000</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-2">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-2"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-2">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-2" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 3: AI Model -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-3">
+            <div class="step-card">
+                <h2 class="step-title">Choose your AI model preference</h2>
+                <p class="step-subtitle">How do you want to power your agent's intelligence?</p>
+
+                <div class="option-list" id="model-options">
+                    <label class="option-card" data-value="cloud_recommended">
+                        <input type="radio" name="ai_model" value="cloud_recommended">
+                        <div class="option-header">
+                            <div class="option-name">Cloud AI -- We recommend the best provider</div>
+                        </div>
+                        <div class="option-desc">We'll set up OpenRouter (300+ models) or recommend the best fit. You pay API costs (~$5-15/day).</div>
+                    </label>
+
+                    <label class="option-card" data-value="cloud_byok">
+                        <input type="radio" name="ai_model" value="cloud_byok">
+                        <div class="option-header">
+                            <div class="option-name">Cloud AI -- I have my own API key</div>
+                        </div>
+                        <div class="option-desc">Bring your own OpenAI, Anthropic, xAI, Google, or other key.</div>
+                        <div class="text-input-group" id="api-provider-input">
+                            <label>Enter your preferred provider</label>
+                            <input type="text" class="text-input" id="api-provider" placeholder="e.g., OpenAI, Anthropic, xAI, Google...">
+                        </div>
+                    </label>
+
+                    <label class="option-card" data-value="self_hosted">
+                        <input type="radio" name="ai_model" value="self_hosted">
+                        <div class="option-header">
+                            <div class="option-name">Self-Hosted (Ollama)</div>
+                        </div>
+                        <div class="option-desc">Zero API costs forever. We install the optimal model for your hardware.</div>
+                        <div class="sub-options" id="model-sub-options">
+                            <!-- Dynamically populated based on RAM -->
+                        </div>
+                    </label>
+
+                    <label class="option-card" data-value="hybrid">
+                        <input type="radio" name="ai_model" value="hybrid">
+                        <div class="option-header">
+                            <div class="option-name">Hybrid -- Cloud + Local fallback</div>
+                        </div>
+                        <div class="option-desc">Primary: cloud AI for quality. Fallback: local model when API is down.</div>
+                    </label>
+                </div>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-3">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-3"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-3">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-3" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 4: Number of Agents -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-4">
+            <div class="step-card">
+                <h2 class="step-title">How many AI agents do you need?</h2>
+                <p class="step-subtitle">Each agent can have a specialized role. More agents means more capability.</p>
+
+                <div class="option-list" id="agent-options">
+                    <label class="option-card" data-value="1">
+                        <input type="radio" name="agents" value="1">
+                        <div class="option-header">
+                            <div class="option-name">1 agent</div>
+                            <div class="option-price">+$0</div>
+                        </div>
+                        <div class="option-desc">Single all-purpose assistant</div>
+                    </label>
+
+                    <label class="option-card" data-value="3">
+                        <input type="radio" name="agents" value="3">
+                        <div class="option-header">
+                            <div class="option-name">Up to 3 agents</div>
+                            <div class="option-price">+$2,000</div>
+                        </div>
+                        <div class="option-desc">Specialized team (e.g., assistant + researcher + content creator)</div>
+                    </label>
+
+                    <label class="option-card" data-value="5">
+                        <input type="radio" name="agents" value="5">
+                        <div class="option-header">
+                            <div class="option-name">Up to 5 agents</div>
+                            <div class="option-price">+$4,000</div>
+                        </div>
+                        <div class="option-desc">Full team with dedicated roles</div>
+                    </label>
+
+                    <label class="option-card" data-value="5plus">
+                        <input type="radio" name="agents" value="5plus">
+                        <div class="option-header">
+                            <div class="option-name">5+ agents (Enterprise)</div>
+                            <div class="option-price">+$6,000</div>
+                        </div>
+                        <div class="option-desc">Large multi-agent deployment</div>
+                    </label>
+
+                    <label class="option-card" data-value="unsure">
+                        <input type="radio" name="agents" value="unsure">
+                        <div class="option-header">
+                            <div class="option-name">Not sure -- help me decide</div>
+                            <div class="option-price">+$0</div>
+                        </div>
+                        <div class="option-desc">We'll recommend the right number on our discovery call</div>
+                    </label>
+                </div>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-4">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-4"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-4">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-4" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 5: Channels -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-5">
+            <div class="step-card">
+                <h2 class="step-title">Which channels should your agent connect to?</h2>
+                <p class="step-subtitle">Select all the platforms you want your agent to communicate through. First 2 are free!</p>
+
+                <div class="option-list" id="channel-options">
+                    <div class="checkbox-card" data-value="telegram">
+                        <input type="checkbox" name="channels" value="telegram" id="ch-telegram">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-telegram">Telegram</label>
+                                <span class="checkbox-price free">Included</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="discord">
+                        <input type="checkbox" name="channels" value="discord" id="ch-discord">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-discord">Discord</label>
+                                <span class="checkbox-price free">Included</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="slack">
+                        <input type="checkbox" name="channels" value="slack" id="ch-slack">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-slack">Slack</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="whatsapp">
+                        <input type="checkbox" name="channels" value="whatsapp" id="ch-whatsapp">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-whatsapp">WhatsApp</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="email">
+                        <input type="checkbox" name="channels" value="email" id="ch-email">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-email">Email</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="sms">
+                        <input type="checkbox" name="channels" value="sms" id="ch-sms">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="ch-sms">SMS</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="channel-note">First 2 channels are included free. Each additional channel is $500.</p>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-5">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-5"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-5">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-5">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 6: Integrations -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-6">
+            <div class="step-card">
+                <h2 class="step-title">Which integrations do you need?</h2>
+                <p class="step-subtitle">Connect your agent to the tools you already use. First 2 are included free!</p>
+
+                <div class="option-list" id="integration-options">
+                    <div class="checkbox-card" data-value="gmail" data-cost="500">
+                        <input type="checkbox" name="integrations" value="gmail" id="int-gmail">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-gmail">Gmail / Google Workspace</label>
+                                <span class="checkbox-price free">Included</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="gcal" data-cost="500">
+                        <input type="checkbox" name="integrations" value="gcal" id="int-gcal">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-gcal">Google Calendar</label>
+                                <span class="checkbox-price free">Included</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="notion" data-cost="500">
+                        <input type="checkbox" name="integrations" value="notion" id="int-notion">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-notion">Notion</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="github" data-cost="500">
+                        <input type="checkbox" name="integrations" value="github" id="int-github">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-github">GitHub</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="stripe" data-cost="500">
+                        <input type="checkbox" name="integrations" value="stripe" id="int-stripe">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-stripe">Stripe / Square</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="shopify" data-cost="500">
+                        <input type="checkbox" name="integrations" value="shopify" id="int-shopify">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-shopify">Shopify</label>
+                                <span class="checkbox-price">+$500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="custom_crm" data-cost="1000">
+                        <input type="checkbox" name="integrations" value="custom_crm" id="int-crm">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-crm">Custom CRM</label>
+                                <span class="checkbox-price">+$1,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="custom_api" data-cost="2000">
+                        <input type="checkbox" name="integrations" value="custom_api" id="int-api">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-api">Custom API Integration</label>
+                                <span class="checkbox-price">+$1,000-3,000</span>
+                            </div>
+                            <div class="checkbox-desc">Price varies depending on complexity</div>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-card" data-value="unsure_int" data-cost="0">
+                        <input type="checkbox" name="integrations" value="unsure_int" id="int-unsure">
+                        <div class="checkbox-content">
+                            <div class="checkbox-header">
+                                <label class="checkbox-name" for="int-unsure">Not sure yet -- we'll discuss on the call</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="integration-note">First 2 integrations are included free. Each additional standard integration is $500. Custom integrations start at $1,000.</p>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-6">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-6"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-6">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-6">Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 7: Managed Care -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-7">
+            <div class="step-card">
+                <h2 class="step-title">Would you like ongoing managed care?</h2>
+                <p class="step-subtitle">Keep your AI agent running smoothly with professional monitoring and support.</p>
+
+                <div class="option-list" id="care-options">
+                    <label class="option-card" data-value="none">
+                        <input type="radio" name="managed_care" value="none">
+                        <div class="option-header">
+                            <div class="option-name">No thanks</div>
+                            <div class="option-price">$0/mo</div>
+                        </div>
+                        <div class="option-desc">I'll manage it myself after setup</div>
+                    </label>
+
+                    <label class="option-card" data-value="essential">
+                        <input type="radio" name="managed_care" value="essential">
+                        <div class="option-header">
+                            <div class="option-name">Essential</div>
+                            <div class="option-price">$149/mo</div>
+                        </div>
+                        <div class="option-desc">Monitoring, updates, auto-restart, email support</div>
+                    </label>
+
+                    <label class="option-card" data-value="standard">
+                        <input type="radio" name="managed_care" value="standard">
+                        <div class="option-header">
+                            <div class="option-name">Standard</div>
+                            <div class="option-price">$299/mo</div>
+                        </div>
+                        <div class="option-desc">+ Priority Telegram support, weekly reports, skill updates</div>
+                    </label>
+
+                    <label class="option-card" data-value="premium">
+                        <input type="radio" name="managed_care" value="premium">
+                        <div class="option-header">
+                            <div class="option-name">Premium</div>
+                            <div class="option-price">$499/mo</div>
+                        </div>
+                        <div class="option-desc">+ 1 custom skill/month, quarterly review, model tuning</div>
+                    </label>
+                </div>
+
+                <div class="running-price">
+                    <div class="running-price-label">Estimated One-Time Cost</div>
+                    <div class="running-price-value" id="running-price-7">$2,500</div>
+                    <div class="running-monthly" id="running-monthly-7"></div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-7">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-7" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 8: Summary -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-8">
+            <div class="step-card">
+                <h2 class="step-title">Your Configuration Summary</h2>
+                <p class="step-subtitle">Review your selections and choose how to proceed.</p>
+
+                <div id="summary-content">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <div style="margin-top:2.5rem">
+                    <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:1rem">What would you like to do next?</h3>
+
+                    <div class="action-options">
+                        <!-- Option 1: Send Message -->
+                        <div class="action-card" id="action-message">
+                            <div class="action-header" onclick="toggleAction('action-message')">
+                                <div class="action-title">&#9993; Send us a message</div>
+                                <div class="action-arrow">&#9662;</div>
+                            </div>
+                            <div class="action-body">
+                                <div id="message-form">
+                                    <div class="form-group">
+                                        <label>Name <span class="required">*</span></label>
+                                        <input type="text" class="text-input" id="contact-name" placeholder="Your full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email <span class="required">*</span></label>
+                                        <input type="email" class="text-input" id="contact-email" placeholder="you@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone (optional)</label>
+                                        <input type="tel" class="text-input" id="contact-phone" placeholder="+1 (555) 000-0000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea class="text-input" id="contact-message" placeholder="Tell us about your project, timeline, or any questions..."></textarea>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg" onclick="submitContactForm()" style="width:100%;justify-content:center">Send Message</button>
+                                </div>
+                                <div class="success-message" id="message-success">
+                                    <div class="success-icon">&#10003;</div>
+                                    <div class="success-title">Thank you!</div>
+                                    <div class="success-desc">We've received your message and configuration. We'll respond within 24 hours.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 2: Book a Call -->
+                        <div class="action-card" id="action-book">
+                            <div class="action-header" onclick="toggleAction('action-book')">
+                                <div class="action-title">&#128197; Book a Discovery Call</div>
+                                <div class="action-arrow">&#9662;</div>
+                            </div>
+                            <div class="action-body" style="text-align:center">
+                                <p style="margin-bottom:1rem;color:var(--text-secondary);font-size:0.95rem">Schedule a free 30-minute call to discuss your configuration and get personalized recommendations.</p>
+                                <a href="#booking" class="btn btn-primary btn-lg" style="display:inline-flex">Book a Call &#8594;</a>
+                            </div>
+                        </div>
+
+                        <!-- Option 3: Proceed to Payment -->
+                        <div class="action-card" id="action-pay">
+                            <div class="action-header" onclick="toggleAction('action-pay')">
+                                <div class="action-title">&#128179; Proceed to Payment</div>
+                                <div class="action-arrow">&#9662;</div>
+                            </div>
+                            <div class="action-body">
+                                <div class="info-note" style="margin-top:0;margin-bottom:1.25rem">After reviewing your configuration, we'll send you a custom payment link tailored to your exact setup.</div>
+                                <div id="payment-form">
+                                    <div class="form-group">
+                                        <label>Name <span class="required">*</span></label>
+                                        <input type="text" class="text-input" id="pay-name" placeholder="Your full name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email <span class="required">*</span></label>
+                                        <input type="email" class="text-input" id="pay-email" placeholder="you@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone (optional)</label>
+                                        <input type="tel" class="text-input" id="pay-phone" placeholder="+1 (555) 000-0000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Notes (optional)</label>
+                                        <textarea class="text-input" id="pay-notes" placeholder="Any additional details..."></textarea>
+                                    </div>
+                                    <button class="btn btn-primary btn-lg" onclick="submitPaymentForm()" style="width:100%;justify-content:center">Request Payment Link</button>
+                                </div>
+                                <div class="success-message" id="payment-success">
+                                    <div class="success-icon">&#10003;</div>
+                                    <div class="success-title">Request received!</div>
+                                    <div class="success-desc">We'll review your configuration and send you a custom payment link within 24 hours.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-8">&#8592; Back</button>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // ═══════════════════════════════════════════════════
+    // State
+    // ═══════════════════════════════════════════════════
+    const state = {
+        currentStep: 1,
+        totalSteps: 8,
+        hosting: null,           // cloud_only | vps_cloud_api | vps_self_hosted | byod | mac_mini
+        serverProvider: null,    // hostinger | oracle | aws
+        serverPlan: null,        // specific plan value
+        serverMonthly: 0,
+        serverRam: 0,
+        macModel: null,
+        macCost: 0,
+        clusterSize: 1,
+        aiModel: null,           // cloud_recommended | cloud_byok | self_hosted | hybrid
+        apiProvider: '',
+        ollamaModel: null,
+        agents: null,            // 1 | 3 | 5 | 5plus | unsure
+        channels: [],
+        integrations: [],
+        managedCare: null,       // none | essential | standard | premium
+    };
+
+    // ═══════════════════════════════════════════════════
+    // Price Calculation
+    // ═══════════════════════════════════════════════════
+    const BASE_PRICES = {
+        cloud_only: 2500,
+        vps_cloud_api: 2000,
+        vps_self_hosted: 3000,
+        byod: 5000,
+        mac_mini: 5000
+    };
+
+    const AGENT_PRICES = { '1': 0, '3': 2000, '5': 4000, '5plus': 6000, 'unsure': 0 };
+
+    const CARE_MONTHLY = { none: 0, essential: 149, standard: 299, premium: 499 };
+
+    const INTEGRATION_COSTS = {
+        gmail: 500, gcal: 500, notion: 500, github: 500,
+        stripe: 500, shopify: 500, custom_crm: 1000, custom_api: 2000, unsure_int: 0
+    };
+
+    function calcChannelCost() {
+        const count = state.channels.length;
+        return Math.max(0, count - 2) * 500;
+    }
+
+    function calcIntegrationCost() {
+        const sorted = [...state.integrations].sort((a, b) => {
+            return (INTEGRATION_COSTS[b] || 0) - (INTEGRATION_COSTS[a] || 0);
+        });
+        let total = 0;
+        sorted.forEach((item, i) => {
+            if (i >= 2) {
+                total += INTEGRATION_COSTS[item] || 0;
+            }
+        });
+        return total;
+    }
+
+    function calcClusterCost() {
+        const extra = Math.max(0, state.clusterSize - 1);
+        return extra * 5000;
+    }
+
+    function calcOneTime() {
+        let total = BASE_PRICES[state.hosting] || 0;
+        if (state.hosting === 'mac_mini') {
+            total += state.macCost || 0;
+            total += calcClusterCost();
+        }
+        total += AGENT_PRICES[state.agents] || 0;
+        total += calcChannelCost();
+        total += calcIntegrationCost();
+        return total;
+    }
+
+    function calcMonthly() {
+        let total = 0;
+        if (state.hosting === 'vps_cloud_api' || state.hosting === 'vps_self_hosted') {
+            total += state.serverMonthly || 0;
+        }
+        total += CARE_MONTHLY[state.managedCare] || 0;
+        return total;
+    }
+
+    function formatPrice(n) {
+        return '$' + n.toLocaleString('en-US');
+    }
+
+    function updateAllPrices() {
+        const oneTime = calcOneTime();
+        const monthly = calcMonthly();
+
+        // Update progress header price
+        const progressPrice = document.getElementById('progress-price');
+        progressPrice.textContent = formatPrice(oneTime);
+
+        // Update all running price elements on visible steps
+        for (let i = 2; i <= 7; i++) {
+            const el = document.getElementById('running-price-' + i);
+            const mel = document.getElementById('running-monthly-' + i);
+            if (el) el.textContent = formatPrice(oneTime);
+            if (mel) {
+                mel.textContent = monthly > 0 ? '+ ' + formatPrice(monthly) + '/mo' : '';
+            }
+        }
+    }
+
+    // ═══════════════════════════════════════════════════
+    // Step Navigation
+    // ═══════════════════════════════════════════════════
+    function getEffectiveStep(stepNum) {
+        // Step 2 is skipped if hosting is cloud_only or byod
+        if (stepNum === 2 && (state.hosting === 'cloud_only' || state.hosting === 'byod')) {
+            return null; // skip
+        }
+        return stepNum;
+    }
+
+    function getNextStep(current) {
+        let next = current + 1;
+        while (next <= state.totalSteps) {
+            if (getEffectiveStep(next) !== null) return next;
+            next++;
+        }
+        return null;
+    }
+
+    function getPrevStep(current) {
+        let prev = current - 1;
+        while (prev >= 1) {
+            if (getEffectiveStep(prev) !== null) return prev;
+            prev--;
+        }
+        return null;
+    }
+
+    function getDisplayStepNumber(step) {
+        // Calculate which visual step number this is
+        const allSteps = [];
+        for (let i = 1; i <= state.totalSteps; i++) {
+            if (getEffectiveStep(i) !== null) allSteps.push(i);
+        }
+        return allSteps.indexOf(step) + 1;
+    }
+
+    function getDisplayTotalSteps() {
+        let count = 0;
+        for (let i = 1; i <= state.totalSteps; i++) {
+            if (getEffectiveStep(i) !== null) count++;
+        }
+        return count;
+    }
+
+    function goToStep(stepNum) {
+        // Hide all steps
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+
+        state.currentStep = stepNum;
+
+        // Special setup for step 2
+        if (stepNum === 2) {
+            setupStep2();
+        }
+
+        // Special setup for step 3
+        if (stepNum === 3) {
+            setupStep3ModelOptions();
+        }
+
+        // Build summary for step 8
+        if (stepNum === 8) {
+            buildSummary();
+        }
+
+        // Show current step
+        document.getElementById('step-' + stepNum).classList.add('active');
+
+        // Update progress
+        const displayNum = getDisplayStepNumber(stepNum);
+        const displayTotal = getDisplayTotalSteps();
+        document.getElementById('progress-text').textContent = 'Step ' + displayNum + ' of ' + displayTotal;
+        document.getElementById('progress-fill').style.width = ((displayNum / displayTotal) * 100) + '%';
+
+        updateAllPrices();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ═══════════════════════════════════════════════════
+    // Step 1: Hosting
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('#hosting-options .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            state.hosting = radio.value;
+
+            // Update selected state
+            document.querySelectorAll('#hosting-options .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            document.getElementById('next-1').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    document.getElementById('next-1').addEventListener('click', () => {
+        const next = getNextStep(1);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 2: Server / Mac Mini
+    // ═══════════════════════════════════════════════════
+    function setupStep2() {
+        const vpsSection = document.getElementById('vps-options');
+        const macSection = document.getElementById('mac-options');
+
+        if (state.hosting === 'mac_mini') {
+            vpsSection.style.display = 'none';
+            macSection.style.display = 'block';
+            document.getElementById('step2-title').textContent = 'Choose your Mac Mini';
+            document.getElementById('step2-subtitle').textContent = 'Select the Mac Mini configuration that best fits your needs. We\'ll buy, configure, and deliver it.';
+            // Enable next if mac already selected
+            document.getElementById('next-2').disabled = !state.macModel;
+        } else {
+            vpsSection.style.display = 'block';
+            macSection.style.display = 'none';
+            document.getElementById('step2-title').textContent = 'Choose your server';
+            document.getElementById('step2-subtitle').textContent = 'Select a VPS provider and plan. We\'ll handle all the setup and configuration.';
+            document.getElementById('next-2').disabled = !state.serverPlan;
+        }
+    }
+
+    // VPS Provider selection
+    document.querySelectorAll('#server-options > .option-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking sub-options
+            if (e.target.closest('.sub-options')) return;
+
+            const radio = this.querySelector(':scope > input[type="radio"]');
+            radio.checked = true;
+            state.serverProvider = radio.value;
+
+            // Reset plan when switching providers
+            state.serverPlan = null;
+            state.serverMonthly = 0;
+            state.serverRam = 0;
+            document.querySelectorAll('input[name="server_plan"]').forEach(r => r.checked = false);
+
+            // Update selected
+            document.querySelectorAll('#server-options > .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Show sub-options for selected provider
+            document.querySelectorAll('.sub-options').forEach(s => s.classList.remove('visible'));
+            const subId = 'sub-' + radio.value;
+            const subEl = document.getElementById(subId);
+            if (subEl) subEl.classList.add('visible');
+
+            document.getElementById('next-2').disabled = true;
+            updateAllPrices();
+        });
+    });
+
+    // VPS Plan selection
+    document.querySelectorAll('input[name="server_plan"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            state.serverPlan = this.value;
+            state.serverMonthly = parseFloat(this.dataset.monthly) || 0;
+            state.serverRam = parseInt(this.dataset.ram) || 0;
+            document.getElementById('next-2').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    // Prevent sub-option clicks from bubbling to parent card
+    document.querySelectorAll('.sub-option').forEach(opt => {
+        opt.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change'));
+        });
+    });
+
+    // Mac model selection
+    document.querySelectorAll('#mac-model-options .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            state.macModel = radio.value;
+            state.macCost = parseInt(radio.dataset.cost) || 0;
+
+            document.querySelectorAll('#mac-model-options .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            document.getElementById('next-2').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    // Cluster selection
+    document.querySelectorAll('#cluster-options .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            if (!radio) return;
+            radio.checked = true;
+            state.clusterSize = parseInt(radio.value) || 1;
+
+            document.querySelectorAll('#cluster-options .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+            updateAllPrices();
+        });
+    });
+
+    // Set default cluster selection
+    (function() {
+        const defaultCluster = document.querySelector('#cluster-options .option-card[data-value="1"]');
+        if (defaultCluster) {
+            defaultCluster.classList.add('selected');
+            const radio = defaultCluster.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+        }
+    })();
+
+    document.getElementById('back-2').addEventListener('click', () => {
+        const prev = getPrevStep(2);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-2').addEventListener('click', () => {
+        const next = getNextStep(2);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 3: AI Model
+    // ═══════════════════════════════════════════════════
+    function setupStep3ModelOptions() {
+        const selfHostedSub = document.getElementById('model-sub-options');
+        selfHostedSub.innerHTML = '';
+
+        // Determine RAM
+        let ram = 0;
+        if (state.hosting === 'mac_mini') {
+            // Derive from mac model name
+            const macRamMap = {
+                m4_16_256: 16, m4_16_512: 16, m4_24_512: 24,
+                m4pro_24_512: 24, m4pro_48_1tb: 48, m4pro_64_1tb: 64, waiting_m5: 0
+            };
+            ram = macRamMap[state.macModel] || 0;
+        } else if (state.hosting === 'vps_self_hosted' || state.hosting === 'vps_cloud_api') {
+            ram = state.serverRam || 0;
+        } else if (state.hosting === 'byod') {
+            ram = 64; // Assume good hardware
+        }
+
+        const models = [];
+        if (ram >= 8) models.push({ value: '8b', label: 'llama3.3:8b (basic chat)', ram: '8GB+' });
+        if (ram >= 16) models.push({ value: '14b', label: 'qwen3.5:14b (good general assistant)', ram: '16GB+' });
+        if (ram >= 24) models.push({ value: '27b', label: 'qwen3.5:27b (strong -- coding, analysis)', ram: '24GB+' });
+        if (ram >= 48) models.push({ value: '70b', label: 'llama3.3:70b (excellent -- enterprise grade)', ram: '48GB+' });
+        models.push({ value: 'recommend', label: 'Let us recommend the best model for your hardware', ram: '' });
+
+        models.forEach(m => {
+            const div = document.createElement('div');
+            div.className = 'sub-option';
+            div.innerHTML = `
+                <input type="radio" name="ollama_model" value="${m.value}">
+                <label>
+                    <span>${m.label}</span>
+                    ${m.ram ? '<span class="sub-price" style="color:var(--text-muted)">' + m.ram + '</span>' : ''}
+                </label>
+            `;
+            div.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                state.ollamaModel = radio.value;
+            });
+            selfHostedSub.appendChild(div);
+        });
+    }
+
+    document.querySelectorAll('#model-options > .option-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.sub-options') || e.target.closest('.text-input-group')) return;
+
+            const radio = this.querySelector(':scope > input[type="radio"]');
+            radio.checked = true;
+            state.aiModel = radio.value;
+
+            document.querySelectorAll('#model-options > .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Show/hide conditional sections
+            document.getElementById('api-provider-input').classList.toggle('visible', state.aiModel === 'cloud_byok');
+            document.getElementById('model-sub-options').classList.toggle('visible', state.aiModel === 'self_hosted');
+
+            document.getElementById('next-3').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    // Prevent text input clicks from triggering card selection
+    document.querySelectorAll('.text-input').forEach(input => {
+        input.addEventListener('click', e => e.stopPropagation());
+    });
+
+    document.getElementById('api-provider').addEventListener('input', function() {
+        state.apiProvider = this.value;
+    });
+
+    document.getElementById('back-3').addEventListener('click', () => {
+        const prev = getPrevStep(3);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-3').addEventListener('click', () => {
+        const next = getNextStep(3);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 4: Agents
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('#agent-options .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            state.agents = radio.value;
+
+            document.querySelectorAll('#agent-options .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            document.getElementById('next-4').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    document.getElementById('back-4').addEventListener('click', () => {
+        const prev = getPrevStep(4);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-4').addEventListener('click', () => {
+        const next = getNextStep(4);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 5: Channels
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('#channel-options .checkbox-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            // Toggle unless click was directly on checkbox (it toggles itself)
+            if (e.target !== checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+
+            // Update state
+            state.channels = [];
+            document.querySelectorAll('#channel-options input[type="checkbox"]:checked').forEach(cb => {
+                state.channels.push(cb.value);
+            });
+
+            // Update visual
+            this.classList.toggle('selected', checkbox.checked);
+            updateAllPrices();
+        });
+    });
+
+    document.getElementById('back-5').addEventListener('click', () => {
+        const prev = getPrevStep(5);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-5').addEventListener('click', () => {
+        const next = getNextStep(5);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 6: Integrations
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('#integration-options .checkbox-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            const checkbox = this.querySelector('input[type="checkbox"]');
+            if (e.target !== checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+
+            state.integrations = [];
+            document.querySelectorAll('#integration-options input[type="checkbox"]:checked').forEach(cb => {
+                state.integrations.push(cb.value);
+            });
+
+            this.classList.toggle('selected', checkbox.checked);
+            updateAllPrices();
+        });
+    });
+
+    document.getElementById('back-6').addEventListener('click', () => {
+        const prev = getPrevStep(6);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-6').addEventListener('click', () => {
+        const next = getNextStep(6);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 7: Managed Care
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('#care-options .option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            state.managedCare = radio.value;
+
+            document.querySelectorAll('#care-options .option-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+
+            document.getElementById('next-7').disabled = false;
+            updateAllPrices();
+        });
+    });
+
+    document.getElementById('back-7').addEventListener('click', () => {
+        const prev = getPrevStep(7);
+        if (prev) goToStep(prev);
+    });
+    document.getElementById('next-7').addEventListener('click', () => {
+        const next = getNextStep(7);
+        if (next) goToStep(next);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Step 8: Summary
+    // ═══════════════════════════════════════════════════
+    const HOSTING_LABELS = {
+        cloud_only: 'Cloud Only (No Server)',
+        vps_cloud_api: 'VPS + Cloud AI',
+        vps_self_hosted: 'VPS + Self-Hosted AI',
+        byod: 'Your Own Device (BYOD)',
+        mac_mini: 'We Provide a Mac Mini'
+    };
+
+    const SERVER_LABELS = {
+        hostinger: 'Hostinger', oracle: 'Oracle Cloud', aws: 'AWS'
+    };
+
+    const PLAN_LABELS = {
+        hostinger_kvm1: 'KVM 1: 4GB RAM, 50GB',
+        hostinger_kvm2: 'KVM 2: 8GB RAM, 100GB',
+        hostinger_kvm4: 'KVM 4: 16GB RAM, 200GB',
+        hostinger_kvm8: 'KVM 8: 32GB RAM, 400GB',
+        oracle_free: 'Free Tier: 4 vCPU, 24GB RAM',
+        oracle_paid: 'Paid: Custom config',
+        aws_small: 't4g.small: 2GB RAM',
+        aws_medium: 't4g.medium: 4GB RAM',
+        aws_large: 't4g.large: 8GB RAM',
+        aws_xlarge: 't4g.xlarge: 16GB RAM'
+    };
+
+    const MAC_LABELS = {
+        m4_16_256: 'M4 -- 16GB / 256GB',
+        m4_16_512: 'M4 -- 16GB / 512GB',
+        m4_24_512: 'M4 -- 24GB / 512GB',
+        m4pro_24_512: 'M4 Pro -- 24GB / 512GB',
+        m4pro_48_1tb: 'M4 Pro -- 48GB / 1TB',
+        m4pro_64_1tb: 'M4 Pro -- 64GB / 1TB',
+        waiting_m5: 'Waiting for M5 (Est. June 2026)'
+    };
+
+    const MODEL_LABELS = {
+        cloud_recommended: 'Cloud AI -- We recommend',
+        cloud_byok: 'Cloud AI -- Bring your own key',
+        self_hosted: 'Self-Hosted (Ollama)',
+        hybrid: 'Hybrid -- Cloud + Local fallback'
+    };
+
+    const AGENT_LABELS = {
+        '1': '1 agent', '3': 'Up to 3 agents', '5': 'Up to 5 agents',
+        '5plus': '5+ agents (Enterprise)', 'unsure': 'Not sure -- help me decide'
+    };
+
+    const CHANNEL_LABELS = {
+        telegram: 'Telegram', discord: 'Discord', slack: 'Slack',
+        whatsapp: 'WhatsApp', email: 'Email', sms: 'SMS'
+    };
+
+    const INTEGRATION_LABELS = {
+        gmail: 'Gmail / Google Workspace', gcal: 'Google Calendar',
+        notion: 'Notion', github: 'GitHub', stripe: 'Stripe / Square',
+        shopify: 'Shopify', custom_crm: 'Custom CRM', custom_api: 'Custom API',
+        unsure_int: 'Not sure yet'
+    };
+
+    const CARE_LABELS = {
+        none: 'No managed care', essential: 'Essential ($149/mo)',
+        standard: 'Standard ($299/mo)', premium: 'Premium ($499/mo)'
+    };
+
+    function buildSummary() {
+        const container = document.getElementById('summary-content');
+        let html = '';
+
+        // Selections
+        html += '<div class="summary-section">';
+        html += '<div class="summary-section-title">Your Selections</div>';
+        html += summaryRow('Hosting', HOSTING_LABELS[state.hosting] || '--');
+
+        if (state.hosting === 'vps_cloud_api' || state.hosting === 'vps_self_hosted') {
+            html += summaryRow('Server', (SERVER_LABELS[state.serverProvider] || '') + ' -- ' + (PLAN_LABELS[state.serverPlan] || ''));
+        }
+        if (state.hosting === 'mac_mini') {
+            html += summaryRow('Mac Mini', MAC_LABELS[state.macModel] || '--');
+            if (state.clusterSize > 1) {
+                html += summaryRow('Cluster', state.clusterSize + '-node cluster');
+            }
+        }
+
+        html += summaryRow('AI Model', MODEL_LABELS[state.aiModel] || '--');
+        if (state.aiModel === 'cloud_byok' && state.apiProvider) {
+            html += summaryRow('API Provider', state.apiProvider);
+        }
+        if (state.aiModel === 'self_hosted' && state.ollamaModel) {
+            html += summaryRow('Ollama Model', state.ollamaModel);
+        }
+        html += summaryRow('Agents', AGENT_LABELS[state.agents] || '--');
+        html += summaryRow('Channels', state.channels.length > 0 ? state.channels.map(c => CHANNEL_LABELS[c]).join(', ') : 'None selected');
+        html += summaryRow('Integrations', state.integrations.length > 0 ? state.integrations.map(i => INTEGRATION_LABELS[i]).join(', ') : 'None selected');
+        html += summaryRow('Managed Care', CARE_LABELS[state.managedCare] || '--');
+        html += '</div>';
+
+        // Price breakdown
+        html += '<div class="summary-section">';
+        html += '<div class="summary-section-title">Price Breakdown</div>';
+
+        const baseCost = BASE_PRICES[state.hosting] || 0;
+        html += summaryRow('Base setup fee', formatPrice(baseCost));
+
+        if (state.hosting === 'mac_mini' && state.macCost > 0) {
+            html += summaryRow('Hardware (Mac Mini)', formatPrice(state.macCost));
+        }
+        if (state.hosting === 'mac_mini' && calcClusterCost() > 0) {
+            html += summaryRow('Cluster (' + state.clusterSize + ' nodes)', '+' + formatPrice(calcClusterCost()));
+        }
+
+        const agentCost = AGENT_PRICES[state.agents] || 0;
+        if (agentCost > 0) {
+            html += summaryRow('Additional agents', '+' + formatPrice(agentCost));
+        }
+
+        const channelCost = calcChannelCost();
+        if (channelCost > 0) {
+            html += summaryRow('Extra channels (' + Math.max(0, state.channels.length - 2) + ')', '+' + formatPrice(channelCost));
+        }
+
+        const integrationCost = calcIntegrationCost();
+        if (integrationCost > 0) {
+            html += summaryRow('Extra integrations', '+' + formatPrice(integrationCost));
+        }
+
+        html += '</div>';
+
+        // Totals
+        const oneTime = calcOneTime();
+        const monthly = calcMonthly();
+
+        html += '<div class="summary-total"><div class="label">One-time total</div><div class="value">' + formatPrice(oneTime) + '</div></div>';
+
+        if (monthly > 0) {
+            html += '<div class="summary-monthly-total"><div class="label">Monthly recurring</div><div class="value">' + formatPrice(monthly) + '/mo</div></div>';
+
+            // Breakdown
+            let monthlyBreak = [];
+            if ((state.hosting === 'vps_cloud_api' || state.hosting === 'vps_self_hosted') && state.serverMonthly > 0) {
+                monthlyBreak.push('Server: $' + state.serverMonthly.toFixed(2) + '/mo');
+            }
+            if (CARE_MONTHLY[state.managedCare] > 0) {
+                monthlyBreak.push('Managed care: $' + CARE_MONTHLY[state.managedCare] + '/mo');
+            }
+            if (monthlyBreak.length > 0) {
+                html += '<div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.25rem;text-align:right">' + monthlyBreak.join(' + ') + '</div>';
+            }
+        }
+
+        container.innerHTML = html;
+    }
+
+    function summaryRow(label, value) {
+        return '<div class="summary-row"><div class="label">' + label + '</div><div class="value">' + value + '</div></div>';
+    }
+
+    document.getElementById('back-8').addEventListener('click', () => {
+        const prev = getPrevStep(8);
+        if (prev) goToStep(prev);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // Action Toggles (Step 8)
+    // ═══════════════════════════════════════════════════
+    function toggleAction(id) {
+        const card = document.getElementById(id);
+        const wasOpen = card.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.action-card').forEach(c => c.classList.remove('open'));
+
+        // Toggle clicked
+        if (!wasOpen) card.classList.add('open');
+    }
+
+    // ═══════════════════════════════════════════════════
+    // Form Submissions
+    // ═══════════════════════════════════════════════════
+    function getConfigData() {
+        return {
+            ...state,
+            oneTimeTotal: calcOneTime(),
+            monthlyTotal: calcMonthly(),
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    function submitContactForm() {
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+
+        if (!name || !email) {
+            alert('Please fill in your name and email.');
+            return;
+        }
+
+        const data = {
+            type: 'message',
+            name: name,
+            email: email,
+            phone: document.getElementById('contact-phone').value.trim(),
+            message: document.getElementById('contact-message').value.trim(),
+            config: getConfigData()
+        };
+
+        // Store in localStorage
+        const submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
+        submissions.push(data);
+        localStorage.setItem('ai101_submissions', JSON.stringify(submissions));
+
+        // Show success
+        document.getElementById('message-form').style.display = 'none';
+        document.getElementById('message-success').classList.add('visible');
+    }
+
+    function submitPaymentForm() {
+        const name = document.getElementById('pay-name').value.trim();
+        const email = document.getElementById('pay-email').value.trim();
+
+        if (!name || !email) {
+            alert('Please fill in your name and email.');
+            return;
+        }
+
+        const data = {
+            type: 'payment_request',
+            name: name,
+            email: email,
+            phone: document.getElementById('pay-phone').value.trim(),
+            notes: document.getElementById('pay-notes').value.trim(),
+            config: getConfigData()
+        };
+
+        const submissions = JSON.parse(localStorage.getItem('ai101_submissions') || '[]');
+        submissions.push(data);
+        localStorage.setItem('ai101_submissions', JSON.stringify(submissions));
+
+        document.getElementById('payment-form').style.display = 'none';
+        document.getElementById('payment-success').classList.add('visible');
+    }
+
+    // ═══════════════════════════════════════════════════
+    // Initialize
+    // ═══════════════════════════════════════════════════
+    goToStep(1);
+    </script>
+</body>
+</html>
