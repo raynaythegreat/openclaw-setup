@@ -1833,39 +1833,65 @@
         }
 
         /* ── Pricing Tabs ── */
-        .pricing-tabs {
+        .pricing-track {
+            margin-bottom: 3rem;
+        }
+
+        .track-header {
             display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
 
-        .pricing-tab {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--border-subtle);
+        .track-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .track-header p {
+            width: 100%;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .ai-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 1.5rem;
+            background: var(--bg-secondary);
             border-radius: 999px;
-            background: var(--bg-card);
+            padding: 4px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-toggle-btn {
+            flex: 1;
+            padding: 0.6rem 1.25rem;
+            border: none;
+            border-radius: 999px;
+            background: transparent;
             color: var(--text-secondary);
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .pricing-tab:hover {
-            border-color: var(--border-accent);
-            color: var(--text-primary);
-        }
-
-        .pricing-tab.active {
-            background: var(--gradient-primary);
+        .ai-toggle-btn.active {
+            background: #dc2626;
             color: #fff;
-            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
         }
 
-        .pricing-tab-content {
+        .toggle-content {
             animation: fadeIn 0.4s ease;
         }
 
@@ -1874,13 +1900,30 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .tab-description {
+        .toggle-desc {
             text-align: center;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 2rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .track-divider {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            color: var(--text-muted);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .track-divider::before, .track-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
         }
 
         .credits-badge {
@@ -2274,10 +2317,10 @@
                     <div class="calc-control">
                         <label for="planSelect">Choose a plan tier</label>
                         <select id="planSelect">
-                            <option value="starter">Starter &mdash; $79/mo credits | N/A self-hosted</option>
-                            <option value="pro">Pro &mdash; $149/mo credits | $99/mo self-hosted</option>
-                            <option value="power" selected>Power &mdash; $249/mo credits | $129/mo self-hosted</option>
-                            <option value="max">Max &mdash; N/A credits | $149/mo self-hosted</option>
+                            <option value="starter">Starter &mdash; $69/mo credits | N/A self-hosted</option>
+                            <option value="pro">Pro &mdash; $129/mo credits | $49/mo self-hosted</option>
+                            <option value="power" selected>Power &mdash; $199/mo credits | $69/mo self-hosted</option>
+                            <option value="max">Max &mdash; N/A credits | $89/mo self-hosted</option>
                         </select>
                     </div>
                 </div>
@@ -2345,210 +2388,204 @@
       <div class="container section-center">
         <div class="section-label fade-in">Pricing</div>
         <h2 class="section-title fade-in">Choose Your Path</h2>
-        <p class="section-subtitle fade-in">Setup includes everything: deployment, configuration, security audit, training, and documentation.</p>
+        <p class="section-subtitle fade-in">Setup includes everything: deployment, configuration, security audit, training, and documentation. Managed care plans available separately.</p>
 
-        <!-- TAB SWITCHER -->
-        <div class="pricing-tabs fade-in">
-          <button class="pricing-tab active" onclick="switchPricingTab('credits')">Cloud + AI Credits</button>
-          <button class="pricing-tab" onclick="switchPricingTab('selfhosted')">Cloud + Self-Hosted</button>
-          <button class="pricing-tab" onclick="switchPricingTab('local')">Local Hosting</button>
-        </div>
+        <!-- ═══ CLOUD HOSTING ═══ -->
+        <div class="pricing-track fade-in" id="pricing-cloud">
+          <div class="track-header">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            <h3>Cloud Hosting</h3>
+            <p>Your agent runs 24/7 on a cloud VPS. Powered by Hostinger.</p>
+          </div>
 
-        <!-- TAB 1: CLOUD + AI CREDITS -->
-        <div class="pricing-tab-content active" id="tab-credits">
-          <!-- subtitle about what AI credits means -->
-          <p class="tab-description">AI credits for Claude, GPT, Gemini & more included in your monthly fee. No API keys to manage.<br><strong>First-time bonus: $200 in free AI credits with every plan!</strong></p>
+          <!-- AI TOGGLE -->
+          <div class="ai-toggle">
+            <button class="ai-toggle-btn active" onclick="toggleCloudAI('credits')">AI Credits</button>
+            <button class="ai-toggle-btn" onclick="toggleCloudAI('selfhosted')">Self-Hosted AI</button>
+          </div>
 
-          <div class="pricing-grid">
-            <!-- STARTER -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Starter</div>
-              <div class="pricing-price">$2,500 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $79/mo</div>
-              <div class="credits-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                $40/mo in AI credits included
+          <!-- CLOUD + AI CREDITS -->
+          <div id="cloud-credits" class="toggle-content active">
+            <p class="toggle-desc">AI credits for Claude, GPT, Gemini &amp; more included in your monthly fee. No API keys needed.<br><strong>&#127873; First-time bonus: $200 in free AI credits with every plan!</strong></p>
+            <div class="pricing-grid">
+
+              <div class="pricing-card">
+                <div class="pricing-tier">Starter</div>
+                <div class="pricing-price">$2,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $69/mo</div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $40/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 1 (4GB RAM)</li>
+                  <li>1 AI agent</li>
+                  <li>Cloud AI (Claude, GPT, Gemini)</li>
+                  <li>1 channel (Telegram or Discord)</li>
+                  <li>5 skills installed</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>14-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$3,328 | Year 3: ~$4,984</div>
+                <a href="https://square.link/u/rh9G3k8U" target="_blank" class="btn-secondary">Get Started</a>
               </div>
-              <div class="welcome-badge">&#127873; + $200 welcome credits FREE</div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 1 (4GB RAM)</li>
-                <li>1 AI agent</li>
-                <li>Cloud AI via Nexos credits</li>
-                <li>1 channel (Telegram or Discord)</li>
-                <li>5 skills installed</li>
-                <li>NemoClaw secure sandbox</li>
-                <li>14-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$3,448 | Year 3: ~$5,344</div>
-              <a href="https://square.link/u/rh9G3k8U" target="_blank" class="btn-secondary">Get Started</a>
-            </div>
 
-            <!-- PRO -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Pro</div>
-              <div class="pricing-price">$4,000 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $149/mo</div>
-              <div class="credits-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                $75/mo in AI credits included
+              <div class="pricing-card">
+                <div class="pricing-tier">Pro</div>
+                <div class="pricing-price">$4,000 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $129/mo</div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $75/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 2 (8GB RAM)</li>
+                  <li>Up to 3 agents</li>
+                  <li>$75/mo in AI credits</li>
+                  <li>Multi-channel</li>
+                  <li>10+ skills</li>
+                  <li>Notion CRM integration</li>
+                  <li>30-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$5,548 | Year 3: ~$8,644</div>
+                <a href="https://square.link/u/TNjD7Rka" target="_blank" class="btn-secondary">Get Started</a>
               </div>
-              <div class="welcome-badge">&#127873; + $200 welcome credits FREE</div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 2 (8GB RAM)</li>
-                <li>Up to 3 agents</li>
-                <li>$75/mo in AI credits (Claude, GPT, Gemini)</li>
-                <li>Multi-channel</li>
-                <li>10+ skills installed</li>
-                <li>Notion CRM integration</li>
-                <li>30-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$5,788 | Year 3: ~$9,364</div>
-              <a href="https://square.link/u/TNjD7Rka" target="_blank" class="btn-secondary">Get Started</a>
-            </div>
 
-            <!-- POWER (FEATURED) -->
-            <div class="pricing-card featured">
-              <div class="pricing-badge">Most Popular</div>
-              <div class="pricing-tier">Power</div>
-              <div class="pricing-price">$5,500 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $249/mo</div>
-              <div class="credits-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                $150/mo in AI credits included
+              <div class="pricing-card featured">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="pricing-tier">Power</div>
+                <div class="pricing-price">$5,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $199/mo</div>
+                <div class="credits-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> $150/mo in AI credits</div>
+                <div class="welcome-badge">&#127873; +$200 welcome credits FREE</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 4 (16GB RAM)</li>
+                  <li>Up to 3 agents</li>
+                  <li>$150/mo in AI credits (all providers)</li>
+                  <li>All integrations included</li>
+                  <li>Cron automation</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>30-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$7,888 | Year 3: ~$12,664</div>
+                <a href="https://square.link/u/ErYXi4eV" target="_blank" class="btn-primary">Get Started</a>
               </div>
-              <div class="welcome-badge">&#127873; + $200 welcome credits FREE</div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 4 (16GB RAM)</li>
-                <li>Up to 3 agents</li>
-                <li>$150/mo in AI credits (all providers)</li>
-                <li>All integrations included</li>
-                <li>Cron automation</li>
-                <li>NemoClaw secure sandbox</li>
-                <li>30-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$8,488 | Year 3: ~$14,464</div>
-              <a href="https://square.link/u/ErYXi4eV" target="_blank" class="btn-primary">Get Started</a>
-            </div>
 
-            <!-- ENTERPRISE -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Enterprise</div>
-              <div class="pricing-price">Custom</div>
-              <div class="pricing-monthly">Book a Call</div>
-              <ul class="pricing-features">
-                <li>5+ agents</li>
-                <li>Unlimited AI credits</li>
-                <li>Custom skill development</li>
-                <li>Oracle/AWS heavy compute available</li>
-                <li>SOC2/HIPAA compliance</li>
-                <li>Dedicated support channel</li>
-                <li>60-day priority support</li>
-              </ul>
-              <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
+              <div class="pricing-card">
+                <div class="pricing-tier">Enterprise</div>
+                <div class="pricing-price">Custom</div>
+                <div class="pricing-monthly">Book a Call</div>
+                <ul class="pricing-features">
+                  <li>5+ agents</li>
+                  <li>Unlimited AI credits</li>
+                  <li>Custom integrations</li>
+                  <li>Oracle/AWS available</li>
+                  <li>SOC2/HIPAA compliance</li>
+                  <li>Dedicated support</li>
+                  <li>60-day support</li>
+                </ul>
+                <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLOUD + SELF-HOSTED -->
+          <div id="cloud-selfhosted" class="toggle-content" style="display:none">
+            <p class="toggle-desc">Self-hosted Ollama models on your VPS. Higher setup fee, but <strong>$0 AI cost forever</strong>. No API keys, no rate limits, full privacy.</p>
+            <div class="pricing-grid">
+
+              <div class="pricing-card">
+                <div class="pricing-tier">Pro Self-Hosted</div>
+                <div class="pricing-price">$5,000 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $49/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 2 (8GB RAM)</li>
+                  <li>Up to 3 agents</li>
+                  <li>Self-hosted Ollama (8B model)</li>
+                  <li>Multi-channel</li>
+                  <li>10+ skills</li>
+                  <li>NemoClaw secure sandbox</li>
+                  <li>30-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$5,588 | Year 3: ~$6,764</div>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+              <div class="pricing-card featured">
+                <div class="pricing-badge">Best Value</div>
+                <div class="pricing-tier">Power Self-Hosted</div>
+                <div class="pricing-price">$6,500 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $69/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 4 (16GB RAM)</li>
+                  <li>Up to 3 agents</li>
+                  <li>Self-hosted Ollama (14B model)</li>
+                  <li>All integrations included</li>
+                  <li>Cron automation</li>
+                  <li>Full data privacy</li>
+                  <li>30-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$7,328 | Year 3: ~$8,984</div>
+                <a href="https://square.link/u/R4RSQq68" target="_blank" class="btn-primary">Get Started</a>
+              </div>
+
+              <div class="pricing-card">
+                <div class="pricing-tier">Max Self-Hosted</div>
+                <div class="pricing-price">$8,000 <span class="price-label">setup</span></div>
+                <div class="pricing-monthly">+ $89/mo</div>
+                <div class="credits-badge selfhosted-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> $0/mo AI cost &mdash; forever</div>
+                <ul class="pricing-features">
+                  <li>Hostinger KVM 8 (32GB RAM)</li>
+                  <li>5+ agents</li>
+                  <li>Self-hosted Ollama (27B model)</li>
+                  <li>Priority support</li>
+                  <li>No rate limits</li>
+                  <li>Full data privacy</li>
+                  <li>60-day support</li>
+                </ul>
+                <div class="pricing-year-est">Year 1: ~$9,068 | Year 3: ~$11,204</div>
+                <a href="configure.html" class="btn-secondary">Configure</a>
+              </div>
+
+              <div class="pricing-card">
+                <div class="pricing-tier">Enterprise</div>
+                <div class="pricing-price">Custom</div>
+                <div class="pricing-monthly">Book a Call</div>
+                <ul class="pricing-features">
+                  <li>5+ agents, dedicated nodes</li>
+                  <li>Self-hosted 70B+ models</li>
+                  <li>Oracle/AWS compute</li>
+                  <li>SOC2/HIPAA compliance</li>
+                  <li>Custom integrations</li>
+                  <li>Dedicated support</li>
+                  <li>60-day support</li>
+                </ul>
+                <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- TAB 2: CLOUD + SELF-HOSTED -->
-        <div class="pricing-tab-content" id="tab-selfhosted" style="display:none">
-          <p class="tab-description">Self-hosted Ollama models on your cloud VPS. Higher setup, but <strong>$0/month AI cost forever</strong>. No API keys, no rate limits, full data privacy.</p>
+        <!-- ═══ OR DIVIDER ═══ -->
+        <div class="track-divider fade-in"><span>OR</span></div>
 
-          <div class="pricing-grid">
-            <!-- PRO SELF-HOSTED -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Pro Self-Hosted</div>
-              <div class="pricing-price">$5,000 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $99/mo</div>
-              <div class="credits-badge selfhosted-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                $0/mo AI cost — forever
-              </div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 2 (8GB RAM)</li>
-                <li>Up to 3 agents</li>
-                <li>Self-hosted Ollama (8B model)</li>
-                <li>Multi-channel</li>
-                <li>10+ skills installed</li>
-                <li>NemoClaw secure sandbox</li>
-                <li>30-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$6,188 | Year 3: ~$8,564</div>
-              <a href="configure.html" class="btn-secondary">Configure</a>
-            </div>
-
-            <!-- POWER SELF-HOSTED (FEATURED) -->
-            <div class="pricing-card featured">
-              <div class="pricing-badge">Best Value</div>
-              <div class="pricing-tier">Power Self-Hosted</div>
-              <div class="pricing-price">$6,500 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $129/mo</div>
-              <div class="credits-badge selfhosted-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                $0/mo AI cost — forever
-              </div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 4 (16GB RAM)</li>
-                <li>Up to 3 agents</li>
-                <li>Self-hosted Ollama (14B model)</li>
-                <li>All integrations included</li>
-                <li>Cron automation</li>
-                <li>Full data privacy</li>
-                <li>30-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$8,048 | Year 3: ~$11,144</div>
-              <a href="https://square.link/u/R4RSQq68" target="_blank" class="btn-primary">Get Started</a>
-            </div>
-
-            <!-- MAX SELF-HOSTED -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Max Self-Hosted</div>
-              <div class="pricing-price">$8,000 <span class="price-label">setup</span></div>
-              <div class="pricing-monthly">+ $149/mo</div>
-              <div class="credits-badge selfhosted-badge">
-                <svg class="icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                $0/mo AI cost — forever
-              </div>
-              <ul class="pricing-features">
-                <li>Hostinger KVM 8 (32GB RAM)</li>
-                <li>5+ agents</li>
-                <li>Self-hosted Ollama (27B model)</li>
-                <li>Custom skill development</li>
-                <li>Priority dedicated support</li>
-                <li>No rate limits</li>
-                <li>60-day priority support</li>
-              </ul>
-              <div class="pricing-year-est">Year 1: ~$9,788 | Year 3: ~$13,364</div>
-              <a href="configure.html" class="btn-secondary">Configure</a>
-            </div>
-
-            <!-- ENTERPRISE -->
-            <div class="pricing-card">
-              <div class="pricing-tier">Enterprise</div>
-              <div class="pricing-price">Custom</div>
-              <div class="pricing-monthly">Book a Call</div>
-              <ul class="pricing-features">
-                <li>5+ agents with dedicated nodes</li>
-                <li>Self-hosted 70B+ models</li>
-                <li>Oracle/AWS heavy compute</li>
-                <li>SOC2/HIPAA compliance</li>
-                <li>Custom skill development</li>
-                <li>Dedicated support channel</li>
-                <li>60-day priority support</li>
-              </ul>
-              <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
-            </div>
+        <!-- ═══ LOCAL HOSTING ═══ -->
+        <div class="pricing-track fade-in" id="pricing-local">
+          <div class="track-header">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1"/><circle cx="6" cy="18" r="1"/></svg>
+            <h3>Local Hosting</h3>
+            <p>Your agent runs on your own hardware. One-time setup, you own everything.</p>
           </div>
-        </div>
 
-        <!-- TAB 3: LOCAL HOSTING (builder) -->
-        <div class="pricing-tab-content" id="tab-local" style="display:none">
-            <div id="pricing-local" style="text-align: left;">
-                <div class="pricing-track-header" style="justify-content: center;">
-                    <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="#dc2626"/><circle cx="6" cy="18" r="1" fill="#dc2626"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
-                    <h3>Local Track &mdash; One-Time, Build Your Setup</h3>
-                </div>
-                <p class="pricing-track-sub">Higher upfront, zero monthly. Pay once, save $2K-6K every year.</p>
+          <!-- AI TOGGLE FOR LOCAL -->
+          <div class="ai-toggle">
+            <button class="ai-toggle-btn active" onclick="toggleLocalAI('selfhosted')">Self-Hosted AI ($0/mo)</button>
+            <button class="ai-toggle-btn" onclick="toggleLocalAI('credits')">Cloud AI Credits</button>
+          </div>
 
+          <!-- LOCAL SELF-HOSTED (default) -->
+          <div id="local-selfhosted" class="toggle-content active">
+            <p class="toggle-desc">Ollama runs directly on your device. <strong>$0/month forever.</strong> Setup fee is one-time &mdash; you own everything.</p>
+
+            <div style="text-align: left;">
                 <!-- Step 1: Base Package -->
                 <div style="margin-bottom: 2.5rem;">
                     <div class="builder-step-title"><span>1</span> Choose Base Package</div>
@@ -2580,7 +2617,7 @@
                             <ul>
                                 <li>5+ agents</li>
                                 <li>Multi-channel + custom</li>
-                                <li>Custom skills</li>
+                                <li>All integrations</li>
                                 <li>60-day support</li>
                             </ul>
                         </div>
@@ -2632,28 +2669,53 @@
                             <input type="checkbox" data-addon="500"> GitHub integration <span class="addon-check-price">+$500</span>
                         </label>
                         <label class="addon-check" onclick="toggleAddon(this)">
-                            <input type="checkbox" data-addon="1000"> Custom skill <span class="addon-check-price">+$1,000</span>
-                        </label>
-                        <label class="addon-check" onclick="toggleAddon(this)">
                             <input type="checkbox" data-addon="1500"> Hardware sourcing <span class="addon-check-price">+$1,500</span>
                         </label>
                         <label class="addon-check" onclick="toggleAddon(this)">
                             <input type="checkbox" data-addon="250"> Training session <span class="addon-check-price">+$250</span>
                         </label>
                     </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">Need a custom skill? Prices vary &mdash; <a href="#contact" style="color: #dc2626; text-decoration: none; font-weight: 600;">book a call</a> or <a href="configure.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">fill out a request</a>.</p>
                 </div>
 
                 <!-- Running Total -->
                 <div class="local-total-bar">
                     <div class="local-total-text">
-                        Your Setup: <span class="total-amount" id="localTotal">$6,000</span> one-time <span class="total-monthly">| $0/mo forever</span>
+                        Your Setup: <span class="total-amount" id="localTotal">$6,000</span> one-time <span class="total-monthly" id="localMonthlyLabel">| $0/mo forever</span>
                     </div>
                     <a href="configure.html" class="btn-primary">Build This Setup &rarr;</a>
                 </div>
             </div>
+          </div>
+
+          <!-- LOCAL + AI CREDITS -->
+          <div id="local-credits" class="toggle-content" style="display:none">
+            <p class="toggle-desc">Your device, powered by cloud AI. Best if your hardware has limited RAM but you want local control.<br><strong>Monthly AI credits based on usage.</strong></p>
+            <div style="background: #fff5f5; border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.5rem;">
+              <h4 style="margin-bottom: 0.75rem; color: #1a1a2e;">Choose your AI credits package:</h4>
+              <div class="ai-credits-options" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(40, this)">
+                  <input type="radio" name="local_credits" value="40" style="display:none">
+                  <span>$40/mo &mdash; Basic</span>
+                </label>
+                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(75, this)">
+                  <input type="radio" name="local_credits" value="75" style="display:none">
+                  <span>$75/mo &mdash; Standard</span>
+                </label>
+                <label class="option-pill" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; border: 2px solid var(--border-subtle); border-radius: 999px; cursor: pointer; transition: all 0.2s;" onclick="selectLocalCredits(150, this)">
+                  <input type="radio" name="local_credits" value="150" style="display:none">
+                  <span>$150/mo &mdash; Power</span>
+                </label>
+              </div>
+              <div class="welcome-badge" style="margin-top: 0.75rem; display: inline-block;">&#127873; +$200 welcome credits FREE with any package</div>
+            </div>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Use the builder above (switch to "Self-Hosted AI" tab) to configure your base package, hardware, and add-ons. Your monthly AI credits will be added to the running total.</p>
+          </div>
         </div>
 
-        <p class="pricing-note fade-in" style="margin-top: 2rem;">Need Oracle Cloud or AWS for heavy compute or compliance? <a href="#contact" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Book a call</a> — we'll build a custom quote.</p>
+        <!-- NOTE ABOUT ORACLE/AWS -->
+        <p class="pricing-note fade-in" style="margin-top: 2rem; text-align: center; color: var(--text-muted);">Need Oracle Cloud or AWS for heavy compute or compliance? <a href="#contact" style="color: #dc2626; text-decoration: none; font-weight: 600;">Book a call</a> for a custom quote.</p>
+
       </div>
     </section>
 
@@ -3016,34 +3078,44 @@
             });
         });
 
-        // ── Cost Calculator ──
-        // ── Pricing Tab Switcher ──
-        function switchPricingTab(tab) {
-            // Update tab buttons
-            document.querySelectorAll('.pricing-tab').forEach(function(t) { t.classList.remove('active'); });
+        // ── Pricing Toggle Switchers ──
+        function toggleCloudAI(type) {
+            document.getElementById('cloud-credits').style.display = type === 'credits' ? 'block' : 'none';
+            document.getElementById('cloud-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
+            var btns = document.querySelectorAll('#pricing-cloud .ai-toggle-btn');
+            btns.forEach(function(b) { b.classList.remove('active'); });
             event.target.classList.add('active');
+        }
 
-            // Update tab content
-            document.querySelectorAll('.pricing-tab-content').forEach(function(c) {
-                c.style.display = 'none';
-                c.classList.remove('active');
+        function toggleLocalAI(type) {
+            document.getElementById('local-selfhosted').style.display = type === 'selfhosted' ? 'block' : 'none';
+            document.getElementById('local-credits').style.display = type === 'credits' ? 'block' : 'none';
+            var btns = document.querySelectorAll('#pricing-local .ai-toggle-btn');
+            btns.forEach(function(b) { b.classList.remove('active'); });
+            event.target.classList.add('active');
+            updateLocalTotal();
+        }
+
+        var localCreditsMonthly = 0;
+        function selectLocalCredits(amount, el) {
+            localCreditsMonthly = amount;
+            document.querySelectorAll('.ai-credits-options .option-pill').forEach(function(p) {
+                p.style.borderColor = 'var(--border-subtle)';
+                p.style.background = 'transparent';
             });
-
-            var target = document.getElementById('tab-' + tab);
-            if (target) {
-                target.style.display = 'block';
-                target.classList.add('active');
-            }
+            el.style.borderColor = '#dc2626';
+            el.style.background = '#fff5f5';
+            updateLocalTotal();
         }
 
         // ── Cost Calculator ──
         var planSelect = document.getElementById('planSelect');
 
         var planData = {
-            starter:  { setupApi: 2500, monthlyApi: 79,  setupSelf: 0,    monthlySelf: 0,   label: 'Starter' },
-            pro:      { setupApi: 4000, monthlyApi: 149, setupSelf: 5000, monthlySelf: 99,   label: 'Pro' },
-            power:    { setupApi: 5500, monthlyApi: 249, setupSelf: 6500, monthlySelf: 129,  label: 'Power' },
-            max:      { setupApi: 0,    monthlyApi: 0,   setupSelf: 8000, monthlySelf: 149,  label: 'Max' }
+            starter:  { setupApi: 2500, monthlyApi: 69,  setupSelf: 0,    monthlySelf: 0,   label: 'Starter' },
+            pro:      { setupApi: 4000, monthlyApi: 129, setupSelf: 5000, monthlySelf: 49,   label: 'Pro' },
+            power:    { setupApi: 5500, monthlyApi: 199, setupSelf: 6500, monthlySelf: 69,   label: 'Power' },
+            max:      { setupApi: 0,    monthlyApi: 0,   setupSelf: 8000, monthlySelf: 89,   label: 'Max' }
         };
 
         function updateCalculator() {
@@ -3147,6 +3219,17 @@
             var clusterCost = extraNodes * (selectedHardware + 1500);
             var total = selectedBase + selectedHardware + clusterCost + addonsTotal;
             document.getElementById('localTotal').textContent = '$' + total.toLocaleString();
+
+            // Update monthly label based on whether local credits toggle is active
+            var localCreditsVisible = document.getElementById('local-credits') && document.getElementById('local-credits').style.display !== 'none';
+            var monthlyLabel = document.getElementById('localMonthlyLabel');
+            if (monthlyLabel) {
+                if (localCreditsVisible && localCreditsMonthly > 0) {
+                    monthlyLabel.textContent = '| + $' + localCreditsMonthly + '/mo AI credits';
+                } else {
+                    monthlyLabel.textContent = '| $0/mo forever';
+                }
+            }
         }
 
         updateLocalTotal();
