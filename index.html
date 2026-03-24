@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The AI 101 | Your AI Agent, Deployed and Running in 48 Hours</title>
-    <meta name="description" content="The AI 101 — OpenClaw Setup-as-a-Service. We deploy autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — 24/7. White-glove setup, self-hosted option, 100% uptime SLA.">
+    <meta name="description" content="The AI 101 — OpenClaw Setup-as-a-Service. We deploy autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — 24/7. White-glove setup, cloud or local hosting, 100% uptime SLA.">
     <link rel="icon" type="image/png" href="favicon.png?v=3">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://theai101.shop/">
     <meta property="og:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
-    <meta property="og:description" content="White-glove OpenClaw deployment. We set up autonomous AI agents that manage email, calendar, social media, code, and more. Self-hosted option saves $2K-6K/year.">
+    <meta property="og:description" content="White-glove OpenClaw deployment. Cloud or local hosting. We set up autonomous AI agents that manage email, calendar, social media, code, and more.">
     <meta property="og:image" content="https://theai101.shop/logo.png">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
-    <meta name="twitter:description" content="White-glove OpenClaw deployment. Self-hosted AI saves $2K-6K/year in API costs.">
+    <meta name="twitter:description" content="White-glove OpenClaw deployment. Cloud or local hosting saves $2K-6K/year in API costs.">
     <meta name="twitter:image" content="https://theai101.shop/logo.png">
 
     <!-- Canonical -->
@@ -89,7 +89,9 @@
         .feature-card:hover .icon-svg,
         .step-card:hover .icon-svg,
         .stat-card:hover .icon-svg,
-        .integration-badge:hover .icon-svg {
+        .integration-badge:hover .icon-svg,
+        .deploy-card:hover .icon-svg,
+        .hostinger-card:hover .icon-svg {
             transform: translateY(-3px) scale(1.1);
             filter: drop-shadow(0 4px 12px rgba(220, 38, 38, 0.25));
         }
@@ -103,7 +105,6 @@
             animation: iconPulse 3s ease-in-out infinite;
         }
 
-        /* SVG star styles */
         .svg-star {
             display: inline-block;
             vertical-align: middle;
@@ -656,235 +657,278 @@
             font-weight: 500;
         }
 
-        /* ── Self-Hosted Spotlight ── */
-        .self-hosted {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .self-hosted::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(220, 38, 38, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .self-hosted-inner {
-            position: relative;
+        /* ── Two Ways to Deploy ── */
+        .deploy-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            gap: 2rem;
         }
 
         @media (max-width: 768px) {
-            .self-hosted-inner {
+            .deploy-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .self-hosted-text h2 {
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            font-weight: 800;
-            margin-bottom: 1.25rem;
-            line-height: 1.15;
+        .deploy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
         }
 
-        .self-hosted-text > p {
+        .deploy-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(220, 38, 38, 0.08);
+            border-color: var(--border-accent);
+        }
+
+        .deploy-card.cloud-card {
+            border-left: 4px solid #dc2626;
+        }
+
+        .deploy-card.local-card {
+            border-left: 4px solid #b91c1c;
+        }
+
+        .deploy-badge {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.08);
+            color: var(--accent-cyan);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .deploy-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.35rem;
+        }
+
+        .deploy-tagline {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
 
-        .self-hosted-text ul {
+        .deploy-features {
             list-style: none;
             margin-bottom: 1.5rem;
         }
 
-        .self-hosted-text ul li {
+        .deploy-features li {
+            font-size: 0.9rem;
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            padding: 0.4rem 0;
+            padding: 0.35rem 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.6rem;
         }
 
-        .self-hosted-text ul li::before {
+        .deploy-features li::before {
             content: '\2713';
             color: var(--accent-cyan);
             font-weight: 700;
             flex-shrink: 0;
         }
 
-        .self-hosted-savings {
-            font-size: 1.1rem;
+        .deploy-price {
+            font-size: 1.15rem;
             font-weight: 700;
             background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .terminal-box {
-            background: #0a1220;
-            border: 1px solid rgba(220, 38, 38, 0.15);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem 2rem;
-            font-family: 'Courier New', Consolas, monospace;
-            font-size: 0.88rem;
-            line-height: 1.8;
-            color: #dc2626;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 40px rgba(220, 38, 38, 0.04), inset 0 0 60px rgba(0,0,0,0.3);
+        .deploy-card .btn-primary,
+        .deploy-card .btn-secondary {
+            width: 100%;
+            justify-content: center;
         }
 
-        .terminal-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 36px;
-            background: rgba(255,255,255,0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .terminal-dots {
-            position: absolute;
-            top: 10px;
-            left: 14px;
-            display: flex;
-            gap: 6px;
-        }
-
-        .terminal-dots span {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .terminal-dots span:nth-child(1) { background: #ff5f57; }
-        .terminal-dots span:nth-child(2) { background: #ffbd2e; }
-        .terminal-dots span:nth-child(3) { background: #28c940; }
-
-        .terminal-content {
-            margin-top: 1.25rem;
-        }
-
-        .terminal-line {
-            display: block;
-        }
-
-        .terminal-cmd {
-            color: #e6edf3;
-        }
-
-        .terminal-success {
-            color: #28c940;
-        }
-
-        .terminal-dim {
-            color: #64748b;
-        }
-
-        /* ── How It Works ── */
-        .how-it-works {
+        /* ── Cost Calculator ── */
+        .calculator-section {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-subtle);
             border-bottom: 1px solid var(--border-subtle);
         }
 
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            position: relative;
+        .calc-controls {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            justify-content: center;
         }
 
-        .steps-grid::before {
-            content: '';
-            position: absolute;
-            top: 3rem;
-            left: 12.5%;
-            right: 12.5%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue), var(--accent-cyan));
-            opacity: 0.3;
+        .calc-control {
+            flex: 1;
+            min-width: 260px;
+            max-width: 400px;
         }
 
-        @media (max-width: 768px) {
-            .steps-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .steps-grid::before {
-                display: none;
-            }
+        .calc-control label {
+            display: block;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
-        @media (max-width: 480px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
+        .calc-control input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+            border-radius: 3px;
+            outline: none;
+            margin-bottom: 0.35rem;
         }
 
-        .step-card {
+        .calc-control input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border: 3px solid #dc2626;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+        }
+
+        .calc-control input[type="range"]::-moz-range-thumb {
+            width: 22px;
+            height: 22px;
+            background: #fff;
+            border: 3px solid #dc2626;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+        }
+
+        .calc-control select {
+            width: 100%;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .calc-slider-val {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .calc-table-wrap {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
             border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .calc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .calc-table th,
+        .calc-table td {
+            padding: 0.85rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .calc-table th {
+            background: var(--bg-secondary);
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .calc-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .calc-table .year-row td {
+            font-weight: 700;
+        }
+
+        .calc-table .year3-row td {
+            font-weight: 800;
+            background: rgba(220, 38, 38, 0.04);
+        }
+
+        .calc-table td:first-child {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .calc-verdict {
             text-align: center;
-            position: relative;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: 800;
         }
 
-        .step-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.06);
+        .calc-verdict .savings-num {
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            transition: transform 0.3s;
         }
 
-        .step-number {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
+        @media (max-width: 640px) {
+            .calc-table {
+                font-size: 0.78rem;
+            }
+            .calc-table th,
+            .calc-table td {
+                padding: 0.6rem 0.75rem;
+            }
+        }
+
+        /* ── Pricing Section ── */
+        .pricing-track-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 0 auto 1.25rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step-icon {
-            margin-bottom: 0.75rem;
-        }
-
-        .step-card h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
+            gap: 0.75rem;
             margin-bottom: 0.5rem;
         }
 
-        .step-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
+        .pricing-track-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
         }
 
-        /* ── Pricing Cards ── */
+        .pricing-track-sub {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -981,6 +1025,13 @@
             color: var(--text-muted);
         }
 
+        .pricing-monthly {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
         .pricing-desc {
             font-size: 0.88rem;
             color: var(--text-secondary);
@@ -990,7 +1041,7 @@
 
         .pricing-features {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
             flex: 1;
         }
 
@@ -1011,6 +1062,13 @@
             margin-top: 1px;
         }
 
+        .pricing-year-est {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
         .pricing-card .btn-primary,
         .pricing-card .btn-secondary {
             width: 100%;
@@ -1018,64 +1076,443 @@
             text-align: center;
         }
 
-        /* ── Add-ons ── */
-        .addons {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 4rem 2rem;
+        .pricing-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+            line-height: 1.6;
         }
 
-        .addons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .addon-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius);
-            padding: 1.5rem;
+        /* ── OR Divider ── */
+        .or-divider {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            gap: 1.5rem;
+            margin: 4rem 0;
         }
 
-        .addon-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.06);
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-subtle);
         }
 
-        .addon-price {
-            font-size: 1.1rem;
+        .or-divider span {
+            font-size: 1rem;
             font-weight: 700;
-            background: var(--gradient-primary);
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* ── Local Builder ── */
+        .local-base-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .local-base-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .base-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .base-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.08);
+        }
+
+        .base-card.selected {
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15), 0 8px 25px rgba(220, 38, 38, 0.1);
+        }
+
+        .base-card .base-name {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        .base-card .base-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            white-space: nowrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .base-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .base-card ul li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .base-card ul li::before {
+            content: '\2713';
+            color: var(--accent-cyan);
+            font-weight: 700;
             flex-shrink: 0;
         }
 
-        .addon-info h4 {
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
+        .builder-step-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
         }
 
-        .addon-info p {
+        .builder-step-title span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .hw-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hw-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.55rem 1.1rem;
+            border: 2px solid var(--border-subtle);
+            border-radius: 999px;
             font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+        }
+
+        .hw-pill:hover {
+            border-color: var(--border-accent);
+            background: rgba(220, 38, 38, 0.04);
+        }
+
+        .hw-pill.selected {
+            border-color: #dc2626;
+            background: rgba(220, 38, 38, 0.08);
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        .hw-pill .hw-price {
+            font-weight: 700;
+        }
+
+        .cluster-option {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cluster-option.visible {
+            display: flex;
+        }
+
+        .cluster-option p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cluster-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+
+        .cluster-counter button {
+            width: 36px;
+            height: 36px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: background 0.2s;
+        }
+
+        .cluster-counter button:hover {
+            background: rgba(220, 38, 38, 0.06);
+        }
+
+        .cluster-counter .cluster-val {
+            width: 36px;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-left: 1px solid var(--border-subtle);
+            border-right: 1px solid var(--border-subtle);
+            line-height: 36px;
+        }
+
+        .addons-checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .addon-check {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .addon-check:hover {
+            border-color: var(--border-accent);
+            background: rgba(220, 38, 38, 0.02);
+        }
+
+        .addon-check.checked {
+            border-color: #dc2626;
+            background: rgba(220, 38, 38, 0.04);
+        }
+
+        .addon-check input[type="checkbox"] {
+            accent-color: #dc2626;
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .addon-check .addon-check-price {
+            margin-left: auto;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            white-space: nowrap;
+        }
+
+        .local-total-bar {
+            background: var(--bg-card);
+            border: 2px solid var(--border-accent);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .local-total-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .local-total-text .total-amount {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .local-total-text .total-monthly {
             color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ── How It Works ── */
+        .how-it-works {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 3rem;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-teal), var(--accent-blue), var(--accent-cyan));
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .steps-grid::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.06);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 auto 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-icon {
+            margin-bottom: 0.75rem;
+        }
+
+        .step-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* ── Powered by Hostinger ── */
+        .hostinger-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .hostinger-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hostinger-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hostinger-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hostinger-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(220, 38, 38, 0.06);
+        }
+
+        .hostinger-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hostinger-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
         /* ── Managed Care ── */
-        .managed-care {
-            /* no special bg - uses default */
-        }
-
         .managed-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1398,7 +1835,7 @@
 </head>
 <body>
 
-    <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+    <!-- ═══════════════════════ 1. NAVIGATION ═══════════════════════ -->
     <nav>
         <div class="nav-inner">
             <a href="#" class="nav-brand">
@@ -1407,9 +1844,8 @@
             </a>
             <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Toggle menu">&#9776;</button>
             <ul class="nav-links">
-                <li><a href="#what-is-openclaw">What is OpenClaw</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#integrations">Integrations</a></li>
+                <li><a href="#compare">Compare</a></li>
+                <li><a href="#calculator">Calculator</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="configure.html" class="nav-cta">Get Started</a></li>
@@ -1417,30 +1853,30 @@
         </div>
     </nav>
 
-    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <!-- ═══════════════════════ 2. HERO ═══════════════════════ -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <div>
                 <img src="logo-crab.png?v=3" alt="The AI 101 Crab" class="hero-logo" style="width: 140px; height: auto;">
             </div>
             <div class="hero-brand-name">THE AI 101</div>
-            <div class="hero-badge">&#129408; Powered by OpenClaw &mdash; The #1 Open-Source AI Agent</div>
+            <div class="hero-badge">&#129408; Powered by OpenClaw</div>
             <h1>Your AI Agent, Deployed and Running in 48 Hours</h1>
-            <p>We handle the complex setup so you can focus on what your AI agent actually does for your business. From email automation to full autonomous teams.</p>
+            <p>Deploy in the cloud or own it locally. We handle the complexity so you can focus on results.</p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn-primary">See Pricing &darr;</a>
-                <a href="#contact" class="btn-secondary">Book a Discovery Call</a>
+                <a href="#compare" class="btn-primary">Compare Options &darr;</a>
+                <a href="#contact" class="btn-secondary">Book a Call</a>
             </div>
             <div class="trust-strip">
                 <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> White-Glove Setup</span>
                 <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> Security Audited</span>
-                <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> Self-Hosted Option</span>
+                <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> Cloud &amp; Local Options</span>
                 <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> 100% Uptime SLA</span>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ WHAT IS OPENCLAW ═══════════════════════ -->
+    <!-- ═══════════════════════ 3. WHAT IS OPENCLAW ═══════════════════════ -->
     <section class="what-is" id="what-is-openclaw">
         <div class="container">
             <div class="what-is-text fade-in">
@@ -1451,7 +1887,6 @@
             <div class="stat-grid fade-in">
                 <div class="stat-card">
                     <div class="stat-icon-wrap">
-                        <!-- Grid/Apps SVG -->
                         <svg class="icon-svg stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
                     </div>
                     <div class="stat-number">300+</div>
@@ -1460,7 +1895,6 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon-wrap">
-                        <!-- Clock/24h SVG -->
                         <svg class="icon-svg stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
                     <div class="stat-number">24/7</div>
@@ -1469,7 +1903,6 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon-wrap">
-                        <!-- Network Nodes SVG -->
                         <svg class="icon-svg stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="12" y1="8" x2="5" y2="16"/><line x1="12" y1="8" x2="19" y2="16"/><line x1="5" y1="19" x2="19" y2="19"/></svg>
                     </div>
                     <div class="stat-number">Multi</div>
@@ -1478,7 +1911,6 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon-wrap">
-                        <!-- Server SVG -->
                         <svg class="icon-svg stat-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="#dc2626"/><circle cx="6" cy="18" r="1" fill="#dc2626"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
                     </div>
                     <div class="stat-number">100%</div>
@@ -1489,7 +1921,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ ENDLESS POSSIBILITIES ═══════════════════════ -->
+    <!-- ═══════════════════════ 4. ENDLESS POSSIBILITIES ═══════════════════════ -->
     <section id="possibilities">
         <div class="container section-center">
             <div class="fade-in">
@@ -1500,7 +1932,6 @@
             <div class="possibilities-grid fade-in">
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Envelope SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
                     </div>
                     <h4>Email Management</h4>
@@ -1508,7 +1939,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Calendar SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><rect x="7" y="14" width="3" height="3" rx="0.5"/></svg>
                     </div>
                     <h4>Calendar &amp; Scheduling</h4>
@@ -1516,7 +1946,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Share/Network SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
                     </div>
                     <h4>Social Media Automation</h4>
@@ -1524,7 +1953,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Code Brackets SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
                     </div>
                     <h4>Code Generation &amp; Review</h4>
@@ -1532,7 +1960,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Magnifying Glass SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                     </div>
                     <h4>Market Research</h4>
@@ -1540,7 +1967,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Pen/Document SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                     </div>
                     <h4>Content Creation</h4>
@@ -1548,7 +1974,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Trending Up Chart SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
                     </div>
                     <h4>Sales &amp; Lead Gen</h4>
@@ -1556,7 +1981,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Bar Chart SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
                     </div>
                     <h4>Business Analytics</h4>
@@ -1564,7 +1988,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Shopping Cart SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
                     </div>
                     <h4>E-Commerce Operations</h4>
@@ -1572,7 +1995,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Home SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     </div>
                     <h4>Smart Home &amp; IoT</h4>
@@ -1580,7 +2002,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- Book SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="13" y2="11"/></svg>
                     </div>
                     <h4>Research &amp; Learning</h4>
@@ -1588,7 +2009,6 @@
                 </div>
                 <div class="possibility-card">
                     <div class="possibility-icon">
-                        <!-- People/Users SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h4>Team Coordination</h4>
@@ -1598,7 +2018,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ AI-POWERED FEATURES ═══════════════════════ -->
+    <!-- ═══════════════════════ 5. AI-POWERED FEATURES ═══════════════════════ -->
     <section class="features-section" id="features">
         <div class="container section-center">
             <div class="fade-in">
@@ -1609,7 +2029,6 @@
             <div class="features-grid fade-in">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Brain/Neural SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="10" y1="17" x2="10" y2="21"/><line x1="14" y1="17" x2="14" y2="21"/><circle cx="10" cy="9" r="1" fill="#dc2626" stroke="none"/><circle cx="14" cy="9" r="1" fill="#dc2626" stroke="none"/><circle cx="12" cy="12" r="1" fill="#dc2626" stroke="none"/><line x1="10" y1="9" x2="12" y2="12"/><line x1="14" y1="9" x2="12" y2="12"/></svg>
                     </div>
                     <h4>Smart Model Selection</h4>
@@ -1617,7 +2036,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Link Chain SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                     </div>
                     <h4>50+ Native Integrations</h4>
@@ -1625,7 +2043,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Shield/Lock SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 0 1 4 0v2"/></svg>
                     </div>
                     <h4>Military-Grade Security</h4>
@@ -1633,7 +2050,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Lightning Bolt SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </div>
                     <h4>Cron Automation</h4>
@@ -1641,7 +2057,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Puzzle Piece SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14v4a2 2 0 0 1-2 2h-4a1 1 0 0 1 0-2 1.5 1.5 0 1 0 0-3H10a1.5 1.5 0 1 0 0 3 1 1 0 0 1 0 2H6a2 2 0 0 1-2-2v-4a1 1 0 0 1 2 0 1.5 1.5 0 1 0 0-3 1 1 0 0 1-2 0V6a2 2 0 0 1 2-2h4a1 1 0 0 1 0 2 1.5 1.5 0 0 0 0 3h4a1.5 1.5 0 0 0 0-3 1 1 0 0 1 0-2h4a2 2 0 0 1 2 2v5a1 1 0 0 1-2 0 1.5 1.5 0 0 0 0 3 1 1 0 0 1 2 0z"/></svg>
                     </div>
                     <h4>Custom Skill Development</h4>
@@ -1649,7 +2064,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Users Group SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h4>Multi-Agent Architecture</h4>
@@ -1657,7 +2071,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Database/Chip SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/></svg>
                     </div>
                     <h4>Persistent Memory</h4>
@@ -1665,7 +2078,6 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <!-- Broadcast/Signal SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1a15 15 0 0 1 0-14.2"/><path d="M7.8 16.2a10 10 0 0 1 0-8.4"/><circle cx="12" cy="12" r="2"/><path d="M16.2 16.2a10 10 0 0 0 0-8.4"/><path d="M19.1 19.1a15 15 0 0 0 0-14.2"/></svg>
                     </div>
                     <h4>Real-Time Channels</h4>
@@ -1675,7 +2087,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ INTEGRATIONS ═══════════════════════ -->
+    <!-- ═══════════════════════ 6. INTEGRATIONS ═══════════════════════ -->
     <section id="integrations">
         <div class="container section-center">
             <div class="fade-in">
@@ -1709,45 +2121,365 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ SELF-HOSTED AI SPOTLIGHT ═══════════════════════ -->
-    <section class="self-hosted" id="self-hosted">
-        <div class="container">
-            <div class="self-hosted-inner fade-in">
-                <div class="self-hosted-text">
-                    <div class="section-label">Self-Hosted AI</div>
-                    <h2>Stop Paying $300/Month for AI APIs</h2>
-                    <p>What if your AI agent cost $0/month to run?</p>
-                    <ul>
-                        <li>Zero ongoing API costs</li>
-                        <li>Full data privacy &mdash; nothing leaves your server</li>
-                        <li>No rate limits or throttling</li>
-                        <li>No vendor lock-in</li>
-                        <li>Faster inference with GPU</li>
-                        <li>HIPAA/SOC2 compliance friendly</li>
+    <!-- ═══════════════════════ 7. TWO WAYS TO DEPLOY ═══════════════════════ -->
+    <section id="compare">
+        <div class="container section-center">
+            <div class="fade-in">
+                <div class="section-label">Two Ways to Deploy</div>
+                <h2 class="section-title">Choose How You Want to Run Your AI</h2>
+                <p class="section-subtitle">Both paths get you a fully configured, production-ready AI agent. The difference is where it lives.</p>
+            </div>
+            <div class="deploy-grid fade-in">
+                <!-- CLOUD HOSTING -->
+                <div class="deploy-card cloud-card">
+                    <div style="margin-bottom: 1rem;">
+                        <svg class="icon-svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                    </div>
+                    <div class="deploy-badge">Fastest to Start</div>
+                    <h3>Cloud Hosting</h3>
+                    <p class="deploy-tagline">Deploy in minutes, scale as you grow</p>
+                    <ul class="deploy-features">
+                        <li>One-click deploy via Hostinger VPS</li>
+                        <li>NemoClaw secure sandbox included</li>
+                        <li>Nexos AI credits &mdash; no API key management</li>
+                        <li>Self-hosted Ollama option for $0 API cost</li>
+                        <li>Scale up or down anytime</li>
+                        <li>24/7 monitoring included</li>
                     </ul>
-                    <div class="self-hosted-savings">Typical savings: $2,000 &mdash; $6,000 per year</div>
-                    <a href="#pricing" class="btn-primary">View Self-Hosted Tier</a>
+                    <div class="deploy-price">Setup from $2,500 + from $64/mo</div>
+                    <a href="#pricing-cloud" class="btn-primary">See Cloud Plans</a>
                 </div>
-                <div class="terminal-box">
-                    <div class="terminal-dots">
-                        <span></span><span></span><span></span>
+
+                <!-- LOCAL HOSTING -->
+                <div class="deploy-card local-card">
+                    <div style="margin-bottom: 1rem;">
+                        <svg class="icon-svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#b91c1c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="#b91c1c"/><circle cx="6" cy="18" r="1" fill="#b91c1c"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
                     </div>
-                    <div class="terminal-content">
-                        <span class="terminal-line"><span class="terminal-cmd">$ ollama run qwen3.5:27b</span></span>
-                        <span class="terminal-line"><span class="terminal-success">&#10003;</span> Model loaded &mdash; 24GB RAM, RTX 4090</span>
-                        <span class="terminal-line"><span class="terminal-success">&#10003;</span> Inference speed: 15 tokens/sec</span>
-                        <span class="terminal-line"><span class="terminal-success">&#10003;</span> Monthly API cost: <span class="terminal-cmd">$0.00</span></span>
-                        <span class="terminal-line"><span class="terminal-success">&#10003;</span> Data leaving server: <span class="terminal-cmd">None</span></span>
-                        <span class="terminal-line"><span class="terminal-success">&#10003;</span> Rate limits: <span class="terminal-cmd">Unlimited</span></span>
-                        <span class="terminal-line">&nbsp;</span>
-                        <span class="terminal-line"><span class="terminal-dim">Ready. Your AI agent is fully autonomous.</span></span>
-                    </div>
+                    <div class="deploy-badge">Best Long-Term Value</div>
+                    <h3>Local Hosting</h3>
+                    <p class="deploy-tagline">Own it forever, zero monthly costs</p>
+                    <ul class="deploy-features">
+                        <li>Mac Mini or your own hardware</li>
+                        <li>Full data privacy &mdash; nothing leaves your network</li>
+                        <li>$0/month ongoing costs</li>
+                        <li>No vendor lock-in or rate limits</li>
+                        <li>Break even in 6-12 months vs cloud</li>
+                        <li>Build your setup with add-ons</li>
+                    </ul>
+                    <div class="deploy-price">One-time from $4,500 + $0/mo</div>
+                    <a href="#pricing-local" class="btn-secondary">Build Your Setup</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ HOW IT WORKS ═══════════════════════ -->
+    <!-- ═══════════════════════ 8. INTERACTIVE COST CALCULATOR ═══════════════════════ -->
+    <section class="calculator-section" id="calculator">
+        <div class="container section-center">
+            <div class="fade-in">
+                <div class="section-label">Cost Calculator</div>
+                <h2 class="section-title">See Your 3-Year Total Cost</h2>
+                <p class="section-subtitle">Compare what you'll actually spend over time.</p>
+            </div>
+            <div class="fade-in">
+                <div class="calc-controls">
+                    <div class="calc-control">
+                        <label for="apiSlider">Monthly API budget (if using cloud AI)</label>
+                        <input type="range" id="apiSlider" min="0" max="500" value="200" step="25">
+                        <div class="calc-slider-val" id="apiSliderVal">$200/mo</div>
+                    </div>
+                    <div class="calc-control">
+                        <label for="vpsSelect">Cloud VPS plan</label>
+                        <select id="vpsSelect">
+                            <option value="15">KVM 1 &mdash; 4GB RAM ($15/mo)</option>
+                            <option value="20">KVM 2 &mdash; 8GB RAM ($20/mo)</option>
+                            <option value="30" selected>KVM 4 &mdash; 16GB RAM ($30/mo)</option>
+                            <option value="50">KVM 8 &mdash; 32GB RAM ($50/mo)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="calc-table-wrap">
+                    <table class="calc-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Cloud + API</th>
+                                <th>Cloud Self-Hosted</th>
+                                <th>Local (Mac Mini M4 Pro 48GB)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Setup fee</td>
+                                <td id="c-setup-api">$5,500</td>
+                                <td id="c-setup-self">$5,500</td>
+                                <td id="c-setup-local">$9,500</td>
+                            </tr>
+                            <tr>
+                                <td>Hardware</td>
+                                <td>$0</td>
+                                <td>$0</td>
+                                <td>Included</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly hosting</td>
+                                <td id="c-host-api">$30/mo</td>
+                                <td id="c-host-self">$30/mo</td>
+                                <td>$0</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly API</td>
+                                <td id="c-api-api">$200/mo</td>
+                                <td>$0</td>
+                                <td>$0</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly care</td>
+                                <td>$99/mo</td>
+                                <td>$99/mo</td>
+                                <td>$0 (optional)</td>
+                            </tr>
+                            <tr class="year-row">
+                                <td><strong>Year 1</strong></td>
+                                <td id="c-y1-api"><strong>$9,448</strong></td>
+                                <td id="c-y1-self"><strong>$7,048</strong></td>
+                                <td id="c-y1-local"><strong>$9,500</strong></td>
+                            </tr>
+                            <tr class="year-row">
+                                <td><strong>Year 2</strong></td>
+                                <td id="c-y2-api"><strong>$13,396</strong></td>
+                                <td id="c-y2-self"><strong>$8,596</strong></td>
+                                <td id="c-y2-local"><strong>$9,500</strong></td>
+                            </tr>
+                            <tr class="year-row year3-row">
+                                <td><strong>Year 3</strong></td>
+                                <td id="c-y3-api"><strong>$17,344</strong></td>
+                                <td id="c-y3-self"><strong>$10,144</strong></td>
+                                <td id="c-y3-local"><strong>$9,500</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="calc-verdict">
+                    Local saves you<br>
+                    <span class="savings-num" id="calcSavings">$7,844</span><br>
+                    over 3 years
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ 9. PRICING ═══════════════════════ -->
+    <section id="pricing">
+        <div class="container section-center">
+            <div class="fade-in">
+                <div class="section-label">Pricing</div>
+                <h2 class="section-title">Choose Your Path</h2>
+                <p class="section-subtitle">Setup fee covers everything: deployment, configuration, security audit, training, and documentation.</p>
+            </div>
+
+            <!-- CLOUD TRACK -->
+            <div id="pricing-cloud" class="fade-in" style="margin-bottom: 3rem;">
+                <div class="pricing-track-header">
+                    <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                    <h3>Cloud Track &mdash; Setup + Monthly</h3>
+                </div>
+                <p class="pricing-track-sub">Lower upfront. Powered by Hostinger VPS. Scale anytime.</p>
+
+                <div class="pricing-grid">
+                    <!-- Cloud Starter -->
+                    <div class="pricing-card">
+                        <div class="pricing-tier">Cloud Starter</div>
+                        <div class="pricing-price">$2,500</div>
+                        <div class="pricing-monthly">+ $64/mo</div>
+                        <ul class="pricing-features">
+                            <li>Hostinger KVM 1 (4GB RAM)</li>
+                            <li>1 AI agent</li>
+                            <li>Cloud AI via Nexos credits</li>
+                            <li>1 channel (Telegram or Discord)</li>
+                            <li>5 skills installed</li>
+                            <li>NemoClaw secure sandbox</li>
+                            <li>14-day priority support</li>
+                        </ul>
+                        <div class="pricing-year-est">Year 1: ~$3,268 | Year 3: ~$4,804</div>
+                        <a href="https://square.link/u/rh9G3k8U" target="_blank" class="btn-secondary">Get Started</a>
+                    </div>
+
+                    <!-- Cloud Pro -->
+                    <div class="pricing-card">
+                        <div class="pricing-tier">Cloud Pro</div>
+                        <div class="pricing-price">$4,000</div>
+                        <div class="pricing-monthly">+ $99/mo</div>
+                        <ul class="pricing-features">
+                            <li>Hostinger KVM 2 (8GB RAM)</li>
+                            <li>Up to 3 agents</li>
+                            <li>Self-hosted 8B model OR cloud AI</li>
+                            <li>Multi-channel</li>
+                            <li>10+ skills</li>
+                            <li>Notion CRM integration</li>
+                            <li>30-day priority support</li>
+                        </ul>
+                        <div class="pricing-year-est">Year 1: ~$5,188 | Year 3: ~$7,564</div>
+                        <a href="https://square.link/u/TNjD7Rka" target="_blank" class="btn-secondary">Get Started</a>
+                    </div>
+
+                    <!-- Cloud Power (Featured) -->
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-tier">Cloud Power</div>
+                        <div class="pricing-price">$5,500</div>
+                        <div class="pricing-monthly">+ $129/mo</div>
+                        <ul class="pricing-features">
+                            <li>Hostinger KVM 4 (16GB RAM)</li>
+                            <li>Up to 3 agents</li>
+                            <li>Self-hosted 14B model ($0 API cost)</li>
+                            <li>All integrations included</li>
+                            <li>Cron automation</li>
+                            <li>30-day priority support</li>
+                        </ul>
+                        <div class="pricing-year-est">Year 1: ~$7,048 | Year 3: ~$10,144</div>
+                        <a href="https://square.link/u/ErYXi4eV" target="_blank" class="btn-primary">Get Started</a>
+                    </div>
+
+                    <!-- Cloud Enterprise -->
+                    <div class="pricing-card">
+                        <div class="pricing-tier">Cloud Enterprise</div>
+                        <div class="pricing-price">$7,500</div>
+                        <div class="pricing-monthly">+ $199/mo</div>
+                        <ul class="pricing-features">
+                            <li>Hostinger KVM 8 (32GB RAM)</li>
+                            <li>5+ agents</li>
+                            <li>Self-hosted 27B model</li>
+                            <li>Custom skill development</li>
+                            <li>Priority dedicated support</li>
+                            <li>60-day support</li>
+                        </ul>
+                        <div class="pricing-year-est">Year 1: ~$9,888 | Year 3: ~$14,664</div>
+                        <a href="https://square.link/u/gpQok69H" target="_blank" class="btn-secondary">Get Started</a>
+                    </div>
+                </div>
+                <p class="pricing-note">Need more compute? Oracle Cloud and AWS available for heavy workloads and compliance requirements. <a href="#contact" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">Contact us</a>.</p>
+            </div>
+
+            <!-- OR DIVIDER -->
+            <div class="or-divider fade-in">
+                <span>&mdash; OR &mdash;</span>
+            </div>
+
+            <!-- LOCAL TRACK -->
+            <div id="pricing-local" class="fade-in" style="text-align: left;">
+                <div class="pricing-track-header" style="justify-content: center;">
+                    <svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><circle cx="6" cy="6" r="1" fill="#dc2626"/><circle cx="6" cy="18" r="1" fill="#dc2626"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
+                    <h3>Local Track &mdash; One-Time, Build Your Setup</h3>
+                </div>
+                <p class="pricing-track-sub">Higher upfront, zero monthly. Pay once, save $2K-6K every year.</p>
+
+                <!-- Step 1: Base Package -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>1</span> Choose Base Package</div>
+                    <div class="local-base-grid">
+                        <div class="base-card" data-base="4500" onclick="selectBase(this, 4500)">
+                            <div class="base-name">Local Essentials</div>
+                            <div class="base-price">$4,500</div>
+                            <ul>
+                                <li>1 agent</li>
+                                <li>1 channel</li>
+                                <li>5 skills</li>
+                                <li>14-day support</li>
+                            </ul>
+                        </div>
+                        <div class="base-card selected" data-base="6000" onclick="selectBase(this, 6000)">
+                            <div class="deploy-badge" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%);">Popular</div>
+                            <div class="base-name">Local Professional</div>
+                            <div class="base-price">$6,000</div>
+                            <ul>
+                                <li>Up to 3 agents</li>
+                                <li>Multi-channel</li>
+                                <li>10+ skills + Notion</li>
+                                <li>30-day support</li>
+                            </ul>
+                        </div>
+                        <div class="base-card" data-base="8500" onclick="selectBase(this, 8500)">
+                            <div class="base-name">Local Enterprise</div>
+                            <div class="base-price">$8,500</div>
+                            <ul>
+                                <li>5+ agents</li>
+                                <li>Multi-channel + custom</li>
+                                <li>Custom skills</li>
+                                <li>60-day support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Hardware -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>2</span> Choose Hardware</div>
+                    <div class="hw-pills">
+                        <div class="hw-pill selected" data-hw="0" onclick="selectHardware(this, 0)">BYOD (Your Device) <span class="hw-price">+$0</span></div>
+                        <div class="hw-pill" data-hw="599" onclick="selectHardware(this, 599)">M4 16GB <span class="hw-price">+$599</span></div>
+                        <div class="hw-pill" data-hw="799" onclick="selectHardware(this, 799)">M4 16GB/512GB <span class="hw-price">+$799</span></div>
+                        <div class="hw-pill" data-hw="999" onclick="selectHardware(this, 999)">M4 24GB <span class="hw-price">+$999</span></div>
+                        <div class="hw-pill" data-hw="1399" onclick="selectHardware(this, 1399)">M4 Pro 24GB <span class="hw-price">+$1,399</span></div>
+                        <div class="hw-pill" data-hw="1999" onclick="selectHardware(this, 1999)">M4 Pro 48GB <span class="hw-price">+$1,999</span></div>
+                        <div class="hw-pill" data-hw="2399" onclick="selectHardware(this, 2399)">M4 Pro 64GB <span class="hw-price">+$2,399</span></div>
+                    </div>
+                    <div class="cluster-option" id="clusterOption">
+                        <p>Add cluster nodes? Each additional: +$<span id="clusterHwPrice">0</span> hardware + $1,500 setup</p>
+                        <div class="cluster-counter">
+                            <button onclick="changeCluster(-1)">&#8722;</button>
+                            <div class="cluster-val" id="clusterVal">1</div>
+                            <button onclick="changeCluster(1)">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Add-ons -->
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="builder-step-title"><span>3</span> Optional Add-ons</div>
+                    <div class="addons-checklist">
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="1500"> Extra AI agent <span class="addon-check-price">+$1,500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; Slack <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; WhatsApp <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Extra channel &mdash; Email <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> Notion CRM <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="500"> GitHub integration <span class="addon-check-price">+$500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="1000"> Custom skill <span class="addon-check-price">+$1,000</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="1500"> Hardware sourcing <span class="addon-check-price">+$1,500</span>
+                        </label>
+                        <label class="addon-check" onclick="toggleAddon(this)">
+                            <input type="checkbox" data-addon="250"> Training session <span class="addon-check-price">+$250</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Running Total -->
+                <div class="local-total-bar">
+                    <div class="local-total-text">
+                        Your Setup: <span class="total-amount" id="localTotal">$6,000</span> one-time <span class="total-monthly">| $0/mo forever</span>
+                    </div>
+                    <a href="configure.html" class="btn-primary">Build This Setup &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════ 10. HOW IT WORKS ═══════════════════════ -->
     <section class="how-it-works" id="how-it-works">
         <div class="container section-center">
             <div class="fade-in">
@@ -1759,7 +2491,6 @@
                 <div class="step-card">
                     <div class="step-number">1</div>
                     <div class="step-icon">
-                        <!-- Phone SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     </div>
                     <h4>Discovery</h4>
@@ -1768,7 +2499,6 @@
                 <div class="step-card">
                     <div class="step-number">2</div>
                     <div class="step-icon">
-                        <!-- Wrench/Gear SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                     </div>
                     <h4>We Build It</h4>
@@ -1777,7 +2507,6 @@
                 <div class="step-card">
                     <div class="step-number">3</div>
                     <div class="step-icon">
-                        <!-- Checkmark Shield SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
                     </div>
                     <h4>Security Audit</h4>
@@ -1786,7 +2515,6 @@
                 <div class="step-card">
                     <div class="step-number">4</div>
                     <div class="step-icon">
-                        <!-- Rocket SVG -->
                         <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
                     </div>
                     <h4>Go Live</h4>
@@ -1796,131 +2524,52 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ PRICING ═══════════════════════ -->
-    <section id="pricing">
+    <!-- ═══════════════════════ 11. POWERED BY HOSTINGER ═══════════════════════ -->
+    <section class="hostinger-section" id="powered-by">
         <div class="container section-center">
             <div class="fade-in">
-                <div class="section-label">Pricing</div>
-                <h2 class="section-title">Simple, Transparent Pricing</h2>
-                <p class="section-subtitle">One-time setup fee. No hidden costs. Self-hosted = $0/month to run.</p>
+                <div class="section-label">Infrastructure</div>
+                <h2 class="section-title">Powered by Hostinger</h2>
+                <p class="section-subtitle">Every cloud deployment runs on Hostinger VPS with one-click OpenClaw templates.</p>
             </div>
-            <div class="pricing-grid fade-in">
-
-                <!-- Starter -->
-                <div class="pricing-card">
-                    <div class="pricing-tier">Starter</div>
-                    <div class="pricing-price">$2,500</div>
-                    <p class="pricing-desc">Perfect for solopreneurs and first-time AI adopters.</p>
-                    <ul class="pricing-features">
-                        <li>1 AI agent</li>
-                        <li>Cloud AI (GPT, Claude, Gemini)</li>
-                        <li>1 channel (Telegram or Discord)</li>
-                        <li>5 skills installed</li>
-                        <li>Basic memory system</li>
-                        <li>14-day priority support</li>
-                    </ul>
-                    <a href="https://square.link/u/rh9G3k8U" target="_blank" class="btn-secondary">Get Started</a>
+            <div class="hostinger-grid fade-in">
+                <div class="hostinger-card">
+                    <div style="margin-bottom: 1rem;">
+                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                    </div>
+                    <h4>One-Click Deploy</h4>
+                    <p>OpenClaw and NemoClaw templates pre-installed. Your agent is live in minutes.</p>
                 </div>
-
-                <!-- Professional -->
-                <div class="pricing-card">
-                    <div class="pricing-tier">Professional</div>
-                    <div class="pricing-price">$4,500</div>
-                    <p class="pricing-desc">For teams that need multi-channel reach and automation.</p>
-                    <ul class="pricing-features">
-                        <li>Up to 3 AI agents</li>
-                        <li>Cloud AI with fallbacks</li>
-                        <li>Multi-channel (Telegram + Discord + Slack)</li>
-                        <li>10+ skills installed</li>
-                        <li>Notion CRM integration</li>
-                        <li>Cron job automation</li>
-                        <li>30-day priority support</li>
-                    </ul>
-                    <a href="https://square.link/u/Ydp55Op0" target="_blank" class="btn-secondary">Get Started</a>
+                <div class="hostinger-card">
+                    <div style="margin-bottom: 1rem;">
+                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 0 1 4 0v2"/></svg>
+                    </div>
+                    <h4>NemoClaw Security</h4>
+                    <p>Every agent runs in a sandboxed container with encrypted credentials and auto-restart.</p>
                 </div>
-
-                <!-- Self-Hosted AI (Featured) -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Best Value &mdash; Save $2K-$6K/year</div>
-                    <div class="pricing-tier">Self-Hosted AI</div>
-                    <div class="pricing-price">$6,500</div>
-                    <p class="pricing-desc">Everything in Professional plus local models with zero ongoing API cost.</p>
-                    <ul class="pricing-features">
-                        <li>Everything in Professional</li>
-                        <li>Ollama self-hosted models</li>
-                        <li>Zero ongoing API costs</li>
-                        <li>GPU optimization &amp; tuning</li>
-                        <li>Full data privacy</li>
-                        <li>Model benchmarking report</li>
-                        <li>30-day priority support</li>
-                    </ul>
-                    <a href="https://square.link/u/R4RSQq68" target="_blank" class="btn-primary">Get Started</a>
+                <div class="hostinger-card">
+                    <div style="margin-bottom: 1rem;">
+                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h4>Nexos AI Credits</h4>
+                    <p>Bundled AI credits for Claude, GPT, and Gemini. No API keys to manage.</p>
                 </div>
-
-                <!-- Enterprise -->
-                <div class="pricing-card">
-                    <div class="pricing-tier">Enterprise</div>
-                    <div class="pricing-price">$10,000</div>
-                    <p class="pricing-desc">Full multi-agent deployment with enterprise-grade security.</p>
-                    <ul class="pricing-features">
-                        <li>Everything in Self-Hosted AI</li>
-                        <li>5+ specialized agents</li>
-                        <li>Custom skill development</li>
-                        <li>Security hardening &amp; compliance</li>
-                        <li>Dedicated support channel</li>
-                        <li>60-day priority support</li>
-                    </ul>
-                    <a href="https://square.link/u/kc8unzWA" target="_blank" class="btn-secondary">Contact Us</a>
-                </div>
-
+            </div>
+            <div class="fade-in" style="text-align: center;">
+                <a href="https://www.hostinger.com/vps-hosting" target="_blank" class="btn-secondary">Learn More About Hostinger VPS &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ ADD-ONS ═══════════════════════ -->
-    <section class="addons">
-        <div class="container">
-            <div class="fade-in" style="text-align:center;">
-                <div class="section-label">Add-Ons</div>
-                <h3 class="section-title" style="font-size: 1.6rem; margin-bottom: 2rem;">Extend Any Tier</h3>
-            </div>
-            <div class="addons-grid fade-in">
-                <div class="addon-card">
-                    <div class="addon-price">+$1,500</div>
-                    <div class="addon-info">
-                        <h4>Hardware Sourcing</h4>
-                        <p>We spec, procure, and pre-configure your GPU server hardware</p>
-                    </div>
-                    <a href="https://square.link/u/HwbhOol2" target="_blank" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem; white-space: nowrap; flex-shrink: 0;">Add</a>
-                </div>
-                <div class="addon-card">
-                    <div class="addon-price">+$1,500</div>
-                    <div class="addon-info">
-                        <h4>Additional Agents</h4>
-                        <p>Each additional agent deployed and configured to your specs</p>
-                    </div>
-                </div>
-                <div class="addon-card">
-                    <div class="addon-price">$1K &ndash; $3K</div>
-                    <div class="addon-info">
-                        <h4>Custom Skills</h4>
-                        <p>Bespoke skill development &mdash; API integrations, workflows, automations</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ MANAGED CARE ═══════════════════════ -->
-    <section class="managed-care" id="managed-care">
+    <!-- ═══════════════════════ 12. MANAGED CARE ═══════════════════════ -->
+    <section id="managed-care">
         <div class="container section-center">
             <div class="fade-in">
                 <div class="section-label">Ongoing Support</div>
                 <h2 class="section-title">Don't Just Set It Up &mdash; Keep It Running</h2>
-                <p class="section-subtitle">Expert monitoring, updates, and priority support to keep your AI agents performing at their best.</p>
+                <p class="section-subtitle">Expert monitoring, updates, and priority support to keep your AI agents performing at their best. Available for both cloud and local deployments.</p>
             </div>
             <div class="managed-grid fade-in">
-
                 <div class="managed-card">
                     <div class="managed-tier">Essential</div>
                     <div class="managed-price">$149 <span>/month</span></div>
@@ -1931,7 +2580,6 @@
                     </ul>
                     <div style="margin-top: 1.5rem;"><a href="https://square.link/u/4Dpw5jWc" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center; text-align: center;">Get Started</a></div>
                 </div>
-
                 <div class="managed-card">
                     <div class="managed-tier">Standard</div>
                     <div class="managed-price">$299 <span>/month</span></div>
@@ -1943,7 +2591,6 @@
                     </ul>
                     <div style="margin-top: 1.5rem;"><a href="https://square.link/u/fIvWCA3W" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center; text-align: center;">Get Started</a></div>
                 </div>
-
                 <div class="managed-card">
                     <div class="managed-tier">Premium</div>
                     <div class="managed-price">$499 <span>/month</span></div>
@@ -1955,12 +2602,11 @@
                     </ul>
                     <div style="margin-top: 1.5rem;"><a href="https://square.link/u/oLQy4WrQ" target="_blank" class="btn-secondary" style="width: 100%; justify-content: center; text-align: center;">Get Started</a></div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+    <!-- ═══════════════════════ 13. TESTIMONIALS ═══════════════════════ -->
     <section class="testimonials" id="testimonials">
         <div class="container section-center">
             <div class="fade-in">
@@ -2009,7 +2655,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+    <!-- ═══════════════════════ 14. FAQ ═══════════════════════ -->
     <section id="faq">
         <div class="container section-center">
             <div class="fade-in">
@@ -2031,21 +2677,41 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What AI models can I use?
+                        Cloud or Local &mdash; which should I choose?
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via OpenRouter. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral). We help you choose the best model for your use case and budget.</p>
+                        <p>Choose Cloud if you want to start fast with lower upfront costs and the ability to scale on demand. Choose Local if you're planning to use AI for 2+ years and want zero monthly costs after setup. Local pays for itself in 6-12 months compared to cloud. Use our <a href="#calculator" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">cost calculator</a> to see the exact difference.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What hardware do I need for self-hosted AI?
+                        What are Nexos AI credits?
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Minimum 8GB RAM for basic models. 24GB+ recommended for production. GPU optional but significantly faster. We guide you on the best setup for your needs and budget.</p>
+                        <p>Nexos AI credits are bundled API credits available through Hostinger that give you access to Claude, GPT, Gemini, and other top AI models. No separate API key management needed &mdash; credits are pre-configured and ready to use with your cloud deployment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What AI models can I use?
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via Nexos credits or OpenRouter. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral). We help you choose the best model for your use case and budget.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What hardware do I need for local?
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We recommend Mac Mini M4 for most setups. M4 16GB handles basic models. M4 24GB is great for 8B models in production. M4 Pro 48GB is ideal for running 14B-27B models with fast inference. You can also use your own hardware (BYOD) &mdash; minimum 16GB RAM recommended.</p>
                     </div>
                 </div>
 
@@ -2055,7 +2721,7 @@
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Starter: 48 hours. Professional: 5 days. Self-Hosted AI: 7 days. Enterprise: 10 days. Complex customizations may extend timelines slightly.</p>
+                        <p>Cloud: 24-48 hours from purchase to live agent. Local: 5-7 days including hardware configuration (if applicable), software deployment, and security audit. Enterprise setups with custom skills may take 10-14 days.</p>
                     </div>
                 </div>
 
@@ -2065,7 +2731,17 @@
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Absolutely. Every setup includes Docker sandboxing, encrypted credentials, and firewall rules. Self-hosted means your data never leaves your server. We take security seriously at every level.</p>
+                        <p>Absolutely. Every deployment &mdash; cloud or local &mdash; uses NemoClaw, our secure sandbox environment with Docker isolation, encrypted credentials, and firewall rules. Cloud deployments run on isolated Hostinger VPS instances. Local deployments keep all data on your network &mdash; nothing leaves your server.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I switch from Cloud to Local later?
+                        <span class="faq-chevron">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We offer an upgrade path from cloud to local hosting. Your agent configuration, skills, and memory are migrated to your local hardware. Contact us for a migration quote based on your current setup.</p>
                     </div>
                 </div>
 
@@ -2075,17 +2751,7 @@
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Every tier includes a support period. After that, Managed Care plans ($149-$499/mo) provide ongoing monitoring, updates, and priority support to keep your agents running smoothly.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Can I upgrade later?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. Upgrade tiers, add agents, add self-hosted AI, or switch to managed care anytime. We make it easy to scale your AI operations as your business grows.</p>
+                        <p>Every tier includes a support period (14-60 days depending on plan). After that, Managed Care plans ($149-$499/mo) provide ongoing monitoring, updates, and priority support to keep your agents running smoothly. Available for both cloud and local setups.</p>
                     </div>
                 </div>
 
@@ -2103,7 +2769,7 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ CONTACT / CTA FOOTER ═══════════════════════ -->
+    <!-- ═══════════════════════ 15. CONTACT / CTA FOOTER ═══════════════════════ -->
     <section class="cta-footer" id="contact">
         <div class="container fade-in">
             <h2>Ready to Get Your AI Agent Running?</h2>
@@ -2171,6 +2837,114 @@
                 document.querySelector('.nav-links').classList.remove('mobile-open');
             });
         });
+
+        // ── Cost Calculator ──
+        var apiSlider = document.getElementById('apiSlider');
+        var apiSliderVal = document.getElementById('apiSliderVal');
+        var vpsSelect = document.getElementById('vpsSelect');
+
+        function updateCalculator() {
+            var apiCost = parseInt(apiSlider.value);
+            var vpsCost = parseInt(vpsSelect.value);
+            var setupFee = 5500;
+            var localSetup = 9500;
+            var careCost = 99;
+
+            apiSliderVal.textContent = '$' + apiCost + '/mo';
+
+            var monthlyCloudApi = vpsCost + apiCost + careCost;
+            var monthlyCloudSelf = vpsCost + careCost;
+
+            var y1Api = setupFee + (monthlyCloudApi * 12);
+            var y2Api = setupFee + (monthlyCloudApi * 24);
+            var y3Api = setupFee + (monthlyCloudApi * 36);
+
+            var y1Self = setupFee + (monthlyCloudSelf * 12);
+            var y2Self = setupFee + (monthlyCloudSelf * 24);
+            var y3Self = setupFee + (monthlyCloudSelf * 36);
+
+            document.getElementById('c-host-api').textContent = '$' + vpsCost + '/mo';
+            document.getElementById('c-host-self').textContent = '$' + vpsCost + '/mo';
+            document.getElementById('c-api-api').textContent = '$' + apiCost + '/mo';
+
+            document.getElementById('c-y1-api').innerHTML = '<strong>$' + y1Api.toLocaleString() + '</strong>';
+            document.getElementById('c-y2-api').innerHTML = '<strong>$' + y2Api.toLocaleString() + '</strong>';
+            document.getElementById('c-y3-api').innerHTML = '<strong>$' + y3Api.toLocaleString() + '</strong>';
+
+            document.getElementById('c-y1-self').innerHTML = '<strong>$' + y1Self.toLocaleString() + '</strong>';
+            document.getElementById('c-y2-self').innerHTML = '<strong>$' + y2Self.toLocaleString() + '</strong>';
+            document.getElementById('c-y3-self').innerHTML = '<strong>$' + y3Self.toLocaleString() + '</strong>';
+
+            document.getElementById('c-y1-local').innerHTML = '<strong>$' + localSetup.toLocaleString() + '</strong>';
+            document.getElementById('c-y2-local').innerHTML = '<strong>$' + localSetup.toLocaleString() + '</strong>';
+            document.getElementById('c-y3-local').innerHTML = '<strong>$' + localSetup.toLocaleString() + '</strong>';
+
+            var savings = y3Api - localSetup;
+            document.getElementById('calcSavings').textContent = '$' + savings.toLocaleString();
+        }
+
+        apiSlider.addEventListener('input', updateCalculator);
+        vpsSelect.addEventListener('change', updateCalculator);
+        updateCalculator();
+
+        // ── Local Builder ──
+        var selectedBase = 6000;
+        var selectedHardware = 0;
+        var clusterCount = 1;
+
+        function selectBase(el, cost) {
+            document.querySelectorAll('.base-card').forEach(function(c) { c.classList.remove('selected'); });
+            el.classList.add('selected');
+            selectedBase = cost;
+            updateLocalTotal();
+        }
+
+        function selectHardware(el, cost) {
+            document.querySelectorAll('.hw-pill').forEach(function(c) { c.classList.remove('selected'); });
+            el.classList.add('selected');
+            selectedHardware = cost;
+            var clusterOpt = document.getElementById('clusterOption');
+            if (cost > 0) {
+                clusterOpt.classList.add('visible');
+                document.getElementById('clusterHwPrice').textContent = cost.toLocaleString();
+            } else {
+                clusterOpt.classList.remove('visible');
+                clusterCount = 1;
+                document.getElementById('clusterVal').textContent = '1';
+            }
+            updateLocalTotal();
+        }
+
+        function changeCluster(delta) {
+            clusterCount = Math.max(1, Math.min(4, clusterCount + delta));
+            document.getElementById('clusterVal').textContent = clusterCount;
+            updateLocalTotal();
+        }
+
+        function toggleAddon(label) {
+            var cb = label.querySelector('input[type="checkbox"]');
+            setTimeout(function() {
+                if (cb.checked) {
+                    label.classList.add('checked');
+                } else {
+                    label.classList.remove('checked');
+                }
+                updateLocalTotal();
+            }, 10);
+        }
+
+        function updateLocalTotal() {
+            var addonsTotal = 0;
+            document.querySelectorAll('.addons-checklist input[type="checkbox"]:checked').forEach(function(cb) {
+                addonsTotal += parseInt(cb.getAttribute('data-addon'));
+            });
+            var extraNodes = Math.max(0, clusterCount - 1);
+            var clusterCost = extraNodes * (selectedHardware + 1500);
+            var total = selectedBase + selectedHardware + clusterCost + addonsTotal;
+            document.getElementById('localTotal').textContent = '$' + total.toLocaleString();
+        }
+
+        updateLocalTotal();
     </script>
 
 </body>
