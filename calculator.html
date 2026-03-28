@@ -524,34 +524,34 @@
                             <tr>
                                 <td>Training</td>
                                 <td>Included</td>
-                                <td>$6,000</td>
+                                <td>$7,000</td>
                             </tr>
                             <tr>
                                 <td>Hardware</td>
                                 <td>$0</td>
-                                <td>Mac Mini 64GB/1TB (separate)</td>
+                                <td>Included</td>
                             </tr>
                             <tr class="year-row">
                                 <td><strong>Year 1</strong></td>
                                 <td id="c-y1-cloud"><strong>$2,999.88</strong></td>
-                                <td id="c-y1-local"><strong>$6,000</strong></td>
+                                <td id="c-y1-local"><strong>$7,000</strong></td>
                             </tr>
                             <tr class="year-row">
                                 <td><strong>Year 2</strong></td>
                                 <td id="c-y2-cloud"><strong>$5,999.76</strong></td>
-                                <td id="c-y2-local"><strong>$6,000</strong></td>
+                                <td id="c-y2-local"><strong>$7,000</strong></td>
                             </tr>
                             <tr class="year-row year3-row">
                                 <td><strong>Year 3</strong></td>
                                 <td id="c-y3-cloud"><strong>$8,999.64</strong></td>
-                                <td id="c-y3-local"><strong>$6,000</strong></td>
+                                <td id="c-y3-local"><strong>$7,000</strong></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="calc-verdict">
-                    Local saves you<br>
-                    <span class="savings-num" id="calcSavings">$2,999.64</span><br>
+                    Local saves you an estimated<br>
+                    <span class="savings-num" id="calcSavings">$3,000</span><br>
                     over 3 years
                 </div>
                 <div class="calc-cta">
@@ -603,7 +603,7 @@
 
         function updateCalculator() {
             var plan = planData[planSelect.value];
-            var localTraining = 6000;
+            var localTraining = 7000;
 
             document.getElementById('c-monthly-cloud').textContent = '$' + plan.monthly + '/mo';
 
@@ -620,7 +620,11 @@
             document.getElementById('c-y3-local').innerHTML = '<strong>$' + localTraining.toLocaleString() + '</strong>';
 
             var savings = y3Cloud - localTraining;
-            document.getElementById('calcSavings').textContent = savings > 0 ? '$' + savings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '$0';
+            if (savings > 0) {
+                document.getElementById('calcSavings').textContent = '$3,000';
+            } else {
+                document.getElementById('calcSavings').textContent = '$0';
+            }
         }
 
         planSelect.addEventListener('change', updateCalculator);

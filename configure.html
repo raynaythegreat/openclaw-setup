@@ -819,9 +819,9 @@
                         <input type="radio" name="hosting" value="local">
                         <div class="option-header">
                             <div class="option-name">Local (Mac Mini)</div>
-                            <div class="option-price">$6,000 + hardware</div>
+                            <div class="option-price">$7,000</div>
                         </div>
-                        <div class="option-desc">Mac Mini with 64GB RAM &amp; 1TB SSD. Includes full setup, free/open-source tools, and training. $0/mo ongoing. Best for teams.</div>
+                        <div class="option-desc">Mac Mini (64GB RAM, 1TB SSD) + Setup + Training — all included. $0/mo ongoing. Best for teams. Upgradable with advance notice.</div>
                     </label>
                     <label class="option-card" data-value="unsure">
                         <input type="radio" name="hosting" value="unsure">
@@ -834,7 +834,7 @@
                 <div class="running-price">
                     <div class="running-price-label">Starting at</div>
                     <div class="running-price-value" id="running-price-2">$149.99/mo</div>
-                    <div class="running-monthly" id="running-monthly-2">or $6,000 one-time (local)</div>
+                    <div class="running-monthly" id="running-monthly-2">or $7,000 one-time (local)</div>
                 </div>
                 <div class="step-nav">
                     <button class="btn btn-secondary" id="back-2">&#8592; Back</button>
@@ -895,16 +895,13 @@
                         <div class="option-card" style="cursor: default; border-color: var(--accent-red); background: #f3e8ff;">
                             <div class="option-header">
                                 <div class="option-name">Complete Local Setup</div>
-                                <div class="option-price">$6,000 + hardware</div>
+                                <div class="option-price">$7,000</div>
                             </div>
-                            <div class="option-desc">Mac Mini with 64GB RAM &amp; 1TB SSD + full OctAi deployment + training on how to use everything.</div>
+                            <div class="option-desc">Mac Mini (64GB RAM, 1TB SSD) + Setup + Training — all included. Upgradable with advance notice.</div>
                             <ul style="margin-top: 0.75rem; padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-secondary);">
-                                <li>Mac Mini hardware (64GB RAM, 1TB SSD)</li>
-                                <li>OctAi deployment &amp; configuration</li>
-                                <li>Ollama self-hosted AI</li>
+                                <li>Mac Mini hardware + setup + training (all included)</li>
                                 <li>Free &amp; open-source tool integration</li>
                                 <li>Security hardening</li>
-                                <li>Hands-on training sessions</li>
                                 <li>$0/month ongoing costs</li>
                             </ul>
                         </div>
@@ -928,7 +925,7 @@
                     </div>
                     <div class="running-price">
                         <div class="running-price-label">One-Time Total</div>
-                        <div class="running-price-value" id="running-price-3-local">$6,000 + hardware</div>
+                        <div class="running-price-value" id="running-price-3-local">$7,000</div>
                     </div>
                 </div>
 
@@ -953,7 +950,7 @@
                         <div class="option-header">
                             <div class="option-name">Cloud AI -- We recommend the best provider</div>
                         </div>
-                        <div class="option-desc">We'll set up OpenRouter (300+ models) or recommend the best fit. You pay API costs (~$5-15/day).</div>
+                        <div class="option-desc">We'll recommend the best AI provider for your needs. You pay API costs (~$5-15/day).</div>
                     </label>
 
                     <label class="option-card" data-value="cloud_byok">
@@ -961,7 +958,7 @@
                         <div class="option-header">
                             <div class="option-name">Cloud AI -- I have my own API key</div>
                         </div>
-                        <div class="option-desc">Bring your own OpenAI, Anthropic, xAI, Google, or other key.</div>
+                        <div class="option-desc">Bring your own API key from any AI provider.</div>
                         <div class="text-input-group" id="api-provider-input">
                             <label>Enter your preferred provider</label>
                             <input type="text" class="text-input" id="api-provider" placeholder="e.g., OpenAI, Anthropic, xAI, Google...">
@@ -987,6 +984,8 @@
                     </label>
                 </div>
 
+                <div class="info-note">Bring your own API key or let us recommend the best provider for your needs.</div>
+
                 <div class="running-price">
                     <div class="running-price-label">Estimated Cost</div>
                     <div class="running-price-value" id="running-price-4">$249.99/mo</div>
@@ -1010,7 +1009,7 @@
         currentStep: 1,
         totalSteps: 8,
         hosting: null,           // vps_cloud_api | vps_self_hosted | mac_mini
-        serverProvider: null,    // hostinger | oracle | aws
+        serverProvider: null,    // cloud provider
         serverPlan: null,        // specific plan value
         serverMonthly: 0,
         serverRam: 0,
@@ -1035,10 +1034,10 @@
     const BASE_PRICES = {
         vps_cloud_api: 2000,
         vps_self_hosted: 3000,
-        mac_mini: 5000  // Setup fee - $6,000 hardware added separately
+        mac_mini: 0  // Setup included in MAC_HARDWARE_COST
     };
 
-    const MAC_HARDWARE_COST = 6000;  // Hosted Mac Mini 64GB/1TB
+    const MAC_HARDWARE_COST = 7000;  // Mac Mini 64GB/1TB + Setup + Training (all included)
 
     const AGENT_PRICES = { '1': 0, '3': 2000, '5': 4000, '5plus': 6000, 'unsure': 0 };
 
@@ -1105,7 +1104,7 @@
     function calcOneTime() {
         let total = BASE_PRICES[state.hosting] || 0;
         if (state.hosting === 'mac_mini') {
-            total += MAC_HARDWARE_COST;  // $6,000 for hosted Mac Mini
+            total += MAC_HARDWARE_COST;  // $7,000 all-in (hardware + setup + training)
             total += calcClusterCost();  // $5,500 per additional node
         }
         // Add managed care / self-hosted upfront cost
@@ -1636,7 +1635,7 @@
     };
 
     const SERVER_LABELS = {
-        hostinger: 'Hostinger', oracle: 'Oracle Cloud', aws: 'AWS'
+        hostinger: 'Cloud Provider', oracle: 'Oracle Cloud', aws: 'AWS'
     };
 
     const PLAN_LABELS = {

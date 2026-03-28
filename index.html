@@ -90,8 +90,7 @@
         .step-card:hover .icon-svg,
         .stat-card:hover .icon-svg,
         .integration-badge:hover .icon-svg,
-        .deploy-card:hover .icon-svg,
-        .hostinger-card:hover .icon-svg {
+        .deploy-card:hover .icon-svg {
             transform: translateY(-3px) scale(1.1);
             filter: drop-shadow(0 4px 12px rgba(124, 58, 237, 0.25));
         }
@@ -1466,52 +1465,6 @@
             line-height: 1.6;
         }
 
-        /* ── Powered by Hostinger ── */
-        .hostinger-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .hostinger-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .hostinger-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .hostinger-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
-
-        .hostinger-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.06);
-        }
-
-        .hostinger-card h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .hostinger-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
         /* ── Managed Care ── */
         .managed-grid {
             display: grid;
@@ -2103,7 +2056,7 @@
             <p>Deploy in the cloud or own it locally. We handle the complexity so you can focus on results.</p>
             <div class="hero-buttons">
                 <a href="#compare" class="btn-primary">Compare Options &darr;</a>
-                <a href="#contact" class="btn-secondary">Book a Call</a>
+                <a href="mailto:contact@theai101.shop" class="btn-secondary">Get in Touch</a>
             </div>
             <div class="trust-strip">
                 <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> White-Glove Setup</span>
@@ -2377,9 +2330,9 @@
                     <h3>Cloud Hosting</h3>
                     <p class="deploy-tagline">Deploy in minutes, scale as you grow</p>
                     <ul class="deploy-features">
-                        <li>One-click deploy via Hostinger VPS</li>
-                        <li>NemoClaw secure sandbox included</li>
-                        <li>Nexos AI credits &mdash; no API key management</li>
+                        <li>One-click cloud deployment</li>
+                        <li>Secure sandbox environment included</li>
+                        <li>AI API integration &mdash; bring your own key or we can recommend a provider</li>
                         <li>Self-hosted Ollama option for $0 API cost</li>
                         <li>Scale up or down anytime</li>
                         <li>24/7 monitoring included</li>
@@ -2428,7 +2381,7 @@
         <div class="container section-center">
             <div class="section-label fade-in">Pricing</div>
             <h2 class="section-title fade-in">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle fade-in">Cloud plans starting at $149.99/mo or go local with a complete Mac Mini setup for $6,000.</p>
+            <p class="section-subtitle fade-in">Cloud plans starting at $149.99/mo or go local with a complete Mac Mini setup for $6,000. Bring your own API key, or let us recommend the best AI provider for your needs. All plans are upgradable with advance notice.</p>
             <div class="hero-buttons fade-in">
                 <a href="pricing.html" class="btn-primary">View All Plans &rarr;</a>
                 <a href="calculator.html" class="btn-secondary">Cost Calculator</a>
@@ -2477,43 +2430,6 @@
                     <h4>Go Live</h4>
                     <p>Your agent is live, documented, and you're trained. Support included. Managed care available.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ 11. POWERED BY HOSTINGER ═══════════════════════ -->
-    <section class="hostinger-section" id="powered-by">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Infrastructure</div>
-                <h2 class="section-title">Powered by Hostinger</h2>
-                <p class="section-subtitle">Every cloud deployment runs on Hostinger VPS with one-click OctAi templates.</p>
-            </div>
-            <div class="hostinger-grid fade-in">
-                <div class="hostinger-card">
-                    <div style="margin-bottom: 1rem;">
-                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-                    </div>
-                    <h4>One-Click Deploy</h4>
-                    <p>OctAi and NemoClaw templates pre-installed. Your agent is live in minutes.</p>
-                </div>
-                <div class="hostinger-card">
-                    <div style="margin-bottom: 1rem;">
-                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 0 1 4 0v2"/></svg>
-                    </div>
-                    <h4>NemoClaw Security</h4>
-                    <p>Every agent runs in a sandboxed container with encrypted credentials and auto-restart.</p>
-                </div>
-                <div class="hostinger-card">
-                    <div style="margin-bottom: 1rem;">
-                        <svg class="icon-svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
-                    <h4>Nexos AI Credits</h4>
-                    <p>Bundled AI credits for Claude, GPT, and Gemini. No API keys to manage.</p>
-                </div>
-            </div>
-            <div class="fade-in" style="text-align: center;">
-                <a href="https://www.hostinger.com/cart?product=vps%3Avps_kvm_2&period=12&referral_type=cart_link&REFERRALCODE=L4VAISUBLR8N&referral_id=019d2136-bc5f-700a-8e76-83233c1947e3" target="_blank" class="btn-secondary">Learn More About Hostinger VPS &rarr;</a>
             </div>
         </div>
     </section>
@@ -2652,11 +2568,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What are Nexos AI credits?
+                        What AI models can I use?
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Nexos AI credits are bundled API credits available through Hostinger that give you access to Claude, GPT, Gemini, and other top AI models. No separate API key management needed &mdash; credits are pre-configured and ready to use with your cloud deployment.</p>
+                        <p>Cloud: GPT, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via OpenRouter. Bring your own API key for any provider, or let us recommend the best option for your use case and budget. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral) for $0 ongoing cost.</p>
                     </div>
                 </div>
 
@@ -2666,7 +2582,7 @@
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via Nexos credits or OpenRouter. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral). We help you choose the best model for your use case and budget.</p>
+                        <p>Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via OpenRouter or bring your own API key. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral). We help you choose the best model for your use case and budget. Plans are upgradable with advance notice.</p>
                     </div>
                 </div>
 
@@ -2696,7 +2612,7 @@
                         <span class="faq-chevron">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Absolutely. Every deployment &mdash; cloud or local &mdash; uses NemoClaw, our secure sandbox environment with Docker isolation, encrypted credentials, and firewall rules. Cloud deployments run on isolated Hostinger VPS instances. Local deployments keep all data on your network &mdash; nothing leaves your server.</p>
+                        <p>Absolutely. Every deployment &mdash; cloud or local &mdash; uses a secure sandbox environment with Docker isolation, encrypted credentials, and firewall rules. Cloud deployments run on isolated VPS instances. Local deployments keep all data on your network &mdash; nothing leaves your server.</p>
                     </div>
                 </div>
 
@@ -2741,9 +2657,9 @@
             <p>Book a free discovery call or get started today.</p>
             <div class="cta-buttons">
                 <a href="#pricing" class="btn-primary">See Pricing &darr;</a>
-                <a href="https://t.me/" target="_blank" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.75 3.98-1.73 6.64-2.87 7.97-3.44 3.79-1.58 4.58-1.86 5.09-1.87.11 0 .37.03.54.17.14.12.18.28.2.45-.01.06.01.24 0 .37z"/></svg>
-                    Book Discovery Call
+                <a href="mailto:contact@theai101.shop" class="btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                    Get in Touch
                 </a>
             </div>
             <div class="contact-info">
