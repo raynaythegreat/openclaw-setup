@@ -37,6 +37,11 @@
 
         html { scroll-behavior: smooth; }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-primary);
@@ -107,6 +112,7 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 7rem 1.5rem 4rem;
+            overflow: hidden;
         }
 
         /* ── Progress Bar ── */
@@ -2218,7 +2224,7 @@
     // Form Submissions (Formspree + localStorage fallback)
     // ═══════════════════════════════════════════════════
     const FORMSPREE_ENDPOINT = document.body.getAttribute('data-formspree') || 'https://formspree.io/f/xcontact';
-    const FALLBACK_EMAIL = 'aisublime101@gmail.com';
+    const FALLBACK_EMAIL = 'theai101shop@gmail.com';
 
     function getConfigData() {
         return {

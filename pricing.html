@@ -41,6 +41,11 @@
             scroll-behavior: smooth;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-primary);
@@ -226,6 +231,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            overflow: hidden;
         }
 
         .section-label {
@@ -560,6 +566,46 @@
             color: var(--text-muted);
         }
 
+        /* ── Billing Toggle ── */
+        .billing-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: #f3f4f6;
+            border-radius: 12px;
+            padding: 4px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .billing-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: transparent;
+            color: #555;
+            transition: all 0.2s;
+            flex: 1;
+        }
+        .billing-btn.active {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            color: white;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+        }
+        .billing-btn:hover:not(.active) {
+            background: rgba(124, 58, 237, 0.1);
+        }
+        .hidden { display: none; }
+        .price-subtitle {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin: 0.4rem 0;
+        }
+
         /* ── Footer ── */
         .footer-bottom {
             border-top: 1px solid var(--border-subtle);
@@ -632,12 +678,30 @@
           </div>
 
           <p class="toggle-desc">Core AI integrations, email automation, calendar management, and more &mdash; all included. Higher tiers include more integrations based on your needs.</p>
+
+          <div class="billing-toggle">
+            <button class="billing-btn active" data-period="monthly" onclick="switchBilling('monthly')">Monthly</button>
+            <button class="billing-btn" data-period="yearly" onclick="switchBilling('yearly')">Yearly</button>
+            <button class="billing-btn" data-period="2year" onclick="switchBilling('2year')">2-Year</button>
+          </div>
+
           <div class="pricing-grid">
 
             <div class="pricing-card">
               <div class="pricing-tier">Pro</div>
-              <div class="pricing-price">$249.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$2,999.88/yr &bull; $5,999.76/2yr</p>
+              <div class="pricing-price">
+                <span class="price-monthly">$249.99</span>
+                <span class="price-yearly hidden">$2,999.88</span>
+                <span class="price-2year hidden">$5,999.76</span>
+                <span class="price-period">/mo</span>
+                <span class="price-period-yearly hidden">/yr</span>
+                <span class="price-period-2year hidden">/2yr</span>
+              </div>
+              <p class="price-subtitle">
+                <span class="subtitle-monthly">Billed monthly</span>
+                <span class="subtitle-yearly hidden">Billed yearly — save $600</span>
+                <span class="subtitle-2year hidden">Billed every 2 years — best value</span>
+              </p>
               <ul class="pricing-features">
                 <li>Extended AI integrations</li>
                 <li>Social media automation</li>
@@ -652,8 +716,19 @@
             <div class="pricing-card featured">
               <div class="pricing-badge">Recommended</div>
               <div class="pricing-tier">Premium</div>
-              <div class="pricing-price">$349.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$4,199.88/yr &bull; $8,399.76/2yr</p>
+              <div class="pricing-price">
+                <span class="price-monthly">$349.99</span>
+                <span class="price-yearly hidden">$4,199.88</span>
+                <span class="price-2year hidden">$8,399.76</span>
+                <span class="price-period">/mo</span>
+                <span class="price-period-yearly hidden">/yr</span>
+                <span class="price-period-2year hidden">/2yr</span>
+              </div>
+              <p class="price-subtitle">
+                <span class="subtitle-monthly">Billed monthly</span>
+                <span class="subtitle-yearly hidden">Billed yearly — save $1,000</span>
+                <span class="subtitle-2year hidden">Billed every 2 years — best value</span>
+              </p>
               <ul class="pricing-features">
                 <li>Everything in Pro, plus:</li>
                 <li>Custom AI-powered software generation</li>
@@ -668,8 +743,19 @@
 
             <div class="pricing-card">
               <div class="pricing-tier">Ultra</div>
-              <div class="pricing-price">$549.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$6,599.88/yr &bull; $14,199.76/2yr</p>
+              <div class="pricing-price">
+                <span class="price-monthly">$549.99</span>
+                <span class="price-yearly hidden">$6,599.88</span>
+                <span class="price-2year hidden">$14,199.76</span>
+                <span class="price-period">/mo</span>
+                <span class="price-period-yearly hidden">/yr</span>
+                <span class="price-period-2year hidden">/2yr</span>
+              </div>
+              <p class="price-subtitle">
+                <span class="subtitle-monthly">Billed monthly</span>
+                <span class="subtitle-yearly hidden">Billed yearly — save $1,600</span>
+                <span class="subtitle-2year hidden">Billed every 2 years — best value</span>
+              </p>
               <ul class="pricing-features">
                 <li>Full integration library</li>
                 <li>Dedicated account manager</li>
@@ -738,13 +824,13 @@
           <h3>Enterprise &mdash; Custom Solutions</h3>
           <p>Need 5+ agents, Oracle/AWS heavy compute, SOC2/HIPAA compliance, or custom skill development?</p>
           <div class="btn-row">
-            <a href="mailto:contact@theai101.shop" class="btn-primary">Book a Discovery Call</a>
+            <a href="mailto:theai101shop@gmail.com" class="btn-primary">Book a Discovery Call</a>
             <a href="configure.html" class="btn-secondary">Fill Out Our Questionnaire</a>
           </div>
         </div>
 
         <!-- ═══════════ LOCAL NOTE ═══════════ -->
-        <p class="addons-note fade-in">Complete local setup: $7,000 (Mac Mini 64GB RAM, 1TB SSD + Setup + Training — all included). Extra node clusters are $5,500 each. Plans are upgradable with advance notice. Need something custom? <a href="mailto:contact@theai101.shop">Contact us</a>.</p>
+        <p class="addons-note fade-in">Complete local setup: $7,000 (Mac Mini 64GB RAM, 1TB SSD + Setup + Training — all included). Extra node clusters are $5,500 each. Plans are upgradable with advance notice. Need something custom? <a href="mailto:theai101shop@gmail.com">Contact us</a>.</p>
 
       </div>
     </section>
@@ -779,6 +865,24 @@
             document.getElementById('mobileMenu').classList.remove('active');
             document.getElementById('mobileOverlay').classList.remove('active');
             document.body.style.overflow = '';
+        }
+        function switchBilling(period) {
+            document.querySelectorAll('.billing-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.period === period);
+            });
+            document.querySelectorAll('.price-monthly, .price-yearly, .price-2year, .price-period, .price-period-yearly, .price-period-2year, .subtitle-monthly, .subtitle-yearly, .subtitle-2year').forEach(function(el) {
+                el.classList.add('hidden');
+            });
+            document.querySelectorAll('.price-' + period).forEach(function(el) {
+                el.classList.remove('hidden');
+            });
+            if (period === 'monthly') {
+                document.querySelectorAll('.price-period').forEach(function(el) { el.classList.remove('hidden'); });
+                document.querySelectorAll('.subtitle-monthly').forEach(function(el) { el.classList.remove('hidden'); });
+            } else {
+                document.querySelectorAll('.price-period-' + period).forEach(function(el) { el.classList.remove('hidden'); });
+                document.querySelectorAll('.subtitle-' + period).forEach(function(el) { el.classList.remove('hidden'); });
+            }
         }
     </script>
 
