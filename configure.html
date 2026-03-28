@@ -752,51 +752,46 @@
         <!-- Progress Bar -->
         <div class="progress-section">
             <div class="progress-label">
-                <span id="progress-text">Step 1 of 8</span>
-                <span id="progress-price">$2,500</span>
+                <span id="progress-text">Step 1 of 7</span>
+                <span id="progress-price">$149.99/mo</span>
             </div>
             <div class="progress-track">
-                <div class="progress-fill" id="progress-fill" style="width: 12.5%"></div>
+                <div class="progress-fill" id="progress-fill" style="width: 14.28%"></div>
             </div>
         </div>
 
         <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 1: Hosting -->
+        <!-- STEP 1: Solo or Team -->
         <!-- ══════════════════════════════════════════ -->
         <div class="step active" id="step-1">
             <div class="step-card">
-                <h2 class="step-title">How would you like to host your AI agent?</h2>
-                <p class="step-subtitle">Choose where your agent will live and run. This determines your base setup cost and ongoing expenses.</p>
-
-                <div class="option-list" id="hosting-options">
-                    <label class="option-card" data-value="vps_cloud_api">
-                        <input type="radio" name="hosting" value="vps_cloud_api">
+                <h2 class="step-title">Is this for you or your team?</h2>
+                <p class="step-subtitle">This helps us recommend the right setup. Solo users tend to prefer cloud, while teams benefit from local infrastructure.</p>
+                <div class="option-list" id="usage-options">
+                    <label class="option-card" data-value="solo">
+                        <input type="radio" name="usage" value="solo">
                         <div class="option-header">
-                            <div class="option-name">VPS + Cloud AI</div>
-                            <div class="option-price">From $2,000</div>
+                            <div class="option-name">Just me (Solo)</div>
+                            <div class="option-badge" style="background: #8b5cf6;">Cloud Recommended</div>
                         </div>
-                        <div class="option-desc">We set up a cloud server running your agent 24/7. You provide your own API key for the AI brain. Cheapest hosted option.</div>
+                        <div class="option-desc">Best for individuals. Cloud VPS keeps things simple with no hardware to manage.</div>
                     </label>
-
-                    <label class="option-card" data-value="vps_self_hosted">
-                        <input type="radio" name="hosting" value="vps_self_hosted">
+                    <label class="option-card" data-value="team">
+                        <input type="radio" name="usage" value="team">
                         <div class="option-header">
-                            <div class="option-name">VPS + Self-Hosted AI</div>
-                            <div class="option-price">From $3,000</div>
+                            <div class="option-name">My team (2+ people)</div>
+                            <div class="option-badge" style="background: #8b5cf6;">Local Recommended</div>
                         </div>
-                        <div class="option-desc">Cloud server with Ollama installed. Zero ongoing API costs. Your AI runs entirely on the server.</div>
+                        <div class="option-desc">Local hosting gives your team more power, privacy, and no per-user API costs.</div>
                     </label>
-
-                    <label class="option-card" data-value="mac_mini">
-                        <input type="radio" name="hosting" value="mac_mini">
+                    <label class="option-card" data-value="unsure">
+                        <input type="radio" name="usage" value="unsure">
                         <div class="option-header">
-                            <div class="option-name">We Provide a Mac Mini</div>
-                            <div class="option-price">From $5,999</div>
+                            <div class="option-name">Not sure yet</div>
                         </div>
-                        <div class="option-desc">We buy, configure, and deliver a Mac Mini with everything installed. Fully turnkey.</div>
+                        <div class="option-desc">No worries — we'll help you decide based on your needs.</div>
                     </label>
                 </div>
-
                 <div class="step-nav">
                     <div></div>
                     <button class="btn btn-primary" id="next-1" disabled>Next &#8594;</button>
@@ -805,182 +800,42 @@
         </div>
 
         <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 2: Server Selection (VPS) -->
+        <!-- STEP 2: Cloud or Local -->
         <!-- ══════════════════════════════════════════ -->
         <div class="step" id="step-2">
             <div class="step-card">
-                <h2 class="step-title" id="step2-title">Choose your server</h2>
-                <p class="step-subtitle" id="step2-subtitle">Select a VPS provider and plan. We'll handle all the setup and configuration.</p>
-
-                <!-- VPS Server Options -->
-                <div id="vps-options">
-                    <div class="option-list" id="server-options">
-                        <label class="option-card" data-value="hostinger">
-                            <input type="radio" name="server_provider" value="hostinger">
-                            <div class="option-header">
-                                <div class="option-name">Hostinger <span class="option-badge">Recommended</span></div>
-                            </div>
-                            <div class="option-desc">Fast AMD EPYC servers, Ollama pre-configured template, easiest setup</div>
-                            <div class="sub-options" id="sub-hostinger">
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="hostinger_kvm1" data-monthly="4.99" data-ram="4">
-                                    <label for="">
-                                        <span>KVM 1: 4GB RAM, 50GB</span>
-                                        <span class="sub-price">$4.99/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="hostinger_kvm2" data-monthly="6.99" data-ram="8">
-                                    <label for="">
-                                        <span>KVM 2: 8GB RAM, 100GB</span>
-                                        <span class="sub-price">$6.99/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="hostinger_kvm4" data-monthly="12.99" data-ram="16">
-                                    <label for="">
-                                        <span>KVM 4: 16GB RAM, 200GB <span class="option-badge">Recommended</span></span>
-                                        <span class="sub-price">$12.99/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="hostinger_kvm8" data-monthly="19.99" data-ram="32">
-                                    <label for="">
-                                        <span>KVM 8: 32GB RAM, 400GB</span>
-                                        <span class="sub-price">$19.99/mo</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="option-card" data-value="oracle">
-                            <input type="radio" name="server_provider" value="oracle">
-                            <div class="option-header">
-                                <div class="option-name">Oracle Cloud</div>
-                            </div>
-                            <div class="option-desc">Cheapest option, free tier available (24GB RAM!), but harder to provision</div>
-                            <div class="sub-options" id="sub-oracle">
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="oracle_free" data-monthly="0" data-ram="24">
-                                    <label for="">
-                                        <span>Free Tier: 4 vCPU, 24GB RAM, 200GB</span>
-                                        <span class="sub-price" style="color: #16a34a">$0/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="oracle_paid" data-monthly="14" data-ram="24">
-                                    <label for="">
-                                        <span>Paid: Custom config</span>
-                                        <span class="sub-price">~$6-22/mo</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </label>
-
-                        <label class="option-card" data-value="aws">
-                            <input type="radio" name="server_provider" value="aws">
-                            <div class="option-header">
-                                <div class="option-name">AWS</div>
-                            </div>
-                            <div class="option-desc">Enterprise-grade, SOC2/HIPAA compliance, best for regulated industries</div>
-                            <div class="sub-options" id="sub-aws">
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="aws_small" data-monthly="12" data-ram="2">
-                                    <label for="">
-                                        <span>t4g.small: 2GB RAM</span>
-                                        <span class="sub-price">$12/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="aws_medium" data-monthly="25" data-ram="4">
-                                    <label for="">
-                                        <span>t4g.medium: 4GB RAM</span>
-                                        <span class="sub-price">$25/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="aws_large" data-monthly="49" data-ram="8">
-                                    <label for="">
-                                        <span>t4g.large: 8GB RAM</span>
-                                        <span class="sub-price">$49/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="aws_xlarge" data-monthly="98" data-ram="16">
-                                    <label for="">
-                                        <span>t4g.xlarge: 16GB RAM</span>
-                                        <span class="sub-price">$98/mo</span>
-                                    </label>
-                                </div>
-                                <div class="sub-option">
-                                    <input type="radio" name="server_plan" value="aws_2xlarge" data-monthly="196" data-ram="32">
-                                    <label for="">
-                                        <span>t4g.2xlarge: 32GB RAM</span>
-                                        <span class="sub-price">$196/mo</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Mac Mini Options (Step 2B) -->
-                <div id="mac-options" style="display:none">
-                    <div class="option-list" id="mac-model-options">
-                        <label class="option-card" data-value="hosted_mac">
-                            <input type="radio" name="mac_model" value="hosted_mac" data-cost="6000">
-                            <div class="option-header">
-                                <div class="option-name">Hosted Mac Mini <span class="option-badge">Recommended</span></div>
-                                <div class="option-price">$6,000</div>
-                            </div>
-                            <div class="option-desc">Mac Mini M4 Pro 64GB RAM, 1TB SSD — Runs 70B models, fully managed</div>
-                        </label>
-                    </div>
-
-                    <div id="cluster-section" style="margin-top:1.5rem">
-                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">Want a cluster? Add more nodes:</h3>
-                        <div class="option-list" id="cluster-options">
-                            <label class="option-card" data-value="1">
-                                <input type="radio" name="cluster_size" value="1" checked>
-                                <div class="option-header">
-                                    <div class="option-name">Just 1</div>
-                                    <div class="option-price">+$0</div>
-                                </div>
-                            </label>
-                            <label class="option-card" data-value="2">
-                                <input type="radio" name="cluster_size" value="2">
-                                <div class="option-header">
-                                    <div class="option-name">2-node cluster</div>
-                                    <div class="option-price">+$5,500</div>
-                                </div>
-                                <div class="option-desc">Run multiple models simultaneously</div>
-                            </label>
-                            <label class="option-card" data-value="3">
-                                <input type="radio" name="cluster_size" value="3">
-                                <div class="option-header">
-                                    <div class="option-name">3-node cluster</div>
-                                    <div class="option-price">+$11,000</div>
-                                </div>
-                                <div class="option-desc">Dedicated agent per node</div>
-                            </label>
-                            <label class="option-card" data-value="4">
-                                <input type="radio" name="cluster_size" value="4">
-                                <div class="option-header">
-                                    <div class="option-name">4-node cluster</div>
-                                    <div class="option-price">+$16,500</div>
-                                </div>
-                                <div class="option-desc">Enterprise redundancy + load balancing</div>
-                            </label>
+                <h2 class="step-title">Cloud or Local hosting?</h2>
+                <p class="step-subtitle">Cloud runs on our managed servers. Local runs on a Mac Mini you own. Both get full OctAi setup.</p>
+                <div class="option-list" id="hosting-options">
+                    <label class="option-card" data-value="cloud">
+                        <input type="radio" name="hosting" value="cloud">
+                        <div class="option-header">
+                            <div class="option-name">Cloud (VPS)</div>
+                            <div class="option-price">From $149.99/mo</div>
                         </div>
-                    </div>
+                        <div class="option-desc">Managed cloud infrastructure. We handle servers, uptime, and scaling. Best for solo users who want zero maintenance.</div>
+                    </label>
+                    <label class="option-card" data-value="local">
+                        <input type="radio" name="hosting" value="local">
+                        <div class="option-header">
+                            <div class="option-name">Local (Mac Mini)</div>
+                            <div class="option-price">$6,000 + hardware</div>
+                        </div>
+                        <div class="option-desc">Mac Mini with 64GB RAM &amp; 1TB SSD. Includes full setup, free/open-source tools, and training. $0/mo ongoing. Best for teams.</div>
+                    </label>
+                    <label class="option-card" data-value="unsure">
+                        <input type="radio" name="hosting" value="unsure">
+                        <div class="option-header">
+                            <div class="option-name">Help me choose</div>
+                        </div>
+                        <div class="option-desc">We'll recommend the best option during your free consultation.</div>
+                    </label>
                 </div>
-
                 <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-2">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-2"></div>
+                    <div class="running-price-label">Starting at</div>
+                    <div class="running-price-value" id="running-price-2">$149.99/mo</div>
+                    <div class="running-monthly" id="running-monthly-2">or $6,000 one-time (local)</div>
                 </div>
-
                 <div class="step-nav">
                     <button class="btn btn-secondary" id="back-2">&#8592; Back</button>
                     <button class="btn btn-primary" id="next-2" disabled>Next &#8594;</button>
@@ -989,9 +844,105 @@
         </div>
 
         <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 3: AI Model -->
+        <!-- STEP 3: Choose Your Plan (Cloud or Local) -->
         <!-- ══════════════════════════════════════════ -->
         <div class="step" id="step-3">
+            <div class="step-card">
+                <!-- Cloud Plan Options -->
+                <div id="cloud-plan-section">
+                    <h2 class="step-title">Choose your plan</h2>
+                    <p class="step-subtitle">All plans include OctAi deployment, security hardening, and documentation. Higher tiers include more integrations.</p>
+                    <div class="option-list" id="plan-options">
+                        <label class="option-card" data-value="plus">
+                            <input type="radio" name="plan" value="plus">
+                            <div class="option-header">
+                                <div class="option-name">Plus</div>
+                                <div class="option-price">$149.99/mo</div>
+                            </div>
+                            <div class="option-desc">Core AI integrations, email automation, calendar management, basic task automation, standard support.</div>
+                            <div class="option-desc" style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">$1,799.88/yr &bull; $3,599.76/2yr</div>
+                        </label>
+                        <label class="option-card" data-value="pro">
+                            <input type="radio" name="plan" value="pro">
+                            <div class="option-header">
+                                <div class="option-name">Pro <span class="option-badge">Recommended</span></div>
+                                <div class="option-price">$249.99/mo</div>
+                            </div>
+                            <div class="option-desc">Extended integrations, social media automation, advanced task workflows, priority support, custom workflows.</div>
+                            <div class="option-desc" style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">$2,999.88/yr &bull; $5,999.76/2yr</div>
+                        </label>
+                        <label class="option-card" data-value="ultra">
+                            <input type="radio" name="plan" value="ultra">
+                            <div class="option-header">
+                                <div class="option-name">Ultra</div>
+                                <div class="option-price">$549.99/mo</div>
+                            </div>
+                            <div class="option-desc">Full integration library, dedicated account manager, 24/7 priority support, custom AI training, enterprise security.</div>
+                            <div class="option-desc" style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">$6,599.88/yr &bull; $14,199.76/2yr</div>
+                        </label>
+                    </div>
+                    <div class="running-price">
+                        <div class="running-price-label">Monthly Cost</div>
+                        <div class="running-price-value" id="running-price-3">$249.99/mo</div>
+                    </div>
+                </div>
+
+                <!-- Local Setup Options -->
+                <div id="local-plan-section" style="display:none;">
+                    <h2 class="step-title">Your local setup includes:</h2>
+                    <p class="step-subtitle">Everything you need to run AI locally. One price, zero monthly fees forever.</p>
+                    <div class="option-list">
+                        <div class="option-card" style="cursor: default; border-color: var(--accent-red); background: #f3e8ff;">
+                            <div class="option-header">
+                                <div class="option-name">Complete Local Setup</div>
+                                <div class="option-price">$6,000 + hardware</div>
+                            </div>
+                            <div class="option-desc">Mac Mini with 64GB RAM &amp; 1TB SSD + full OctAi deployment + training on how to use everything.</div>
+                            <ul style="margin-top: 0.75rem; padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-secondary);">
+                                <li>Mac Mini hardware (64GB RAM, 1TB SSD)</li>
+                                <li>OctAi deployment &amp; configuration</li>
+                                <li>Ollama self-hosted AI</li>
+                                <li>Free &amp; open-source tool integration</li>
+                                <li>Security hardening</li>
+                                <li>Hands-on training sessions</li>
+                                <li>$0/month ongoing costs</li>
+                            </ul>
+                        </div>
+                        <label class="option-card" data-value="nodes">
+                            <input type="checkbox" name="extra_nodes" value="yes">
+                            <div class="option-header">
+                                <div class="option-name">Add extra node clusters? ($5,500 each)</div>
+                            </div>
+                            <div class="option-desc">Additional Mac Minis for distributed processing. Makes your local AI more powerful.</div>
+                            <div class="sub-options visible" style="margin-top: 0.75rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <span style="font-size: 0.9rem; font-weight: 600;">Number of extra nodes:</span>
+                                    <div class="cluster-counter" style="display: inline-flex; align-items: center; border: 1px solid var(--border-subtle); border-radius: 8px; overflow: hidden;">
+                                        <button type="button" onclick="changeLocalNodes(-1)" style="width: 36px; height: 36px; background: none; border: none; font-size: 1.1rem; cursor: pointer;">&#8722;</button>
+                                        <span id="localNodeCount" style="width: 36px; text-align: center; font-weight: 700; line-height: 36px; border-left: 1px solid var(--border-subtle); border-right: 1px solid var(--border-subtle);">0</span>
+                                        <button type="button" onclick="changeLocalNodes(1)" style="width: 36px; height: 36px; background: none; border: none; font-size: 1.1rem; cursor: pointer;">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="running-price">
+                        <div class="running-price-label">One-Time Total</div>
+                        <div class="running-price-value" id="running-price-3-local">$6,000 + hardware</div>
+                    </div>
+                </div>
+
+                <div class="step-nav">
+                    <button class="btn btn-secondary" id="back-3">&#8592; Back</button>
+                    <button class="btn btn-primary" id="next-3" disabled>Next &#8594;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- STEP 4: AI Model Preference -->
+        <!-- ══════════════════════════════════════════ -->
+        <div class="step" id="step-4">
             <div class="step-card">
                 <h2 class="step-title">Choose your AI model preference</h2>
                 <p class="step-subtitle">How do you want to power your agent's intelligence?</p>
@@ -1024,7 +975,6 @@
                         </div>
                         <div class="option-desc">Zero API costs forever. We install the optimal model for your hardware.</div>
                         <div class="sub-options" id="model-sub-options">
-                            <!-- Dynamically populated based on RAM -->
                         </div>
                     </label>
 
@@ -1038,77 +988,8 @@
                 </div>
 
                 <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-3">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-3"></div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="btn btn-secondary" id="back-3">&#8592; Back</button>
-                    <button class="btn btn-primary" id="next-3" disabled>Next &#8594;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 4: Number of Agents -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="step" id="step-4">
-            <div class="step-card">
-                <h2 class="step-title">How many AI agents do you need?</h2>
-                <p class="step-subtitle">Each agent can have a specialized role. More agents means more capability.</p>
-
-                <div class="option-list" id="agent-options">
-                    <label class="option-card" data-value="1">
-                        <input type="radio" name="agents" value="1">
-                        <div class="option-header">
-                            <div class="option-name">1 agent</div>
-                            <div class="option-price">+$0</div>
-                        </div>
-                        <div class="option-desc">Single all-purpose assistant</div>
-                    </label>
-
-                    <label class="option-card" data-value="3">
-                        <input type="radio" name="agents" value="3">
-                        <div class="option-header">
-                            <div class="option-name">Up to 3 agents</div>
-                            <div class="option-price">+$2,000</div>
-                        </div>
-                        <div class="option-desc">Specialized team (e.g., assistant + researcher + content creator)</div>
-                    </label>
-
-                    <label class="option-card" data-value="5">
-                        <input type="radio" name="agents" value="5">
-                        <div class="option-header">
-                            <div class="option-name">Up to 5 agents</div>
-                            <div class="option-price">+$4,000</div>
-                        </div>
-                        <div class="option-desc">Full team with dedicated roles</div>
-                    </label>
-
-                    <label class="option-card" data-value="5plus">
-                        <input type="radio" name="agents" value="5plus">
-                        <div class="option-header">
-                            <div class="option-name">5+ agents (Enterprise)</div>
-                            <div class="option-price">+$6,000</div>
-                        </div>
-                        <div class="option-desc">Large multi-agent deployment</div>
-                    </label>
-
-                    <label class="option-card" data-value="unsure">
-                        <input type="radio" name="agents" value="unsure">
-                        <div class="option-header">
-                            <div class="option-name">Not sure -- help me decide</div>
-                            <div class="option-price">+$0</div>
-                        </div>
-                        <div class="option-desc">We'll recommend the right number on our discovery call</div>
-                    </label>
-                </div>
-
-                <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-4">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-4"></div>
+                    <div class="running-price-label">Estimated Cost</div>
+                    <div class="running-price-value" id="running-price-4">$249.99/mo</div>
                 </div>
 
                 <div class="step-nav">
@@ -1118,455 +999,7 @@
             </div>
         </div>
 
-        <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 5: Channels -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="step" id="step-5">
-            <div class="step-card">
-                <h2 class="step-title">Which channels should your agent connect to?</h2>
-                <p class="step-subtitle">Select all the platforms you want your agent to communicate through. First 2 are free!</p>
-
-                <div class="option-list" id="channel-options">
-                    <div class="checkbox-card" data-value="telegram">
-                        <input type="checkbox" name="channels" value="telegram" id="ch-telegram">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-telegram">Telegram</label>
-                                <span class="checkbox-price free">Included</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="discord">
-                        <input type="checkbox" name="channels" value="discord" id="ch-discord">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-discord">Discord</label>
-                                <span class="checkbox-price free">Included</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="slack">
-                        <input type="checkbox" name="channels" value="slack" id="ch-slack">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-slack">Slack</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="whatsapp">
-                        <input type="checkbox" name="channels" value="whatsapp" id="ch-whatsapp">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-whatsapp">WhatsApp</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="email">
-                        <input type="checkbox" name="channels" value="email" id="ch-email">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-email">Email</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="sms">
-                        <input type="checkbox" name="channels" value="sms" id="ch-sms">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="ch-sms">SMS</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="channel-note">First 2 channels are included free. Each additional channel is $500.</p>
-
-                <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-5">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-5"></div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="btn btn-secondary" id="back-5">&#8592; Back</button>
-                    <button class="btn btn-primary" id="next-5">Next &#8594;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 6: Integrations -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="step" id="step-6">
-            <div class="step-card">
-                <h2 class="step-title">Which integrations do you need?</h2>
-                <p class="step-subtitle">Connect your agent to the tools you already use. First 2 are included free!</p>
-
-                <div class="option-list" id="integration-options">
-                    <div class="checkbox-card" data-value="gmail" data-cost="500">
-                        <input type="checkbox" name="integrations" value="gmail" id="int-gmail">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-gmail">Gmail / Google Workspace</label>
-                                <span class="checkbox-price free">Included</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="gcal" data-cost="500">
-                        <input type="checkbox" name="integrations" value="gcal" id="int-gcal">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-gcal">Google Calendar</label>
-                                <span class="checkbox-price free">Included</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="notion" data-cost="500">
-                        <input type="checkbox" name="integrations" value="notion" id="int-notion">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-notion">Notion</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="github" data-cost="500">
-                        <input type="checkbox" name="integrations" value="github" id="int-github">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-github">GitHub</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="stripe" data-cost="500">
-                        <input type="checkbox" name="integrations" value="stripe" id="int-stripe">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-stripe">Stripe / Square</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="shopify" data-cost="500">
-                        <input type="checkbox" name="integrations" value="shopify" id="int-shopify">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-shopify">Shopify</label>
-                                <span class="checkbox-price">+$500</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="custom_crm" data-cost="1000">
-                        <input type="checkbox" name="integrations" value="custom_crm" id="int-crm">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-crm">Custom CRM</label>
-                                <span class="checkbox-price">+$1,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="custom_api" data-cost="2000">
-                        <input type="checkbox" name="integrations" value="custom_api" id="int-api">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-api">Custom API Integration</label>
-                                <span class="checkbox-price">+$1,000-3,000</span>
-                            </div>
-                            <div class="checkbox-desc">Price varies depending on complexity</div>
-                        </div>
-                    </div>
-
-                    <div class="checkbox-card" data-value="unsure_int" data-cost="0">
-                        <input type="checkbox" name="integrations" value="unsure_int" id="int-unsure">
-                        <div class="checkbox-content">
-                            <div class="checkbox-header">
-                                <label class="checkbox-name" for="int-unsure">Not sure yet -- we'll discuss on the call</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 1.5rem;">
-                    <label for="custom-integrations-text" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary);">Tell us about any other integrations or tools you need:</label>
-                    <textarea id="custom-integrations-text" placeholder="e.g., Salesforce, HubSpot, Zapier, custom internal API, specific workflow automations..." style="width: 100%; min-height: 100px; padding: 0.75rem 1rem; border: 1px solid var(--border-subtle); border-radius: var(--radius); font-family: 'Inter', sans-serif; font-size: 0.95rem; background: var(--bg-card); color: var(--text-primary); resize: vertical; outline: none; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--border-accent)'" onblur="this.style.borderColor='var(--border-subtle)'"></textarea>
-                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">We'll review your needs and include a custom quote if required.</p>
-                </div>
-
-                <p class="integration-note">First 2 integrations are included free. Each additional standard integration is $500. Custom integrations start at $1,000.</p>
-
-                <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-6">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-6"></div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="btn btn-secondary" id="back-6">&#8592; Back</button>
-                    <button class="btn btn-primary" id="next-6">Next &#8594;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 7: VPS Managed Care -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="step" id="step-7">
-            <div class="step-card">
-                <h2 class="step-title">Choose your hosting & care plan</h2>
-                <p class="step-subtitle">Self-host for maximum privacy, or let us manage everything with VPS care plans.</p>
-
-                <div class="option-list" id="care-options">
-                    <!-- Local AI Setup Option -->
-                    <label class="option-card" data-value="selfhosted" style="border-color:rgba(124,58,237,0.4);background:linear-gradient(135deg,rgba(124,58,237,0.05),rgba(124,58,237,0.02));">
-                        <input type="radio" name="managed_care" value="selfhosted">
-                        <div class="option-header">
-                            <div class="option-name">Local AI Setup <span class="option-badge" style="background:#7c3aed;">Own Your AI</span></div>
-                        </div>
-                        <div class="option-desc">Get your own local AI infrastructure with free and open-source tools</div>
-                        <div class="sub-options" id="sub-selfhosted">
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="selfhosted_base" data-monthly="0" data-yearly="6000">
-                                <label><span>Training Package <span style="color:#7c3aed">(comprehensive training on how to use your local AI)</span></span><span class="sub-price">$6,000</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="selfhosted_2node" data-monthly="0" data-yearly="11500">
-                                <label><span>+1 Node Cluster <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$5,500</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="selfhosted_3node" data-monthly="0" data-yearly="17000">
-                                <label><span>+2 Node Clusters <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$11,000</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="selfhosted_4node" data-monthly="0" data-yearly="22500">
-                                <label><span>+3 Node Clusters <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$16,500</span></label>
-                            </div>
-                        </div>
-                        <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;color:var(--text-secondary);">
-                            <strong style="color:var(--text-primary);">Hardware:</strong> Mac Mini with 64GB RAM, 1TB SSD<br>
-                            <strong style="color:var(--text-primary);">Setup & Integration:</strong> Included (free and open-source tools)<br>
-                            <strong style="color:var(--text-primary);">Extra Node Clusters:</strong> $5,500 per additional Mac Mini — Add more power to your local AI with additional node clusters
-                        </div>
-                    </label>
-
-                    <div style="margin:1.5rem 0;text-align:center;position:relative;">
-                        <span style="background:var(--bg-secondary);padding:0 1rem;color:var(--text-muted);font-size:0.85rem;position:relative;z-index:1;">— or choose VPS managed care —</span>
-                        <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border-color);z-index:0;"></div>
-                    </div>
-
-                    <label class="option-card" data-value="none">
-                        <input type="radio" name="managed_care" value="none">
-                        <div class="option-header">
-                            <div class="option-name">No managed care</div>
-                            <div class="option-price">$0</div>
-                        </div>
-                        <div class="option-desc">I'll manage it myself after setup</div>
-                    </label>
-
-                    <label class="option-card" data-value="plus">
-                        <input type="radio" name="managed_care" value="plus">
-                        <div class="option-header">
-                            <div class="option-name">Plus <span class="option-badge">Entry</span></div>
-                        </div>
-                        <div class="option-desc">Monitoring, updates, auto-restart, email support</div>
-                        <div class="sub-options" id="sub-plus">
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_monthly" data-monthly="149.99" data-yearly="0">
-                                <label><span>Monthly</span><span class="sub-price">$149.99/mo</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_yearly" data-monthly="0" data-yearly="1799.88">
-                                <label><span>Yearly</span><span class="sub-price">$149.99/mo billed annually</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_2year" data-monthly="0" data-yearly="3599.76">
-                                <label><span>2-Year</span><span class="sub-price">$149.99/mo billed biennially</span></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label class="option-card" data-value="pro">
-                        <input type="radio" name="managed_care" value="pro">
-                        <div class="option-header">
-                            <div class="option-name">Pro <span class="option-badge">Popular</span></div>
-                        </div>
-                        <div class="option-desc">+ Priority Telegram support, weekly reports, skill updates</div>
-                        <div class="sub-options" id="sub-pro">
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="pro_monthly" data-monthly="249.99" data-yearly="0">
-                                <label><span>Monthly</span><span class="sub-price">$249.99/mo</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="pro_yearly" data-monthly="0" data-yearly="2999.88">
-                                <label><span>Yearly</span><span class="sub-price">$249.99/mo billed annually</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="pro_2year" data-monthly="0" data-yearly="5999.76">
-                                <label><span>2-Year</span><span class="sub-price">$249.99/mo billed biennially</span></label>
-                            </div>
-                        </div>
-                    </label>
-
-                    <label class="option-card" data-value="ultra">
-                        <input type="radio" name="managed_care" value="ultra">
-                        <div class="option-header">
-                            <div class="option-name">Ultra <span class="option-badge">Enterprise</span></div>
-                        </div>
-                        <div class="option-desc">Dedicated support engineer • 99.9% SLA • Custom integrations • Priority feature requests • Monthly strategy calls</div>
-                        <div class="sub-options" id="sub-ultra">
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="ultra_monthly" data-monthly="549.99" data-yearly="0">
-                                <label><span>Monthly</span><span class="sub-price">$549.99/mo</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="ultra_yearly" data-monthly="0" data-yearly="6599.88">
-                                <label><span>Yearly</span><span class="sub-price">$549.99/mo billed annually</span></label>
-                            </div>
-                            <div class="sub-option">
-                                <input type="radio" name="care_term" value="ultra_2year" data-monthly="0" data-yearly="14199.76">
-                                <label><span>2-Year</span><span class="sub-price">$549.99/mo billed biennially</span></label>
-                            </div>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="running-price">
-                    <div class="running-price-label">Estimated One-Time Cost</div>
-                    <div class="running-price-value" id="running-price-7">$2,500</div>
-                    <div class="running-monthly" id="running-monthly-7"></div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="btn btn-secondary" id="back-7">&#8592; Back</button>
-                    <button class="btn btn-primary" id="next-7" disabled>Next &#8594;</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 8: Summary -->
-        <!-- ══════════════════════════════════════════ -->
-        <div class="step" id="step-8">
-            <div class="step-card">
-                <h2 class="step-title">Your Configuration Summary</h2>
-                <p class="step-subtitle">Review your selections and choose how to proceed.</p>
-
-                <div class="disclaimer-box" style="background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text-secondary);">
-                    <strong style="color:var(--text-primary);">Note:</strong> Paid subscriptions (Claude, GPT, etc.), premium integrations, third-party tools, and connection fees (API access, etc.) are billed separately and not included in managed care pricing.
-                </div>
-
-                <div id="summary-content">
-                    <!-- Populated dynamically -->
-                </div>
-
-                <div style="margin-top:2.5rem">
-                    <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:1rem">What would you like to do next?</h3>
-
-                    <div class="action-options">
-                        <!-- Option 1: Send Message -->
-                        <div class="action-card" id="action-message">
-                            <div class="action-header" onclick="toggleAction('action-message')">
-                                <div class="action-title">&#9993; Send us a message</div>
-                                <div class="action-arrow">&#9662;</div>
-                            </div>
-                            <div class="action-body">
-                                <div id="message-form">
-                                    <div class="form-group">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input type="text" class="text-input" id="contact-name" placeholder="Your full name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email" class="text-input" id="contact-email" placeholder="you@example.com" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone (optional)</label>
-                                        <input type="tel" class="text-input" id="contact-phone" placeholder="+1 (555) 000-0000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Message</label>
-                                        <textarea class="text-input" id="contact-message" placeholder="Tell us about your project, timeline, or any questions..."></textarea>
-                                    </div>
-                                    <button class="btn btn-primary btn-lg" onclick="submitContactForm()" style="width:100%;justify-content:center">Send Message</button>
-                                </div>
-                                <div class="success-message" id="message-success">
-                                    <div class="success-icon">&#10003;</div>
-                                    <div class="success-title">Thank you!</div>
-                                    <div class="success-desc">We've received your message and configuration. We'll respond within 24 hours.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Option 2: Book a Call -->
-                        <div class="action-card" id="action-book">
-                            <div class="action-header" onclick="toggleAction('action-book')">
-                                <div class="action-title">&#128197; Book a Discovery Call</div>
-                                <div class="action-arrow">&#9662;</div>
-                            </div>
-                            <div class="action-body" style="text-align:center">
-                                <p style="margin-bottom:1rem;color:var(--text-secondary);font-size:0.95rem">Schedule a free 30-minute call to discuss your configuration and get personalized recommendations.</p>
-                                <a href="#booking" class="btn btn-primary btn-lg" style="display:inline-flex">Book a Call &#8594;</a>
-                            </div>
-                        </div>
-
-                        <!-- Option 3: Proceed to Payment -->
-                        <div class="action-card" id="action-pay">
-                            <div class="action-header" onclick="toggleAction('action-pay')">
-                                <div class="action-title">&#128179; Proceed to Payment</div>
-                                <div class="action-arrow">&#9662;</div>
-                            </div>
-                            <div class="action-body">
-                                <div class="info-note" style="margin-top:0;margin-bottom:1.25rem">After reviewing your configuration, we'll send you a custom payment link tailored to your exact setup.</div>
-                                <div id="payment-form">
-                                    <div class="form-group">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input type="text" class="text-input" id="pay-name" placeholder="Your full name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email <span class="required">*</span></label>
-                                        <input type="email" class="text-input" id="pay-email" placeholder="you@example.com" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Phone (optional)</label>
-                                        <input type="tel" class="text-input" id="pay-phone" placeholder="+1 (555) 000-0000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Notes (optional)</label>
-                                        <textarea class="text-input" id="pay-notes" placeholder="Any additional details..."></textarea>
-                                    </div>
-                                    <button class="btn btn-primary btn-lg" onclick="submitPaymentForm()" style="width:100%;justify-content:center">Request Payment Link</button>
-                                </div>
-                                <div class="success-message" id="payment-success">
-                                    <div class="success-icon">&#10003;</div>
-                                    <div class="success-title">Request received!</div>
-                                    <div class="success-desc">We'll review your configuration and send you a custom payment link within 24 hours.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step-nav">
-                    <button class="btn btn-secondary" id="back-8">&#8592; Back</button>
-                    <div></div>
-                </div>
-            </div>
-        </div>
+        <!-- STEPS 5-7 PLACEHOLDER: Will be added by another agent -->
     </div>
 
     <script>
