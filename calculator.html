@@ -153,19 +153,76 @@
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
-            .nav-links.mobile-open {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.97);
-                backdrop-filter: blur(20px);
-                padding: 1.5rem 2rem;
-                gap: 1rem;
-                border-bottom: 1px solid var(--border-subtle);
-            }
+        }
+
+        .mobile-menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .mobile-slide-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background: #fff;
+            z-index: 999;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -4px 0 30px rgba(0,0,0,0.1);
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .mobile-slide-menu.active {
+            right: 0;
+        }
+
+        .mobile-slide-menu .mobile-nav-link {
+            display: block;
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: color 0.2s, padding-left 0.2s;
+        }
+
+        .mobile-slide-menu .mobile-nav-link:hover {
+            color: #7c3aed;
+            padding-left: 0.5rem;
+        }
+
+        .mobile-close-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            float: right;
+            margin-top: -0.5rem;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #7c3aed;
         }
 
         /* ── Sections Shared ── */
@@ -475,7 +532,7 @@
                 <img src="logo-octai.svg" alt="The AI 101" style="height: 44px; width: 44px; object-fit: contain;">
                 <span class="nav-logo-text">The AI 101</span>
             </a>
-            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Toggle menu">&#9776;</button>
+            <button class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Toggle menu">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="index.html#compare">Compare</a></li>
                 <li><a href="calculator.html">Calculator</a></li>
@@ -485,6 +542,24 @@
             </ul>
         </div>
     </nav>
+
+    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+    <div class="mobile-slide-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="logo-octai.svg" alt="OctAi" style="height:32px;">
+            <button class="mobile-close-btn" onclick="closeMobileMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <a href="index.html#compare" class="mobile-nav-link" onclick="closeMobileMenu()">Compare</a>
+        <a href="calculator.html" class="mobile-nav-link" onclick="closeMobileMenu()">Calculator</a>
+        <a href="index.html#pricing" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
+        <a href="index.html#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
+        <a href="configure.html" class="mobile-nav-link" onclick="closeMobileMenu()">Get Started</a>
+        <div style="margin-top:2rem;">
+            <a href="configure.html" style="display:block;width:100%;padding:0.9rem;text-align:center;background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;">Get Started Now</a>
+        </div>
+    </div>
 
     <!-- ═══════════════════════ COST CALCULATOR ═══════════════════════ -->
     <section class="calculator-section" id="calculator">
@@ -585,12 +660,16 @@
             fadeObserver.observe(el);
         });
 
-        // ── Mobile Menu Close on Link Click ──
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                document.querySelector('.nav-links').classList.remove('mobile-open');
-            });
-        });
+        function openMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('active');
+            document.getElementById('mobileOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.getElementById('mobileOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
         // ── Cost Calculator ──
         var planSelect = document.getElementById('planSelect');
@@ -630,6 +709,39 @@
         planSelect.addEventListener('change', updateCalculator);
         updateCalculator();
     </script>
+
+<!-- Live Chat Widget -->
+<div id="chat-widget" style="position:fixed;bottom:24px;right:24px;z-index:9999;">
+    <button id="chat-toggle" onclick="toggleChat()" style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#6d28d9);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(124,58,237,0.4);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <div id="chat-window" style="display:none;position:absolute;bottom:72px;right:0;width:360px;max-height:500px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.15);overflow:hidden;flex-direction:column;">
+        <div style="background:linear-gradient(135deg,#7c3aed,#6d28d9);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+            <div>
+                <div style="color:#fff;font-weight:700;font-size:1rem;font-family:Inter,sans-serif;">Chat with us</div>
+                <div style="color:rgba(255,255,255,0.8);font-size:0.8rem;font-family:Inter,sans-serif;">We typically reply in minutes</div>
+            </div>
+            <button onclick="toggleChat()" style="background:none;border:none;cursor:pointer;padding:4px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <div id="chat-messages" style="flex:1;overflow-y:auto;padding:16px;max-height:320px;font-family:Inter,sans-serif;">
+            <div style="background:#f3e8ff;border-radius:12px 12px 12px 4px;padding:12px 16px;margin-bottom:12px;max-width:85%;font-size:0.9rem;color:#1a1a2e;line-height:1.5;">
+                👋 Hi! How can we help you today? Ask about our AI agent plans, pricing, or setup.
+            </div>
+        </div>
+        <div style="padding:12px;border-top:1px solid #f0f0f0;display:flex;gap:8px;">
+            <input type="text" id="chat-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()" style="flex:1;padding:10px 14px;border:1px solid #e0e0e0;border-radius:10px;font-size:0.9rem;font-family:Inter,sans-serif;outline:none;" onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e0e0e0'">
+            <button onclick="sendChat()" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);border:none;border-radius:10px;padding:10px 14px;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+function toggleChat(){var w=document.getElementById('chat-window');var b=document.getElementById('chat-toggle');if(w.style.display==='none'||w.style.display===''){w.style.display='flex';b.style.display='none'}else{w.style.display='none';b.style.display='flex'}}
+function sendChat(){var i=document.getElementById('chat-input');var m=i.value.trim();if(!m)return;i.value='';var c=document.getElementById('chat-messages');c.innerHTML+='<div style="background:#7c3aed;color:#fff;border-radius:12px 12px 4px 12px;padding:12px 16px;margin-bottom:12px;max-width:85%;font-size:0.9rem;line-height:1.5;margin-left:auto;text-align:right;">'+m.replace(/</g,'&lt;')+'</div>';setTimeout(function(){var replies=['Thanks for reaching out! A team member will get back to you shortly. You can also email us at contact@theai101.shop','Great question! Let me connect you with someone who can help with that.','We\'d love to help! For detailed pricing questions, check out our pricing page or email contact@theai101.shop','Thanks for your interest! One of our AI specialists will follow up with you soon.'];var r=replies[Math.floor(Math.random()*replies.length)];c.innerHTML+='<div style="background:#f3e8ff;border-radius:12px 12px 12px 4px;padding:12px 16px;margin-bottom:12px;max-width:85%;font-size:0.9rem;color:#1a1a2e;line-height:1.5;">'+r+'</div>';c.scrollTop=c.scrollHeight},800);c.scrollTop=c.scrollHeight}
+</script>
 
 </body>
 </html>
