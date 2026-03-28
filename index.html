@@ -931,7 +931,7 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
             align-items: start;
         }
@@ -2411,227 +2411,29 @@
         </div>
     </section>
 
-    <!-- ═══════════════════════ 8. INTERACTIVE COST CALCULATOR ═══════════════════════ -->
+    <!-- ═══════════════════════ 8. COST CALCULATOR CTA ═══════════════════════ -->
     <section class="calculator-section" id="calculator">
         <div class="container section-center">
             <div class="fade-in">
                 <div class="section-label">Cost Calculator</div>
-                <h2 class="section-title">See Your 3-Year Total Cost</h2>
-                <p class="section-subtitle">Compare what you'll actually spend over time.</p>
-            </div>
-            <div class="fade-in">
-                <div class="calc-controls">
-                    <div class="calc-control">
-                        <label for="planSelect">Choose a plan tier</label>
-                        <select id="planSelect">
-                            <option value="plus">Plus &mdash; $149.99/mo</option>
-                            <option value="pro" selected>Pro &mdash; $249.99/mo</option>
-                            <option value="ultra">Ultra &mdash; $549.99/mo</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="calc-table-wrap">
-                    <table class="calc-table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Cloud (Monthly)</th>
-                                <th>Local (One-Time)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Monthly cost</td>
-                                <td id="c-monthly-cloud">$249.99/mo</td>
-                                <td>$0/mo</td>
-                            </tr>
-                            <tr>
-                                <td>Training</td>
-                                <td>Included</td>
-                                <td>$6,000</td>
-                            </tr>
-                            <tr>
-                                <td>Hardware</td>
-                                <td>$0</td>
-                                <td>Mac Mini 64GB/1TB (separate)</td>
-                            </tr>
-                            <tr class="year-row">
-                                <td><strong>Year 1</strong></td>
-                                <td id="c-y1-cloud"><strong>$2,999.88</strong></td>
-                                <td id="c-y1-local"><strong>$6,000</strong></td>
-                            </tr>
-                            <tr class="year-row">
-                                <td><strong>Year 2</strong></td>
-                                <td id="c-y2-cloud"><strong>$5,999.76</strong></td>
-                                <td id="c-y2-local"><strong>$6,000</strong></td>
-                            </tr>
-                            <tr class="year-row year3-row">
-                                <td><strong>Year 3</strong></td>
-                                <td id="c-y3-cloud"><strong>$8,999.64</strong></td>
-                                <td id="c-y3-local"><strong>$6,000</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="calc-verdict">
-                    Local saves you<br>
-                    <span class="savings-num" id="calcSavings">$2,999.64</span><br>
-                    over 3 years
-                </div>
+                <h2 class="section-title">Compare Your Total Cost</h2>
+                <p class="section-subtitle">See how cloud vs local pricing adds up over 1, 2, and 3 years.</p>
+                <a href="calculator.html" class="btn-primary">Open Cost Calculator &rarr;</a>
             </div>
         </div>
     </section>
 
     <!-- ═══════════════════════ 9. PRICING ═══════════════════════ -->
     <section id="pricing">
-      <div class="container section-center">
-        <div class="section-label fade-in">Pricing</div>
-        <h2 class="section-title fade-in">Choose Your Path</h2>
-        <p class="section-subtitle fade-in">Setup includes everything: deployment, configuration, security audit, training, and documentation. Managed care plans available separately.</p>
-
-        <!-- ═══════════ SECTION 1: CLOUD PRICING ═══════════ -->
-        <div class="pricing-track fade-in" id="section-vps">
-          <div class="track-header">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-            <h3>Cloud Pricing</h3>
-            <p>Monthly subscription. Your AI agent runs 24/7 on managed cloud infrastructure.</p>
-          </div>
-
-          <p class="toggle-desc">Core AI integrations, email automation, calendar management, and more &mdash; all included. Higher tiers include more integrations based on your needs.</p>
-          <div class="pricing-grid">
-
-            <div class="pricing-card">
-              <div class="pricing-tier">Plus</div>
-              <div class="pricing-price">$149.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$1,799.88/yr &bull; $3,599.76/2yr</p>
-              <ul class="pricing-features">
-                <li>Core AI integrations</li>
-                <li>Email automation</li>
-                <li>Calendar management</li>
-                <li>Basic task automation</li>
-                <li>Standard support</li>
-              </ul>
-              <a href="configure.html" class="btn-secondary">Get Started</a>
+        <div class="container section-center">
+            <div class="section-label fade-in">Pricing</div>
+            <h2 class="section-title fade-in">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle fade-in">Cloud plans starting at $149.99/mo or go local with a complete Mac Mini setup for $6,000.</p>
+            <div class="hero-buttons fade-in">
+                <a href="pricing.html" class="btn-primary">View All Plans &rarr;</a>
+                <a href="calculator.html" class="btn-secondary">Cost Calculator</a>
             </div>
-
-            <div class="pricing-card featured">
-              <div class="pricing-badge">Recommended</div>
-              <div class="pricing-tier">Pro</div>
-              <div class="pricing-price">$249.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$2,999.88/yr &bull; $5,999.76/2yr</p>
-              <ul class="pricing-features">
-                <li>Extended integrations</li>
-                <li>Social media automation</li>
-                <li>Advanced task workflows</li>
-                <li>Priority support</li>
-                <li>Custom workflows</li>
-              </ul>
-              <a href="configure.html" class="btn-primary">Get Started</a>
-            </div>
-
-            <div class="pricing-card">
-              <div class="pricing-tier">Ultra</div>
-              <div class="pricing-price">$549.99 <span>/mo</span></div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$6,599.88/yr &bull; $14,199.76/2yr</p>
-              <ul class="pricing-features">
-                <li>Full integration library</li>
-                <li>Dedicated account manager</li>
-                <li>24/7 priority support</li>
-                <li>Custom AI training</li>
-                <li>Enterprise security</li>
-              </ul>
-              <a href="configure.html" class="btn-secondary">Get Started</a>
-            </div>
-
-          </div>
         </div>
-
-        <!-- ═══ DIVIDER ═══ -->
-        <div class="section-divider fade-in"></div>
-
-        <!-- ═══════════ SECTION 2: LOCAL PRICING ═══════════ -->
-        <div class="pricing-track fade-in" id="section-mac">
-          <div class="track-header">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            <h3>Local Pricing</h3>
-            <p>Own your AI infrastructure. One-time costs, zero monthly fees, complete privacy.</p>
-          </div>
-
-          <p class="toggle-desc">Local AI integration included with purchase. All setup uses free and open-source tools.</p>
-          <div class="pricing-grid">
-
-            <div class="pricing-card">
-              <div class="pricing-tier">Hardware</div>
-              <div class="pricing-price">Mac Mini</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">64GB RAM &bull; 1TB SSD</p>
-              <p class="pricing-desc">Hardware cost is separate and purchased directly from Apple or your preferred retailer.</p>
-              <ul class="pricing-features">
-                <li>Apple Silicon performance</li>
-                <li>Runs models locally &mdash; no API costs</li>
-                <li>Complete data privacy</li>
-                <li>Fanless, quiet, low power</li>
-              </ul>
-            </div>
-
-            <div class="pricing-card">
-              <div class="pricing-tier">Setup &amp; Integration</div>
-              <div class="pricing-price">Included</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">with free/open-source tools</p>
-              <p class="pricing-desc">Full OctAi deployment, Ollama self-hosted AI configuration, security hardening, and integration setup.</p>
-              <ul class="pricing-features">
-                <li>OctAi deployment</li>
-                <li>Ollama self-hosted AI</li>
-                <li>Security hardening</li>
-                <li>Integration configuration</li>
-              </ul>
-            </div>
-
-            <div class="pricing-card featured">
-              <div class="pricing-badge">Required</div>
-              <div class="pricing-tier">Training</div>
-              <div class="pricing-price">$6,000</div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">Learn how to use everything</p>
-              <p class="pricing-desc">Hands-on training sessions so you can manage, customize, and get the most from your setup.</p>
-              <ul class="pricing-features">
-                <li>How to manage your agents</li>
-                <li>Customizing workflows</li>
-                <li>Adding new skills</li>
-                <li>Monitoring &amp; maintenance</li>
-              </ul>
-              <a href="configure.html" class="btn-primary">Get Started</a>
-            </div>
-
-            <div class="pricing-card">
-              <div class="pricing-tier">Extra Node Clusters</div>
-              <div class="pricing-price">$5,500 <span class="price-label">each</span></div>
-              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">additional Mac Minis</p>
-              <p class="pricing-desc">Additional Mac Minis to make your local AI more powerful with distributed processing.</p>
-              <ul class="pricing-features">
-                <li>Distributed processing</li>
-                <li>Run larger models</li>
-                <li>Faster inference</li>
-                <li>Redundancy &amp; reliability</li>
-              </ul>
-              <a href="configure.html" class="btn-secondary">Add Nodes</a>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ═══════════ ENTERPRISE BANNER ═══════════ -->
-        <div class="enterprise-banner fade-in">
-          <h3>Enterprise &mdash; Custom Solutions</h3>
-          <p>Need 5+ agents, Oracle/AWS heavy compute, SOC2/HIPAA compliance, or custom skill development?</p>
-          <div class="btn-row">
-            <a href="#contact" class="btn-primary">Book a Discovery Call</a>
-            <a href="configure.html" class="btn-secondary">Fill Out Our Questionnaire</a>
-          </div>
-        </div>
-
-        <!-- ═══════════ LOCAL NOTE ═══════════ -->
-        <p class="addons-note fade-in">Local AI integration included with purchase. Hardware (Mac Mini 64GB RAM, 1TB SSD) is purchased separately. Training is $6,000. Extra node clusters are $5,500 each. Need something custom? <a href="#contact">Book a call</a>.</p>
-
-      </div>
     </section>
 
     <!-- ═══════════════════════ 10. HOW IT WORKS ═══════════════════════ -->
@@ -3001,39 +2803,6 @@
             });
         });
 
-        // ── Cost Calculator ──
-        var planSelect = document.getElementById('planSelect');
-
-        var planData = {
-            plus:   { monthly: 149.99, label: 'Plus' },
-            pro:    { monthly: 249.99, label: 'Pro' },
-            ultra:  { monthly: 549.99, label: 'Ultra' }
-        };
-
-        function updateCalculator() {
-            var plan = planData[planSelect.value];
-            var localTraining = 6000;
-
-            document.getElementById('c-monthly-cloud').textContent = '$' + plan.monthly + '/mo';
-
-            var y1Cloud = plan.monthly * 12;
-            var y2Cloud = plan.monthly * 24;
-            var y3Cloud = plan.monthly * 36;
-
-            document.getElementById('c-y1-cloud').innerHTML = '<strong>$' + y1Cloud.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</strong>';
-            document.getElementById('c-y2-cloud').innerHTML = '<strong>$' + y2Cloud.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</strong>';
-            document.getElementById('c-y3-cloud').innerHTML = '<strong>$' + y3Cloud.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + '</strong>';
-
-            document.getElementById('c-y1-local').innerHTML = '<strong>$' + localTraining.toLocaleString() + '</strong>';
-            document.getElementById('c-y2-local').innerHTML = '<strong>$' + localTraining.toLocaleString() + '</strong>';
-            document.getElementById('c-y3-local').innerHTML = '<strong>$' + localTraining.toLocaleString() + '</strong>';
-
-            var savings = y3Cloud - localTraining;
-            document.getElementById('calcSavings').textContent = savings > 0 ? '$' + savings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '$0';
-        }
-
-        planSelect.addEventListener('change', updateCalculator);
-        updateCalculator();
     </script>
 
 </body>

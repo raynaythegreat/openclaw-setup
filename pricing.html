@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI 101 | Pricing</title>
+    <meta name="description" content="The AI 101 — Simple, transparent pricing for OctAi AI agent deployment. Cloud plans starting at $149.99/mo or go local with zero monthly fees.">
+    <link rel="icon" type="image/svg+xml" href="logo-octai.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+:root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f5f5ff;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555566;
+            --text-muted: #888899;
+            --accent-blue: #7c3aed;
+            --accent-cyan: #7c3aed;
+            --accent-teal: #6d28d9;
+            --accent-glow: rgba(124, 58, 237, 0.12);
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --border-accent: rgba(124, 58, 237, 0.3);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.75rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: padding 0.3s;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .nav-logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: #fff !important;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: opacity 0.2s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.97);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+        }
+
+        /* ── Sections Shared ── */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+
+        .section-center {
+            text-align: center;
+        }
+
+        .section-center .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── Buttons ── */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.25);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.9rem 2.2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--border-subtle);
+            transition: border-color 0.2s, background 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-accent);
+            background: rgba(124, 58, 237, 0.04);
+            transform: translateY(-1px);
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 6rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ── Pricing Section ── */
+        .pricing-track {
+            margin-bottom: 3rem;
+        }
+
+        .track-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .track-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .track-header p {
+            width: 100%;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .toggle-desc {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-accent);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.06);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid transparent;
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, #9333ea, #a855f7, #7c3aed, #9333ea) border-box;
+            background-size: 100% 100%, 300% 300%;
+            animation: borderGlow 4s ease infinite;
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(124, 58, 237, 0.1), 0 0 100px rgba(124, 58, 237, 0.05);
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 0%, 0% 50%; }
+            50% { background-position: 0% 0%, 100% 50%; }
+            100% { background-position: 0% 0%, 0% 50%; }
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-6px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-hero);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 1.1rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .pricing-tier {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-price span {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .pricing-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .pricing-features li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .pricing-features li::before {
+            content: '\2713';
+            color: var(--accent-cyan);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pricing-card .btn-primary,
+        .pricing-card .btn-secondary {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: var(--border-subtle);
+            margin: 3rem 0;
+        }
+
+        .enterprise-banner {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border: 2px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .enterprise-banner h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .enterprise-banner p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .enterprise-banner .btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .addons-note {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .addons-note a {
+            color: #9333ea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        /* ── Footer ── */
+        .footer-bottom {
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="nav-brand">
+                <img src="logo-octai.svg" alt="The AI 101" style="height: 44px; width: 44px; object-fit: contain;">
+                <span class="nav-logo-text">The AI 101</span>
+            </a>
+            <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Toggle menu">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="index.html#compare">Compare</a></li>
+                <li><a href="calculator.html">Calculator</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="index.html#faq">FAQ</a></li>
+                <li><a href="configure.html" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════ BREADCRUMB ═══════════════════════ -->
+    <div class="breadcrumb">
+        <a href="index.html">&larr; Back to Home</a>
+    </div>
+
+    <!-- ═══════════════════════ PRICING ═══════════════════════ -->
+    <section id="pricing">
+      <div class="container section-center">
+        <div class="section-label fade-in">Pricing</div>
+        <h2 class="section-title fade-in">Choose Your Path</h2>
+        <p class="section-subtitle fade-in">Setup includes everything: deployment, configuration, security audit, training, and documentation. Managed care plans available separately.</p>
+
+        <!-- ═══════════ SECTION 1: CLOUD PRICING ═══════════ -->
+        <div class="pricing-track fade-in" id="section-vps">
+          <div class="track-header">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            <h3>Cloud Pricing</h3>
+            <p>Monthly subscription. Your AI agent runs 24/7 on managed cloud infrastructure.</p>
+          </div>
+
+          <p class="toggle-desc">Core AI integrations, email automation, calendar management, and more &mdash; all included. Higher tiers include more integrations based on your needs.</p>
+          <div class="pricing-grid">
+
+            <div class="pricing-card">
+              <div class="pricing-tier">Plus</div>
+              <div class="pricing-price">$149.99 <span>/mo</span></div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$1,799.88/yr &bull; $3,599.76/2yr</p>
+              <ul class="pricing-features">
+                <li>Core AI integrations</li>
+                <li>Email automation</li>
+                <li>Calendar management</li>
+                <li>Basic task automation</li>
+                <li>Standard support</li>
+              </ul>
+              <a href="configure.html" class="btn-secondary">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="pricing-badge">Recommended</div>
+              <div class="pricing-tier">Pro</div>
+              <div class="pricing-price">$249.99 <span>/mo</span></div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$2,999.88/yr &bull; $5,999.76/2yr</p>
+              <ul class="pricing-features">
+                <li>Extended integrations</li>
+                <li>Social media automation</li>
+                <li>Advanced task workflows</li>
+                <li>Priority support</li>
+                <li>Custom workflows</li>
+              </ul>
+              <a href="configure.html" class="btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="pricing-tier">Ultra</div>
+              <div class="pricing-price">$549.99 <span>/mo</span></div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 0.4rem 0;">$6,599.88/yr &bull; $14,199.76/2yr</p>
+              <ul class="pricing-features">
+                <li>Full integration library</li>
+                <li>Dedicated account manager</li>
+                <li>24/7 priority support</li>
+                <li>Custom AI training</li>
+                <li>Enterprise security</li>
+              </ul>
+              <a href="configure.html" class="btn-secondary">Get Started</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ═══ DIVIDER ═══ -->
+        <div class="section-divider fade-in"></div>
+
+        <!-- ═══════════ SECTION 2: LOCAL PRICING ═══════════ -->
+        <div class="pricing-track fade-in" id="section-mac">
+          <div class="track-header">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            <h3>Local Pricing</h3>
+            <p>Own your AI infrastructure. One-time costs, zero monthly fees, complete privacy.</p>
+          </div>
+
+          <p class="toggle-desc">Local AI integration included with purchase. All setup uses free and open-source tools.</p>
+          <div class="pricing-grid">
+
+            <div class="pricing-card">
+              <div class="pricing-tier">Hardware</div>
+              <div class="pricing-price">Mac Mini</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">64GB RAM &bull; 1TB SSD</p>
+              <p class="pricing-desc">Hardware cost is separate and purchased directly from Apple or your preferred retailer.</p>
+              <ul class="pricing-features">
+                <li>Apple Silicon performance</li>
+                <li>Runs models locally &mdash; no API costs</li>
+                <li>Complete data privacy</li>
+                <li>Fanless, quiet, low power</li>
+              </ul>
+            </div>
+
+            <div class="pricing-card">
+              <div class="pricing-tier">Setup &amp; Integration</div>
+              <div class="pricing-price">Included</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">with free/open-source tools</p>
+              <p class="pricing-desc">Full OctAi deployment, Ollama self-hosted AI configuration, security hardening, and integration setup.</p>
+              <ul class="pricing-features">
+                <li>OctAi deployment</li>
+                <li>Ollama self-hosted AI</li>
+                <li>Security hardening</li>
+                <li>Integration configuration</li>
+              </ul>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="pricing-badge">Required</div>
+              <div class="pricing-tier">Training</div>
+              <div class="pricing-price">$6,000</div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">Learn how to use everything</p>
+              <p class="pricing-desc">Hands-on training sessions so you can manage, customize, and get the most from your setup.</p>
+              <ul class="pricing-features">
+                <li>How to manage your agents</li>
+                <li>Customizing workflows</li>
+                <li>Adding new skills</li>
+                <li>Monitoring &amp; maintenance</li>
+              </ul>
+              <a href="configure.html" class="btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="pricing-tier">Extra Node Clusters</div>
+              <div class="pricing-price">$5,500 <span class="price-label">each</span></div>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">additional Mac Minis</p>
+              <p class="pricing-desc">Additional Mac Minis to make your local AI more powerful with distributed processing.</p>
+              <ul class="pricing-features">
+                <li>Distributed processing</li>
+                <li>Run larger models</li>
+                <li>Faster inference</li>
+                <li>Redundancy &amp; reliability</li>
+              </ul>
+              <a href="configure.html" class="btn-secondary">Add Nodes</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ═══════════ ENTERPRISE BANNER ═══════════ -->
+        <div class="enterprise-banner fade-in">
+          <h3>Enterprise &mdash; Custom Solutions</h3>
+          <p>Need 5+ agents, Oracle/AWS heavy compute, SOC2/HIPAA compliance, or custom skill development?</p>
+          <div class="btn-row">
+            <a href="index.html#contact" class="btn-primary">Book a Discovery Call</a>
+            <a href="configure.html" class="btn-secondary">Fill Out Our Questionnaire</a>
+          </div>
+        </div>
+
+        <!-- ═══════════ LOCAL NOTE ═══════════ -->
+        <p class="addons-note fade-in">Local AI integration included with purchase. Hardware (Mac Mini 64GB RAM, 1TB SSD) is purchased separately. Training is $6,000. Extra node clusters are $5,500 each. Need something custom? <a href="index.html#contact">Book a call</a>.</p>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 The AI 101 | Powered by Square | Built on OctAi</p>
+    </div>
+
+    <script>
+        var fadeObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            fadeObserver.observe(el);
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+            });
+        });
+    </script>
+
+</body>
+</html>
