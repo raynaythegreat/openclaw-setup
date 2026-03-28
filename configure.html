@@ -769,15 +769,6 @@
                 <p class="step-subtitle">Choose where your agent will live and run. This determines your base setup cost and ongoing expenses.</p>
 
                 <div class="option-list" id="hosting-options">
-                    <label class="option-card" data-value="cloud_only">
-                        <input type="radio" name="hosting" value="cloud_only">
-                        <div class="option-header">
-                            <div class="option-name">Cloud Only (No Server)</div>
-                            <div class="option-price">From $2,500</div>
-                        </div>
-                        <div class="option-desc">Use your existing devices. AI runs via cloud API (OpenRouter, OpenAI, etc.). You pay API costs separately (~$5-15/day).</div>
-                    </label>
-
                     <label class="option-card" data-value="vps_cloud_api">
                         <input type="radio" name="hosting" value="vps_cloud_api">
                         <div class="option-header">
@@ -794,15 +785,6 @@
                             <div class="option-price">From $3,000</div>
                         </div>
                         <div class="option-desc">Cloud server with Ollama installed. Zero ongoing API costs. Your AI runs entirely on the server.</div>
-                    </label>
-
-                    <label class="option-card" data-value="byod">
-                        <input type="radio" name="hosting" value="byod">
-                        <div class="option-header">
-                            <div class="option-name">Your Own Device (BYOD)</div>
-                            <div class="option-price">From $5,000</div>
-                        </div>
-                        <div class="option-desc">You have a Mac, server, or machine. We remote in and set everything up.</div>
                     </label>
 
                     <label class="option-card" data-value="mac_mini">
@@ -1592,7 +1574,7 @@
     const state = {
         currentStep: 1,
         totalSteps: 8,
-        hosting: null,           // cloud_only | vps_cloud_api | vps_self_hosted | byod | mac_mini
+        hosting: null,           // vps_cloud_api | vps_self_hosted | mac_mini
         serverProvider: null,    // hostinger | oracle | aws
         serverPlan: null,        // specific plan value
         serverMonthly: 0,
@@ -1616,10 +1598,8 @@
     // Price Calculation
     // ═══════════════════════════════════════════════════
     const BASE_PRICES = {
-        cloud_only: 2500,
         vps_cloud_api: 2000,
         vps_self_hosted: 3000,
-        byod: 5000,
         mac_mini: 5000  // Setup fee - $6,000 hardware added separately
     };
 
@@ -1755,8 +1735,8 @@
     // Step Navigation
     // ═══════════════════════════════════════════════════
     function getEffectiveStep(stepNum) {
-        // Step 2 is skipped if hosting is cloud_only or byod
-        if (stepNum === 2 && (state.hosting === 'cloud_only' || state.hosting === 'byod')) {
+        // Step 2 is skipped for mac_mini (has its own Mac Mini selection)
+        if (stepNum === 2 && state.hosting === 'mac_mini') {
             return null; // skip
         }
         return stepNum;
@@ -1996,8 +1976,6 @@
             ram = macRamMap[state.macModel] || 0;
         } else if (state.hosting === 'vps_self_hosted' || state.hosting === 'vps_cloud_api') {
             ram = state.serverRam || 0;
-        } else if (state.hosting === 'byod') {
-            ram = 64; // Assume good hardware
         }
 
         const models = [];
@@ -2217,10 +2195,8 @@
     // Step 8: Summary
     // ═══════════════════════════════════════════════════
     const HOSTING_LABELS = {
-        cloud_only: 'Cloud Only (No Server)',
         vps_cloud_api: 'VPS + Cloud AI',
         vps_self_hosted: 'VPS + Self-Hosted AI',
-        byod: 'Your Own Device (BYOD)',
         mac_mini: 'We Provide a Mac Mini'
     };
 
