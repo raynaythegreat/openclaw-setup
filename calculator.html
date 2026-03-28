@@ -575,7 +575,7 @@
                     <div class="calc-control">
                         <label for="planSelect">Choose a plan tier</label>
                         <select id="planSelect">
-                            <option value="plus">Plus &mdash; $149.99/mo</option>
+                            <option value="premium">Premium &mdash; $349.99/mo</option>
                             <option value="pro" selected>Pro &mdash; $249.99/mo</option>
                             <option value="ultra">Ultra &mdash; $549.99/mo</option>
                         </select>
@@ -675,7 +675,7 @@
         var planSelect = document.getElementById('planSelect');
 
         var planData = {
-            plus:   { monthly: 149.99, label: 'Plus' },
+            premium: { monthly: 349.99, label: 'Premium' },
             pro:    { monthly: 249.99, label: 'Pro' },
             ultra:  { monthly: 549.99, label: 'Ultra' }
         };

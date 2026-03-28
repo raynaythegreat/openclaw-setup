@@ -753,7 +753,7 @@
         <div class="progress-section">
             <div class="progress-label">
                 <span id="progress-text">Step 1 of 7</span>
-                <span id="progress-price">$149.99/mo</span>
+                <span id="progress-price">$249.99/mo</span>
             </div>
             <div class="progress-track">
                 <div class="progress-fill" id="progress-fill" style="width: 14.28%"></div>
@@ -811,7 +811,7 @@
                         <input type="radio" name="hosting" value="cloud">
                         <div class="option-header">
                             <div class="option-name">Cloud (VPS)</div>
-                            <div class="option-price">From $149.99/mo</div>
+                            <div class="option-price">From $249.99/mo</div>
                         </div>
                         <div class="option-desc">Managed cloud infrastructure. We handle servers, uptime, and scaling. Best for solo users who want zero maintenance.</div>
                     </label>
@@ -833,7 +833,7 @@
                 </div>
                 <div class="running-price">
                     <div class="running-price-label">Starting at</div>
-                    <div class="running-price-value" id="running-price-2">$149.99/mo</div>
+                    <div class="running-price-value" id="running-price-2">$249.99/mo</div>
                     <div class="running-monthly" id="running-monthly-2">or $7,000 one-time (local)</div>
                 </div>
                 <div class="step-nav">
@@ -853,14 +853,14 @@
                     <h2 class="step-title">Choose your plan</h2>
                     <p class="step-subtitle">All plans include OctAi deployment, security hardening, and documentation. Higher tiers include more integrations.</p>
                     <div class="option-list" id="plan-options">
-                        <label class="option-card" data-value="plus">
-                            <input type="radio" name="plan" value="plus">
+                        <label class="option-card" data-value="premium">
+                            <input type="radio" name="plan" value="premium">
                             <div class="option-header">
-                                <div class="option-name">Plus</div>
-                                <div class="option-price">$149.99/mo</div>
+                                <div class="option-name">Premium</div>
+                                <div class="option-price">$349.99/mo</div>
                             </div>
-                            <div class="option-desc">Core AI integrations, email automation, calendar management, basic task automation, standard support.</div>
-                            <div class="option-desc" style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">$1,799.88/yr &bull; $3,599.76/2yr</div>
+                            <div class="option-desc">Extended integrations, smart automation, custom AI-powered software generation that pays for itself. Priority support included.</div>
+                            <div class="option-desc" style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">$4,199.88/yr &bull; $8,399.76/2yr</div>
                         </label>
                         <label class="option-card" data-value="pro">
                             <input type="radio" name="plan" value="pro">
@@ -1229,25 +1229,25 @@
                         <div class="option-desc">You handle monitoring and updates yourself. We hand off everything documented.</div>
                     </label>
 
-                    <label class="option-card" data-value="plus">
-                        <input type="radio" name="managed_care" value="plus">
+                    <label class="option-card" data-value="premium">
+                        <input type="radio" name="managed_care" value="premium">
                         <div class="option-header">
-                            <div class="option-name">Plus</div>
-                            <div class="option-price">$149.99/mo</div>
+                            <div class="option-name">Premium</div>
+                            <div class="option-price">$349.99/mo</div>
                         </div>
-                        <div class="option-desc">Heartbeat monitoring, auto-restart on failure, monthly reports, standard support.</div>
-                        <div class="sub-options" id="sub-plus">
+                        <div class="option-desc">Heartbeat monitoring, auto-restart on failure, monthly reports, priority support, custom software generation.</div>
+                        <div class="sub-options" id="sub-premium">
                             <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_monthly" data-monthly="149.99" data-yearly="0">
-                                <label><span>Monthly</span><span class="sub-price">$149.99/mo</span></label>
+                                <input type="radio" name="care_term" value="premium_monthly" data-monthly="349.99" data-yearly="0">
+                                <label><span>Monthly</span><span class="sub-price">$349.99/mo</span></label>
                             </div>
                             <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_yearly" data-monthly="0" data-yearly="1799.88">
-                                <label><span>Yearly</span><span class="sub-price">$1,799.88/yr</span></label>
+                                <input type="radio" name="care_term" value="premium_yearly" data-monthly="0" data-yearly="4199.88">
+                                <label><span>Yearly</span><span class="sub-price">$4,199.88/yr</span></label>
                             </div>
                             <div class="sub-option">
-                                <input type="radio" name="care_term" value="plus_2year" data-monthly="0" data-yearly="0">
-                                <label><span>2-Year</span><span class="sub-price">$3,599.76/2yr</span></label>
+                                <input type="radio" name="care_term" value="premium_2year" data-monthly="0" data-yearly="0">
+                                <label><span>2-Year</span><span class="sub-price">$8,399.76/2yr</span></label>
                             </div>
                         </div>
                     </label>
@@ -1386,7 +1386,7 @@
         agents: null,            // 1 | 3 | 5 | 5plus | unsure
         channels: [],
         integrations: [],
-        managedCare: null,       // none | plus | pro | premium | ultra
+        managedCare: null,       // none | pro | premium | ultra
         careTerm: null,          // monthly | yearly | 2year
         careMonthlyCost: 0,
         careYearlyCost: 0,
@@ -1409,7 +1409,7 @@
     const CARE_PRICING = {
         none: { monthly: 0, yearly: 0 },
         selfhosted: { base: 6000, '2node': 11500, '3node': 17000, '4node': 22500 },
-        plus: { monthly: 149.99, yearly: 1799.88, '2year': 3599.76 },
+        premium: { monthly: 349.99, yearly: 4199.88, '2year': 8399.76 },
         pro: { monthly: 249.99, yearly: 2999.88, '2year': 5999.76 },
         ultra: { monthly: 549.99, yearly: 6599.88, '2year': 14199.76 }
     };
@@ -1962,7 +1962,7 @@
     // Care term selection
     document.querySelectorAll('input[name="care_term"]').forEach(radio => {
         radio.addEventListener('change', function() {
-            // Extract term type from value (e.g., "plus_monthly" -> "monthly")
+            // Extract term type from value (e.g., "premium_monthly" -> "monthly")
             const parts = this.value.split('_');
             state.careTerm = parts[parts.length - 1];  // 'monthly', 'yearly', or '2year'
             document.getElementById('next-7').disabled = false;
@@ -2047,7 +2047,7 @@
     const CARE_LABELS = {
         none: 'No managed care',
         selfhosted: 'Self-Hosted Hardware',
-        plus: 'Plus',
+        premium: 'Premium',
         pro: 'Pro',
         ultra: 'Ultra'
     };
