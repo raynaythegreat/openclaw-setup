@@ -945,72 +945,18 @@
                 <!-- Mac Mini Options (Step 2B) -->
                 <div id="mac-options" style="display:none">
                     <div class="option-list" id="mac-model-options">
-                        <label class="option-card" data-value="m4_16_256">
-                            <input type="radio" name="mac_model" value="m4_16_256" data-cost="599">
+                        <label class="option-card" data-value="hosted_mac">
+                            <input type="radio" name="mac_model" value="hosted_mac" data-cost="6000">
                             <div class="option-header">
-                                <div class="option-name">M4 -- 16GB / 256GB</div>
-                                <div class="option-price">$599</div>
+                                <div class="option-name">Hosted Mac Mini <span class="option-badge">Recommended</span></div>
+                                <div class="option-price">$6,000</div>
                             </div>
-                            <div class="option-desc">Runs basic 8B models</div>
-                        </label>
-
-                        <label class="option-card" data-value="m4_16_512">
-                            <input type="radio" name="mac_model" value="m4_16_512" data-cost="799">
-                            <div class="option-header">
-                                <div class="option-name">M4 -- 16GB / 512GB</div>
-                                <div class="option-price">$799</div>
-                            </div>
-                            <div class="option-desc">Runs basic 8B models</div>
-                        </label>
-
-                        <label class="option-card" data-value="m4_24_512">
-                            <input type="radio" name="mac_model" value="m4_24_512" data-cost="999">
-                            <div class="option-header">
-                                <div class="option-name">M4 -- 24GB / 512GB <span class="option-badge">Popular</span></div>
-                                <div class="option-price">$999</div>
-                            </div>
-                            <div class="option-desc">Runs 14B models -- good all-rounder</div>
-                        </label>
-
-                        <label class="option-card" data-value="m4pro_24_512">
-                            <input type="radio" name="mac_model" value="m4pro_24_512" data-cost="1399">
-                            <div class="option-header">
-                                <div class="option-name">M4 Pro -- 24GB / 512GB</div>
-                                <div class="option-price">$1,399</div>
-                            </div>
-                            <div class="option-desc">Runs 14B models fast</div>
-                        </label>
-
-                        <label class="option-card" data-value="m4pro_48_1tb">
-                            <input type="radio" name="mac_model" value="m4pro_48_1tb" data-cost="1999">
-                            <div class="option-header">
-                                <div class="option-name">M4 Pro -- 48GB / 1TB <span class="option-badge">Best Value</span></div>
-                                <div class="option-price">$1,999</div>
-                            </div>
-                            <div class="option-desc">Runs 70B models -- excellent</div>
-                        </label>
-
-                        <label class="option-card" data-value="m4pro_64_1tb">
-                            <input type="radio" name="mac_model" value="m4pro_64_1tb" data-cost="2399">
-                            <div class="option-header">
-                                <div class="option-name">M4 Pro -- 64GB / 1TB</div>
-                                <div class="option-price">$2,399</div>
-                            </div>
-                            <div class="option-desc">Runs 70B models premium quality</div>
-                        </label>
-
-                        <label class="option-card" data-value="waiting_m5">
-                            <input type="radio" name="mac_model" value="waiting_m5" data-cost="0">
-                            <div class="option-header">
-                                <div class="option-name">Waiting for M5 (Est. June 2026)</div>
-                                <div class="option-price">TBD</div>
-                            </div>
-                            <div class="option-desc">We'll contact you when M5 releases</div>
+                            <div class="option-desc">Mac Mini M4 Pro 64GB RAM, 1TB SSD — Runs 70B models, fully managed</div>
                         </label>
                     </div>
 
                     <div id="cluster-section" style="margin-top:1.5rem">
-                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">Want a cluster? How many Mac Minis?</h3>
+                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text-primary)">Want a cluster? Add more nodes:</h3>
                         <div class="option-list" id="cluster-options">
                             <label class="option-card" data-value="1">
                                 <input type="radio" name="cluster_size" value="1" checked>
@@ -1023,7 +969,7 @@
                                 <input type="radio" name="cluster_size" value="2">
                                 <div class="option-header">
                                     <div class="option-name">2-node cluster</div>
-                                    <div class="option-price">+$5,000</div>
+                                    <div class="option-price">+$5,500</div>
                                 </div>
                                 <div class="option-desc">Run multiple models simultaneously</div>
                             </label>
@@ -1031,7 +977,7 @@
                                 <input type="radio" name="cluster_size" value="3">
                                 <div class="option-header">
                                     <div class="option-name">3-node cluster</div>
-                                    <div class="option-price">+$10,000</div>
+                                    <div class="option-price">+$11,000</div>
                                 </div>
                                 <div class="option-desc">Dedicated agent per node</div>
                             </label>
@@ -1039,7 +985,7 @@
                                 <input type="radio" name="cluster_size" value="4">
                                 <div class="option-header">
                                     <div class="option-name">4-node cluster</div>
-                                    <div class="option-price">+$15,000</div>
+                                    <div class="option-price">+$16,500</div>
                                 </div>
                                 <div class="option-desc">Enterprise redundancy + load balancing</div>
                             </label>
@@ -1396,48 +1342,122 @@
         </div>
 
         <!-- ══════════════════════════════════════════ -->
-        <!-- STEP 7: Managed Care -->
+        <!-- STEP 7: VPS Managed Care -->
         <!-- ══════════════════════════════════════════ -->
         <div class="step" id="step-7">
             <div class="step-card">
-                <h2 class="step-title">Would you like ongoing managed care?</h2>
-                <p class="step-subtitle">Keep your AI agent running smoothly with professional monitoring and support.</p>
+                <h2 class="step-title">Choose your hosting & care plan</h2>
+                <p class="step-subtitle">Self-host for maximum privacy, or let us manage everything with VPS care plans.</p>
 
                 <div class="option-list" id="care-options">
+                    <!-- Self-Hosted Hardware Option -->
+                    <label class="option-card" data-value="selfhosted" style="border-color:rgba(22,163,74,0.4);background:linear-gradient(135deg,rgba(22,163,74,0.05),rgba(22,163,74,0.02));">
+                        <input type="radio" name="managed_care" value="selfhosted">
+                        <div class="option-header">
+                            <div class="option-name">Self-Hosted Hardware <span class="option-badge" style="background:#16a34a;">Own Your AI</span></div>
+                        </div>
+                        <div class="option-desc">Mac Mini M4 Pro 64GB RAM, 1TB SSD — Run powerful local AI models with complete data privacy</div>
+                        <div class="sub-options" id="sub-selfhosted">
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="selfhosted_base" data-monthly="0" data-yearly="6000">
+                                <label><span>Single node <span style="color:#16a34a">(runs 70B models)</span></span><span class="sub-price">$6,000 one-time</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="selfhosted_2node" data-monthly="0" data-yearly="11500">
+                                <label><span>2-node cluster <span style="color:#16a34a">(runs 120B+ models)</span></span><span class="sub-price">$11,500</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="selfhosted_3node" data-monthly="0" data-yearly="17000">
+                                <label><span>3-node cluster <span style="color:#16a34a">(runs 180B+ models, parallel inference)</span></span><span class="sub-price">$17,000</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="selfhosted_4node" data-monthly="0" data-yearly="22500">
+                                <label><span>4-node cluster <span style="color:#16a34a">(enterprise-scale, distributed workloads)</span></span><span class="sub-price">$22,500</span></label>
+                            </div>
+                        </div>
+                        <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;color:var(--text-secondary);">
+                            <strong style="color:var(--text-primary);">Why clusters?</strong> Each additional node adds processing power, enabling larger models (Llama 3 120B, Mixtral 8x22B), faster inference, and parallel task execution — all running locally without API costs or data leaving your network.
+                        </div>
+                    </label>
+
+                    <div style="margin:1.5rem 0;text-align:center;position:relative;">
+                        <span style="background:var(--bg-secondary);padding:0 1rem;color:var(--text-muted);font-size:0.85rem;position:relative;z-index:1;">— or choose VPS managed care —</span>
+                        <div style="position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border-color);z-index:0;"></div>
+                    </div>
+
                     <label class="option-card" data-value="none">
                         <input type="radio" name="managed_care" value="none">
                         <div class="option-header">
-                            <div class="option-name">No thanks</div>
-                            <div class="option-price">$0/mo</div>
+                            <div class="option-name">No managed care</div>
+                            <div class="option-price">$0</div>
                         </div>
                         <div class="option-desc">I'll manage it myself after setup</div>
                     </label>
 
-                    <label class="option-card" data-value="essential">
-                        <input type="radio" name="managed_care" value="essential">
+                    <label class="option-card" data-value="plus">
+                        <input type="radio" name="managed_care" value="plus">
                         <div class="option-header">
-                            <div class="option-name">Essential</div>
-                            <div class="option-price">$149/mo</div>
+                            <div class="option-name">Plus <span class="option-badge">Entry</span></div>
                         </div>
                         <div class="option-desc">Monitoring, updates, auto-restart, email support</div>
+                        <div class="sub-options" id="sub-plus">
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="plus_monthly" data-monthly="149.99" data-yearly="0">
+                                <label><span>Monthly</span><span class="sub-price">$149.99/mo</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="plus_yearly" data-monthly="0" data-yearly="1799.88">
+                                <label><span>Yearly <span style="color:#16a34a">(save $180)</span></span><span class="sub-price">$149.99/mo billed annually</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="plus_2year" data-monthly="0" data-yearly="3599.76">
+                                <label><span>2-Year <span style="color:#16a34a">(save $360)</span></span><span class="sub-price">$149.99/mo billed biennially</span></label>
+                            </div>
+                        </div>
                     </label>
 
-                    <label class="option-card" data-value="standard">
-                        <input type="radio" name="managed_care" value="standard">
+                    <label class="option-card" data-value="pro">
+                        <input type="radio" name="managed_care" value="pro">
                         <div class="option-header">
-                            <div class="option-name">Standard</div>
-                            <div class="option-price">$299/mo</div>
+                            <div class="option-name">Pro <span class="option-badge">Popular</span></div>
                         </div>
                         <div class="option-desc">+ Priority Telegram support, weekly reports, skill updates</div>
+                        <div class="sub-options" id="sub-pro">
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="pro_monthly" data-monthly="249.99" data-yearly="0">
+                                <label><span>Monthly</span><span class="sub-price">$249.99/mo</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="pro_yearly" data-monthly="0" data-yearly="2999.88">
+                                <label><span>Yearly <span style="color:#16a34a">(save $300)</span></span><span class="sub-price">$249.99/mo billed annually</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="pro_2year" data-monthly="0" data-yearly="5999.76">
+                                <label><span>2-Year <span class="option-badge" style="font-size:0.7rem;padding:2px 6px;">Best Value</span></span><span class="sub-price">$249.99/mo billed biennially</span></label>
+                            </div>
+                        </div>
                     </label>
 
-                    <label class="option-card" data-value="premium">
-                        <input type="radio" name="managed_care" value="premium">
+                    <label class="option-card" data-value="ultra">
+                        <input type="radio" name="managed_care" value="ultra">
                         <div class="option-header">
-                            <div class="option-name">Premium</div>
-                            <div class="option-price">$499/mo</div>
+                            <div class="option-name">Ultra <span class="option-badge">Enterprise</span></div>
                         </div>
-                        <div class="option-desc">+ 1 custom skill/month, quarterly review, model tuning</div>
+                        <div class="option-desc">Dedicated support engineer • 99.9% SLA • Custom integrations • Priority feature requests • Monthly strategy calls</div>
+                        <div class="sub-options" id="sub-ultra">
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="ultra_monthly" data-monthly="549.99" data-yearly="0">
+                                <label><span>Monthly</span><span class="sub-price">$549.99/mo</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="ultra_yearly" data-monthly="0" data-yearly="6599.88">
+                                <label><span>Yearly <span style="color:#16a34a">(save $660)</span></span><span class="sub-price">$549.99/mo billed annually</span></label>
+                            </div>
+                            <div class="sub-option">
+                                <input type="radio" name="care_term" value="ultra_2year" data-monthly="0" data-yearly="14199.76">
+                                <label><span>2-Year <span style="color:#16a34a">(save $1,320)</span></span><span class="sub-price">$549.99/mo billed biennially</span></label>
+                            </div>
+                        </div>
                     </label>
                 </div>
 
@@ -1461,6 +1481,10 @@
             <div class="step-card">
                 <h2 class="step-title">Your Configuration Summary</h2>
                 <p class="step-subtitle">Review your selections and choose how to proceed.</p>
+
+                <div class="disclaimer-box" style="background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.5rem;font-size:0.85rem;color:var(--text-secondary);">
+                    <strong style="color:var(--text-primary);">Note:</strong> Paid subscriptions (Claude, GPT, etc.), premium integrations, third-party tools, and connection fees (API access, etc.) are billed separately and not included in managed care pricing.
+                </div>
 
                 <div id="summary-content">
                     <!-- Populated dynamically -->
@@ -1582,7 +1606,10 @@
         agents: null,            // 1 | 3 | 5 | 5plus | unsure
         channels: [],
         integrations: [],
-        managedCare: null,       // none | essential | standard | premium
+        managedCare: null,       // none | plus | pro | premium | ultra
+        careTerm: null,          // monthly | yearly | 2year
+        careMonthlyCost: 0,
+        careYearlyCost: 0,
     };
 
     // ═══════════════════════════════════════════════════
@@ -1593,12 +1620,23 @@
         vps_cloud_api: 2000,
         vps_self_hosted: 3000,
         byod: 5000,
-        mac_mini: 5000
+        mac_mini: 5000  // Setup fee - $6,000 hardware added separately
     };
+
+    const MAC_HARDWARE_COST = 6000;  // Hosted Mac Mini 64GB/1TB
 
     const AGENT_PRICES = { '1': 0, '3': 2000, '5': 4000, '5plus': 6000, 'unsure': 0 };
 
-    const CARE_MONTHLY = { none: 0, essential: 149, standard: 299, premium: 499 };
+    // VPS Managed Care Pricing (new structure)
+    const CARE_PRICING = {
+        none: { monthly: 0, yearly: 0 },
+        selfhosted: { base: 6000, '2node': 11500, '3node': 17000, '4node': 22500 },
+        plus: { monthly: 149.99, yearly: 1799.88, '2year': 3599.76 },
+        pro: { monthly: 249.99, yearly: 2999.88, '2year': 5999.76 },
+        ultra: { monthly: 549.99, yearly: 6599.88, '2year': 14199.76 }
+    };
+
+    const CLUSTER_NODE_COST = 5500;  // Per additional node
 
     const INTEGRATION_COSTS = {
         gmail: 500, gcal: 500, notion: 500, github: 500,
@@ -1625,56 +1663,49 @@
 
     function calcClusterCost() {
         const extra = Math.max(0, state.clusterSize - 1);
-        const hardwareCost = extra * (state.macCost || 0);
-        const setupCost = extra * 2000;
-        return hardwareCost + setupCost;
+        return extra * CLUSTER_NODE_COST;
     }
 
     function updateClusterPrices() {
-        const cost = state.macCost || 0;
-        const modelName = getSelectedMacName();
         const cards = document.querySelectorAll('#cluster-options .option-card');
 
         cards.forEach(card => {
             const val = parseInt(card.dataset.value);
             if (val <= 1) return;
             const extra = val - 1;
-            const hw = extra * cost;
-            const setup = extra * 2000;
-            const total = hw + setup;
+            const total = extra * CLUSTER_NODE_COST;
             const priceEl = card.querySelector('.option-price');
             const descEl = card.querySelector('.option-desc');
             if (priceEl) priceEl.textContent = '+' + formatPrice(total);
             if (descEl) {
-                descEl.textContent = extra + '× ' + modelName + ' ($' + cost.toLocaleString() + ' ea) + $' + (extra * 2000).toLocaleString() + ' setup';
+                descEl.textContent = extra + '× Mac Mini 64GB/1TB @ $' + CLUSTER_NODE_COST.toLocaleString() + ' each';
             }
         });
-
-        // Update cluster section header
-        const header = document.querySelector('#cluster-section h3');
-        if (header && cost > 0) {
-            header.textContent = 'Want a cluster? Add more ' + modelName + ' nodes:';
-        }
     }
 
     function getSelectedMacName() {
-        const labels = {
-            'm4_16_256': 'M4 16GB/256GB',
-            'm4_16_512': 'M4 16GB/512GB',
-            'm4_24_512': 'M4 24GB/512GB',
-            'm4pro_24_512': 'M4 Pro 24GB/512GB',
-            'm4pro_48_1tb': 'M4 Pro 48GB/1TB',
-            'm4pro_64_1tb': 'M4 Pro 64GB/1TB',
-            'm5_wait': 'M5 (TBD)'
-        };
-        return labels[state.macModel] || 'Mac Mini';
+        return 'Mac Mini 64GB/1TB';
     }
 
     function calcOneTime() {
         let total = BASE_PRICES[state.hosting] || 0;
         if (state.hosting === 'mac_mini') {
-            total += state.macCost || 0;
-            total += calcClusterCost();
+            total += MAC_HARDWARE_COST;  // $6,000 for hosted Mac Mini
+            total += calcClusterCost();  // $5,500 per additional node
+        }
+        // Add managed care / self-hosted upfront cost
+        if (state.managedCare && state.careTerm) {
+            const pricing = CARE_PRICING[state.managedCare];
+            if (pricing) {
+                if (state.managedCare === 'selfhosted') {
+                    // Self-hosted: extract node count from term (e.g., selfhosted_base -> base)
+                    const nodeKey = state.careTerm.replace('selfhosted_', '');
+                    total += pricing[nodeKey] || pricing.base || 0;
+                } else if (state.careTerm !== 'monthly') {
+                    // VPS managed care: yearly/2year terms
+                    total += pricing[state.careTerm] || 0;
+                }
+            }
         }
         total += AGENT_PRICES[state.agents] || 0;
         total += calcChannelCost();
@@ -1687,7 +1718,13 @@
         if (state.hosting === 'vps_cloud_api' || state.hosting === 'vps_self_hosted') {
             total += state.serverMonthly || 0;
         }
-        total += CARE_MONTHLY[state.managedCare] || 0;
+        // Only add monthly care cost if term is monthly
+        if (state.managedCare && state.careTerm === 'monthly') {
+            const pricing = CARE_PRICING[state.managedCare];
+            if (pricing) {
+                total += pricing.monthly || 0;
+            }
+        }
         return total;
     }
 
@@ -1892,24 +1929,19 @@
         });
     });
 
-    // Mac model selection
+    // Mac model selection (simplified - single option)
     document.querySelectorAll('#mac-model-options .option-card').forEach(card => {
         card.addEventListener('click', function() {
             const radio = this.querySelector('input[type="radio"]');
             radio.checked = true;
             state.macModel = radio.value;
-            state.macCost = parseInt(radio.dataset.cost) || 0;
-
-            // Reset AI model selection since available models depend on RAM
-            state.aiModel = '';
-            state.aiModelDetail = '';
+            state.macCost = MAC_HARDWARE_COST;
 
             document.querySelectorAll('#mac-model-options .option-card').forEach(c => c.classList.remove('selected'));
             this.classList.add('selected');
 
             document.getElementById('next-2').disabled = false;
             updateAllPrices();
-            updateClusterPrices();
         });
     });
 
@@ -2123,17 +2155,52 @@
     // ═══════════════════════════════════════════════════
     // Step 7: Managed Care
     // ═══════════════════════════════════════════════════
-    document.querySelectorAll('#care-options .option-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const radio = this.querySelector('input[type="radio"]');
+    document.querySelectorAll('#care-options > .option-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't trigger if clicking sub-options
+            if (e.target.closest('.sub-options')) return;
+
+            const radio = this.querySelector(':scope > input[type="radio"]');
             radio.checked = true;
             state.managedCare = radio.value;
 
-            document.querySelectorAll('#care-options .option-card').forEach(c => c.classList.remove('selected'));
+            // Reset term when switching tiers
+            state.careTerm = null;
+            document.querySelectorAll('input[name="care_term"]').forEach(r => r.checked = false);
+
+            document.querySelectorAll('#care-options > .option-card').forEach(c => c.classList.remove('selected'));
             this.classList.add('selected');
 
+            // Show/hide sub-options
+            document.querySelectorAll('#care-options .sub-options').forEach(s => s.classList.remove('visible'));
+            const subId = 'sub-' + radio.value;
+            const subEl = document.getElementById(subId);
+            if (subEl) subEl.classList.add('visible');
+
+            // Enable next button for "none" option, otherwise require term selection
+            document.getElementById('next-7').disabled = (state.managedCare !== 'none');
+            updateAllPrices();
+        });
+    });
+
+    // Care term selection
+    document.querySelectorAll('input[name="care_term"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            // Extract term type from value (e.g., "plus_monthly" -> "monthly")
+            const parts = this.value.split('_');
+            state.careTerm = parts[parts.length - 1];  // 'monthly', 'yearly', or '2year'
             document.getElementById('next-7').disabled = false;
             updateAllPrices();
+        });
+    });
+
+    // Prevent sub-option clicks from bubbling to parent card
+    document.querySelectorAll('#care-options .sub-option').forEach(opt => {
+        opt.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+            radio.dispatchEvent(new Event('change'));
         });
     });
 
@@ -2176,13 +2243,7 @@
     };
 
     const MAC_LABELS = {
-        m4_16_256: 'M4 -- 16GB / 256GB',
-        m4_16_512: 'M4 -- 16GB / 512GB',
-        m4_24_512: 'M4 -- 24GB / 512GB',
-        m4pro_24_512: 'M4 Pro -- 24GB / 512GB',
-        m4pro_48_1tb: 'M4 Pro -- 48GB / 1TB',
-        m4pro_64_1tb: 'M4 Pro -- 64GB / 1TB',
-        waiting_m5: 'Waiting for M5 (Est. June 2026)'
+        hosted_mac: 'Mac Mini M4 Pro 64GB/1TB'
     };
 
     const MODEL_LABELS = {
@@ -2210,9 +2271,44 @@
     };
 
     const CARE_LABELS = {
-        none: 'No managed care', essential: 'Essential ($149/mo)',
-        standard: 'Standard ($299/mo)', premium: 'Premium ($499/mo)'
+        none: 'No managed care',
+        selfhosted: 'Self-Hosted Hardware',
+        plus: 'Plus',
+        pro: 'Pro',
+        ultra: 'Ultra'
     };
+
+    const SELFHOSTED_LABELS = {
+        selfhosted_base: 'Single node (70B models)',
+        selfhosted_2node: '2-node cluster (120B+ models)',
+        selfhosted_3node: '3-node cluster (180B+ models)',
+        selfhosted_4node: '4-node cluster (enterprise)'
+    };
+
+    const CARE_TERM_LABELS = {
+        monthly: 'Monthly',
+        yearly: 'Yearly',
+        '2year': '2-Year'
+    };
+
+    function getCareDescription(tier, term) {
+        if (tier === 'none' || !tier) return 'No managed care';
+        if (tier === 'selfhosted') {
+            const label = SELFHOSTED_LABELS[term] || 'Self-Hosted Hardware';
+            const pricing = CARE_PRICING.selfhosted;
+            const nodeKey = term ? term.replace('selfhosted_', '') : 'base';
+            const price = pricing[nodeKey] || pricing.base;
+            return label + ' - $' + price.toLocaleString() + ' one-time';
+        }
+        const pricing = CARE_PRICING[tier];
+        if (!pricing) return CARE_LABELS[tier] || '--';
+        const termLabel = CARE_TERM_LABELS[term] || 'Monthly';
+        if (term === 'monthly') {
+            return CARE_LABELS[tier] + ' (' + termLabel + ' - $' + pricing.monthly.toFixed(2) + '/mo)';
+        } else {
+            return CARE_LABELS[tier] + ' (' + termLabel + ' - $' + pricing[term].toLocaleString() + ')';
+        }
+    }
 
     function buildSummary() {
         const container = document.getElementById('summary-content');
@@ -2227,7 +2323,7 @@
             html += summaryRow('Server', (SERVER_LABELS[state.serverProvider] || '') + ' -- ' + (PLAN_LABELS[state.serverPlan] || ''));
         }
         if (state.hosting === 'mac_mini') {
-            html += summaryRow('Mac Mini', MAC_LABELS[state.macModel] || '--');
+            html += summaryRow('Mac Mini', MAC_LABELS[state.macModel] || 'Mac Mini 64GB/1TB');
             if (state.clusterSize > 1) {
                 html += summaryRow('Cluster', state.clusterSize + '-node cluster');
             }
@@ -2247,7 +2343,7 @@
         if (customIntText) {
             html += summaryRow('Custom Integration Notes', customIntText);
         }
-        html += summaryRow('Managed Care', CARE_LABELS[state.managedCare] || '--');
+        html += summaryRow('Managed Care', getCareDescription(state.managedCare, state.careTerm));
         html += '</div>';
 
         // Price breakdown
@@ -2257,16 +2353,22 @@
         const baseCost = BASE_PRICES[state.hosting] || 0;
         html += summaryRow('Base setup fee', formatPrice(baseCost));
 
-        if (state.hosting === 'mac_mini' && state.macCost > 0) {
+        if (state.hosting === 'mac_mini') {
             const macName = getSelectedMacName();
             if (state.clusterSize > 1) {
-                const totalHardwareCost = state.macCost * state.clusterSize;
+                const totalHardwareCost = MAC_HARDWARE_COST + calcClusterCost();
                 html += summaryRow('Hardware (' + macName + ' × ' + state.clusterSize + ')', formatPrice(totalHardwareCost));
-                const extraNodes = state.clusterSize - 1;
-                const clusterSetupCost = extraNodes * 2000;
-                html += summaryRow('Cluster setup (' + extraNodes + ' nodes × $2,000)', '+' + formatPrice(clusterSetupCost));
             } else {
-                html += summaryRow('Hardware (' + macName + ')', formatPrice(state.macCost));
+                html += summaryRow('Hardware (' + macName + ')', formatPrice(MAC_HARDWARE_COST));
+            }
+        }
+
+        // Managed care upfront cost for yearly/2-year
+        if (state.managedCare && state.managedCare !== 'none' && state.careTerm && state.careTerm !== 'monthly') {
+            const pricing = CARE_PRICING[state.managedCare];
+            if (pricing && pricing[state.careTerm]) {
+                const termLabel = CARE_TERM_LABELS[state.careTerm];
+                html += summaryRow('Managed Care (' + termLabel + ')', formatPrice(pricing[state.careTerm]));
             }
         }
 
@@ -2301,8 +2403,11 @@
             if ((state.hosting === 'vps_cloud_api' || state.hosting === 'vps_self_hosted') && state.serverMonthly > 0) {
                 monthlyBreak.push('Server: $' + state.serverMonthly.toFixed(2) + '/mo');
             }
-            if (CARE_MONTHLY[state.managedCare] > 0) {
-                monthlyBreak.push('Managed care: $' + CARE_MONTHLY[state.managedCare] + '/mo');
+            if (state.managedCare && state.careTerm === 'monthly') {
+                const pricing = CARE_PRICING[state.managedCare];
+                if (pricing && pricing.monthly) {
+                    monthlyBreak.push('Managed care: $' + pricing.monthly.toFixed(2) + '/mo');
+                }
             }
             if (monthlyBreak.length > 0) {
                 html += '<div style="font-size:0.82rem;color:var(--text-muted);margin-top:0.25rem;text-align:right">' + monthlyBreak.join(' + ') + '</div>';
@@ -2360,7 +2465,7 @@
             'Channels: ' + (cfg.channels && cfg.channels.length > 0 ? cfg.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None'),
             'Integrations: ' + (cfg.integrations && cfg.integrations.length > 0 ? cfg.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None'),
             'Custom Integration Notes: ' + (document.getElementById('custom-integrations-text') ? (document.getElementById('custom-integrations-text').value.trim() || 'None') : 'None'),
-            'Managed Care: ' + (CARE_LABELS[cfg.managedCare] || '--'),
+            'Managed Care: ' + getCareDescription(cfg.managedCare, cfg.careTerm),
             'One-time Total: ' + formatPrice(cfg.oneTimeTotal),
             'Monthly Recurring: ' + (cfg.monthlyTotal > 0 ? formatPrice(cfg.monthlyTotal) + '/mo' : '$0')
         ].join('\n');
@@ -2409,7 +2514,7 @@
             agents: AGENT_LABELS[state.agents] || '--',
             channels: state.channels.length > 0 ? state.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None',
             integrations: state.integrations.length > 0 ? state.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None',
-            managed_care: CARE_LABELS[state.managedCare] || '--',
+            managed_care: getCareDescription(state.managedCare, state.careTerm),
             one_time_total: formatPrice(calcOneTime()),
             monthly_total: calcMonthly() > 0 ? formatPrice(calcMonthly()) + '/mo' : '$0',
             configuration_summary: configSummary
@@ -2465,7 +2570,7 @@
             agents: AGENT_LABELS[state.agents] || '--',
             channels: state.channels.length > 0 ? state.channels.map(function(c){ return CHANNEL_LABELS[c] || c; }).join(', ') : 'None',
             integrations: state.integrations.length > 0 ? state.integrations.map(function(i){ return INTEGRATION_LABELS[i] || i; }).join(', ') : 'None',
-            managed_care: CARE_LABELS[state.managedCare] || '--',
+            managed_care: getCareDescription(state.managedCare, state.careTerm),
             one_time_total: formatPrice(calcOneTime()),
             monthly_total: calcMonthly() > 0 ? formatPrice(calcMonthly()) + '/mo' : '$0',
             configuration_summary: configSummary,
