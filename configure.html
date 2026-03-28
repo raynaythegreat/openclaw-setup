@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configure Your AI Agent | The AI 101</title>
     <meta name="description" content="Build your perfect AI agent configuration. Choose hosting, models, channels, and integrations — get an instant price quote.">
-    <link rel="icon" type="image/png" href="favicon.png?v=3">
+    <link rel="icon" type="image/svg+xml" href="logo-octai.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,13 +24,13 @@
             --text-primary: #1a1a2e;
             --text-secondary: #555566;
             --text-muted: #888899;
-            --accent-red: #dc2626;
-            --accent-dark: #b91c1c;
-            --accent-glow: rgba(220, 38, 38, 0.12);
-            --gradient-primary: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            --gradient-hero: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+            --accent-red: #7c3aed;
+            --accent-dark: #6d28d9;
+            --accent-glow: rgba(124, 58, 237, 0.12);
+            --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+            --gradient-hero: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
             --border-subtle: rgba(0, 0, 0, 0.08);
-            --border-accent: rgba(220, 38, 38, 0.3);
+            --border-accent: rgba(124, 58, 237, 0.3);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -208,7 +208,7 @@
 
         .option-card.selected {
             border-color: var(--accent-red);
-            background: #fef2f2;
+            background: #f3e8ff;
             box-shadow: 0 0 0 1px var(--accent-red);
         }
 
@@ -284,7 +284,7 @@
             font-size: 0.9rem;
         }
 
-        .sub-option:hover { background: #fef2f2; }
+        .sub-option:hover { background: #f3e8ff; }
 
         .sub-option input[type="radio"] {
             accent-color: var(--accent-red);
@@ -330,7 +330,7 @@
 
         .checkbox-card.selected {
             border-color: var(--accent-red);
-            background: #fef2f2;
+            background: #f3e8ff;
         }
 
         .checkbox-card input[type="checkbox"] {
@@ -435,13 +435,13 @@
         .btn-primary {
             background: var(--gradient-primary);
             color: #fff;
-            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.25);
         }
 
         .btn-primary:hover {
             opacity: 0.92;
             transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
         }
 
         .btn-primary:disabled {
@@ -468,7 +468,7 @@
         }
 
         .btn-outline:hover {
-            background: #fef2f2;
+            background: #f3e8ff;
         }
 
         .btn-lg {
@@ -741,7 +741,7 @@
     <nav>
         <div class="nav-inner">
             <a class="nav-brand" href="index.html">
-                <img src="logo-crab.png?v=3" alt="The AI 101">
+                <img src="logo-octai.svg?v=3" alt="The AI 101">
                 <span class="nav-logo-text">The AI 101</span>
             </a>
             <a class="nav-back" href="index.html">&#8592; Back to main site</a>
@@ -1332,33 +1332,35 @@
                 <p class="step-subtitle">Self-host for maximum privacy, or let us manage everything with VPS care plans.</p>
 
                 <div class="option-list" id="care-options">
-                    <!-- Self-Hosted Hardware Option -->
-                    <label class="option-card" data-value="selfhosted" style="border-color:rgba(22,163,74,0.4);background:linear-gradient(135deg,rgba(22,163,74,0.05),rgba(22,163,74,0.02));">
+                    <!-- Local AI Setup Option -->
+                    <label class="option-card" data-value="selfhosted" style="border-color:rgba(124,58,237,0.4);background:linear-gradient(135deg,rgba(124,58,237,0.05),rgba(124,58,237,0.02));">
                         <input type="radio" name="managed_care" value="selfhosted">
                         <div class="option-header">
-                            <div class="option-name">Self-Hosted Hardware <span class="option-badge" style="background:#16a34a;">Own Your AI</span></div>
+                            <div class="option-name">Local AI Setup <span class="option-badge" style="background:#7c3aed;">Own Your AI</span></div>
                         </div>
-                        <div class="option-desc">Mac Mini M4 Pro 64GB RAM, 1TB SSD — Run powerful local AI models with complete data privacy</div>
+                        <div class="option-desc">Get your own local AI infrastructure with free and open-source tools</div>
                         <div class="sub-options" id="sub-selfhosted">
                             <div class="sub-option">
                                 <input type="radio" name="care_term" value="selfhosted_base" data-monthly="0" data-yearly="6000">
-                                <label><span>Single node <span style="color:#16a34a">(runs 70B models)</span></span><span class="sub-price">$6,000 one-time</span></label>
+                                <label><span>Training Package <span style="color:#7c3aed">(comprehensive training on how to use your local AI)</span></span><span class="sub-price">$6,000</span></label>
                             </div>
                             <div class="sub-option">
                                 <input type="radio" name="care_term" value="selfhosted_2node" data-monthly="0" data-yearly="11500">
-                                <label><span>2-node cluster <span style="color:#16a34a">(runs 120B+ models)</span></span><span class="sub-price">$11,500</span></label>
+                                <label><span>+1 Node Cluster <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$5,500</span></label>
                             </div>
                             <div class="sub-option">
                                 <input type="radio" name="care_term" value="selfhosted_3node" data-monthly="0" data-yearly="17000">
-                                <label><span>3-node cluster <span style="color:#16a34a">(runs 180B+ models, parallel inference)</span></span><span class="sub-price">$17,000</span></label>
+                                <label><span>+2 Node Clusters <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$11,000</span></label>
                             </div>
                             <div class="sub-option">
                                 <input type="radio" name="care_term" value="selfhosted_4node" data-monthly="0" data-yearly="22500">
-                                <label><span>4-node cluster <span style="color:#16a34a">(enterprise-scale, distributed workloads)</span></span><span class="sub-price">$22,500</span></label>
+                                <label><span>+3 Node Clusters <span style="color:#7c3aed">(add more power to your local AI)</span></span><span class="sub-price">+$16,500</span></label>
                             </div>
                         </div>
                         <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.1);font-size:0.8rem;color:var(--text-secondary);">
-                            <strong style="color:var(--text-primary);">Why clusters?</strong> Each additional node adds processing power, enabling larger models (Llama 3 120B, Mixtral 8x22B), faster inference, and parallel task execution — all running locally without API costs or data leaving your network.
+                            <strong style="color:var(--text-primary);">Hardware:</strong> Mac Mini with 64GB RAM, 1TB SSD<br>
+                            <strong style="color:var(--text-primary);">Setup & Integration:</strong> Included (free and open-source tools)<br>
+                            <strong style="color:var(--text-primary);">Extra Node Clusters:</strong> $5,500 per additional Mac Mini — Add more power to your local AI with additional node clusters
                         </div>
                     </label>
 

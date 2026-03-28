@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 64" width="200" height="64">
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Tentacles (back layer) -->
+  <path d="M12 44 Q8 54 6 60" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M20 46 Q14 56 10 62" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M44 46 Q50 56 54 62" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M52 44 Q56 54 58 60" stroke="#7c3aed" stroke-width="5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Tentacles (front layer) -->
+  <path d="M18 48 Q16 58 18 64" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M28 50 Q26 60 24 66" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M36 50 Q38 60 40 66" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M46 48 Q48 58 46 64" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round" fill="none"/>
+  
+  <!-- Main body -->
+  <ellipse cx="32" cy="32" rx="22" ry="20" fill="url(#bodyGradient)"/>
+  
+  <!-- Head highlight -->
+  <ellipse cx="26" cy="24" rx="8" ry="6" fill="#a78bfa" opacity="0.4"/>
+  
+  <!-- Left eye -->
+  <ellipse cx="24" cy="32" rx="5" ry="6" fill="white"/>
+  <circle cx="25" cy="33" r="3" fill="#1e1b4b"/>
+  <circle cx="26" cy="31" r="1" fill="white"/>
+  
+  <!-- Right eye -->
+  <ellipse cx="40" cy="32" rx="5" ry="6" fill="white"/>
+  <circle cx="41" cy="33" r="3" fill="#1e1b4b"/>
+  <circle cx="42" cy="31" r="1" fill="white"/>
+  
+  <!-- Cute smile -->
+  <path d="M28 40 Q32 44 36 40" stroke="#1e1b4b" stroke-width="2" stroke-linecap="round" fill="none"/>
+  
+  <!-- Rosy cheeks -->
+  <ellipse cx="18" cy="38" rx="3" ry="2" fill="#c4b5fd" opacity="0.6"/>
+  <ellipse cx="46" cy="38" rx="3" ry="2" fill="#c4b5fd" opacity="0.6"/>
+  
+  <!-- OctAi Text -->
+  <text x="72" y="44" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="700" fill="url(#textGradient)">
+    <tspan fill="#7c3aed">Oct</tspan><tspan fill="#8b5cf6">Ai</tspan>
+  </text>
+</svg>
