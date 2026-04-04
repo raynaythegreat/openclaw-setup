@@ -7,96 +7,125 @@
     </linearGradient>
     <linearGradient id="clawGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#bbf7d0" />
-      <stop offset="100%" style="stop-color:#16a34a" />
+      <stop offset="100%" style="stop-color:#22c55e" />
     </linearGradient>
   </defs>
-  
+
   <!-- Crab Icon -->
   <g transform="translate(20, 6) scale(0.65)">
     
     <!-- Legs Left -->
     <g fill="#16a34a">
-      <ellipse cx="60" cy="130" rx="5" ry="10" transform="rotate(-30 60 130)"/>
-      <ellipse cx="54" cy="114" rx="4" ry="9" transform="rotate(-20 54 114)"/>
-      <ellipse cx="56" cy="99" rx="4" ry="8" transform="rotate(-10 56 99)"/>
+      <ellipse cx="62" cy="128" rx="5" ry="9" transform="rotate(-25 62 128)"/>
+      <ellipse cx="57" cy="113" rx="4" ry="8" transform="rotate(-18 57 113)"/>
+      <ellipse cx="59" cy="99" rx="4" ry="7" transform="rotate(-10 59 99)"/>
     </g>
-    
+
     <!-- Legs Right -->
     <g fill="#16a34a">
-      <ellipse cx="140" cy="130" rx="5" ry="10" transform="rotate(30 140 130)"/>
-      <ellipse cx="146" cy="114" rx="4" ry="9" transform="rotate(20 146 114)"/>
-      <ellipse cx="144" cy="99" rx="4" ry="8" transform="rotate(10 144 99)"/>
+      <ellipse cx="138" cy="128" rx="5" ry="9" transform="rotate(25 138 128)"/>
+      <ellipse cx="143" cy="113" rx="4" ry="8" transform="rotate(18 143 113)"/>
+      <ellipse cx="141" cy="99" rx="4" ry="7" transform="rotate(10 141 99)"/>
     </g>
-    
+
     
     <!-- LEFT CLAW -->
-    <path d="M 62 90 Q 45 70 32 60" stroke="#22c55e" stroke-width="7" fill="none" stroke-linecap="round"/>
-    
-    <g transform="translate(18, 42) rotate(-35)">
-      <ellipse cx="0" cy="0" rx="14" ry="11" fill="#22c55e"/>
-      <path d="M -5 5 C -20 15, -25 30, -15 35 C -5 30, 0 20, 5 8 Z" fill="url(#clawGrad2)"/>
-      <path d="M -5 -5 C -25 -15, -30 -35, -18 -40 C -8 -35, 0 -25, 5 -8 Z" fill="url(#clawGrad2)"/>
-      <path d="M -15 -25 C -12 -25, -10 -20, -12 -15" stroke="#16a34a" stroke-width="1" fill="none"/>
-      <path d="M -15 20 C -12 20, -10 15, -12 10" stroke="#16a34a" stroke-width="1" fill="none"/>
-      <ellipse cx="5" cy="-2" rx="5" ry="3" fill="#dcfce7" opacity="0.5"/>
+    <path d="M 64 88 Q 48 70 35 58" stroke="#22c55e" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+    <g transform="translate(22, 42) rotate(-30)">
+      <circle cx="0" cy="0" r="10" fill="#22c55e"/>
+
+      <path d="M -5 -5 
+               Q -25 -15, -35 -35 
+               Q -40 -42, -32 -45
+               Q -22 -40, -12 -25
+               Q -5 -15, 2 -6 Z" 
+            fill="url(#clawGrad2)" stroke="#16a34a" stroke-width="0.5"/>
+
+      <path d="M -5 5 
+               Q -25 15, -35 35
+               Q -40 42, -32 45
+               Q -22 40, -12 25
+               Q -5 15, 2 6 Z" 
+            fill="url(#clawGrad2)" stroke="#16a34a" stroke-width="0.5"/>
+
+      <path d="M -25 -25 Q -20 -22, -18 -15" stroke="#16a34a" stroke-width="1" fill="none"/>
+      <path d="M -25 25 Q -20 22, -18 15" stroke="#16a34a" stroke-width="1" fill="none"/>
+
+      <ellipse cx="8" cy="0" rx="4" ry="3" fill="#dcfce7" opacity="0.6"/>
     </g>
-    
+
     
     <!-- RIGHT CLAW -->
-    <path d="M 138 90 Q 155 70 168 60" stroke="#22c55e" stroke-width="7" fill="none" stroke-linecap="round"/>
-    
-    <g transform="translate(182, 42) rotate(35)">
-      <ellipse cx="0" cy="0" rx="14" ry="11" fill="#22c55e"/>
-      <path d="M 5 5 C 20 15, 25 30, 15 35 C 5 30, 0 20, -5 8 Z" fill="url(#clawGrad2)"/>
-      <path d="M 5 -5 C 25 -15, 30 -35, 18 -40 C 8 -35, 0 -25, -5 -8 Z" fill="url(#clawGrad2)"/>
-      <path d="M 15 -25 C 12 -25, 10 -20, 12 -15" stroke="#16a34a" stroke-width="1" fill="none"/>
-      <path d="M 15 20 C 12 20, 10 15, 12 10" stroke="#16a34a" stroke-width="1" fill="none"/>
-      <ellipse cx="-5" cy="-2" rx="5" ry="3" fill="#dcfce7" opacity="0.5"/>
+    <path d="M 136 88 Q 152 70 165 58" stroke="#22c55e" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+    <g transform="translate(178, 42) rotate(30)">
+      <circle cx="0" cy="0" r="10" fill="#22c55e"/>
+
+      <path d="M 5 -5 
+               Q 25 -15, 35 -35 
+               Q 40 -42, 32 -45
+               Q 22 -40, 12 -25
+               Q 5 -15, -2 -6 Z" 
+            fill="url(#clawGrad2)" stroke="#16a34a" stroke-width="0.5"/>
+
+      <path d="M 5 5 
+               Q 25 15, 35 35
+               Q 40 42, 32 45
+               Q 22 40, 12 25
+               Q 5 15, -2 6 Z" 
+            fill="url(#clawGrad2)" stroke="#16a34a" stroke-width="0.5"/>
+
+      <path d="M 25 -25 Q 20 -22, 18 -15" stroke="#16a34a" stroke-width="1" fill="none"/>
+      <path d="M 25 25 Q 20 22, 18 15" stroke="#16a34a" stroke-width="1" fill="none"/>
+
+      <ellipse cx="-8" cy="0" rx="4" ry="3" fill="#dcfce7" opacity="0.6"/>
     </g>
-    
+
     
     <!-- Body -->
-    <ellipse cx="100" cy="100" rx="44" ry="34" fill="url(#bodyGrad2)"/>
-    
-    <ellipse cx="93" cy="91" rx="20" ry="12" fill="#bbf7d0" opacity="0.4"/>
+    <ellipse cx="100" cy="98" rx="42" ry="32" fill="url(#bodyGrad2)"/>
+
+    <ellipse cx="93" cy="90" rx="18" ry="11" fill="#bbf7d0" opacity="0.5"/>
+
     
     <!-- Eye Stalks -->
-    <line x1="86" y1="75" x2="83" y2="60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
-    
-    <line x1="114" y1="75" x2="117" y2="60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
-    
+    <line x1="86" y1="74" x2="84" y2="60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+
+    <line x1="114" y1="74" x2="116" y2="60" stroke="#22c55e" stroke-width="4" stroke-linecap="round"/>
+
     
     <!-- Eyes -->
-    <circle cx="83" cy="56" r="11" fill="white"/>
-    
-    <circle cx="117" cy="56" r="11" fill="white"/>
-    
-    <circle cx="83" cy="56" r="6" fill="#1f2937"/>
-    
-    <circle cx="117" cy="56" r="6" fill="#1f2937"/>
-    
-    <circle cx="85" cy="53" r="2.5" fill="white"/>
-    
-    <circle cx="119" cy="53" r="2.5" fill="white"/>
-    
+    <circle cx="84" cy="56" r="10" fill="white"/>
+
+    <circle cx="116" cy="56" r="10" fill="white"/>
+
+    <circle cx="84" cy="56" r="6" fill="#1f2937"/>
+
+    <circle cx="116" cy="56" r="6" fill="#1f2937"/>
+
+    <circle cx="86" cy="53" r="2.5" fill="white"/>
+
+    <circle cx="118" cy="53" r="2.5" fill="white"/>
+
     
     <!-- Eyebrows -->
-    <path d="M 75 45 Q 83 42 91 45" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round"/>
-    
-    <path d="M 109 45 Q 117 42 125 45" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round"/>
-    
+    <path d="M 77 44 Q 84 41 91 44" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <path d="M 109 44 Q 116 41 123 44" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round"/>
+
     
     <!-- Mouth -->
-    <path d="M 94 112 Q 100 117 106 112" stroke="#15803d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-    
+    <path d="M 94 110 Q 100 115 106 110" stroke="#15803d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
     
     <!-- Cheeks -->
-    <circle cx="74" cy="103" r="4.5" fill="#fca5a5" opacity="0.4"/>
-    
-    <circle cx="126" cy="103" r="4.5" fill="#fca5a5" opacity="0.4"/>
+    <circle cx="75" cy="100" r="4" fill="#fca5a5" opacity="0.4"/>
+
+    <circle cx="125" cy="100" r="4" fill="#fca5a5" opacity="0.4"/>
   </g>
-  
+
   
   <!-- Text -->
-  <text x="150" y="105" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="48" font-weight="800" fill="#22c55e">Nemoclaw</text>
+  <text x="155" y="105" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="48" font-weight="800" fill="#22c55e">Nemoclaw</text>
 </svg>
