@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw | Pricing</title>
-    <meta name="description" content="OpenClaw — Simple, transparent pricing for OpenClaw AI agent deployment. Cloud plans starting at $249.99/mo or go local with zero monthly fees.">
+    <title>Nemoclaw | Pricing</title>
+    <meta name="description" content="Nemoclaw — Simple, transparent pricing for Nemoclaw AI agent deployment. Cloud plans starting at $249.99/mo or go local with zero monthly fees.">
     <link rel="icon" type="image/svg+xml" href="logo-openclaws.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,18 +21,18 @@
             --bg-primary: #ffffff;
             --bg-secondary: #f8f8f8;
             --bg-card: #ffffff;
-            --bg-card-hover: #fef2f2;
+            --bg-card-hover: #f0fdf4;
             --text-primary: #1a1a2e;
             --text-secondary: #555566;
             --text-muted: #888899;
-            --accent-blue: #e81b25;
-            --accent-cyan: #e81b25;
-            --accent-teal: #b91c1c;
-            --accent-glow: rgba(232, 27, 37, 0.12);
-            --gradient-primary: linear-gradient(135deg, #e81b25 0%, #b91c1c 100%);
-            --gradient-hero: linear-gradient(135deg, #f87171 0%, #e81b25 50%, #b91c1c 100%);
+            --accent-blue: #22c55e;
+            --accent-cyan: #22c55e;
+            --accent-teal: #15803d;
+            --accent-glow: rgba(34, 197, 94, 0.12);
+            --gradient-primary: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            --gradient-hero: linear-gradient(135deg, #86efac 0%, #22c55e 50%, #15803d 100%);
             --border-subtle: rgba(0, 0, 0, 0.08);
-            --border-accent: rgba(232, 27, 37, 0.3);
+            --border-accent: rgba(34, 197, 94, 0.3);
             --radius: 12px;
             --radius-lg: 20px;
         }
@@ -201,7 +201,7 @@
         }
 
         .mobile-slide-menu .mobile-nav-link:hover {
-            color: #e81b25;
+            color: #22c55e;
             padding-left: 0.5rem;
         }
 
@@ -220,7 +220,7 @@
             align-items: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid #e81b25;
+            border-bottom: 2px solid #22c55e;
         }
 
         /* ── Sections Shared ── */
@@ -289,7 +289,7 @@
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(232, 27, 37, 0.25);
+            box-shadow: 0 8px 30px rgba(34, 197, 94, 0.25);
         }
 
         .btn-secondary {
@@ -310,7 +310,7 @@
 
         .btn-secondary:hover {
             border-color: var(--border-accent);
-            background: rgba(232, 27, 37, 0.04);
+            background: rgba(34, 197, 94, 0.04);
             transform: translateY(-1px);
         }
 
@@ -410,17 +410,17 @@
         .pricing-card:hover {
             transform: translateY(-6px);
             border-color: var(--border-accent);
-            box-shadow: 0 12px 40px rgba(232, 27, 37, 0.06);
+            box-shadow: 0 12px 40px rgba(34, 197, 94, 0.06);
         }
 
         .pricing-card.featured {
             border: 2px solid transparent;
             background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                        linear-gradient(135deg, #991b1b, #a855f7, #e81b25, #991b1b) border-box;
+                        linear-gradient(135deg, #166534, #a855f7, #22c55e, #166534) border-box;
             background-size: 100% 100%, 300% 300%;
             animation: borderGlow 4s ease infinite;
             transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(232, 27, 37, 0.1), 0 0 100px rgba(124, 58, 237, 0.05);
+            box-shadow: 0 0 50px rgba(34, 197, 94, 0.1), 0 0 100px rgba(124, 58, 237, 0.05);
         }
 
         @keyframes borderGlow {
@@ -555,7 +555,7 @@
         }
 
         .addons-note a {
-            color: #991b1b;
+            color: #166534;
             text-decoration: none;
             font-weight: 600;
         }
@@ -592,12 +592,12 @@
             flex: 1;
         }
         .billing-btn.active {
-            background: linear-gradient(135deg, #e81b25, #b91c1c);
+            background: linear-gradient(135deg, #22c55e, #15803d);
             color: white;
-            box-shadow: 0 2px 8px rgba(232, 27, 37, 0.3);
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
         }
         .billing-btn:hover:not(.active) {
-            background: rgba(232, 27, 37, 0.1);
+            background: rgba(34, 197, 94, 0.1);
         }
         .hidden { display: none; }
         .price-subtitle {
@@ -625,7 +625,7 @@
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="nav-brand">
-                <img src="logo-openclaws.svg" alt="OpenClaw" style="height: 44px; width: 44px; object-fit: contain;">
+                <img src="logo-openclaws.svg" alt="Nemoclaw" style="height: 44px; width: 44px; object-fit: contain;">
                 <span class="nav-logo-text">The AI 101</span>
             </a>
             <button class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Toggle menu">&#9776;</button>
@@ -642,7 +642,7 @@
     <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
     <div class="mobile-slide-menu" id="mobileMenu">
         <div class="mobile-menu-header">
-            <img src="logo-openclaws.svg" alt="OpenClaw" style="height:32px;">
+            <img src="logo-openclaws.svg" alt="Nemoclaw" style="height:32px;">
             <button class="mobile-close-btn" onclick="closeMobileMenu()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
@@ -653,7 +653,7 @@
         <a href="index.html#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
         <a href="configure.html" class="mobile-nav-link" onclick="closeMobileMenu()">Get Started</a>
         <div style="margin-top:2rem;">
-            <a href="configure.html" style="display:block;width:100%;padding:0.9rem;text-align:center;background:linear-gradient(135deg,#e81b25,#b91c1c);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;">Get Started Now</a>
+            <a href="configure.html" style="display:block;width:100%;padding:0.9rem;text-align:center;background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;">Get Started Now</a>
         </div>
     </div>
 
@@ -672,7 +672,7 @@
         <!-- ═══════════ SECTION 1: CLOUD PRICING ═══════════ -->
         <div class="pricing-track fade-in" id="section-vps">
           <div class="track-header">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
             <h3>Cloud Pricing</h3>
             <p>Monthly subscription. Your AI agent runs 24/7 on managed cloud infrastructure.</p>
           </div>
@@ -708,7 +708,7 @@
                 <li>Advanced task workflows</li>
                 <li>Priority support</li>
                 <li>Up to 15 workflows</li>
-                <li style="color: #e81b25; font-weight: 600;">&#x1F381; Startup Bonus: 1 app build + Renewal: 1 build/yr</li>
+                <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 1 app build + Renewal: 1 build/yr</li>
               </ul>
               <a href="configure.html" class="btn-secondary">Get Started</a>
             </div>
@@ -736,7 +736,7 @@
                 <li>Content & reporting automation</li>
                 <li>Priority support + strategy calls</li>
                 <li>Pays for itself — builds tools you'd otherwise buy</li>
-                <li style="color: #e81b25; font-weight: 600;">&#x1F381; Startup Bonus: 2 app builds + Renewal: 2 builds/yr</li>
+                <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 2 app builds + Renewal: 2 builds/yr</li>
               </ul>
               <a href="configure.html" class="btn-primary">Get Started</a>
             </div>
@@ -762,7 +762,7 @@
                 <li>24/7 priority support</li>
                 <li>Custom AI training</li>
                 <li>Enterprise security</li>
-                <li style="color: #e81b25; font-weight: 600;">&#x1F381; Startup Bonus: 3 app builds + Renewal: 3 builds/yr</li>
+                <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 3 app builds + Renewal: 3 builds/yr</li>
               </ul>
               <a href="configure.html" class="btn-secondary">Get Started</a>
             </div>
@@ -776,7 +776,7 @@
         <!-- ═══════════ SECTION 2: LOCAL PRICING ═══════════ -->
         <div class="pricing-track fade-in" id="section-mac">
           <div class="track-header">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
             <h3>Local Pricing</h3>
             <p>Own your AI infrastructure. One-time costs, zero monthly fees, complete privacy.</p>
           </div>
@@ -792,7 +792,7 @@
               <p class="pricing-desc">One price covers hardware, deployment, training, and everything you need to run AI locally with zero monthly fees. Upgradable with advance notice.</p>
               <ul class="pricing-features">
                 <li>Mac Mini hardware (64GB RAM, 1TB SSD)</li>
-                <li>OpenClaw deployment &amp; configuration</li>
+                <li>Nemoclaw deployment &amp; configuration</li>
                 <li>Ollama self-hosted AI</li>
                 <li>Security hardening</li>
                 <li>Hands-on training sessions</li>
@@ -837,7 +837,7 @@
 
     <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
     <div class="footer-bottom">
-        <p>&copy; 2026 OpenClaw | Powered by Square | Built on OpenClaw</p>
+        <p>&copy; 2026 Nemoclaw | Powered by Square | Built on Nemoclaw</p>
     </div>
 
     <script>
