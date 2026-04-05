@@ -129,6 +129,21 @@
             100% { background-position: 200% 0; }
         }
 
+        @keyframes borderRotate {
+            0% { --border-angle: 0deg; }
+            100% { --border-angle: 360deg; }
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -183,15 +198,21 @@
         .nav-logo-icon {
             width: 40px;
             height: 40px;
-            background: var(--gradient-primary);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: white;
-            animation: pulse 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-brand:hover .nav-logo-icon {
+            transform: scale(1.1) rotate(-5deg);
         }
 
         .nav-logo-text {
@@ -431,14 +452,17 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.08) 30%, transparent 70%);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.18) 0%, rgba(139, 92, 246, 0.08) 30%, transparent 60%),
+                radial-gradient(circle, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+            background-size: 100% 100%, 32px 32px;
             pointer-events: none;
-            animation: pulse 8s ease-in-out infinite alternate;
+            mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 20%, transparent 70%);
         }
 
         .hero::after {
@@ -472,6 +496,12 @@
             font-weight: 500;
             margin-bottom: 2rem;
             animation: fadeIn 1s ease-out 0.3s both;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .hero-badge svg {
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .hero h1 {
@@ -884,6 +914,23 @@
             opacity: 1;
         }
 
+        .deploy-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.03), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .deploy-card:hover::after {
+            opacity: 1;
+        }
+
         .deploy-badge {
             display: inline-block;
             background: rgba(99, 102, 241, 0.15);
@@ -1047,9 +1094,21 @@
         }
 
         .managed-card.featured {
-            border: 2px solid var(--accent-primary);
+            border: 2px solid transparent;
             transform: scale(1.03);
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+            background:
+                linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                conic-gradient(from var(--border-angle, 0deg), #6366f1, #8b5cf6, #a78bfa, #6366f1) border-box;
+            animation: borderRotate 4s linear infinite;
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.2), 0 0 80px rgba(99, 102, 241, 0.05);
+        }
+
+        @supports (background: conic-gradient(red, red)) {
+            @property --border-angle {
+                syntax: '<angle>';
+                initial-value: 0deg;
+                inherits: false;
+            }
         }
 
         .managed-card.featured::before {
@@ -1066,6 +1125,7 @@
             border-radius: 999px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
         .managed-card:hover {
@@ -1137,17 +1197,34 @@
         }
 
         .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(148, 163, 184, 0.08);
             border-radius: var(--radius-lg);
             padding: 2rem;
             transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            color: rgba(99, 102, 241, 0.08);
+            line-height: 1;
+            pointer-events: none;
         }
 
         .testimonial-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
+            background: rgba(30, 41, 59, 0.65);
         }
 
         .stars {
@@ -1162,6 +1239,7 @@
             line-height: 1.7;
             margin-bottom: 1.25rem;
             font-style: italic;
+            position: relative;
         }
 
         .testimonial-author {
@@ -1172,7 +1250,8 @@
 
         .testimonial-role {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--accent-secondary);
+            font-weight: 500;
         }
 
         /* ═══════════ FAQ ═══════════ */
@@ -1250,6 +1329,18 @@
         }
 
         .cta-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+            opacity: 0.6;
+        }
+
+        .cta-footer::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -1343,10 +1434,25 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+            position: relative;
+        }
+
+        /* Timeline connector line */
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: calc(12.5% + 16px);
+            right: calc(12.5% + 16px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+            opacity: 0.3;
+            z-index: 0;
         }
 
         @media (max-width: 900px) {
             .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid::before { display: none; }
         }
 
         @media (max-width: 500px) {
@@ -1365,7 +1471,7 @@
 
         .step-number {
             position: absolute;
-            top: -12px;
+            top: -16px;
             left: 50%;
             transform: translateX(-50%);
             width: 32px;
@@ -1378,12 +1484,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 1;
+            box-shadow: 0 0 0 4px var(--bg-primary), 0 0 15px rgba(99, 102, 241, 0.4);
         }
 
         .step-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-4px);
             box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .step-card:hover .step-number {
+            box-shadow: 0 0 0 4px var(--bg-primary), 0 0 25px rgba(99, 102, 241, 0.6);
         }
 
         .step-icon {
@@ -1426,7 +1538,7 @@
     <nav id="navbar">
         <div class="nav-inner">
             <a href="index.html" class="nav-brand">
-                <div class="nav-logo-icon">AI</div>
+                <div class="nav-logo-icon"><img src="logo-nemoclaw.svg" alt="The AI 101"></div>
                 <span class="nav-logo-text">The AI 101</span>
             </a>
             <button class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Toggle menu">&#9776;</button>
@@ -1441,7 +1553,7 @@
     <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
     <div class="mobile-slide-menu" id="mobileMenu">
         <div class="mobile-menu-header">
-            <div class="nav-logo-icon" style="width:32px;height:32px;font-size:1rem;">AI</div>
+            <div class="nav-logo-icon" style="width:32px;height:32px;"><img src="logo-nemoclaw.svg" alt="The AI 101"></div>
             <button class="mobile-close-btn" onclick="closeMobileMenu()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
@@ -1955,6 +2067,32 @@
             fadeObserver.observe(el);
         });
 
+        // Stagger children animation for grids
+        var staggerObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var children = entry.target.children;
+                    Array.prototype.forEach.call(children, function(child, i) {
+                        child.style.opacity = '0';
+                        child.style.transform = 'translateY(30px)';
+                        child.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        child.style.transitionDelay = (i * 0.1) + 's';
+                        requestAnimationFrame(function() {
+                            requestAnimationFrame(function() {
+                                child.style.opacity = '1';
+                                child.style.transform = 'translateY(0)';
+                            });
+                        });
+                    });
+                    staggerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.possibilities-grid, .stat-grid, .features-grid, .managed-grid, .testimonials-grid, .process-grid').forEach(function(el) {
+            staggerObserver.observe(el);
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             var navbar = document.getElementById('navbar');
@@ -1963,6 +2101,39 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        // Stat counter animation
+        var counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var el = entry.target;
+                    var text = el.textContent.trim();
+                    var match = text.match(/^(\$?)([\d.]+)(.*)$/);
+                    if (match) {
+                        var prefix = match[1];
+                        var target = parseFloat(match[2]);
+                        var suffix = match[3];
+                        var duration = 1200;
+                        var start = performance.now();
+                        var isDecimal = match[2].includes('.');
+                        function tick(now) {
+                            var elapsed = now - start;
+                            var progress = Math.min(elapsed / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var current = eased * target;
+                            el.textContent = prefix + (isDecimal ? current.toFixed(0) : Math.floor(current)) + suffix;
+                            if (progress < 1) requestAnimationFrame(tick);
+                        }
+                        requestAnimationFrame(tick);
+                    }
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(function(el) {
+            counterObserver.observe(el);
         });
 
         // Mobile menu
