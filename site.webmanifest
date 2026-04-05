@@ -1,21 +1,21 @@
 {
-  "name": "OctAi",
-  "short_name": "OctAi",
+  "name": "The AI 101",
+  "short_name": "AI 101",
   "icons": [
     {
-      "src": "/web-app-manifest-192x192.png",
+      "src": "/logo-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/web-app-manifest-512x512.png",
+      "src": "/logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#A855F7",
-  "background_color": "#0A0A12",
+  "theme_color": "#6366F1",
+  "background_color": "#0B1120",
   "display": "standalone"
 }
