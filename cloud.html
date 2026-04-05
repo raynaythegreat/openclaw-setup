@@ -3,499 +3,692 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nemoclaw | Nemoclaw Cloud — AI Agents on Demand</title>
-    <meta name="description" content="Nemoclaw Cloud - Your AI agent runs 24/7 with managed monitoring. Choose from Premium, Pro, or Ultra tiers with flexible billing options. White-glove setup included.">
+    <title>Cloud Pricing | The AI 101 — Managed AI Agents in the Cloud</title>
+    <meta name="description" content="The AI 101 Cloud Plans — Your AI agent running 24/7 with managed monitoring, white-glove setup, and 100% uptime SLA. Choose from Premium, Pro, or Ultra.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theai101.shop/cloud">
+    <meta property="og:title" content="Cloud Pricing | The AI 101">
+    <meta property="og:description" content="Managed AI agents in the cloud. 100% uptime SLA. White-glove setup included. From $249.99/mo.">
+    <meta property="og:image" content="https://theai101.shop/og-image.png">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:description" content="Nemoclaw Cloud - AI agents that run 24/7. Flexible pricing from $249.99/mo. Fast setup, enterprise features.">
-    <meta name="twitter:image" content="https://theai101.shop/logo.png">
+    <meta name="twitter:title" content="Cloud Pricing | The AI 101">
+    <meta name="twitter:description" content="Managed AI agents in the cloud. 100% uptime SLA. White-glove setup included.">
+
+    <!-- Canonical -->
     <link rel="canonical" href="https://theai101.shop/cloud">
-    
-    <style>
-        html, body {
-            overflow-x: hidden;
-            max-width: 100vw;
-        }
-        .pricing-section { padding: 4rem 0; background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%); }
-        .billing-toggle { display: flex; justify-content: center; gap: 0.5rem; margin: 2rem 0; }
-        .billing-btn { padding: 0.75rem 1.5rem; border: 1px solid #22c55e; background: transparent; color: #bbf7d0; border-radius: 8px; cursor: pointer; transition: all 0.3s; font-size: 0.9rem; }
-        .billing-btn:hover, .billing-btn.active { background: #22c55e; color: #fff; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        @media (max-width: 768px) {
-            .pricing-grid { grid-template-columns: 1fr !important; }
-        }
-        .pricing-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 16px; padding: 2rem; position: relative; transition: transform 0.3s, border-color 0.3s; }
-        .pricing-card:hover { transform: translateY(-4px); border-color: rgba(124, 58, 237, 0.5); }
-        .pricing-card.featured { border-color: #22c55e; background: rgba(34, 197, 94, 0.1); }
-        .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #22c55e, #15803d); color: #fff; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-        .pricing-header { text-align: center; margin-bottom: 1.5rem; }
-        .pricing-tier { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
-        .pricing-price { font-size: 2.5rem; font-weight: 700; color: #bbf7d0; }
-        .price-period { font-size: 1rem; color: #888; }
-        .pricing-features { list-style: none; padding: 0; margin: 1.5rem 0; }
-        .pricing-features li { padding: 0.5rem 0; color: #ccc; display: flex; align-items: center; gap: 0.5rem; }
-        .pricing-features .check { color: #22c55e; }
-        .pricing-cta { display: block; text-align: center; margin-top: 1.5rem; }
-        .pricing-note { text-align: center; color: #888; margin-top: 2rem; }
-        .hidden { display: none; }
 
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
-        .mobile-menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .mobile-slide-menu {
-            position: fixed;
-            top: 0;
-            right: -300px;
-            width: 300px;
-            height: 100vh;
-            background: #fff;
-            z-index: 999;
-            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -4px 0 30px rgba(0,0,0,0.1);
-            padding: 2rem 1.5rem;
-            overflow-y: auto;
-        }
-
-        .mobile-slide-menu.active {
-            right: 0;
-        }
-
-        .mobile-slide-menu .mobile-nav-link {
-            display: block;
-            padding: 1rem 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #1a1a2e;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            transition: color 0.2s, padding-left 0.2s;
-        }
-
-        .mobile-slide-menu .mobile-nav-link:hover {
-            color: #22c55e;
-            padding-left: 0.5rem;
-        }
-
-        .mobile-close-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            float: right;
-            margin-top: -0.5rem;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #22c55e;
-        }
-    </style>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-inner">
-            <a href="index.html" class="nav-brand">
-                <img src="logo-nemoclaw.svg?v=4?v=3" alt="Nemoclaw" style="height: 44px; width: 44px; object-fit: contain;">
-                <span class="nav-logo-text">The AI 101</span>
-            </a>
-            <button class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Toggle menu">&#9776;</button>
-            <ul class="nav-links">
-                <li><a href="#vps">VPS Plans</a></li>
-                <li><a href="#calculator">Calculator</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="configure.html" class="nav-cta">Get Started</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
-    <div class="mobile-slide-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <img src="logo-nemoclaw.svg?v=4?v=3" alt="Nemoclaw" style="height:32px;">
-            <button class="mobile-close-btn" onclick="closeMobileMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a1a2e" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-        <a href="#vps" class="mobile-nav-link" onclick="closeMobileMenu()">VPS Plans</a>
-        <a href="#calculator" class="mobile-nav-link" onclick="closeMobileMenu()">Calculator</a>
-        <a href="#features" class="mobile-nav-link" onclick="closeMobileMenu()">Features</a>
-        <a href="configure.html" class="mobile-nav-link" onclick="closeMobileMenu()">Get Started</a>
-        <div style="margin-top:2rem;">
-            <a href="configure.html" style="display:block;width:100%;padding:0.9rem;text-align:center;background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;">Get Started Now</a>
-        </div>
-    </div>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <img src="logo-nemoclaw.svg?v=4?v=3" alt="Nemoclaw" class="hero-logo" style="width: 100px; margin-bottom: 1rem;">
-            <h1>Your AI Agent in the Cloud</h1>
-            <p>Fast deployment, zero monthly fees, Own it forever. Check out <a href="#vps" class="btn-primary">See Cloud Plans</a>
-            <a href="#features" class="btn-secondary">Explore Features</a>
-            <div class="hero-buttons">
-                <a href="#vps" class="btn-primary">Cloud Plans</a>
-                <a href="#features" class="btn-secondary">See Features</a>
-            </div>
-            <div class="trust-strip">
-                <span><span class="check" style="color: var(--accent-cyan);">&#10003;</span> White-Glove Setup</span>
-                <span><span class="check" style="color: var(--accent-cyan);">Zero Vendor lock-in</span>
-                <span><span class="check" style="color: var(--accent-cyan);">Cloud & Local Options</span>
-                <span><span class="check" style="color: var(--accent-cyan);">100% Uptime SLA</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats-section">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">By The Numbers</div>
-            <h2 class="section-title">300+ Skills • 50+ Integrations & 24/7 Autonomous</h2>
-            <p class="section-subtitle">Nemoclaw is with the out of the box. It, use them right. The capabilities to your agent needs.</p>
-            </div>
-            <div class="stats-grid fade-in">
-                <div class="stat-card">
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">Skills</div>
-                    <div class="stat-desc">Pre-built integrations</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Integrations</div>
-                    <div class="stat-desc">Gmail, Slack, Discord, GitHub</ Telegram, WhatsApp, Notion, Canva, Stripe, Square, Shopify, and more</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Always On</div>
-                    <div class="stat-desc">Works while you sleep</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">10+</div>
-                    <div class="stat-label">Agents</div>
-                    <div class="stat-desc">Specialized agents that collaborate</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Possibilities Grid -->
-    <section id="possibilities">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Endless Possibilities</div>
-                <h2 class="section-title">What Can Your AI Agent Do? Almost Everything.</h2>
-                <p class="section-subtitle">Here's a taste of what Nemoclaw handles autonom. once we set it up.</p>
-            </div>
-            <div class="possibilities-grid fade-in">
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                    </div>
-                    <h4>Email Management</h4>
-                    <p>Reads, classifies, and responds to emails. Drafts follow-ups. Flags urgent messages. Never miss an important email again.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="8" y2="6"/><line x1="16" y2="18"/></svg>
-                    </div>
-                    <h4>Calendar & Scheduling</h4>
-                    <p>Books meetings, finds free time, sends reminders. Coordinates across time zones automatically.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="12" y1="12" x2="16"/></svg>
-                    </div>
-                    <h4>Social Media</h4>
-                    <p>Posts to Twitter/X, LinkedIn, Reddit. Monitors mentions. Engages with your audience 24/7.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 6 13.5 15.5 22 12"/><polyline points="22 4 12 14.01 9 11"/></svg>
-                    </div>
-                    <h4>Code Generation & Review</h4>
-                    <p>Writes code, reviews PRs, fixes bugs, deploys. Like having a junior developer that never sleeps.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y2="21"/><line x1="11" y1="8" x2="16.65" y2="11"/></svg>
-                    </div>
-                    <h4>Market Research</h4>
-                    <p>Scans competitors, finds trends, summarizes reports. Delivers daily briefings to your inbox.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y2="21"/><circle cx="16.65" y2="16.49"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/></svg>
-                    </div>
-                    <h4>Content Creation</h4>
-                    <p>Blog posts, social threads, newsletters, proposals. On-brand, on autopilot.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9v3a4.5 3 1.5V2.5z"/><polyline points="17 6.23 6.23 12 15.5 17" /></svg>
-                    </div>
-                    <h4>Sales & Lead Gen</h4>
-                    <p>Finds prospects, qualifies leads, drafts outreach. Tracks your pipeline automatically.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="14"/></svg>
-                    </div>
-                    <h4>Business Analytics</h4>
-                    <p>Tracks KPIs, generates reports, flags anomalies. Your business dashboard that thinks.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="14"/><line x1="6" y1="14"/><line x1="12" y1="12"/></svg>
-                    </div>
-                    <h4>E-Commerce</h4>
-                    <p>Manages inventory, processes orders, handles customer inquiries via Shopify/Stripe/Square.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l-3.5 5.5a3.5a3a5 5a3.5-6.5 1.5-.3" d="M3 9l-3.5-0 0 0 0"/>
-                        </svg>
-                    </div>
-                    <h4>Smart Home & IoT</h4>
-                    <p>Lights, thermostats, cameras. Voice-activated via Telegram. Controls lights, thermostats, and monitors routines. Automates your home & - all on your network.</p>
-                </div>
-                <div class="possibility-card">
-                    <div class="possibility-icon">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-3.5v3a4.5 3 0 3.5a2.8-.2(c,2) M understand concepts like cloud vs local, self-hosted Ollama,, or data privacy ( and 0 monthly costs)
-                            - Automates lights, thermostats, cameras, voice-activated
- reminders
-                            - Custom skill development: we can build unique automations and no API keys needed
-                            - Build your setup with hardware on BYOD/Mac Mini
-                                </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="features-section" id="features">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">AI-Powered Features</div>
-                <h2 class="section-title">Enterprise Features, Zero Complexity</h2>
-                <p class="section-subtitle">Everything you need for autonomous AI agents — configured and ready on day one.</p>
-            </div>
-            <div class="features-grid fade-in">
-                <div class="feature-card">
-                            <div class="feature-icon">
-                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7.54-1.81 1.19-1. Chatbots, d="! — Llama, Qwen and O self-hosted Ollama models have zero monthly costs. </p>
-                        <li>Pick the right AI brain: GPT-4, Claude, Gemini, Grok, or</                            - 50+ native integrations via the ClawHub marketplace
-                        <li>Telegram, WhatsApp, Slack, Discord, Notion, GitHub, Calendar, Gmail, Notion, Shopify, Stripe, Square, Twitter/X, Reddit, Canva, Zoom lenses, image/video editing
-                        <li>Custom skill development ($500-$2,500)</li>
-                        <li>Docker sandboxing, encrypted credentials, OAuth2, firewall rules, CVE scanning</li>
-                        <li>100% uptime SLA</li>
-                        <li>Auto-restart on failure</li>
-                        <li>Cron automation: scheduled tasks, heartbeat monitoring, auto-restart if crashed
-li>
-                        <li>Multi-agent architecture: Deploy specialized agents that collaborate</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Integrations -->
-    <section id="integrations">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Integrations</div>
-                <h2 class="section-title">Connect Your Entire stack</h2>
-                <p class="section-subtitle">Nemoclaw integrates with you already use. We configure and test every connection. We handle that complexity.</p>
-            </div>
-            <div class="integrations-grid fade-in">
-                <div class="integration-badge">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="8" y1="6"/><line x1="16" y2="18"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="7" y="19" width="18" height="18" rx="2"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="8" y="8" width="18" height="18" rx="2"/><rect x="8" y="6"/><line x1="10" y1="6"/><line x1="12" y1="12"/></svg> WhatsApp</div>
-                <div class="integration-badge">< < icon>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="8" y1="6" x2="16.65 11"/>
-                            <line x1="21" y1="21" x2="16.65 12.48 0,0"/><line x1="8" y1="8"/><line x1="8" y2="6"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="7" y="14" width="18" height="18" rx="2"/><rect x="8" y="8" width="18" height="18" rx="2"/><rect x="8" y="6"/><line x1="10" y1="6"/><rect x="7" y="10" width="18" height="18" rx="2"/><rect x="8" y="14" width="18" height="18" rx="2"/>
-                            <rect x="2" y="2" width="20" height="20" rx="2"/><rect x="2" y="2" width="20" height="20" rx="2"/><rect x="2" y="14" width="18" height="18" rx="2"/>
-                            <line x1="10" y1="10" x2="10" y2="6"/>
-                            <rect x="1" y="8" width="20" height="20" rx="2""/>
-                            <rect x="1" y="8" width="18" height="18" rx="2"/>
-                        </svg>
-                    </div>
-                    <p class="integrations-more fade-in">And 300+ more via the ClawHub skills marketplace</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing-section">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Cloud Pricing</div>
-                <h2 class="section-title">Choose Your Nemoclaw Plan</h2>
-                <p class="section-subtitle">Flexible pricing with monthly, yearly, and 2-year billing options. Save more with longer commitments.</p>
-            </div>
-            
-            <div class="billing-toggle fade-in">
-                <button class="billing-btn active" data-period="monthly">Monthly</button>
-                <button class="billing-btn" data-period="yearly">Yearly</button>
-                <button class="billing-btn" data-period="2year">2-Year</button>
-            </div>
-            
-            <div class="pricing-grid fade-in">
-                <!-- Premium Tier -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Recommended</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Premium</h3>
-                        <div class="pricing-price">
-                            <span class="price-monthly">$349.99</span><span class="price-period">/mo</span>
-                            <span class="price-yearly hidden">$4,199.88</span><span class="price-period-yearly hidden">/yr</span>
-                            <span class="price-2year hidden">$8,399.76</span><span class="price-period-2year hidden">/2yr</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Everything in Pro, plus:</li>
-                        <li><span class="check">&#10003;</span> Custom AI-powered software generation</li>
-                        <li><span class="check">&#10003;</span> Automated workflow creation</li>
-                        <li><span class="check">&#10003;</span> Content & reporting automation</li>
-                        <li><span class="check">&#10003;</span> Priority support + strategy calls</li>
-                        <li><span class="check">&#10003;</span> Pays for itself — builds tools you'd otherwise buy</li>
-                        <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 2 app builds + Renewal: 2 builds/yr</li>
-                    </ul>
-                    <a href="configure.html?plan=premium" class="btn-primary pricing-cta">Get Started</a>
-                </div>
-                
-                <!-- Pro Tier (Featured) -->
-                <div class="pricing-card featured">
-                    <div class="pricing-badge">Most Popular</div>
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Pro</h3>
-                        <div class="pricing-price">
-                            <span class="price-monthly">$249.99</span><span class="price-period">/mo</span>
-                            <span class="price-yearly hidden">$2,999.88</span><span class="price-period-yearly hidden">/yr</span>
-                            <span class="price-2year hidden">$5,999.76</span><span class="price-period-2year hidden">/2yr</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Extended integrations</li>
-                        <li><span class="check">&#10003;</span> Social media automation</li>
-                        <li><span class="check">&#10003;</span> Advanced task workflows</li>
-                        <li><span class="check">&#10003;</span> Priority support</li>
-                        <li><span class="check">&#10003;</span> Custom workflows</li>
-                        <li><span class="check">&#10003;</span> Up to 15 workflows</li>
-                        <li><span class="check">&#10003;</span> API access</li>
-                        <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 1 app build + Renewal: 1 build/yr</li>
-                    </ul>
-                    <a href="configure.html?plan=pro" class="btn-primary pricing-cta">Get Started</a>
-                </div>
-                
-                <!-- Ultra Tier -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-tier">Ultra</h3>
-                        <div class="pricing-price">
-                            <span class="price-monthly">$549.99</span><span class="price-period">/mo</span>
-                            <span class="price-yearly hidden">$6,599.88</span><span class="price-period-yearly hidden">/yr</span>
-                            <span class="price-2year hidden">$14,199.76</span><span class="price-period-2year hidden">/2yr</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Full integration library</li>
-                        <li><span class="check">&#10003;</span> Dedicated account manager</li>
-                        <li><span class="check">&#10003;</span> 24/7 priority support</li>
-                        <li><span class="check">&#10003;</span> Custom AI training</li>
-                        <li><span class="check">&#10003;</span> Enterprise security</li>
-                        <li><span class="check">&#10003;</span> Unlimited workflows</li>
-                        <li><span class="check">&#10003;</span> White-label options</li>
-                        <li style="color: #22c55e; font-weight: 600;">&#x1F381; Startup Bonus: 3 app builds + Renewal: 3 builds/yr</li>
-                    </ul>
-                    <a href="configure.html?plan=ultra" class="btn-secondary pricing-cta">Get Started</a>
-                </div>
-            </div>
-            
-            <p class="pricing-note fade-in"><em>Higher tiers include more integrations based on your needs. Bring your own API key or let us recommend the best provider.</em></p>
-        </div>
-    </section>
-
-    <!-- CTA Footer -->
-    <section class="cta-footer">
-        <div class="container">
-            <h2>Ready to Deploy?</h2>
-            <p>Choose cloud or local to get started.</p>
-            <div class="cta-buttons">
-                <a href="#pricing" class="btn-primary">View Pricing</a>
-                <a href="mailto:theai101shop@gmail.com" class="btn-secondary">Book a Call</a>
-            </div>
-            <div class="contact-info">
-                <a href="https://t.me/" target="_blank">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M21 15a2.25 0 0 0-5.5-1.29-.5-1.2. c.1 . text-decoration: none"><circle cx="9" cy="5" r="1" fill="#22c55e"/><circle cx="18" cy="19" r="1" fill="#22c55e"/><circle cx="6" cy="12" r="1" fill="#22c55e"/><circle cx="5" cy="5" r="1" fill="#22c55e"/>
-                            <circle cx="11" cy="11" r="8" stroke="#22c55e"/>
-                            <circle cx="12" cy="12" r="1" fill="#22c55e"/>
-                            <circle cx="19" cy="19" r="1" fill="#22c55e"/>
-                            <circle cx="15" cy="5" r="3" fill="#22c55e"/>
-                        </svg>
-                    </div>
-                    <p class="section-subtitle">Nemoclaw integrates with things you already use. We configure, test every connection. We handle that complexity for you.</ side to new pages for they a little more nuanced.</ experience.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <div class="footer-bottom">
-        <p>&copy; 2026 Nemoclaw | Powered by Square | Built on Nemoclaw</p>
-    </div>
-
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        document.querySelectorAll('.billing-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.billing-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const period = this.dataset.period;
-                
-                document.querySelectorAll('.price-monthly, .price-yearly, .price-2year').forEach(el => el.classList.add('hidden'));
-                document.querySelectorAll('.price-period-yearly, .price-period-2year').forEach(el => el.classList.add('hidden'));
-                
-                if (period === 'monthly') {
-                    document.querySelectorAll('.price-monthly').forEach(el => el.classList.remove('hidden'));
-                } else if (period === 'yearly') {
-                    document.querySelectorAll('.price-yearly').forEach(el => el.classList.remove('hidden'));
-                    document.querySelectorAll('.price-period-yearly').forEach(el => el.classList.remove('hidden'));
-                } else if (period === '2year') {
-                    document.querySelectorAll('.price-2year').forEach(el => el.classList.remove('hidden'));
-                    document.querySelectorAll('.price-period-2year').forEach(el => el.classList.remove('hidden'));
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        page: '#0B1120',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(32px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(99,102,241,0.25)' },
+                            '50%': { boxShadow: '0 0 40px rgba(99,102,241,0.45)' },
+                        },
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1) both',
+                        fadeIn: 'fadeIn 0.6s ease both',
+                        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+                    },
                 }
-            });
-        });
-
-        function openMobileMenu() {
-            document.getElementById('mobileMenu').classList.add('active');
-            document.getElementById('mobileOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobileMenu').classList.remove('active');
-            document.getElementById('mobileOverlay').classList.remove('active');
-            document.body.style.overflow = '';
+            }
         }
     </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #0B1120; color: #f1f5f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* Scroll-fade utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* FAQ accordion */
+        details summary { list-style: none; cursor: pointer; }
+        details summary::-webkit-details-marker { display: none; }
+        details[open] .faq-chevron { transform: rotate(45deg); }
+        .faq-chevron { transition: transform 0.25s ease; display: inline-block; }
+
+        /* Mobile nav */
+        .mobile-overlay { display: none; }
+        .mobile-overlay.active { display: block; }
+        .mobile-drawer { transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
+        .mobile-drawer.active { transform: translateX(0); }
+    </style>
+</head>
+<body class="bg-[#0B1120]">
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<nav class="fixed top-4 left-4 right-4 z-50 bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl px-6 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+        <!-- Brand -->
+        <a href="index.html" class="flex items-center gap-2.5 no-underline">
+            <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="h-9 w-9 flex-shrink-0">
+            <span class="text-slate-100 font-semibold text-lg tracking-tight">The AI 101</span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Features</a>
+            <a href="cloud.html" class="text-slate-100 text-sm font-semibold border-b border-indigo-500 pb-0.5">Cloud</a>
+            <a href="index.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Local</a>
+            <a href="dashboard.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Dashboard</a>
+        </div>
+
+        <!-- CTA + Hamburger -->
+        <div class="flex items-center gap-3">
+            <a href="mailto:theai101shop@gmail.com" class="hidden md:inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                Book a Call
+            </a>
+            <button id="mobileMenuBtn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-700 text-slate-400 hover:text-slate-100 hover:border-slate-600 transition-colors" aria-label="Toggle menu">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Overlay -->
+<div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-[998]" onclick="closeMobileMenu()"></div>
+
+<!-- Mobile Drawer -->
+<div id="mobileDrawer" class="mobile-drawer fixed top-0 right-0 w-72 h-full bg-slate-900 border-l border-slate-800 z-[999] px-6 py-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+            <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="h-8 w-8">
+            <span class="text-slate-100 font-semibold">The AI 101</span>
+        </div>
+        <button onclick="closeMobileMenu()" class="text-slate-400 hover:text-slate-100 transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+    </div>
+    <nav class="flex flex-col gap-1">
+        <a href="index.html#features" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+        <a href="cloud.html" onclick="closeMobileMenu()" class="px-3 py-3 text-indigo-400 bg-indigo-500/10 rounded-lg text-sm font-semibold">Cloud</a>
+        <a href="index.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg text-sm font-medium transition-all duration-200">Local</a>
+        <a href="dashboard.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg text-sm font-medium transition-all duration-200">Dashboard</a>
+    </nav>
+    <div class="mt-6 pt-6 border-t border-slate-800">
+        <a href="mailto:theai101shop@gmail.com" class="flex items-center justify-center gap-2 w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            Book a Call
+        </a>
+    </div>
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="relative pt-32 pb-20 md:pt-44 md:pb-24 overflow-hidden">
+    <!-- Radial glow backdrop -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.13)_0%,transparent_70%)]"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="w-20 h-20 mx-auto mb-6 animate-fadeIn" style="animation-delay:0.1s">
+
+        <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-fadeIn" style="animation-delay:0.15s">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Cloud Hosting
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-100 leading-tight mb-6 animate-fadeInUp" style="animation-delay:0.2s">
+            Your AI Agent<br class="hidden sm:block"> in the Cloud
+        </h1>
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fadeInUp" style="animation-delay:0.3s">
+            Fast deployment, zero maintenance. We handle the infrastructure so you can focus on your business.
+        </p>
+
+        <!-- Trust Strip -->
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 animate-fadeIn" style="animation-delay:0.45s">
+            <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                100% Uptime SLA
+            </span>
+            <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Managed Monitoring
+            </span>
+            <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                White-Glove Setup Included
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ VPS PRICING ═══════════════════════ -->
+<section id="vps" class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-12 reveal">
+            <p class="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3">Cloud Pricing</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Choose Your Nemoclaw Plan</h2>
+            <p class="text-slate-400 text-base max-w-xl mx-auto">Flexible pricing with monthly, yearly, and 2-year billing options. Save more with longer commitments.</p>
+        </div>
+
+        <!-- Billing Toggle -->
+        <div class="flex items-center justify-center gap-2 mb-12 reveal reveal-delay-1">
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-indigo-500 text-white" data-period="monthly">
+                Monthly
+            </button>
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-slate-700 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="yearly">
+                Yearly
+                <span class="text-green-400 text-xs font-bold">Save 20%</span>
+            </button>
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-slate-700 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="2year">
+                2-Year
+                <span class="text-green-400 text-xs font-bold">Save 30%</span>
+            </button>
+        </div>
+
+        <!-- Pricing Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal reveal-delay-2">
+
+            <!-- ── Premium Card ── -->
+            <div class="relative bg-gray-900 border border-indigo-500 rounded-xl p-8 shadow-lg shadow-indigo-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
+                <!-- Badge -->
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                    Recommended
+                </div>
+
+                <div class="mb-6 mt-2">
+                    <h3 class="text-slate-100 text-xl font-bold mb-1">Premium</h3>
+                    <p class="text-slate-500 text-sm">Everything in Pro, plus AI software generation</p>
+                </div>
+
+                <!-- Price block -->
+                <div class="mb-6">
+                    <div data-price="monthly">
+                        <span class="text-4xl font-bold text-slate-100">$349.99</span>
+                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                    </div>
+                    <div data-price="yearly" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$4,199.88</span>
+                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                    </div>
+                    <div data-price="2year" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$8,399.76</span>
+                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <ul class="flex flex-col gap-3 mb-6 flex-1">
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Everything in Pro, plus
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Custom AI-powered software generation
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Automated workflow creation
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Content &amp; reporting automation
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Priority support + strategy calls
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Pays for itself — builds tools you'd otherwise buy
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
+                        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
+                        Startup Bonus: 2 app builds + Renewal: 2 builds/yr
+                    </li>
+                </ul>
+
+                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 cursor-pointer">
+                    Book a Call
+                </a>
+            </div>
+
+            <!-- ── Pro Card ── -->
+            <div class="relative bg-gray-900 border border-indigo-500 rounded-xl p-8 shadow-lg shadow-indigo-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
+                <!-- Badge -->
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                    Most Popular
+                </div>
+
+                <div class="mb-6 mt-2">
+                    <h3 class="text-slate-100 text-xl font-bold mb-1">Pro</h3>
+                    <p class="text-slate-500 text-sm">Advanced workflows and extended integrations</p>
+                </div>
+
+                <!-- Price block -->
+                <div class="mb-6">
+                    <div data-price="monthly">
+                        <span class="text-4xl font-bold text-slate-100">$249.99</span>
+                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                    </div>
+                    <div data-price="yearly" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$2,999.88</span>
+                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                    </div>
+                    <div data-price="2year" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$5,999.76</span>
+                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <ul class="flex flex-col gap-3 mb-6 flex-1">
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Extended integrations
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Social media automation
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Advanced task workflows
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Priority support
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Custom workflows
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Up to 15 workflows
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        API access
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
+                        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
+                        Startup Bonus: 1 app build + Renewal: 1 build/yr
+                    </li>
+                </ul>
+
+                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 cursor-pointer">
+                    Book a Call
+                </a>
+            </div>
+
+            <!-- ── Ultra Card ── -->
+            <div class="relative bg-gray-900 border border-slate-800 rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
+
+                <div class="mb-6">
+                    <h3 class="text-slate-100 text-xl font-bold mb-1">Ultra</h3>
+                    <p class="text-slate-500 text-sm">Enterprise-grade with unlimited capacity</p>
+                </div>
+
+                <!-- Price block -->
+                <div class="mb-6">
+                    <div data-price="monthly">
+                        <span class="text-4xl font-bold text-slate-100">$549.99</span>
+                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                    </div>
+                    <div data-price="yearly" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$6,599.88</span>
+                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                    </div>
+                    <div data-price="2year" class="hidden">
+                        <span class="text-4xl font-bold text-slate-100">$14,199.76</span>
+                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <ul class="flex flex-col gap-3 mb-6 flex-1">
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Full integration library
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Dedicated account manager
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        24/7 priority support
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Custom AI training
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Enterprise security
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        Unlimited workflows
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-slate-300">
+                        <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        White-label options
+                    </li>
+                    <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
+                        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
+                        Startup Bonus: 3 app builds + Renewal: 3 builds/yr
+                    </li>
+                </ul>
+
+                <a href="mailto:theai101shop@gmail.com" class="block text-center border border-indigo-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 cursor-pointer">
+                    Book a Call
+                </a>
+            </div>
+
+        </div><!-- /grid -->
+
+        <!-- Pricing note -->
+        <p class="text-center text-slate-500 text-sm mt-8 reveal reveal-delay-3">
+            Higher tiers include more integrations based on your needs.
+        </p>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════ WHAT'S INCLUDED ═══════════════════════ -->
+<section id="features" class="py-20 md:py-28 border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-14 reveal">
+            <p class="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3">Every Plan</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">What's Included With Every Plan</h2>
+            <p class="text-slate-400 text-base max-w-xl mx-auto">No hidden extras. Core features are standard across all cloud tiers.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Managed Monitoring -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-1 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">Managed Monitoring</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">24/7 uptime monitoring with automatic restart on failure. We watch so you don't have to.</p>
+            </div>
+
+            <!-- Auto-Updates -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-2 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">Auto-Updates</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Agent software and integration updates applied automatically, keeping you on the latest stable release.</p>
+            </div>
+
+            <!-- Backup & Recovery -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-3 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">Backup &amp; Recovery</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Daily automated backups with one-click restore. Your agent configuration is always protected.</p>
+            </div>
+
+            <!-- SSL & Security -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-1 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">SSL &amp; Security</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">End-to-end encryption, Docker sandboxing, firewall rules, and encrypted credential storage.</p>
+            </div>
+
+            <!-- Custom Domain -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-2 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">Custom Domain</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Point your own domain to your agent dashboard. Full DNS configuration included in setup.</p>
+            </div>
+
+            <!-- Priority Support -->
+            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-3 hover:border-slate-700 transition-colors duration-200">
+                <div class="w-10 h-10 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3 class="text-slate-100 font-semibold mb-2">Priority Support</h3>
+                <p class="text-slate-500 text-sm leading-relaxed">Direct access to our team for technical issues. Response time guaranteed within your plan SLA.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq" class="py-20 md:py-28 border-t border-slate-800/60">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-12 reveal">
+            <p class="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3">FAQ</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="flex flex-col gap-3 reveal reveal-delay-1">
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    What happens after I sign up?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    We book a discovery call to discuss your needs, preferred integrations, and any workflow automations you want. From there, we deploy your agent within 48 hours and walk you through the dashboard.
+                </div>
+            </details>
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    Can I upgrade or downgrade later?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    Yes. You can switch tiers at any time. Upgrades take effect immediately; downgrades take effect at the start of the next billing cycle. All your agent configuration, workflows, and memory are preserved.
+                </div>
+            </details>
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    What's the uptime guarantee?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    Every cloud plan includes a 100% uptime SLA backed by continuous monitoring and automatic restart on failure. In the unlikely event of extended downtime, we'll apply a credit to your account.
+                </div>
+            </details>
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    Do I need my own API keys?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    You can bring your own API keys from OpenAI, Anthropic, Google, xAI, or any other provider. If you'd prefer a recommendation based on your use case and budget, we'll point you in the right direction during the onboarding call.
+                </div>
+            </details>
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    What AI models are supported?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    GPT-4, Claude, Gemini, Grok, and self-hosted open-source options (Llama, Mistral, Qwen via Ollama). We configure the right model for each workflow during setup.
+                </div>
+            </details>
+
+            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+                <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
+                    Is my data secure?
+                    <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </span>
+                </summary>
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                    All cloud deployments use Docker sandboxing for full process isolation, AES-256 encrypted credential storage, OAuth2 where available, and strict firewall rules. Each tenant runs on its own isolated instance — your data never co-mingles with other customers.
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
+<section class="py-20 md:py-28 border-t border-slate-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="relative bg-gray-900 border border-slate-800 rounded-2xl px-8 py-16 md:py-20 text-center overflow-hidden reveal">
+            <!-- Background glow -->
+            <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.12)_0%,transparent_70%)]"></div>
+            </div>
+
+            <div class="relative">
+                <p class="text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">Get Started</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Ready to Get Started?</h2>
+                <p class="text-slate-400 text-base max-w-md mx-auto mb-8">Book a free consultation. We'll recommend the right plan for your needs.</p>
+                <a href="mailto:theai101shop@gmail.com" class="inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 cursor-pointer text-sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                    Book a Call
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="border-t border-slate-800/60 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <!-- Brand -->
+            <div class="flex items-center gap-2.5">
+                <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="h-8 w-8">
+                <span class="text-slate-400 font-medium text-sm">The AI 101</span>
+            </div>
+
+            <!-- Nav links -->
+            <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+                <a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Home</a>
+                <a href="index.html#features" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Features</a>
+                <a href="cloud.html" class="text-slate-400 hover:text-slate-300 text-sm transition-colors duration-200">Cloud</a>
+                <a href="dashboard.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Dashboard</a>
+                <a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Contact</a>
+            </nav>
+
+            <!-- Copyright -->
+            <p class="text-slate-600 text-sm">&copy; 2026 The AI 101. Powered by Square.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+    const BOOKING_URL = 'mailto:theai101shop@gmail.com';
+
+    // ── Billing Toggle ──
+    document.querySelectorAll('.billing-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Reset all buttons to inactive state
+            document.querySelectorAll('.billing-btn').forEach(b => {
+                b.classList.remove('bg-indigo-500', 'text-white');
+                b.classList.add('border', 'border-slate-700', 'text-slate-400');
+                b.classList.remove('border-indigo-500');
+            });
+
+            // Mark active
+            this.classList.add('bg-indigo-500', 'text-white');
+            this.classList.remove('border', 'border-slate-700', 'text-slate-400');
+
+            const period = this.dataset.period;
+
+            // Show/hide price blocks
+            document.querySelectorAll('[data-price]').forEach(el => {
+                el.classList.toggle('hidden', el.dataset.price !== period);
+            });
+        });
+    });
+
+    // ── Mobile Menu ──
+    function openMobileMenu() {
+        document.getElementById('mobileDrawer').classList.add('active');
+        document.getElementById('mobileOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        document.getElementById('mobileDrawer').classList.remove('active');
+        document.getElementById('mobileOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.getElementById('mobileMenuBtn').addEventListener('click', openMobileMenu);
+
+    // ── Scroll-reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+
 </body>
 </html>
