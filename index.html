@@ -1,1982 +1,1253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The AI 101 | Your AI Agent, Deployed and Running in 48 Hours</title>
-    <meta name="description" content="The AI 101 — AI Agent Setup-as-a-Service. We deploy autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — 24/7. White-glove setup, cloud or local hosting.">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://theai101.shop/">
-    <meta property="og:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
-    <meta property="og:description" content="White-glove AI agent deployment. Cloud or local hosting. We set up autonomous AI agents that manage email, calendar, social media, code, and more.">
-    <meta property="og:image" content="https://theai101.shop/og-image.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
-    <meta name="twitter:description" content="White-glove AI agent deployment. Cloud or local hosting saves thousands in API costs.">
-
-    <!-- Canonical -->
-    <link rel="canonical" href="https://theai101.shop/">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            /* Professional Slate/Indigo Palette */
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-card: #1e293b;
-            --bg-card-hover: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --text-muted: #64748b;
-            --accent-primary: #6366f1;
-            --accent-secondary: #818cf8;
-            --accent-glow: rgba(99, 102, 241, 0.15);
-            --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            --gradient-hero: linear-gradient(135deg, #818cf8 0%, #6366f1 50%, #4f46e5 100%);
-            --border-subtle: rgba(148, 163, 184, 0.1);
-            --border-accent: rgba(99, 102, 241, 0.4);
-            --radius: 12px;
-            --radius-lg: 20px;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        html, body {
-            overflow-x: hidden;
-            max-width: 100vw;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* ═══════════ ANIMATIONS ═══════════ */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.9; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.5); }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-
-        /* ═══════════ NAVIGATION ═══════════ */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 0.75rem 2rem;
-            background: rgba(15, 23, 42, 0.95);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        .nav-logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: white;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .nav-logo-text {
-            font-size: 1.3rem;
-            font-weight: 800;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: var(--gradient-primary) !important;
-            color: #fff !important;
-            padding: 0.6rem 1.5rem !important;
-            border-radius: 10px !important;
-            font-weight: 600 !important;
-            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.25rem;
-        }
-
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-        }
-
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .mobile-menu-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .mobile-slide-menu {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100vh;
-            background: var(--bg-secondary);
-            z-index: 999;
-            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: -4px 0 30px rgba(0,0,0,0.3);
-            padding: 2rem 1.5rem;
-            overflow-y: auto;
-        }
-
-        .mobile-slide-menu.active {
-            right: 0;
-        }
-
-        .mobile-slide-menu .mobile-nav-link {
-            display: block;
-            padding: 1rem 0;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border-subtle);
-            transition: color 0.2s, padding-left 0.2s;
-        }
-
-        .mobile-slide-menu .mobile-nav-link:hover {
-            color: var(--accent-secondary);
-            padding-left: 0.5rem;
-        }
-
-        .mobile-close-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            float: right;
-            margin-top: -0.5rem;
-        }
-
-        .mobile-menu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-primary);
-        }
-
-        /* ═══════════ SECTIONS ═══════════ */
-        section {
-            padding: 6rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .section-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent-secondary);
-            margin-bottom: 1rem;
-            display: inline-block;
-            position: relative;
-        }
-
-        .section-label::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            line-height: 1.15;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        .section-center {
-            text-align: center;
-        }
-
-        .section-center .section-subtitle {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-center .section-label::before {
-            display: none;
-        }
-
-        .gradient-text {
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ═══════════ HERO ═══════════ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.08) 30%, transparent 70%);
-            pointer-events: none;
-            animation: pulse 8s ease-in-out infinite alternate;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to top, var(--bg-primary), transparent);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid var(--border-accent);
-            padding: 0.5rem 1.5rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            color: var(--accent-secondary);
-            font-weight: 500;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 50%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-            color: var(--text-secondary);
-            max-width: 680px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-            animation: fadeIn 1s ease-out 0.6s both;
-        }
-
-        .trust-strip {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem 2.5rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            animation: fadeIn 1s ease-out 0.9s both;
-        }
-
-        .trust-strip span {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .trust-strip .check {
-            color: var(--accent-primary);
-            font-weight: 700;
-        }
-
-        /* ═══════════ BUTTONS ═══════════ */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gradient-primary);
-            color: #fff;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: transparent;
-            color: var(--text-primary);
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border: 1px solid var(--border-accent);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(99, 102, 241, 0.1);
-            border-color: var(--accent-primary);
-            transform: translateY(-2px);
-        }
-
-        /* ═══════════ WHAT IS SECTION ═══════════ */
-        .what-is {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .what-is-text {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            text-align: center;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .stat-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .stat-grid { grid-template-columns: 1fr; }
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .stat-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--gradient-hero);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .stat-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* ═══════════ POSSIBILITIES GRID ═══════════ */
-        .possibilities-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            .possibilities-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .possibilities-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .possibilities-grid { grid-template-columns: 1fr; }
-        }
-
-        .possibility-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius);
-            padding: 1.75rem 1.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .possibility-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 0;
-            background: var(--gradient-primary);
-            opacity: 0.1;
-            transition: height 0.4s ease;
-        }
-
-        .possibility-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-        }
-
-        .possibility-card:hover::after {
-            height: 4px;
-        }
-
-        .possibility-icon {
-            margin-bottom: 1rem;
-            width: 48px;
-            height: 48px;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .possibility-card:hover .possibility-icon {
-            background: var(--gradient-primary);
-            transform: scale(1.1);
-        }
-
-        .possibility-card:hover .possibility-icon svg {
-            stroke: white;
-        }
-
-        .possibility-card h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .possibility-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* ═══════════ FEATURES SECTION ═══════════ */
-        .features-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 480px) {
-            .features-grid { grid-template-columns: 1fr; }
-        }
-
-        .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            transition: all 0.4s ease;
-        }
-
-        .feature-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-        }
-
-        .feature-icon {
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* ═══════════ INTEGRATIONS ═══════════ */
-        .integrations-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .integration-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: 10px;
-            padding: 0.7rem 1.25rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .integration-badge:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
-            background: var(--bg-card-hover);
-            color: var(--accent-secondary);
-        }
-
-        .integrations-more {
-            text-align: center;
-            color: var(--accent-secondary);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        /* ═══════════ DEPLOY OPTIONS ═══════════ */
-        .deploy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .deploy-grid { grid-template-columns: 1fr; }
-        }
-
-        .deploy-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .deploy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .deploy-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
-            border-color: var(--border-accent);
-        }
-
-        .deploy-card:hover::before {
-            opacity: 1;
-        }
-
-        .deploy-badge {
-            display: inline-block;
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--accent-secondary);
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .deploy-card h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .deploy-tagline {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .deploy-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .deploy-features li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-        }
-
-        .deploy-features li::before {
-            content: '\2713';
-            color: var(--accent-primary);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .deploy-card .btn-primary,
-        .deploy-card .btn-secondary {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* ═══════════ AI OPTIONS SECTION ═══════════ */
-        .ai-options-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .ai-options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .ai-options-grid { grid-template-columns: 1fr; }
-        }
-
-        .ai-option-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem 2rem;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .ai-option-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
-            border-color: var(--border-accent);
-        }
-
-        .ai-option-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .ai-option-card:hover .ai-option-icon {
-            background: var(--gradient-primary);
-            transform: scale(1.1);
-        }
-
-        .ai-option-card:hover .ai-option-icon svg {
-            stroke: white;
-        }
-
-        .ai-option-card h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .ai-option-card .tagline {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .ai-option-card .features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .ai-option-card .features li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding: 0.4rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-        }
-
-        .ai-option-card .features li::before {
-            content: '\2713';
-            color: var(--accent-primary);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        /* ═══════════ MANAGED CARE ═══════════ */
-        .managed-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            align-items: stretch;
-        }
-
-        @media (max-width: 900px) {
-            .managed-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-        }
-
-        .managed-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.75rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .managed-card.featured {
-            border: 2px solid var(--accent-primary);
-            transform: scale(1.03);
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
-        }
-
-        .managed-card.featured::before {
-            content: 'Recommended';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient-primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .managed-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
-        }
-
-        .managed-card.featured:hover {
-            transform: scale(1.03) translateY(-4px);
-        }
-
-        .managed-tier {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .managed-card .features {
-            list-style: none;
-            margin-bottom: 1.5rem;
-            text-align: left;
-            flex: 1;
-        }
-
-        .managed-card .features li {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            padding: 0.35rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-
-        .managed-card .features li::before {
-            content: '\2713';
-            color: var(--accent-primary);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .managed-card .features li.highlight {
-            color: var(--accent-secondary);
-            font-weight: 600;
-        }
-
-        .managed-card .btn-primary,
-        .managed-card .btn-secondary {
-            width: 100%;
-            justify-content: center;
-            margin-top: auto;
-        }
-
-        /* ═══════════ TESTIMONIALS ═══════════ */
-        .testimonials {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .testimonials-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-        }
-
-        .testimonial-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            transition: all 0.4s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-        }
-
-        .stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .testimonial-card blockquote {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .testimonial-role {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* ═══════════ FAQ ═══════════ */
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .faq-question {
-            width: 100%;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1.05rem;
-            font-weight: 600;
-            text-align: left;
-            padding: 1.5rem 0;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: var(--accent-secondary);
-        }
-
-        .faq-chevron {
-            font-size: 1.4rem;
-            transition: transform 0.4s ease, color 0.3s ease;
-            flex-shrink: 0;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        .faq-item.open .faq-chevron {
-            transform: rotate(45deg);
-            color: var(--accent-primary);
-        }
-
-        .faq-item.open .faq-question {
-            color: var(--accent-secondary);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 400px;
-        }
-
-        .faq-answer p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.8;
-            padding-bottom: 1.5rem;
-        }
-
-        /* ═══════════ CTA FOOTER ═══════════ */
-        .cta-footer {
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
-
-        .cta-footer::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 40%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-footer .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-footer h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #f8fafc 0%, #818cf8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cta-footer p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
-            max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2.5rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .contact-info a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-secondary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--border-subtle);
-            padding: 2rem;
-            text-align: center;
-            background: var(--bg-secondary);
-        }
-
-        .footer-bottom p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .footer-bottom a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--accent-secondary);
-        }
-
-        /* ═══════════ PROCESS STEPS ═══════════ */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .process-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 500px) {
-            .process-grid { grid-template-columns: 1fr; }
-        }
-
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .step-number {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 32px;
-            height: 32px;
-            background: var(--gradient-primary);
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 700;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .step-card:hover {
-            border-color: var(--border-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-        }
-
-        .step-icon {
-            margin: 1rem auto;
-            width: 56px;
-            height: 56px;
-            background: rgba(99, 102, 241, 0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover .step-icon {
-            background: var(--gradient-primary);
-            transform: scale(1.1);
-        }
-
-        .step-card:hover .step-icon svg {
-            stroke: white;
-        }
-
-        .step-card h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .step-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI 101 | Your AI Agent, Deployed and Running in 48 Hours</title>
+  <meta name="description" content="The AI 101 — AI Agent Setup-as-a-Service. We deploy autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — 24/7. White-glove setup, cloud or local hosting.">
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://theai101.shop/">
+  <meta property="og:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
+  <meta property="og:description" content="White-glove AI agent deployment. Cloud or local hosting. We set up autonomous AI agents that manage email, calendar, social media, code, and more.">
+  <meta property="og:image" content="https://theai101.shop/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AI 101 | Your AI Agent, Deployed in 48 Hours">
+  <meta name="twitter:description" content="White-glove AI agent deployment. Cloud or local hosting saves thousands in API costs.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://theai101.shop/">
+
+  <!-- DM Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #0B1120;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Fade-in scroll animation ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ── Nav floated pill ── */
+    #navbar {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.80);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(51, 65, 85, 0.7);
+      border-radius: 1rem;
+      padding: 0.75rem 1.5rem;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    #navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    /* ── Details/summary FAQ chevron ── */
+    details summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary .chevron {
+      transition: transform 0.35s ease;
+      flex-shrink: 0;
+    }
+    details[open] summary .chevron {
+      transform: rotate(180deg);
+    }
+    details[open] summary {
+      color: #a5b4fc;
+    }
+
+    /* ── Mobile slide drawer ── */
+    #mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: min(300px, 85vw);
+      height: 100vh;
+      background: #111827;
+      z-index: 100;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 2rem 1.5rem;
+      overflow-y: auto;
+      border-left: 1px solid rgba(51, 65, 85, 0.8);
+    }
+    #mobile-drawer.open {
+      right: 0;
+    }
+    #mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(4px);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Gradient text ── */
+    .gradient-heading {
+      background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Indigo glow on primary buttons ── */
+    .btn-primary-glow:hover {
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.35);
+    }
+
+    /* ── Featured card scale ── */
+    .featured-card {
+      border-color: #6366f1 !important;
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+    }
+
+    /* ── Possibility card icon hover ── */
+    .cap-card:hover .cap-icon {
+      background: #6366f1;
+    }
+    .cap-card:hover .cap-icon svg {
+      stroke: white;
+    }
+
+    /* ── Step card icon hover ── */
+    .step-card:hover .step-icon {
+      background: #6366f1;
+    }
+    .step-card:hover .step-icon svg {
+      stroke: white;
+    }
+
+    /* ── AI option card icon hover ── */
+    .ai-card:hover .ai-icon {
+      background: #6366f1;
+    }
+    .ai-card:hover .ai-icon svg {
+      stroke: white;
+    }
+
+    /* ── Section label dot ── */
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #6366f1;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* ── Stat card top bar ── */
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #818cf8);
+      border-radius: 12px 12px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .stat-card:hover::before { transform: scaleX(1); }
+  </style>
 </head>
 <body>
 
-    <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-brand">
-                <div class="nav-logo-icon">AI</div>
-                <span class="nav-logo-text">The AI 101</span>
+<!-- Skip to main content (accessibility) -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-indigo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
+  Skip to main content
+</a>
+
+<!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+<header>
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Brand -->
+      <a href="index.html" class="flex items-center gap-3 cursor-pointer no-underline" aria-label="The AI 101 home">
+        <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="h-9 w-9" onerror="this.style.display='none'">
+        <span class="text-slate-100 font-bold text-lg tracking-tight">The AI 101</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex items-center gap-7 list-none m-0 p-0" role="list">
+        <li><a href="#possibilities" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Features</a></li>
+        <li><a href="#compare" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Cloud</a></li>
+        <li><a href="#compare" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Local</a></li>
+        <li><a href="dashboard.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Dashboard</a></li>
+        <li>
+          <a href="#contact" id="nav-cta" class="cursor-pointer bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline">
+            Book a Call
+          </a>
+        </li>
+      </ul>
+
+      <!-- Hamburger (mobile) -->
+      <button id="hamburger-btn" class="md:hidden cursor-pointer bg-transparent border-0 p-2 text-slate-300 hover:text-slate-100 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile overlay -->
+<div id="mobile-overlay" aria-hidden="true" role="presentation"></div>
+
+<!-- Mobile slide drawer -->
+<div id="mobile-drawer" role="dialog" aria-label="Navigation menu" aria-modal="true">
+  <div class="flex items-center justify-between mb-8">
+    <div class="flex items-center gap-2">
+      <img src="logo-nemoclaw.svg" alt="" class="h-7 w-7" aria-hidden="true" onerror="this.style.display='none'">
+      <span class="text-slate-100 font-bold text-base">The AI 101</span>
+    </div>
+    <button id="close-drawer" class="cursor-pointer bg-transparent border-0 p-1 text-slate-400 hover:text-slate-100 transition-colors" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    <ul class="list-none m-0 p-0 flex flex-col gap-1" role="list">
+      <li><a href="#possibilities" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Features</a></li>
+      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Cloud</a></li>
+      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Local</a></li>
+      <li><a href="dashboard.html" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Dashboard</a></li>
+      <li><a href="#faq" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">FAQ</a></li>
+    </ul>
+    <div class="mt-6">
+      <a href="#contact" class="mobile-link block w-full text-center bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 no-underline cursor-pointer">
+        Book a Call
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════════════ MAIN CONTENT ═══════════════════════ -->
+<main id="main-content">
+
+  <!-- ── HERO ── -->
+  <section class="min-h-screen flex items-center justify-center text-center relative overflow-hidden pt-28 pb-20 px-4">
+    <!-- Static radial glow -->
+    <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none"
+         aria-hidden="true"
+         style="background: radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%);"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/25 text-indigo-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-7">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        Setup-as-a-Service
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.1] mb-6 gradient-heading">
+        Your AI Agent,<br>Deployed in 48 Hours
+      </h1>
+
+      <!-- Subtext -->
+      <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        We set up autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — running 24/7 so you don't have to.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-wrap gap-4 justify-center mb-12">
+        <a href="#contact" id="hero-cta" class="cursor-pointer inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline btn-primary-glow motion-reduce:transition-none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Book a Call
+        </a>
+        <a href="#compare" class="cursor-pointer inline-flex items-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-7 py-3.5 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+          See Options
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Trust strip -->
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-slate-500 font-medium" role="list" aria-label="Key features">
+        <span class="flex items-center gap-2" role="listitem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Cloud or Local Hosting
+        </span>
+        <span class="flex items-center gap-2" role="listitem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Full Setup Included
+        </span>
+        <span class="flex items-center gap-2" role="listitem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Security Hardened
+        </span>
+        <span class="flex items-center gap-2" role="listitem">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Training Provided
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS / WHAT WE DO ── -->
+  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">What We Do</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">AI Agents That Actually Work</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          We deploy autonomous AI agents that take action — not just chat. Email, calendar, social media, code, research, and more. Running 24/7 with complete privacy and security.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+        <!-- Stat 1 -->
+        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-indigo-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="text-4xl font-bold text-indigo-400 mb-1">48h</div>
+          <div class="text-slate-100 font-semibold mb-1">Cloud Deploy</div>
+          <div class="text-slate-500 text-sm">From purchase to live agent</div>
+        </div>
+        <!-- Stat 2 -->
+        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-indigo-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="text-4xl font-bold text-indigo-400 mb-1">100%</div>
+          <div class="text-slate-100 font-semibold mb-1">Uptime SLA</div>
+          <div class="text-slate-500 text-sm">With managed care plans</div>
+        </div>
+        <!-- Stat 3 -->
+        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-indigo-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="text-4xl font-bold text-indigo-400 mb-1">$0</div>
+          <div class="text-slate-100 font-semibold mb-1">Local API Cost</div>
+          <div class="text-slate-500 text-sm">Self-hosted AI forever</div>
+        </div>
+        <!-- Stat 4 -->
+        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-indigo-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="text-4xl font-bold text-indigo-400 mb-1">50+</div>
+          <div class="text-slate-100 font-semibold mb-1">Integrations</div>
+          <div class="text-slate-500 text-sm">Email, calendar, social, code</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAPABILITIES ── -->
+  <section class="py-20 md:py-28" id="possibilities">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Capabilities</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">What Your AI Agent Can Do</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Your agent handles the tasks that eat up your day — so you can focus on what matters.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 fade-in">
+
+        <!-- Email -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Email Management</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Read, draft, sort, and respond to emails automatically.</p>
+        </div>
+
+        <!-- Calendar -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Calendar & Scheduling</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Book meetings, manage conflicts, send reminders.</p>
+        </div>
+
+        <!-- Social -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Social Media</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Post, engage, and grow your audience across platforms.</p>
+        </div>
+
+        <!-- Code -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Code & Automation</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Build tools, automate workflows, write scripts.</p>
+        </div>
+
+        <!-- Research -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default stagger-1">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Research & Analysis</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Web search, summarize, and compile insights.</p>
+        </div>
+
+        <!-- Document -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default stagger-2">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Document Creation</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Draft reports, proposals, and content on demand.</p>
+        </div>
+
+        <!-- Support -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default stagger-3">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Customer Support</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Respond to inquiries, resolve issues, escalate when needed.</p>
+        </div>
+
+        <!-- Business -->
+        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-indigo-500/40 transition-all duration-300 cursor-default stagger-4">
+          <div class="cap-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Business Operations</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">CRM updates, invoicing, task management, and more.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOSTING OPTIONS ── -->
+  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800" id="compare">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Hosting Options</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Cloud or Local — You Choose</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Both options include full setup, security hardening, and training. Pick what fits your needs.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 fade-in">
+
+        <!-- Cloud Card -->
+        <div class="bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="mb-5">
+            <span class="inline-block bg-indigo-500/15 text-indigo-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">Cloud Hosting</span>
+            <h3 class="text-slate-100 text-2xl font-bold mb-2">Cloud Hosting</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Start fast, scale on demand. We manage everything.</p>
+          </div>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              One-click cloud deployment
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Secure sandbox environment included
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              AI API integration — bring your own key or we recommend
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Scale up or down anytime
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              24/7 monitoring included
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Lower upfront investment
+            </li>
+          </ul>
+          <a href="#contact" class="cloud-cta cursor-pointer flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline motion-reduce:transition-none">
+            Book a Call for Quote
+          </a>
+        </div>
+
+        <!-- Local Card -->
+        <div class="bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="mb-5">
+            <span class="inline-block bg-slate-700/50 text-slate-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">Self-Hosted (Local)</span>
+            <h3 class="text-slate-100 text-2xl font-bold mb-2">Self-Hosted (Local)</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Own your infrastructure. Zero monthly AI costs forever.</p>
+          </div>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Mac Mini with 64GB RAM, 1TB SSD
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Complete setup &amp; integration included
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Hands-on training sessions
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Extra Node Clusters available
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Local AI integration included
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              $0/month ongoing costs
+            </li>
+          </ul>
+          <a href="#contact" class="local-cta cursor-pointer flex items-center justify-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+            Book a Call for Quote
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AI BACKEND OPTIONS ── -->
+  <section class="py-20 md:py-28" style="background: rgba(17,24,39,0.3);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">AI Options</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Choose Your AI Backend</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Subscription-based cloud AI or self-hosted local models — both integrated seamlessly.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 fade-in">
+
+        <!-- Cloud AI -->
+        <div class="ai-card bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="ai-icon bg-indigo-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+            </svg>
+          </div>
+          <h3 class="text-slate-100 text-xl font-bold mb-2">Cloud AI Subscription</h3>
+          <p class="text-slate-400 text-sm mb-5 leading-relaxed">Best quality, pay-as-you-go. Access to the most powerful models.</p>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              GPT-4, Claude, Gemini, Grok, and more
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Bring your own API key or we recommend
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              OpenRouter integration for flexibility
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Pay only for what you use
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Instant access to new models
+            </li>
+          </ul>
+          <a href="#contact" class="cloud-ai-cta cursor-pointer flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline motion-reduce:transition-none">
+            Book a Call
+          </a>
+        </div>
+
+        <!-- Self-Hosted AI -->
+        <div class="ai-card bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="ai-icon bg-indigo-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8"/>
+              <path d="M12 17v4"/>
+            </svg>
+          </div>
+          <h3 class="text-slate-100 text-xl font-bold mb-2">Self-Hosted AI</h3>
+          <p class="text-slate-400 text-sm mb-5 leading-relaxed">Zero API costs forever. Complete privacy and control.</p>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Ollama-powered local models
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Qwen, Llama, Hermes, Mistral options
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              $0/month ongoing AI costs
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Your data never leaves your network
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Works offline
+            </li>
+          </ul>
+          <a href="#contact" class="local-ai-cta cursor-pointer flex items-center justify-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+            Book a Call
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800" id="process">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">How It Works</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">From Call to Live in 4 Steps</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">We handle everything. You approve, we execute.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+
+        <!-- Step 1 -->
+        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-indigo-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30">1</div>
+          <div class="step-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Discovery Call</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Tell us what you need. We recommend the right hosting, model, and integrations.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-indigo-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30">2</div>
+          <div class="step-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">We Build It</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Our team deploys your agent, configures skills, connects your tools.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-indigo-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30">3</div>
+          <div class="step-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Security Audit</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Every setup gets a full healthcheck. Docker sandboxing, encrypted tokens, firewall rules.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-indigo-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/30">4</div>
+          <div class="step-icon bg-indigo-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" aria-hidden="true">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
+              <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+            </svg>
+          </div>
+          <h4 class="text-slate-100 font-semibold mb-2">Go Live</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Your agent is live, documented, and you're trained. Support included.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MANAGED CARE PRICING ── -->
+  <section class="py-20 md:py-28" id="managed-care">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Ongoing Support</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Keep It Running Smoothly</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Expert monitoring, updates, and priority support. Available for both cloud and local deployments.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 items-start fade-in">
+
+        <!-- Pro -->
+        <div class="bg-gray-900 border border-slate-800 rounded-xl p-7 flex flex-col hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="text-slate-100 text-xl font-bold mb-5">Pro</div>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Heartbeat monitoring
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Auto-restart on failure
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly reports
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support
+            </li>
+            <li class="flex items-start gap-2.5 text-indigo-400 text-sm font-medium">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Startup Bonus: 1 app build
+            </li>
+          </ul>
+          <a href="#contact" class="pro-cta cursor-pointer flex items-center justify-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline">
+            Book a Call
+          </a>
+        </div>
+
+        <!-- Premium (featured) -->
+        <div class="relative featured-card bg-gray-900 border-2 rounded-xl p-7 flex flex-col shadow-lg shadow-indigo-500/10 hover:-translate-y-1 transition-all duration-300">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-indigo-500 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wide shadow-md shadow-indigo-500/30">
+            Recommended
+          </div>
+          <div class="text-slate-100 text-xl font-bold mb-5 mt-1">Premium</div>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Heartbeat monitoring
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Auto-restart on failure
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Monthly reports &amp; updates
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Priority support + strategy calls
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom AI-powered software generation
+            </li>
+            <li class="flex items-start gap-2.5 text-indigo-400 text-sm font-medium">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Startup Bonus: 2 app builds
+            </li>
+          </ul>
+          <a href="#contact" class="premium-cta cursor-pointer flex items-center justify-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline">
+            Book a Call
+          </a>
+        </div>
+
+        <!-- Ultra -->
+        <div class="bg-gray-900 border border-slate-800 rounded-xl p-7 flex flex-col hover:border-indigo-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="text-slate-100 text-xl font-bold mb-5">Ultra</div>
+          <ul class="space-y-2.5 mb-8 flex-1" role="list">
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Everything in Premium
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Dedicated account manager
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              24/7 priority support
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Quarterly strategy review
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom AI training
+            </li>
+            <li class="flex items-start gap-2.5 text-slate-400 text-sm">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Enterprise security
+            </li>
+            <li class="flex items-start gap-2.5 text-indigo-400 text-sm font-medium">
+              <svg class="mt-0.5 shrink-0" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Startup Bonus: 3 app builds
+            </li>
+          </ul>
+          <a href="#contact" class="ultra-cta cursor-pointer flex items-center justify-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline">
+            Book a Call
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section class="py-20 md:py-28 bg-gray-900/30 border-y border-slate-800" id="testimonials">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Testimonials</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
+
+        <!-- Alex R. -->
+        <article class="bg-gray-900 border border-slate-800 rounded-xl p-7 hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex gap-1 mb-4" role="img" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-slate-400 text-sm leading-relaxed mb-5 italic">
+            "They set up our entire AI team in 3 days. We now have agents handling email, social media, and research — saving us 30+ hours a week."
+          </blockquote>
+          <footer>
+            <div class="text-slate-100 font-semibold text-sm">Alex R.</div>
+            <div class="text-slate-500 text-xs mt-0.5">Startup Founder</div>
+          </footer>
+        </article>
+
+        <!-- Sarah K. -->
+        <article class="bg-gray-900 border border-slate-800 rounded-xl p-7 hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex gap-1 mb-4" role="img" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-slate-400 text-sm leading-relaxed mb-5 italic">
+            "Switching to self-hosted AI was a game changer. We were spending hundreds/month on API calls. Now it's $0. The setup paid for itself quickly."
+          </blockquote>
+          <footer>
+            <div class="text-slate-100 font-semibold text-sm">Sarah K.</div>
+            <div class="text-slate-500 text-xs mt-0.5">Agency Owner</div>
+          </footer>
+        </article>
+
+        <!-- Marcus T. -->
+        <article class="bg-gray-900 border border-slate-800 rounded-xl p-7 hover:border-indigo-500/30 hover:-translate-y-1 transition-all duration-300">
+          <div class="flex gap-1 mb-4" role="img" aria-label="5 stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-slate-400 text-sm leading-relaxed mb-5 italic">
+            "The managed care plan is worth every penny. Our agents just work. When something breaks, it's fixed before we even notice."
+          </blockquote>
+          <footer>
+            <div class="text-slate-100 font-semibold text-sm">Marcus T.</div>
+            <div class="text-slate-500 text-xs mt-0.5">E-Commerce Manager</div>
+          </footer>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="py-20 md:py-28" id="faq">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 fade-in">
+        <p class="section-label text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">FAQ</p>
+        <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-3 fade-in">
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            What is an AI agent?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">An AI agent is an autonomous software system that uses large language models to perceive its environment, make decisions, and take actions on your behalf — managing email, scheduling meetings, posting on social media, writing code, conducting research, and more — without you needing to micromanage every step.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            How long does setup take?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Cloud: 24-48 hours from purchase to live agent. Local: 5-7 days including hardware configuration (if applicable), software deployment, and security audit. Enterprise setups with custom skills may take 10-14 days.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            Cloud or local — which should I choose?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Choose Cloud if you want to start fast with lower upfront costs and the ability to scale on demand. Choose Local if you're planning to use AI for 2+ years and want zero monthly costs after setup. Local pays for itself in 6-12 months compared to cloud. Book a call and we'll help you decide.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            What AI models can I use?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via OpenRouter. Bring your own API key for any provider, or let us recommend the best option for your use case and budget. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral) for $0 ongoing cost.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            How secure is it?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Every deployment — cloud or local — uses a secure sandbox environment with Docker isolation, encrypted credentials, and firewall rules. Cloud deployments run on isolated VPS instances. Local deployments keep all data on your network — nothing leaves your server.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            What if I need help after setup?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Every setup includes a support period. After that, Managed Care plans provide ongoing monitoring, updates, and priority support to keep your agents running smoothly. Available for both cloud and local setups.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            Can I switch from Cloud to Local later?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Yes. We offer an upgrade path from cloud to local hosting. Your agent configuration, skills, and memory are migrated to your local hardware. Contact us for a migration quote based on your current setup.</p>
+          </div>
+        </details>
+
+        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-indigo-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-indigo-300 transition-colors duration-200 select-none">
+            Do you offer refunds?
+            <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </summary>
+          <div class="px-6 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">If we can't get your agent running within the promised timeline, you get a full refund. No questions asked. We stand behind our work 100%.</p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="py-20 md:py-28 text-center relative overflow-hidden" id="contact">
+    <!-- Radial glow -->
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
+         aria-hidden="true"
+         style="background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%);"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+      <h2 class="gradient-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        Ready to Deploy Your AI Agent?
+      </h2>
+      <p class="text-slate-400 text-lg mb-10 max-w-lg mx-auto">
+        Choose cloud or local to get started.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center mb-10">
+        <a href="mailto:theai101shop@gmail.com" id="final-cta" class="cursor-pointer inline-flex items-center gap-2 bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/25 no-underline text-base motion-reduce:transition-none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          Book a Call
+        </a>
+        <a href="mailto:theai101shop@gmail.com" class="cursor-pointer inline-flex items-center gap-2 border border-indigo-500/40 text-slate-100 font-semibold px-8 py-4 rounded-lg hover:bg-indigo-500/10 hover:border-indigo-500 transition-all duration-200 no-underline text-base motion-reduce:transition-none">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 7l-10 7L2 7"/>
+          </svg>
+          theai101shop@gmail.com
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-slate-500 text-sm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M22 7l-10 7L2 7"/>
+        </svg>
+        <a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-indigo-400 transition-colors no-underline">theai101shop@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="bg-slate-950 border-t border-slate-800/60">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+      <!-- Brand -->
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="logo-nemoclaw.svg" alt="Nemoclaw" class="h-8 w-8" onerror="this.style.display='none'">
+          <span class="text-slate-100 font-bold text-base">The AI 101</span>
+        </div>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-[200px]">AI Agent Setup-as-a-Service. Cloud or local. Deployed in 48 hours.</p>
+      </div>
+
+      <!-- Pages -->
+      <div>
+        <h3 class="text-slate-300 font-semibold text-sm mb-4 uppercase tracking-wide">Pages</h3>
+        <ul class="space-y-2.5 list-none p-0 m-0" role="list">
+          <li><a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Home</a></li>
+          <li><a href="#compare" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Cloud</a></li>
+          <li><a href="#compare" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Local</a></li>
+          <li><a href="dashboard.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Dashboard</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3 class="text-slate-300 font-semibold text-sm mb-4 uppercase tracking-wide">Resources</h3>
+        <ul class="space-y-2.5 list-none p-0 m-0" role="list">
+          <li><a href="docs/" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Documentation</a></li>
+          <li><a href="#faq" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">FAQ</a></li>
+          <li><a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline">Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-slate-300 font-semibold text-sm mb-4 uppercase tracking-wide">Contact</h3>
+        <ul class="space-y-2.5 list-none p-0 m-0" role="list">
+          <li>
+            <a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 7L2 7"/>
+              </svg>
+              theai101shop@gmail.com
             </a>
-            <button class="mobile-menu-btn" onclick="openMobileMenu()" aria-label="Toggle menu">&#9776;</button>
-            <ul class="nav-links">
-                <li><a href="#compare">Options</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact" class="nav-cta">Book a Call</a></li>
-            </ul>
-        </div>
-    </nav>
+          </li>
+          <li>
+            <a href="#contact" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline inline-flex items-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              Book a Call
+            </a>
+          </li>
+        </ul>
+      </div>
 
-    <div class="mobile-menu-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
-    <div class="mobile-slide-menu" id="mobileMenu">
-        <div class="mobile-menu-header">
-            <div class="nav-logo-icon" style="width:32px;height:32px;font-size:1rem;">AI</div>
-            <button class="mobile-close-btn" onclick="closeMobileMenu()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f8fafc" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-        </div>
-        <a href="#compare" class="mobile-nav-link" onclick="closeMobileMenu()">Options</a>
-        <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
-        <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Book a Call</a>
-        <div style="margin-top:2rem;">
-            <a href="#contact" style="display:block;width:100%;padding:1rem;text-align:center;background:var(--gradient-primary);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1rem;">Book a Call</a>
-        </div>
     </div>
 
-    <!-- ═══════════════════════ HERO ═══════════════════════ -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                Setup-as-a-Service
-            </div>
-            <h1>Your AI Agent,<br><span class="gradient-text">Deployed in 48 Hours</span></h1>
-            <p>We set up autonomous AI agents that manage email, calendar, social media, code, research, and your entire business — running 24/7 so you don't have to.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    Book a Call
-                </a>
-                <a href="#compare" class="btn-secondary">
-                    See Options
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-            </div>
-            <div class="trust-strip">
-                <span><span class="check">&#10003;</span> Cloud or Local Hosting</span>
-                <span><span class="check">&#10003;</span> Full Setup Included</span>
-                <span><span class="check">&#10003;</span> Security Hardened</span>
-                <span><span class="check">&#10003;</span> Training Provided</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ WHAT IS ═══════════════════════ -->
-    <section class="what-is">
-        <div class="container section-center">
-            <div class="what-is-text fade-in">
-                <div class="section-label">What We Do</div>
-                <h2 class="section-title">AI Agents That Actually Work</h2>
-                <p class="section-subtitle">We deploy autonomous AI agents that take action — not just chat. Email, calendar, social media, code, research, and more. Running 24/7 with complete privacy and security.</p>
-            </div>
-            <div class="stat-grid fade-in">
-                <div class="stat-card">
-                    <div class="stat-number">48h</div>
-                    <div class="stat-label">Cloud Deploy</div>
-                    <div class="stat-desc">From purchase to live agent</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Uptime SLA</div>
-                    <div class="stat-desc">With managed care plans</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$0</div>
-                    <div class="stat-label">Local API Cost</div>
-                    <div class="stat-desc">Self-hosted AI forever</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Integrations</div>
-                    <div class="stat-desc">Email, calendar, social, code</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ POSSIBILITIES ═══════════════════════ -->
-    <section id="possibilities">
-        <div class="container">
-            <div class="section-center fade-in">
-                <div class="section-label">Capabilities</div>
-                <h2 class="section-title">What Your AI Agent Can Do</h2>
-                <p class="section-subtitle">Your agent handles the tasks that eat up your day — so you can focus on what matters.</p>
-            </div>
-            <div class="possibilities-grid fade-in">
-                <div class="possibility-card stagger-1">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <h4>Email Management</h4>
-                    <p>Read, draft, sort, and respond to emails automatically.</p>
-                </div>
-                <div class="possibility-card stagger-2">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    </div>
-                    <h4>Calendar & Scheduling</h4>
-                    <p>Book meetings, manage conflicts, send reminders.</p>
-                </div>
-                <div class="possibility-card stagger-3">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-                    </div>
-                    <h4>Social Media</h4>
-                    <p>Post, engage, and grow your audience across platforms.</p>
-                </div>
-                <div class="possibility-card stagger-4">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <h4>Code & Automation</h4>
-                    <p>Build tools, automate workflows, write scripts.</p>
-                </div>
-                <div class="possibility-card stagger-1">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    </div>
-                    <h4>Research & Analysis</h4>
-                    <p>Web search, summarize, and compile insights.</p>
-                </div>
-                <div class="possibility-card stagger-2">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <h4>Document Creation</h4>
-                    <p>Draft reports, proposals, and content on demand.</p>
-                </div>
-                <div class="possibility-card stagger-3">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h4>Customer Support</h4>
-                    <p>Respond to inquiries, resolve issues, escalate when needed.</p>
-                </div>
-                <div class="possibility-card stagger-4">
-                    <div class="possibility-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    </div>
-                    <h4>Business Operations</h4>
-                    <p>CRM updates, invoicing, task management, and more.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ DEPLOY OPTIONS ═══════════════════════ -->
-    <section class="features-section" id="compare">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Hosting Options</div>
-                <h2 class="section-title">Cloud or Local — You Choose</h2>
-                <p class="section-subtitle">Both options include full setup, security hardening, and training. Pick what fits your needs.</p>
-            </div>
-            <div class="deploy-grid fade-in">
-                <div class="deploy-card">
-                    <div class="deploy-badge">Cloud</div>
-                    <h3>Cloud Hosting</h3>
-                    <p class="deploy-tagline">Start fast, scale on demand. We manage everything.</p>
-                    <ul class="deploy-features">
-                        <li>One-click cloud deployment</li>
-                        <li>Secure sandbox environment included</li>
-                        <li>AI API integration — bring your own key or we recommend</li>
-                        <li>Scale up or down anytime</li>
-                        <li>24/7 monitoring included</li>
-                        <li>Lower upfront investment</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Book a Call for Quote</a>
-                </div>
-                <div class="deploy-card">
-                    <div class="deploy-badge">Local</div>
-                    <h3>Self-Hosted (Local)</h3>
-                    <p class="deploy-tagline">Own your infrastructure. Zero monthly AI costs forever.</p>
-                    <ul class="deploy-features">
-                        <li>Mac Mini with 64GB RAM, 1TB SSD</li>
-                        <li>Complete setup & integration included</li>
-                        <li>Hands-on training sessions</li>
-                        <li>Extra Node Clusters available</li>
-                        <li>Local AI integration included</li>
-                        <li>$0/month ongoing costs</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary">Book a Call for Quote</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ AI OPTIONS ═══════════════════════ -->
-    <section class="ai-options-section">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">AI Options</div>
-                <h2 class="section-title">Choose Your AI Backend</h2>
-                <p class="section-subtitle">Subscription-based cloud AI or self-hosted local models — both integrated seamlessly.</p>
-            </div>
-            <div class="ai-options-grid fade-in">
-                <div class="ai-option-card">
-                    <div class="ai-option-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-                    </div>
-                    <h3>Cloud AI Subscription</h3>
-                    <p class="tagline">Best quality, pay-as-you-go. Access to the most powerful models.</p>
-                    <ul class="features">
-                        <li>GPT-4, Claude, Gemini, Grok, and more</li>
-                        <li>Bring your own API key or we recommend</li>
-                        <li>OpenRouter integration for flexibility</li>
-                        <li>Pay only for what you use</li>
-                        <li>Instant access to new models</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Book a Call</a>
-                </div>
-                <div class="ai-option-card">
-                    <div class="ai-option-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-                    </div>
-                    <h3>Self-Hosted AI</h3>
-                    <p class="tagline">Zero API costs forever. Complete privacy and control.</p>
-                    <ul class="features">
-                        <li>Ollama-powered local models</li>
-                        <li>Qwen, Llama, Hermes, Mistral options</li>
-                        <li>$0/month ongoing AI costs</li>
-                        <li>Your data never leaves your network</li>
-                        <li>Works offline</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary">Book a Call</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ PROCESS ═══════════════════════ -->
-    <section id="process">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">How It Works</div>
-                <h2 class="section-title">From Call to Live in 4 Steps</h2>
-                <p class="section-subtitle">We handle everything. You approve, we execute.</p>
-            </div>
-            <div class="process-grid fade-in">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    </div>
-                    <h4>Discovery Call</h4>
-                    <p>Tell us what you need. We recommend the right hosting, model, and integrations.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                    </div>
-                    <h4>We Build It</h4>
-                    <p>Our team deploys your agent, configures skills, connects your tools.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-                    </div>
-                    <h4>Security Audit</h4>
-                    <p>Every setup gets a full healthcheck. Docker sandboxing, encrypted tokens, firewall rules.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
-                    </div>
-                    <h4>Go Live</h4>
-                    <p>Your agent is live, documented, and you're trained. Support included.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ MANAGED CARE ═══════════════════════ -->
-    <section class="features-section" id="managed-care">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Ongoing Support</div>
-                <h2 class="section-title">Keep It Running Smoothly</h2>
-                <p class="section-subtitle">Expert monitoring, updates, and priority support. Available for both cloud and local deployments.</p>
-            </div>
-            <div class="managed-grid fade-in">
-                <div class="managed-card">
-                    <div class="managed-tier">Pro</div>
-                    <ul class="features">
-                        <li>Heartbeat monitoring</li>
-                        <li>Auto-restart on failure</li>
-                        <li>Monthly reports</li>
-                        <li>Priority support</li>
-                        <li class="highlight">Startup Bonus: 1 app build</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary">Book a Call</a>
-                </div>
-                <div class="managed-card featured">
-                    <div class="managed-tier">Premium</div>
-                    <ul class="features">
-                        <li>Heartbeat monitoring</li>
-                        <li>Auto-restart on failure</li>
-                        <li>Monthly reports & updates</li>
-                        <li>Priority support + strategy calls</li>
-                        <li>Custom AI-powered software generation</li>
-                        <li class="highlight">Startup Bonus: 2 app builds</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Book a Call</a>
-                </div>
-                <div class="managed-card">
-                    <div class="managed-tier">Ultra</div>
-                    <ul class="features">
-                        <li>Everything in Premium</li>
-                        <li>Dedicated account manager</li>
-                        <li>24/7 priority support</li>
-                        <li>Quarterly strategy review</li>
-                        <li>Custom AI training</li>
-                        <li>Enterprise security</li>
-                        <li class="highlight">Startup Bonus: 3 app builds</li>
-                    </ul>
-                    <a href="#contact" class="btn-secondary">Book a Call</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
-    <section class="testimonials" id="testimonials">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">Testimonials</div>
-                <h2 class="section-title">What Our Clients Say</h2>
-            </div>
-            <div class="testimonials-grid fade-in">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <blockquote>"They set up our entire AI team in 3 days. We now have agents handling email, social media, and research — saving us 30+ hours a week."</blockquote>
-                    <div class="testimonial-author">Alex R.</div>
-                    <div class="testimonial-role">Startup Founder</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <blockquote>"Switching to self-hosted AI was a game changer. We were spending hundreds/month on API calls. Now it's $0. The setup paid for itself quickly."</blockquote>
-                    <div class="testimonial-author">Sarah K.</div>
-                    <div class="testimonial-role">Agency Owner</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24" stroke="#fbbf24" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <blockquote>"The managed care plan is worth every penny. Our agents just work. When something breaks, it's fixed before we even notice."</blockquote>
-                    <div class="testimonial-author">Marcus T.</div>
-                    <div class="testimonial-role">E-Commerce CEO</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ FAQ ═══════════════════════ -->
-    <section id="faq">
-        <div class="container section-center">
-            <div class="fade-in">
-                <div class="section-label">FAQ</div>
-                <h2 class="section-title">Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list fade-in">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Cloud or Local — which should I choose?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Choose Cloud if you want to start fast with lower upfront costs and the ability to scale on demand. Choose Local if you're planning to use AI for 2+ years and want zero monthly costs after setup. Local pays for itself in 6-12 months compared to cloud. Book a call and we'll help you decide.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What AI models can I use?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Cloud: GPT-4, Claude, Gemini, Grok, Llama, Mistral, DeepSeek via OpenRouter. Bring your own API key for any provider, or let us recommend the best option for your use case and budget. Self-hosted: Any Ollama-compatible model (Qwen, Llama, Hermes, Mistral) for $0 ongoing cost.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What hardware do I need for local?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We recommend Mac Mini M4 for most setups. M4 16GB handles basic models. M4 24GB is great for 8B models in production. M4 Pro 48GB is ideal for running 14B-27B models with fast inference. You can also use your own hardware (BYOD) — minimum 16GB RAM recommended.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How long does setup take?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Cloud: 24-48 hours from purchase to live agent. Local: 5-7 days including hardware configuration (if applicable), software deployment, and security audit. Enterprise setups with custom skills may take 10-14 days.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Is my data safe?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely. Every deployment — cloud or local — uses a secure sandbox environment with Docker isolation, encrypted credentials, and firewall rules. Cloud deployments run on isolated VPS instances. Local deployments keep all data on your network — nothing leaves your server.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Can I switch from Cloud to Local later?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. We offer an upgrade path from cloud to local hosting. Your agent configuration, skills, and memory are migrated to your local hardware. Contact us for a migration quote based on your current setup.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What if I need help after setup?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Every setup includes a support period. After that, Managed Care plans provide ongoing monitoring, updates, and priority support to keep your agents running smoothly. Available for both cloud and local setups.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Do you offer refunds?
-                        <span class="faq-chevron">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>If we can't get your agent running within the promised timeline, you get a full refund. No questions asked. We stand behind our work 100%.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ CTA FOOTER ═══════════════════════ -->
-    <section class="cta-footer" id="contact">
-        <div class="container fade-in">
-            <h2>Ready to Get Your AI Agent Running?</h2>
-            <p>Book a free discovery call and let's discuss your needs.</p>
-            <div class="cta-buttons">
-                <a href="mailto:theai101shop@gmail.com" class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                    Book a Call
-                </a>
-                <a href="https://calendly.com" target="_blank" class="btn-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                    Schedule Online
-                </a>
-            </div>
-            <div class="contact-info">
-                <a href="mailto:theai101shop@gmail.com">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                    theai101shop@gmail.com
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-    <div class="footer-bottom">
-        <p>&copy; 2026 The AI 101 | Powered by Square</p>
+    <!-- Bottom bar -->
+    <div class="border-t border-slate-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-slate-600 text-sm">&copy; 2026 The AI 101. All rights reserved.</p>
+      <p class="text-slate-700 text-xs">Powered by Square</p>
     </div>
+  </div>
+</footer>
 
-    <!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var item = this.parentElement;
-                var isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(function(el) {
-                    el.classList.remove('open');
-                });
-                if (!isOpen) {
-                    item.classList.add('open');
-                }
-            });
-        });
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+  // ── Booking URL ──
+  const BOOKING_URL = '#contact';
 
-        // Scroll-Triggered Fade-In Animations
-        var fadeObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
-        });
+  // Wire all booking CTAs to BOOKING_URL
+  (function () {
+    var ctaIds = ['nav-cta', 'hero-cta', 'final-cta'];
+    ctaIds.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.href = BOOKING_URL;
+    });
+    // Also wire classes used on cards
+    var ctaClasses = ['.cloud-cta', '.local-cta', '.cloud-ai-cta', '.local-ai-cta', '.pro-cta', '.premium-cta', '.ultra-cta'];
+    ctaClasses.forEach(function (cls) {
+      document.querySelectorAll(cls).forEach(function (el) {
+        if (el.href && el.href.includes('#contact')) return; // already pointing there
+      });
+    });
+  })();
 
-        document.querySelectorAll('.fade-in').forEach(function(el) {
-            fadeObserver.observe(el);
-        });
+  // ── Mobile menu ──
+  var hamburger = document.getElementById('hamburger-btn');
+  var closeBtn = document.getElementById('close-drawer');
+  var drawer = document.getElementById('mobile-drawer');
+  var overlay = document.getElementById('mobile-overlay');
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            var navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  function openDrawer() {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
 
-        // Mobile menu
-        function openMobileMenu() {
-            document.getElementById('mobileMenu').classList.add('active');
-            document.getElementById('mobileOverlay').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobileMenu').classList.remove('active');
-            document.getElementById('mobileOverlay').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    </script>
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    hamburger.focus();
+  }
+
+  hamburger.addEventListener('click', openDrawer);
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+
+  // Close drawer when a mobile link is clicked
+  document.querySelectorAll('.mobile-link').forEach(function (link) {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  // ESC key closes drawer
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+
+  // ── Scroll-triggered fade-in ──
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    fadeObserver.observe(el);
+  });
+
+  // ── Nav scroll effect ──
+  window.addEventListener('scroll', function () {
+    var navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
+</script>
 
 </body>
 </html>
