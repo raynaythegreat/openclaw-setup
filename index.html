@@ -62,7 +62,8 @@
       will-change: transform;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      animation: move404 10s linear infinite;
+      opacity: 0.35;
+      animation: move404 16s linear infinite;
     }
     #bg-layer::after {
       content: "";
@@ -73,7 +74,7 @@
       background-size: 400%;
       background-position: 10%;
       will-change: background-position;
-      animation: move-light 8s ease-in-out infinite;
+      animation: move-light 12s ease-in-out infinite;
     }
     @keyframes move404 {
       from { transform: translate3d(0, 0, 0); }
@@ -195,9 +196,19 @@
       background-clip: text;
     }
 
-    /* ── Indigo glow on primary buttons ── */
+    /* ── Amber CTA buttons ── */
+    .btn-amber {
+      background: #f59e0b !important;
+      color: #fff !important;
+    }
+    .btn-amber:hover {
+      background: #eab308 !important;
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
+    }
+
+    /* ── Legacy glow fallback ── */
     .btn-primary-glow:hover {
-      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 8px 30px rgba(245, 158, 11, 0.35);
     }
 
     /* ── Featured card scale ── */
@@ -412,7 +423,7 @@
           </button>
         </li>
         <li>
-          <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="nav-cta" class="cursor-pointer bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline" data-i18n="navCta">
+          <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="nav-cta" class="cursor-pointer btn-amber text-white font-semibold px-5 py-2 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline" data-i18n="navCta">
             Contact Us
           </a>
         </li>
@@ -455,7 +466,7 @@
       <li><a href="#faq" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-emerald-900/30 transition-colors no-underline" data-i18n="mobFaq">FAQ</a></li>
     </ul>
     <div class="mt-6">
-      <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" class="mobile-link block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 no-underline cursor-pointer" data-i18n="mobCta">
+      <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" class="mobile-link block w-full text-center btn-amber text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 no-underline cursor-pointer" data-i18n="mobCta">
         Contact Us
       </a>
     </div>
@@ -501,9 +512,9 @@
 
       <!-- CTA buttons -->
       <div class="flex flex-wrap gap-4 justify-center mb-12">
-        <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="hero-cta" class="cursor-pointer inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline btn-primary-glow motion-reduce:transition-none">
+        <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="hero-cta" class="cursor-pointer inline-flex items-center gap-2 btn-amber text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline btn-primary-glow motion-reduce:transition-none">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
           </svg>
           <span data-i18n="heroCta">Contact Us</span>
         </a>
@@ -676,7 +687,7 @@
         <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default stagger-3">
           <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
             </svg>
           </div>
           <h4 class="text-slate-100 font-semibold mb-2" data-i18n="cap7Title">Customer Support</h4>
@@ -824,7 +835,7 @@
               Lower upfront investment
             </li>
           </ul>
-          <a href="#contact" class="cloud-cta cursor-pointer flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline motion-reduce:transition-none" data-i18n="cloudCta">
+          <a href="#contact" class="cloud-cta cursor-pointer flex items-center justify-center gap-2 btn-amber text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline motion-reduce:transition-none" data-i18n="cloudCta">
             Contact Us for Quote
           </a>
         </div>
@@ -913,7 +924,7 @@
               Instant access to new models
             </li>
           </ul>
-          <a href="#contact" class="cloud-ai-cta cursor-pointer flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline motion-reduce:transition-none" data-i18n="aiCloudCta">
+          <a href="#contact" class="cloud-ai-cta cursor-pointer flex items-center justify-center gap-2 btn-amber text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline motion-reduce:transition-none" data-i18n="aiCloudCta">
             Contact Us
           </a>
         </div>
@@ -976,7 +987,7 @@
           <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-shadow duration-300">1</div>
           <div class="step-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
             </svg>
           </div>
           <h4 class="text-slate-100 font-semibold mb-2" data-i18n="step1Title">Discovery Call</h4>
@@ -1061,7 +1072,7 @@
         <!-- Priority Support -->
         <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2" data-i18n="care3Title">Priority Support</h3>
           <p class="text-slate-400 text-sm leading-relaxed" data-i18n="care3Desc">Direct access to our team for troubleshooting, configuration changes, and technical questions. Strategy calls available to optimize your setup.</p>
@@ -1099,7 +1110,7 @@
       <!-- CTA -->
       <div class="text-center fade-in">
         <p class="text-slate-400 text-sm mb-6 max-w-xl mx-auto" data-i18n="careSubtext">Every setup includes a 30-day support period. After that, ongoing support plans keep your agents monitored, updated, and running smoothly — for both cloud and local deployments.</p>
-        <a href="#contact" class="cursor-pointer inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline" data-i18n="careCta">
+        <a href="#contact" class="cursor-pointer inline-flex items-center justify-center gap-2 btn-amber text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline" data-i18n="careCta">
           Contact Us to Learn More
         </a>
       </div>
@@ -1303,9 +1314,9 @@
         Text us to get started. We respond fast.
       </p>
       <div class="flex flex-wrap gap-4 justify-center mb-8">
-        <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="final-cta" class="cursor-pointer inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline text-base motion-reduce:transition-none">
+        <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" id="final-cta" class="cursor-pointer inline-flex items-center gap-2 btn-amber text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline text-base motion-reduce:transition-none">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
           </svg>
           <span data-i18n="ctaCta">Contact Us</span>
         </a>
@@ -1371,7 +1382,7 @@
           <li>
             <a href="mailto:theai101shop@gmail.com?subject=AI%20Agent%20Setup%20Inquiry" class="text-slate-500 hover:text-slate-300 text-sm transition-colors no-underline inline-flex items-center gap-2">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/>
               </svg>
               <span data-i18n="footerTextUs">Contact Us</span>
             </a>

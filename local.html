@@ -37,7 +37,7 @@
       background-color: #111;
       background-size: auto, 4px 4px;
       background-repeat: repeat;
-      will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; animation: move404 10s linear infinite;
+      will-change: transform; backface-visibility: hidden; -webkit-backface-visibility: hidden; opacity: 0.35; animation: move404 16s linear infinite;
     }
     #bg-layer::after {
       content: "";
@@ -47,7 +47,7 @@
       mix-blend-mode: multiply;
       background-size: 400%;
       background-position: 10%;
-      will-change: background-position; animation: move-light 8s ease-in-out infinite;
+      will-change: background-position; animation: move-light 12s ease-in-out infinite;
     }
     @keyframes move404 {
       from { transform: translate3d(0, 0, 0); }
@@ -106,6 +106,9 @@
         linear-gradient(90deg, rgba(16,185,129,0.06) 1px, transparent 1px);
       background-size: 48px 48px;
     }
+    /* Amber CTA buttons */
+    .btn-amber { background: #f59e0b !important; color: #fff !important; }
+    .btn-amber:hover { background: #eab308 !important; box-shadow: 0 8px 30px rgba(245,158,11,0.35); }
   </style>
   <script type="application/ld+json">
 {
@@ -142,7 +145,7 @@
     <!-- Desktop CTA -->
     <div class="hidden md:flex items-center gap-3">
       <button id="lang-toggle" class="cursor-pointer bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-3 py-1.5 rounded-full text-xs transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" aria-label="Switch language">ES</button>
-      <a id="desktopBookCta" href="#" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline cursor-pointer" data-i18n="navCta">
+      <a id="desktopBookCta" href="#" class="inline-flex items-center gap-2 btn-amber text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 no-underline cursor-pointer" data-i18n="navCta">
         Contact Us
       </a>
     </div>
@@ -175,7 +178,7 @@
   </nav>
   <div class="p-4 border-t border-emerald-900/30 flex flex-col gap-3">
     <button id="lang-toggle-mobile" class="cursor-pointer bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-4 py-2.5 rounded-xl text-sm transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" data-i18n="mobileLangToggle">Cambiar a Español</button>
-    <a id="mobileBookCta" href="#" class="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 no-underline cursor-pointer" data-i18n="navCta">
+    <a id="mobileBookCta" href="#" class="flex items-center justify-center gap-2 btn-amber text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 no-underline cursor-pointer" data-i18n="navCta">
       Contact Us
     </a>
   </div>
@@ -533,7 +536,7 @@
           </li>
         </ul>
 
-        <button id="pricingBookBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm" data-i18n="pricingBtn">
+        <button id="pricingBookBtn" class="w-full btn-amber text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 cursor-pointer text-sm" data-i18n="pricingBtn">
           Contact Us for Quote
         </button>
 
@@ -630,7 +633,7 @@
         Book a free consultation. We'll recommend the right hardware and setup for your needs.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button id="finalBookBtn" class="bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm w-full sm:w-auto" data-i18n="navCta">
+        <button id="finalBookBtn" class="btn-amber text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/25 cursor-pointer text-sm w-full sm:w-auto" data-i18n="navCta">
           Contact Us
         </button>
         <a href="cloud.html" class="border border-emerald-500/40 text-slate-100 font-semibold px-8 py-3.5 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer text-sm w-full sm:w-auto text-center no-underline" data-i18n="ctaCompare">
