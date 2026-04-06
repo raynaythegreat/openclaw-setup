@@ -143,16 +143,17 @@
 
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
-            <a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Features</a>
-            <a href="cloud.html" class="text-slate-100 text-sm font-semibold border-b border-emerald-500 pb-0.5">Cloud</a>
-            <a href="local.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Local</a>
+            <a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200" data-i18n="navFeatures">Features</a>
+            <a href="cloud.html" class="text-slate-100 text-sm font-semibold border-b border-emerald-500 pb-0.5" data-i18n="navCloud">Cloud</a>
+            <a href="local.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200" data-i18n="navLocal">Local</a>
         </div>
 
         <!-- CTA + Hamburger -->
         <div class="flex items-center gap-3">
+            <button id="lang-toggle" class="cursor-pointer bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-3 py-1.5 rounded-full text-xs transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" aria-label="Switch language">ES</button>
             <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="hidden md:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                Text Us
+                <span data-i18n="navTextUs">Text Us</span>
             </a>
             <button id="mobileMenuBtn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-emerald-800/40 text-slate-400 hover:text-slate-100 hover:border-slate-600 transition-colors" aria-label="Toggle menu">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -176,15 +177,16 @@
         </button>
     </div>
     <nav class="flex flex-col gap-1">
-        <a href="index.html#features" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
-        <a href="cloud.html" onclick="closeMobileMenu()" class="px-3 py-3 text-emerald-400 bg-emerald-500/10 rounded-lg text-sm font-semibold">Cloud</a>
-        <a href="local.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200">Local</a>
+        <a href="index.html#features" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200" data-i18n="navFeatures">Features</a>
+        <a href="cloud.html" onclick="closeMobileMenu()" class="px-3 py-3 text-emerald-400 bg-emerald-500/10 rounded-lg text-sm font-semibold" data-i18n="navCloud">Cloud</a>
+        <a href="local.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200" data-i18n="navLocal">Local</a>
     </nav>
-    <div class="mt-6 pt-6 border-t border-emerald-900/30">
+    <div class="mt-6 pt-6 border-t border-emerald-900/30 flex flex-col gap-3">
         <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-            Text Us
+            <span data-i18n="navTextUs">Text Us</span>
         </a>
+        <button id="lang-toggle-mobile" class="cursor-pointer w-full bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-3 py-2.5 rounded-lg text-sm transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" aria-label="Switch language">Cambiar a Español</button>
     </div>
 </div>
 
@@ -200,13 +202,13 @@
 
         <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-fadeIn" style="animation-delay:0.15s">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Cloud Hosting
+            <span data-i18n="heroBadge">Cloud Hosting</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-100 leading-tight mb-6 animate-fadeInUp" style="animation-delay:0.2s">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-100 leading-tight mb-6 animate-fadeInUp" style="animation-delay:0.2s" data-i18n="heroTitle">
             Your AI Agent<br class="hidden sm:block"> in the Cloud
         </h1>
-        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fadeInUp" style="animation-delay:0.3s">
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fadeInUp" style="animation-delay:0.3s" data-i18n="heroSubtitle">
             Fast deployment, zero maintenance. We handle the infrastructure so you can focus on your business.
         </p>
 
@@ -214,15 +216,15 @@
         <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 animate-fadeIn" style="animation-delay:0.45s">
             <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                100% Uptime SLA
+                <span data-i18n="trustUptime">100% Uptime SLA</span>
             </span>
             <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                Managed Monitoring
+                <span data-i18n="trustMonitoring">Managed Monitoring</span>
             </span>
             <span class="flex items-center gap-2 text-sm text-slate-400 font-medium">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                White-Glove Setup Included
+                <span data-i18n="trustSetup">White-Glove Setup Included</span>
             </span>
         </div>
 
@@ -230,7 +232,7 @@
         <div class="flex justify-center mt-8">
           <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-[#0a1a0a]/90 border border-emerald-800/40 rounded-full px-5 py-2.5 text-sm font-medium text-slate-400 hover:border-[#76B900]/50 hover:text-slate-300 transition-all duration-200 no-underline group">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#76B900" aria-hidden="true"><path d="M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.478 0 6.298 2.858 6.298 6.386 0 .07 0 .14-.005.209l1.673 1.21a8.109 8.109 0 0 0 .022-.593c0-4.636-3.63-8.404-8.107-8.62V4.05L5.029 6.424l4.224 2.374h-.305zm0 6.432v1.585l-4.224-2.374 4.224-2.374v1.431a3.724 3.724 0 0 0 3.24-3.704c0-.076 0-.152-.007-.227l1.673 1.21c.01.118.015.237.015.358a5.397 5.397 0 0 1-4.921 5.095zm0-11.18V.914C3.988 1.358 0 5.632 0 10.83c0 .418.027.83.074 1.237l1.66 1.2a8.834 8.834 0 0 1-.075-1.204c0-4.14 2.892-7.606 6.765-8.497l.524-.316z"/></svg>
-            Powered by NVIDIA NemoClaw
+            <span data-i18n="poweredBy">Powered by NVIDIA NemoClaw</span>
           </a>
         </div>
     </div>
@@ -242,23 +244,23 @@
 
         <!-- Section header -->
         <div class="text-center mb-12 reveal">
-            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">Cloud Pricing</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Choose Your Nemoclaw Plan</h2>
-            <p class="text-slate-400 text-base max-w-xl mx-auto">Flexible pricing with monthly, yearly, and 2-year billing options. Save more with longer commitments.</p>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3" data-i18n="pricingLabel">Cloud Pricing</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4" data-i18n="pricingTitle">Choose Your Nemoclaw Plan</h2>
+            <p class="text-slate-400 text-base max-w-xl mx-auto" data-i18n="pricingSubtitle">Flexible pricing with monthly, yearly, and 2-year billing options. Save more with longer commitments.</p>
         </div>
 
         <!-- Billing Toggle -->
         <div class="flex items-center justify-center gap-2 mb-12 reveal reveal-delay-1">
-            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-emerald-500 text-white" data-period="monthly">
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-emerald-500 text-white" data-period="monthly" data-i18n="billingMonthly">
                 Monthly
             </button>
             <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-emerald-800/40 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="yearly">
-                Yearly
-                <span class="text-green-400 text-xs font-bold">Save 20%</span>
+                <span data-i18n="billingYearly">Yearly</span>
+                <span class="text-green-400 text-xs font-bold" data-i18n="billingSave20">Save 20%</span>
             </button>
             <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-emerald-800/40 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="2year">
-                2-Year
-                <span class="text-green-400 text-xs font-bold">Save 30%</span>
+                <span data-i18n="billing2Year">2-Year</span>
+                <span class="text-green-400 text-xs font-bold" data-i18n="billingSave30">Save 30%</span>
             </button>
         </div>
 
@@ -268,28 +270,28 @@
             <!-- ── Premium Card ── -->
             <div class="relative bg-[#0a1a0a] border border-emerald-500 rounded-xl p-8 shadow-lg shadow-emerald-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
                 <!-- Badge -->
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap" data-i18n="badgeRecommended">
                     Recommended
                 </div>
 
                 <div class="mb-6 mt-2">
-                    <h3 class="text-slate-100 text-xl font-bold mb-1">Premium</h3>
-                    <p class="text-slate-500 text-sm">Everything in Pro, plus AI software generation</p>
+                    <h3 class="text-slate-100 text-xl font-bold mb-1" data-i18n="planPremiumName">Premium</h3>
+                    <p class="text-slate-500 text-sm" data-i18n="planPremiumDesc">Everything in Pro, plus AI software generation</p>
                 </div>
 
                 <!-- Price block -->
                 <div class="mb-6">
                     <div data-price="monthly">
                         <span class="text-4xl font-bold text-slate-100">$349.99</span>
-                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perMonth">/mo</span>
                     </div>
                     <div data-price="yearly" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$4,199.88</span>
-                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perYear">/yr</span>
                     </div>
                     <div data-price="2year" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$8,399.76</span>
-                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="per2Year">/2yr</span>
                     </div>
                 </div>
 
@@ -297,35 +299,35 @@
                 <ul class="flex flex-col gap-3 mb-6 flex-1">
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Everything in Pro, plus
+                        <span data-i18n="premiumFeat1">Everything in Pro, plus</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Custom AI-powered software generation
+                        <span data-i18n="premiumFeat2">Custom AI-powered software generation</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Automated workflow creation
+                        <span data-i18n="premiumFeat3">Automated workflow creation</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Content &amp; reporting automation
+                        <span data-i18n="premiumFeat4">Content &amp; reporting automation</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Priority support + strategy calls
+                        <span data-i18n="premiumFeat5">Priority support + strategy calls</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Pays for itself — builds tools you'd otherwise buy
+                        <span data-i18n="premiumFeat6">Pays for itself — builds tools you'd otherwise buy</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
                         <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
-                        Startup Bonus: 2 app builds + Renewal: 2 builds/yr
+                        <span data-i18n="premiumBonus">Startup Bonus: 2 app builds + Renewal: 2 builds/yr</span>
                     </li>
                 </ul>
 
-                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer">
+                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer" data-i18n="ctaTextUs">
                     Text Us
                 </a>
             </div>
@@ -333,28 +335,28 @@
             <!-- ── Pro Card ── -->
             <div class="relative bg-[#0a1a0a] border border-emerald-500 rounded-xl p-8 shadow-lg shadow-emerald-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
                 <!-- Badge -->
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap" data-i18n="badgeMostPopular">
                     Most Popular
                 </div>
 
                 <div class="mb-6 mt-2">
-                    <h3 class="text-slate-100 text-xl font-bold mb-1">Pro</h3>
-                    <p class="text-slate-500 text-sm">Advanced workflows and extended integrations</p>
+                    <h3 class="text-slate-100 text-xl font-bold mb-1" data-i18n="planProName">Pro</h3>
+                    <p class="text-slate-500 text-sm" data-i18n="planProDesc">Advanced workflows and extended integrations</p>
                 </div>
 
                 <!-- Price block -->
                 <div class="mb-6">
                     <div data-price="monthly">
                         <span class="text-4xl font-bold text-slate-100">$249.99</span>
-                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perMonth">/mo</span>
                     </div>
                     <div data-price="yearly" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$2,999.88</span>
-                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perYear">/yr</span>
                     </div>
                     <div data-price="2year" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$5,999.76</span>
-                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="per2Year">/2yr</span>
                     </div>
                 </div>
 
@@ -362,39 +364,39 @@
                 <ul class="flex flex-col gap-3 mb-6 flex-1">
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Extended integrations
+                        <span data-i18n="proFeat1">Extended integrations</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Social media automation
+                        <span data-i18n="proFeat2">Social media automation</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Advanced task workflows
+                        <span data-i18n="proFeat3">Advanced task workflows</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Priority support
+                        <span data-i18n="proFeat4">Priority support</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Custom workflows
+                        <span data-i18n="proFeat5">Custom workflows</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Up to 15 workflows
+                        <span data-i18n="proFeat6">Up to 15 workflows</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        API access
+                        <span data-i18n="proFeat7">API access</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
                         <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
-                        Startup Bonus: 1 app build + Renewal: 1 build/yr
+                        <span data-i18n="proBonus">Startup Bonus: 1 app build + Renewal: 1 build/yr</span>
                     </li>
                 </ul>
 
-                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer">
+                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer" data-i18n="ctaTextUs">
                     Text Us
                 </a>
             </div>
@@ -403,23 +405,23 @@
             <div class="relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-emerald-800/40">
 
                 <div class="mb-6">
-                    <h3 class="text-slate-100 text-xl font-bold mb-1">Ultra</h3>
-                    <p class="text-slate-500 text-sm">Enterprise-grade with unlimited capacity</p>
+                    <h3 class="text-slate-100 text-xl font-bold mb-1" data-i18n="planUltraName">Ultra</h3>
+                    <p class="text-slate-500 text-sm" data-i18n="planUltraDesc">Enterprise-grade with unlimited capacity</p>
                 </div>
 
                 <!-- Price block -->
                 <div class="mb-6">
                     <div data-price="monthly">
                         <span class="text-4xl font-bold text-slate-100">$549.99</span>
-                        <span class="text-slate-500 text-sm ml-1">/mo</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perMonth">/mo</span>
                     </div>
                     <div data-price="yearly" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$6,599.88</span>
-                        <span class="text-slate-500 text-sm ml-1">/yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="perYear">/yr</span>
                     </div>
                     <div data-price="2year" class="hidden">
                         <span class="text-4xl font-bold text-slate-100">$14,199.76</span>
-                        <span class="text-slate-500 text-sm ml-1">/2yr</span>
+                        <span class="text-slate-500 text-sm ml-1" data-i18n="per2Year">/2yr</span>
                     </div>
                 </div>
 
@@ -427,39 +429,39 @@
                 <ul class="flex flex-col gap-3 mb-6 flex-1">
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Full integration library
+                        <span data-i18n="ultraFeat1">Full integration library</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Dedicated account manager
+                        <span data-i18n="ultraFeat2">Dedicated account manager</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        24/7 priority support
+                        <span data-i18n="ultraFeat3">24/7 priority support</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Custom AI training
+                        <span data-i18n="ultraFeat4">Custom AI training</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Enterprise security
+                        <span data-i18n="ultraFeat5">Enterprise security</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Unlimited workflows
+                        <span data-i18n="ultraFeat6">Unlimited workflows</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-slate-300">
                         <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        White-label options
+                        <span data-i18n="ultraFeat7">White-label options</span>
                     </li>
                     <li class="flex items-start gap-2.5 text-sm text-green-400 font-medium mt-1">
                         <svg class="w-4 h-4 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M16 8V6a4 4 0 0 0-8 0v2"/><path d="M12 13v3"/></svg>
-                        Startup Bonus: 3 app builds + Renewal: 3 builds/yr
+                        <span data-i18n="ultraBonus">Startup Bonus: 3 app builds + Renewal: 3 builds/yr</span>
                     </li>
                 </ul>
 
-                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center border border-emerald-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer">
+                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="block text-center border border-emerald-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer" data-i18n="ctaTextUs">
                     Text Us
                 </a>
             </div>
@@ -467,7 +469,7 @@
         </div><!-- /grid -->
 
         <!-- Pricing note -->
-        <p class="text-center text-slate-500 text-sm mt-8 reveal reveal-delay-3">
+        <p class="text-center text-slate-500 text-sm mt-8 reveal reveal-delay-3" data-i18n="pricingNote">
             Higher tiers include more integrations based on your needs.
         </p>
 
@@ -479,9 +481,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-14 reveal">
-            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">Every Plan</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">What's Included With Every Plan</h2>
-            <p class="text-slate-400 text-base max-w-xl mx-auto">No hidden extras. Core features are standard across all cloud tiers.</p>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3" data-i18n="includedLabel">Every Plan</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4" data-i18n="includedTitle">What's Included With Every Plan</h2>
+            <p class="text-slate-400 text-base max-w-xl mx-auto" data-i18n="includedSubtitle">No hidden extras. Core features are standard across all cloud tiers.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -491,8 +493,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">Managed Monitoring</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">24/7 uptime monitoring with automatic restart on failure. We watch so you don't have to.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat1Title">Managed Monitoring</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat1Desc">24/7 uptime monitoring with automatic restart on failure. We watch so you don't have to.</p>
             </div>
 
             <!-- Auto-Updates -->
@@ -500,8 +502,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">Auto-Updates</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Agent software and integration updates applied automatically, keeping you on the latest stable release.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat2Title">Auto-Updates</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat2Desc">Agent software and integration updates applied automatically, keeping you on the latest stable release.</p>
             </div>
 
             <!-- Backup & Recovery -->
@@ -509,8 +511,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">Backup &amp; Recovery</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Daily automated backups with one-click restore. Your agent configuration is always protected.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat3Title">Backup &amp; Recovery</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat3Desc">Daily automated backups with one-click restore. Your agent configuration is always protected.</p>
             </div>
 
             <!-- SSL & Security -->
@@ -518,8 +520,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">SSL &amp; Security</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">End-to-end encryption, Docker sandboxing, firewall rules, and encrypted credential storage.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat4Title">SSL &amp; Security</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat4Desc">End-to-end encryption, Docker sandboxing, firewall rules, and encrypted credential storage.</p>
             </div>
 
             <!-- Custom Domain -->
@@ -527,8 +529,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">Custom Domain</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Point your own domain to your agent dashboard. Full DNS configuration included in setup.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat5Title">Custom Domain</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat5Desc">Point your own domain to your agent dashboard. Full DNS configuration included in setup.</p>
             </div>
 
             <!-- Priority Support -->
@@ -536,8 +538,8 @@
                 <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
-                <h3 class="text-slate-100 font-semibold mb-2">Priority Support</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Direct access to our team for technical issues. Response time guaranteed within your plan SLA.</p>
+                <h3 class="text-slate-100 font-semibold mb-2" data-i18n="feat6Title">Priority Support</h3>
+                <p class="text-slate-500 text-sm leading-relaxed" data-i18n="feat6Desc">Direct access to our team for technical issues. Response time guaranteed within your plan SLA.</p>
             </div>
 
         </div>
@@ -549,80 +551,80 @@
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-12 reveal">
-            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">FAQ</p>
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Frequently Asked Questions</h2>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3" data-i18n="faqLabel">FAQ</p>
+            <h2 class="text-3xl md:text-4xl font-bold text-slate-100" data-i18n="faqTitle">Frequently Asked Questions</h2>
         </div>
 
         <div class="flex flex-col gap-3 reveal reveal-delay-1">
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    What happens after I sign up?
+                    <span data-i18n="faq1Q">What happens after I sign up?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq1A">
                     We book a discovery call to discuss your needs, preferred integrations, and any workflow automations you want. From there, we deploy your agent within 48 hours and walk you through the dashboard.
                 </div>
             </details>
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    Can I upgrade or downgrade later?
+                    <span data-i18n="faq2Q">Can I upgrade or downgrade later?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq2A">
                     Yes. You can switch tiers at any time. Upgrades take effect immediately; downgrades take effect at the start of the next billing cycle. All your agent configuration, workflows, and memory are preserved.
                 </div>
             </details>
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    What's the uptime guarantee?
+                    <span data-i18n="faq3Q">What's the uptime guarantee?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq3A">
                     Every cloud plan includes a 100% uptime SLA backed by continuous monitoring and automatic restart on failure. In the unlikely event of extended downtime, we'll apply a credit to your account.
                 </div>
             </details>
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    Do I need my own API keys?
+                    <span data-i18n="faq4Q">Do I need my own API keys?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq4A">
                     You can bring your own API keys from OpenAI, Anthropic, Google, xAI, or any other provider. If you'd prefer a recommendation based on your use case and budget, we'll point you in the right direction during the onboarding call.
                 </div>
             </details>
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    What AI models are supported?
+                    <span data-i18n="faq5Q">What AI models are supported?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq5A">
                     GPT-4, Claude, Gemini, Grok, and self-hosted open-source options (Llama, Mistral, Qwen via Ollama). We configure the right model for each workflow during setup.
                 </div>
             </details>
 
             <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
-                    Is my data secure?
+                    <span data-i18n="faq6Q">Is my data secure?</span>
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4" data-i18n="faq6A">
                     All cloud deployments use Docker sandboxing for full process isolation, AES-256 encrypted credential storage, OAuth2 where available, and strict firewall rules. Each tenant runs on its own isolated instance — your data never co-mingles with other customers.
                 </div>
             </details>
@@ -641,12 +643,12 @@
             </div>
 
             <div class="relative">
-                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">Get Started</p>
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Ready to Get Started?</h2>
-                <p class="text-slate-400 text-base max-w-md mx-auto mb-8">Book a free consultation. We'll recommend the right plan for your needs.</p>
+                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4" data-i18n="ctaLabel">Get Started</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4" data-i18n="ctaTitle">Ready to Get Started?</h2>
+                <p class="text-slate-400 text-base max-w-md mx-auto mb-8" data-i18n="ctaSubtitle">Book a free consultation. We'll recommend the right plan for your needs.</p>
                 <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-                    Text Us
+                    <span data-i18n="ctaTextUs">Text Us</span>
                 </a>
             </div>
         </div>
@@ -666,15 +668,15 @@
 
             <!-- Nav links -->
             <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Home</a>
-                <a href="index.html#features" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Features</a>
-                <a href="cloud.html" class="text-slate-400 hover:text-slate-300 text-sm transition-colors duration-200">Cloud</a>
-                <a href="local.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Local</a>
-                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200">Contact</a>
+                <a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200" data-i18n="footerHome">Home</a>
+                <a href="index.html#features" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200" data-i18n="navFeatures">Features</a>
+                <a href="cloud.html" class="text-slate-400 hover:text-slate-300 text-sm transition-colors duration-200" data-i18n="navCloud">Cloud</a>
+                <a href="local.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200" data-i18n="navLocal">Local</a>
+                <a href="sms:+18053549746?body=Hi%2C%20I%27m%20interested%20in%20AI%20agent%20setup" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200" data-i18n="footerContact">Contact</a>
             </nav>
 
             <!-- Copyright -->
-            <p class="text-slate-600 text-sm">&copy; 2026 The AI 101. Powered by Square.</p>
+            <p class="text-slate-600 text-sm" data-i18n="footerCopy">&copy; 2026 The AI 101. Powered by Square.</p>
         </div>
     </div>
 </footer>
@@ -730,6 +732,136 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ── Language Toggle ──
+    var translations = {
+        navFeatures: 'Características',
+        navCloud: 'Nube',
+        navLocal: 'Local',
+        navTextUs: 'Envíanos un Mensaje',
+        heroBadge: 'Alojamiento en la Nube',
+        heroTitle: 'Tu Agente de IA<br class="hidden sm:block"> en la Nube',
+        heroSubtitle: 'Implementación rápida, cero mantenimiento. Nos encargamos de la infraestructura para que puedas enfocarte en tu negocio.',
+        trustUptime: 'SLA de 100% de Tiempo Activo',
+        trustMonitoring: 'Monitoreo Administrado',
+        trustSetup: 'Configuración de Guante Blanco Incluida',
+        poweredBy: 'Desarrollado por NVIDIA NemoClaw',
+        pricingLabel: 'Precios en la Nube',
+        pricingTitle: 'Elige Tu Plan Nemoclaw',
+        pricingSubtitle: 'Precios flexibles con opciones de facturación mensual, anual y de 2 años. Ahorra más con compromisos más largos.',
+        billingMonthly: 'Mensual',
+        billingYearly: 'Anual',
+        billingSave20: 'Ahorra 20%',
+        billing2Year: '2 Años',
+        billingSave30: 'Ahorra 30%',
+        badgeRecommended: 'Recomendado',
+        badgeMostPopular: 'Más Popular',
+        planPremiumName: 'Premium',
+        planPremiumDesc: 'Todo lo de Pro, más generación de software con IA',
+        planProName: 'Pro',
+        planProDesc: 'Flujos de trabajo avanzados e integraciones extendidas',
+        planUltraName: 'Ultra',
+        planUltraDesc: 'Grado empresarial con capacidad ilimitada',
+        perMonth: '/mes',
+        perYear: '/año',
+        per2Year: '/2 años',
+        premiumFeat1: 'Todo lo de Pro, más',
+        premiumFeat2: 'Generación de software personalizado con IA',
+        premiumFeat3: 'Creación automatizada de flujos de trabajo',
+        premiumFeat4: 'Automatización de contenido e informes',
+        premiumFeat5: 'Soporte prioritario + llamadas de estrategia',
+        premiumFeat6: 'Se paga solo — crea herramientas que de otro modo comprarías',
+        premiumBonus: 'Bono de Inicio: 2 apps + Renovación: 2 apps/año',
+        proFeat1: 'Integraciones extendidas',
+        proFeat2: 'Automatización de redes sociales',
+        proFeat3: 'Flujos de trabajo de tareas avanzados',
+        proFeat4: 'Soporte prioritario',
+        proFeat5: 'Flujos de trabajo personalizados',
+        proFeat6: 'Hasta 15 flujos de trabajo',
+        proFeat7: 'Acceso a API',
+        proBonus: 'Bono de Inicio: 1 app + Renovación: 1 app/año',
+        ultraFeat1: 'Biblioteca completa de integraciones',
+        ultraFeat2: 'Gerente de cuenta dedicado',
+        ultraFeat3: 'Soporte prioritario 24/7',
+        ultraFeat4: 'Entrenamiento de IA personalizado',
+        ultraFeat5: 'Seguridad empresarial',
+        ultraFeat6: 'Flujos de trabajo ilimitados',
+        ultraFeat7: 'Opciones de marca blanca',
+        ultraBonus: 'Bono de Inicio: 3 apps + Renovación: 3 apps/año',
+        ctaTextUs: 'Envíanos un Mensaje',
+        pricingNote: 'Los niveles superiores incluyen más integraciones según tus necesidades.',
+        includedLabel: 'Cada Plan',
+        includedTitle: 'Qué Incluye Cada Plan',
+        includedSubtitle: 'Sin extras ocultos. Las funciones principales son estándar en todos los niveles de nube.',
+        feat1Title: 'Monitoreo Administrado',
+        feat1Desc: 'Monitoreo de disponibilidad 24/7 con reinicio automático ante fallos. Nosotros vigilamos para que tú no tengas que hacerlo.',
+        feat2Title: 'Actualizaciones Automáticas',
+        feat2Desc: 'Actualizaciones de software del agente e integraciones aplicadas automáticamente, manteniéndote en la última versión estable.',
+        feat3Title: 'Respaldo y Recuperación',
+        feat3Desc: 'Copias de seguridad automáticas diarias con restauración en un clic. La configuración de tu agente siempre está protegida.',
+        feat4Title: 'SSL y Seguridad',
+        feat4Desc: 'Cifrado de extremo a extremo, aislamiento con Docker, reglas de firewall y almacenamiento cifrado de credenciales.',
+        feat5Title: 'Dominio Personalizado',
+        feat5Desc: 'Apunta tu propio dominio al panel de control de tu agente. Configuración DNS completa incluida en la instalación.',
+        feat6Title: 'Soporte Prioritario',
+        feat6Desc: 'Acceso directo a nuestro equipo para problemas técnicos. Tiempo de respuesta garantizado según el SLA de tu plan.',
+        faqLabel: 'Preguntas Frecuentes',
+        faqTitle: 'Preguntas Frecuentes',
+        faq1Q: '¿Qué sucede después de registrarme?',
+        faq1A: 'Agendamos una llamada de descubrimiento para hablar sobre tus necesidades, integraciones preferidas y automatizaciones de flujo de trabajo que desees. A partir de ahí, desplegamos tu agente en 48 horas y te guiamos por el panel de control.',
+        faq2Q: '¿Puedo subir o bajar de plan más adelante?',
+        faq2A: 'Sí. Puedes cambiar de nivel en cualquier momento. Las actualizaciones tienen efecto inmediato; las bajas de plan tienen efecto al inicio del siguiente ciclo de facturación. Toda tu configuración de agente, flujos de trabajo y memoria se conservan.',
+        faq3Q: '¿Cuál es la garantía de tiempo activo?',
+        faq3A: 'Cada plan en la nube incluye un SLA de 100% de tiempo activo respaldado por monitoreo continuo y reinicio automático ante fallos. En el improbable caso de una interrupción prolongada, aplicaremos un crédito a tu cuenta.',
+        faq4Q: '¿Necesito mis propias claves de API?',
+        faq4A: 'Puedes traer tus propias claves de API de OpenAI, Anthropic, Google, xAI u otro proveedor. Si prefieres una recomendación según tu caso de uso y presupuesto, te orientaremos durante la llamada de incorporación.',
+        faq5Q: '¿Qué modelos de IA son compatibles?',
+        faq5A: 'GPT-4, Claude, Gemini, Grok y opciones de código abierto autoalojadas (Llama, Mistral, Qwen vía Ollama). Configuramos el modelo adecuado para cada flujo de trabajo durante la instalación.',
+        faq6Q: '¿Mis datos están seguros?',
+        faq6A: 'Todos los despliegues en la nube usan aislamiento con Docker para separación total de procesos, almacenamiento cifrado AES-256 de credenciales, OAuth2 donde esté disponible y reglas estrictas de firewall. Cada cliente opera en su propia instancia aislada: tus datos nunca se mezclan con los de otros clientes.',
+        ctaLabel: 'Comenzar',
+        ctaTitle: '¿Listo para Comenzar?',
+        ctaSubtitle: 'Agenda una consulta gratuita. Te recomendaremos el plan adecuado para tus necesidades.',
+        footerHome: 'Inicio',
+        footerContact: 'Contacto',
+        footerCopy: '&copy; 2026 The AI 101. Desarrollado por Square.'
+    };
+
+    var currentLang = localStorage.getItem('ai101-lang') || 'en';
+
+    function setLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('ai101-lang', lang);
+        document.documentElement.lang = lang;
+        var toggleBtn = document.getElementById('lang-toggle');
+        var toggleBtnMobile = document.getElementById('lang-toggle-mobile');
+        if (lang === 'es') {
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (translations[key]) {
+                    if (!el.getAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+                    el.innerHTML = translations[key];
+                }
+            });
+            if (toggleBtn) toggleBtn.textContent = 'EN';
+            if (toggleBtnMobile) toggleBtnMobile.textContent = 'Switch to English';
+        } else {
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var original = el.getAttribute('data-en');
+                if (original) el.innerHTML = original;
+            });
+            if (toggleBtn) toggleBtn.textContent = 'ES';
+            if (toggleBtnMobile) toggleBtnMobile.textContent = 'Cambiar a Español';
+        }
+    }
+
+    function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+
+    document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+    if (document.getElementById('lang-toggle-mobile')) {
+        document.getElementById('lang-toggle-mobile').addEventListener('click', toggleLanguage);
+    }
+    if (currentLang === 'es') setLanguage('es');
 </script>
 
 </body>

@@ -117,15 +117,18 @@
 
     <!-- Desktop Links -->
     <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0">
-      <li><a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium px-3 py-2 rounded-lg hover:bg-emerald-900/30 transition-all duration-200 no-underline">Features</a></li>
-      <li><a href="cloud.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium px-3 py-2 rounded-lg hover:bg-emerald-900/30 transition-all duration-200 no-underline">Cloud</a></li>
-      <li><a href="local.html" class="text-slate-100 text-sm font-medium px-3 py-2 rounded-lg bg-emerald-900/30 transition-all duration-200 no-underline">Local</a></li>
+      <li><a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium px-3 py-2 rounded-lg hover:bg-emerald-900/30 transition-all duration-200 no-underline" data-i18n="navFeatures">Features</a></li>
+      <li><a href="cloud.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium px-3 py-2 rounded-lg hover:bg-emerald-900/30 transition-all duration-200 no-underline" data-i18n="navCloud">Cloud</a></li>
+      <li><a href="local.html" class="text-slate-100 text-sm font-medium px-3 py-2 rounded-lg bg-emerald-900/30 transition-all duration-200 no-underline" data-i18n="navLocal">Local</a></li>
     </ul>
 
     <!-- Desktop CTA -->
-    <a id="desktopBookCta" href="#" class="hidden md:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline cursor-pointer">
-      Text Us
-    </a>
+    <div class="hidden md:flex items-center gap-3">
+      <button id="lang-toggle" class="cursor-pointer bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-3 py-1.5 rounded-full text-xs transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" aria-label="Switch language">ES</button>
+      <a id="desktopBookCta" href="#" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline cursor-pointer" data-i18n="navCta">
+        Text Us
+      </a>
+    </div>
 
     <!-- Mobile hamburger -->
     <button id="mobileMenuBtn" aria-label="Open menu" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-emerald-800/40 text-slate-400 hover:text-slate-100 hover:border-slate-600 transition-all duration-200">
@@ -149,12 +152,13 @@
     </button>
   </div>
   <nav class="flex flex-col p-4 gap-1 flex-1">
-    <a href="index.html#features" class="text-slate-300 hover:text-slate-100 font-medium text-sm px-4 py-3 rounded-xl hover:bg-emerald-900/30 transition-all duration-200 no-underline">Features</a>
-    <a href="cloud.html" class="text-slate-300 hover:text-slate-100 font-medium text-sm px-4 py-3 rounded-xl hover:bg-emerald-900/30 transition-all duration-200 no-underline">Cloud</a>
-    <a href="local.html" class="text-slate-100 font-semibold text-sm px-4 py-3 rounded-xl bg-emerald-900/30 no-underline">Local</a>
+    <a href="index.html#features" class="text-slate-300 hover:text-slate-100 font-medium text-sm px-4 py-3 rounded-xl hover:bg-emerald-900/30 transition-all duration-200 no-underline" data-i18n="navFeatures">Features</a>
+    <a href="cloud.html" class="text-slate-300 hover:text-slate-100 font-medium text-sm px-4 py-3 rounded-xl hover:bg-emerald-900/30 transition-all duration-200 no-underline" data-i18n="navCloud">Cloud</a>
+    <a href="local.html" class="text-slate-100 font-semibold text-sm px-4 py-3 rounded-xl bg-emerald-900/30 no-underline" data-i18n="navLocal">Local</a>
   </nav>
-  <div class="p-4 border-t border-emerald-900/30">
-    <a id="mobileBookCta" href="#" class="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 no-underline cursor-pointer">
+  <div class="p-4 border-t border-emerald-900/30 flex flex-col gap-3">
+    <button id="lang-toggle-mobile" class="cursor-pointer bg-transparent border border-emerald-500/30 text-emerald-400 font-semibold px-4 py-2.5 rounded-xl text-sm transition-all duration-200 hover:bg-emerald-500/10 hover:border-emerald-500" data-i18n="mobileLangToggle">Cambiar a Español</button>
+    <a id="mobileBookCta" href="#" class="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm px-5 py-3 rounded-xl transition-all duration-200 no-underline cursor-pointer" data-i18n="navCta">
       Text Us
     </a>
   </div>
@@ -174,18 +178,18 @@
     <div class="fade-up" style="transition-delay:0.08s">
       <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 tracking-wide uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        Self-Hosted Option
+        <span data-i18n="heroBadge">Self-Hosted Option</span>
       </div>
     </div>
 
     <div class="fade-up" style="transition-delay:0.14s">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight tracking-tight mb-6 max-w-3xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight tracking-tight mb-6 max-w-3xl mx-auto" data-i18n="heroH1">
         Run Your AI Agent on<br class="hidden sm:block"> Your Own Hardware
       </h1>
     </div>
 
     <div class="fade-up" style="transition-delay:0.20s">
-      <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="heroSubtitle">
         Full control, zero monthly fees. Own it forever. We handle the entire setup&nbsp;&mdash;&nbsp;you just use it.
       </p>
     </div>
@@ -195,17 +199,17 @@
       <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-slate-400 font-medium">
         <span class="flex items-center gap-2">
           <svg class="text-green-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          No Vendor Lock-in
+          <span data-i18n="trustLockIn">No Vendor Lock-in</span>
         </span>
         <span class="text-slate-700 hidden sm:inline">|</span>
         <span class="flex items-center gap-2">
           <svg class="text-green-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Your Data Stays Local
+          <span data-i18n="trustDataLocal">Your Data Stays Local</span>
         </span>
         <span class="text-slate-700 hidden sm:inline">|</span>
         <span class="flex items-center gap-2">
           <svg class="text-green-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          One-Time Setup
+          <span data-i18n="trustOneTime">One-Time Setup</span>
         </span>
       </div>
 
@@ -225,8 +229,8 @@
 <section class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up mb-14 text-center">
-      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4">What's Included</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">Everything You Need, Out of the Box</h2>
+      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4" data-i18n="includedBadge">What's Included</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight" data-i18n="includedH2">Everything You Need, Out of the Box</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -238,8 +242,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Full Nemoclaw Agent Deployment</p>
-              <p class="text-slate-500 text-sm mt-0.5">All 300+ skills active and configured for your workflows</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat1Title">Full Nemoclaw Agent Deployment</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat1Desc">All 300+ skills active and configured for your workflows</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -247,8 +251,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Mac Mini with 64GB RAM, 1TB SSD (or Your Own Hardware)</p>
-              <p class="text-slate-500 text-sm mt-0.5">Hardware consultation included — we recommend the right specs</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat2Title">Mac Mini with 64GB RAM, 1TB SSD (or Your Own Hardware)</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat2Desc">Hardware consultation included — we recommend the right specs</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -256,8 +260,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Self-Hosted AI via Ollama — $0/month API Costs</p>
-              <p class="text-slate-500 text-sm mt-0.5">Qwen, Llama, Mistral run entirely on your machine</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat3Title">Self-Hosted AI via Ollama — $0/month API Costs</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat3Desc">Qwen, Llama, Mistral run entirely on your machine</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -265,8 +269,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Dashboard Access for Monitoring and Control</p>
-              <p class="text-slate-500 text-sm mt-0.5">Real-time agent status, task history, and usage metrics</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat4Title">Dashboard Access for Monitoring and Control</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat4Desc">Real-time agent status, task history, and usage metrics</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -274,8 +278,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Complete Setup Documentation and Training</p>
-              <p class="text-slate-500 text-sm mt-0.5">Step-by-step guides plus a live walkthrough session</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat5Title">Complete Setup Documentation and Training</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat5Desc">Step-by-step guides plus a live walkthrough session</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -283,8 +287,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Security Hardening</p>
-              <p class="text-slate-500 text-sm mt-0.5">Docker sandbox, encrypted credentials, and firewall configuration</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat6Title">Security Hardening</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat6Desc">Docker sandbox, encrypted credentials, and firewall configuration</p>
             </div>
           </li>
           <li class="flex items-start gap-3.5">
@@ -292,8 +296,8 @@
               <svg class="text-green-500" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
             <div>
-              <p class="text-slate-100 font-semibold text-sm">Lifetime Software Updates Included</p>
-              <p class="text-slate-500 text-sm mt-0.5">Every new skill and improvement, automatically delivered</p>
+              <p class="text-slate-100 font-semibold text-sm" data-i18n="feat7Title">Lifetime Software Updates Included</p>
+              <p class="text-slate-500 text-sm mt-0.5" data-i18n="feat7Desc">Every new skill and improvement, automatically delivered</p>
             </div>
           </li>
         </ul>
@@ -326,15 +330,15 @@
         <div class="grid grid-cols-3 gap-3 mt-4">
           <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-lg p-3 text-center">
             <p class="text-xl font-bold text-slate-100">$0</p>
-            <p class="text-xs text-slate-500 mt-0.5">Monthly cost</p>
+            <p class="text-xs text-slate-500 mt-0.5" data-i18n="statMonthlyCost">Monthly cost</p>
           </div>
           <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-lg p-3 text-center">
             <p class="text-xl font-bold text-slate-100">312</p>
-            <p class="text-xs text-slate-500 mt-0.5">Active skills</p>
+            <p class="text-xs text-slate-500 mt-0.5" data-i18n="statActiveSkills">Active skills</p>
           </div>
           <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-lg p-3 text-center">
             <p class="text-xl font-bold text-green-400">100%</p>
-            <p class="text-xs text-slate-500 mt-0.5">Yours to own</p>
+            <p class="text-xs text-slate-500 mt-0.5" data-i18n="statYoursToOwn">Yours to own</p>
           </div>
         </div>
       </div>
@@ -347,9 +351,9 @@
 <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-y border-emerald-900/30/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up text-center mb-14">
-      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4">How It Works</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">Three Steps to Your Local Agent</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto">From hardware selection to a running agent — we handle every detail.</p>
+      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4" data-i18n="howBadge">How It Works</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight" data-i18n="howH2">Three Steps to Your Local Agent</h2>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto" data-i18n="howSubtitle">From hardware selection to a running agent — we handle every detail.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger">
@@ -357,24 +361,24 @@
       <div class="fade-up bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 relative overflow-hidden group hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/0 via-emerald-500 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-lg mb-6">1</div>
-        <h3 class="text-lg font-bold text-slate-100 mb-3">Choose Your Hardware</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">Mac Mini, Linux server, or your existing hardware. We recommend specs based on your workload and budget. No over-buying required.</p>
+        <h3 class="text-lg font-bold text-slate-100 mb-3" data-i18n="step1Title">Choose Your Hardware</h3>
+        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="step1Desc">Mac Mini, Linux server, or your existing hardware. We recommend specs based on your workload and budget. No over-buying required.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="fade-up bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 relative overflow-hidden group hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/0 via-emerald-500 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-lg mb-6">2</div>
-        <h3 class="text-lg font-bold text-slate-100 mb-3">We Set It Up</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">White-glove remote installation session. We deploy Nemoclaw, configure your skills, connect your integrations, and harden security. You watch or walk away.</p>
+        <h3 class="text-lg font-bold text-slate-100 mb-3" data-i18n="step2Title">We Set It Up</h3>
+        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="step2Desc">White-glove remote installation session. We deploy Nemoclaw, configure your skills, connect your integrations, and harden security. You watch or walk away.</p>
       </div>
 
       <!-- Step 3 -->
       <div class="fade-up bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 relative overflow-hidden group hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/0 via-emerald-500 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-lg mb-6">3</div>
-        <h3 class="text-lg font-bold text-slate-100 mb-3">You Own It</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">No recurring fees. Your agent runs on your hardware, your network, your rules. Optional support plans available when you need extra help.</p>
+        <h3 class="text-lg font-bold text-slate-100 mb-3" data-i18n="step3Title">You Own It</h3>
+        <p class="text-slate-400 text-sm leading-relaxed" data-i18n="step3Desc">No recurring fees. Your agent runs on your hardware, your network, your rules. Optional support plans available when you need extra help.</p>
       </div>
     </div>
   </div>
@@ -385,9 +389,9 @@
 <section class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up text-center mb-14">
-      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4">Side by Side</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">Local vs Cloud</h2>
-      <p class="text-slate-400 mt-4 max-w-xl mx-auto">Both options run the same Nemoclaw agent. The difference is where it lives.</p>
+      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4" data-i18n="compBadge">Side by Side</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight" data-i18n="compH2">Local vs Cloud</h2>
+      <p class="text-slate-400 mt-4 max-w-xl mx-auto" data-i18n="compSubtitle">Both options run the same Nemoclaw agent. The difference is where it lives.</p>
     </div>
 
     <div class="fade-up bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden">
@@ -395,7 +399,7 @@
         <table class="w-full text-sm">
           <thead>
             <tr class="border-b border-emerald-900/30">
-              <th class="text-left px-6 py-4 text-slate-500 font-semibold text-xs uppercase tracking-wide w-1/3">Feature</th>
+              <th class="text-left px-6 py-4 text-slate-500 font-semibold text-xs uppercase tracking-wide w-1/3" data-i18n="tableFeature">Feature</th>
               <th class="px-6 py-4 text-center">
                 <span class="inline-flex items-center gap-1.5 text-slate-100 font-bold text-sm">
                   <svg class="text-green-500" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
@@ -412,39 +416,39 @@
           </thead>
           <tbody class="divide-y divide-slate-800/60">
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Monthly cost</td>
-              <td class="px-6 py-4 text-center font-semibold text-green-400">$0 after setup</td>
-              <td class="px-6 py-4 text-center text-emerald-400 font-semibold">From $249.99/mo</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowMonthlyCost">Monthly cost</td>
+              <td class="px-6 py-4 text-center font-semibold text-green-400" data-i18n="rowMonthlyCostLocal">$0 after setup</td>
+              <td class="px-6 py-4 text-center text-emerald-400 font-semibold" data-i18n="rowMonthlyCostCloud">From $249.99/mo</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Setup</td>
-              <td class="px-6 py-4 text-center text-slate-200">White-glove remote install</td>
-              <td class="px-6 py-4 text-center text-slate-200">We deploy to cloud</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowSetup">Setup</td>
+              <td class="px-6 py-4 text-center text-slate-200" data-i18n="rowSetupLocal">White-glove remote install</td>
+              <td class="px-6 py-4 text-center text-slate-200" data-i18n="rowSetupCloud">We deploy to cloud</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">AI API costs</td>
-              <td class="px-6 py-4 text-center font-semibold text-green-400">$0 (self-hosted Ollama)</td>
-              <td class="px-6 py-4 text-center text-slate-300">Pay-per-use or BYO key</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowApiCosts">AI API costs</td>
+              <td class="px-6 py-4 text-center font-semibold text-green-400" data-i18n="rowApiCostsLocal">$0 (self-hosted Ollama)</td>
+              <td class="px-6 py-4 text-center text-slate-300" data-i18n="rowApiCostsCloud">Pay-per-use or BYO key</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Data location</td>
-              <td class="px-6 py-4 text-center font-semibold text-green-400">Your hardware, your network</td>
-              <td class="px-6 py-4 text-center text-slate-300">Secure cloud servers</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowDataLocation">Data location</td>
+              <td class="px-6 py-4 text-center font-semibold text-green-400" data-i18n="rowDataLocationLocal">Your hardware, your network</td>
+              <td class="px-6 py-4 text-center text-slate-300" data-i18n="rowDataLocationCloud">Secure cloud servers</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Maintenance</td>
-              <td class="px-6 py-4 text-center text-slate-300">Self-managed (support available)</td>
-              <td class="px-6 py-4 text-center font-semibold text-emerald-400">Fully managed</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowMaintenance">Maintenance</td>
+              <td class="px-6 py-4 text-center text-slate-300" data-i18n="rowMaintenanceLocal">Self-managed (support available)</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-400" data-i18n="rowMaintenanceCloud">Fully managed</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Uptime</td>
-              <td class="px-6 py-4 text-center text-slate-300">Depends on your hardware</td>
-              <td class="px-6 py-4 text-center font-semibold text-emerald-400">100% SLA</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowUptime">Uptime</td>
+              <td class="px-6 py-4 text-center text-slate-300" data-i18n="rowUptimeLocal">Depends on your hardware</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-400" data-i18n="rowUptimeCloud">100% SLA</td>
             </tr>
             <tr class="table-row">
-              <td class="px-6 py-4 text-slate-400 font-medium">Scaling</td>
-              <td class="px-6 py-4 text-center text-slate-300">Add hardware as needed</td>
-              <td class="px-6 py-4 text-center font-semibold text-emerald-400">Instant upgrade</td>
+              <td class="px-6 py-4 text-slate-400 font-medium" data-i18n="rowScaling">Scaling</td>
+              <td class="px-6 py-4 text-center text-slate-300" data-i18n="rowScalingLocal">Add hardware as needed</td>
+              <td class="px-6 py-4 text-center font-semibold text-emerald-400" data-i18n="rowScalingCloud">Instant upgrade</td>
             </tr>
           </tbody>
         </table>
@@ -458,8 +462,8 @@
 <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-y border-emerald-900/30/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up text-center mb-14">
-      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4">Pricing</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">Simple, Transparent Cost</h2>
+      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4" data-i18n="pricingBadge">Pricing</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight" data-i18n="pricingH2">Simple, Transparent Cost</h2>
     </div>
 
     <div class="fade-up max-w-lg mx-auto">
@@ -468,9 +472,9 @@
         <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/0 via-emerald-500 to-emerald-500/0"></div>
 
         <div class="text-center mb-8">
-          <p class="text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-3">One-Time Setup</p>
-          <h3 class="text-3xl font-bold text-slate-100 mb-2">Custom Quote</h3>
-          <p class="text-slate-400 text-sm">Based on your hardware and requirements</p>
+          <p class="text-xs font-semibold uppercase tracking-widest text-emerald-400 mb-3" data-i18n="pricingOneTime">One-Time Setup</p>
+          <h3 class="text-3xl font-bold text-slate-100 mb-2" data-i18n="pricingCustomQuote">Custom Quote</h3>
+          <p class="text-slate-400 text-sm" data-i18n="pricingQuoteDesc">Based on your hardware and requirements</p>
         </div>
 
         <ul class="space-y-3.5 mb-8">
@@ -478,45 +482,45 @@
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">Hardware consultation and recommendation</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem1">Hardware consultation and recommendation</span>
           </li>
           <li class="flex items-center gap-3">
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">Full Nemoclaw deployment with all 300+ skills</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem2">Full Nemoclaw deployment with all 300+ skills</span>
           </li>
           <li class="flex items-center gap-3">
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">Security hardening (Docker, firewall, encryption)</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem3">Security hardening (Docker, firewall, encryption)</span>
           </li>
           <li class="flex items-center gap-3">
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">Live training session with your team</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem4">Live training session with your team</span>
           </li>
           <li class="flex items-center gap-3">
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">Complete setup documentation</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem5">Complete setup documentation</span>
           </li>
           <li class="flex items-center gap-3">
             <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500/15 shrink-0">
               <svg class="text-green-500" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </span>
-            <span class="text-slate-300 text-sm">30 days post-setup support included</span>
+            <span class="text-slate-300 text-sm" data-i18n="pricingItem6">30 days post-setup support included</span>
           </li>
         </ul>
 
-        <button id="pricingBookBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm">
+        <button id="pricingBookBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm" data-i18n="pricingBtn">
           Text Us for Quote
         </button>
 
-        <p class="text-center text-xs text-slate-600 mt-4">No commitment. Free 30-minute consultation.</p>
+        <p class="text-center text-xs text-slate-600 mt-4" data-i18n="pricingNoCommit">No commitment. Free 30-minute consultation.</p>
       </div>
     </div>
   </div>
@@ -527,68 +531,68 @@
 <section id="faq" class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up text-center mb-14">
-      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4">FAQ</div>
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">Common Questions</h2>
+      <div class="inline-flex text-xs font-semibold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full mb-4" data-i18n="faqBadge">FAQ</div>
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight" data-i18n="faqH2">Common Questions</h2>
     </div>
 
     <div class="fade-up max-w-3xl mx-auto space-y-3">
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          What hardware do I need?
+          <span data-i18n="faq1Q">What hardware do I need?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq1A">
           Mac Mini M2/M4 with 64GB RAM is our top recommendation — it's quiet, energy-efficient, and powerful enough for most workloads. We can also work with Linux servers or hardware you already own. We'll assess your use case and recommend accordingly.
         </div>
       </details>
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          How does self-hosted AI work?
+          <span data-i18n="faq2Q">How does self-hosted AI work?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq2A">
           We install <span class="text-slate-300 font-medium">Ollama</span> with models like Qwen, Llama, and Mistral that run entirely on your hardware. No API keys, no usage bills, no data leaving your machine. The models download once and run locally from that point forward.
         </div>
       </details>
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          What if something breaks?
+          <span data-i18n="faq3Q">What if something breaks?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq3A">
           Every installation includes 30 days of post-setup support — email and async help to get any issues resolved. For ongoing peace of mind, optional monthly support plans are available so you always have someone to call.
         </div>
       </details>
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          Can I add cloud AI later?
+          <span data-i18n="faq4Q">Can I add cloud AI later?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq4A">
           Yes. Nemoclaw supports <span class="text-slate-300 font-medium">hybrid mode</span> — use local models for the bulk of tasks (free) and route complex reasoning to cloud AI like Claude or GPT when needed. You control the routing rules.
         </div>
       </details>
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          How long does setup take?
+          <span data-i18n="faq5Q">How long does setup take?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq5A">
           Typically 2&ndash;4 hours for the remote installation session, including Ollama setup, model downloads, skills configuration, and integration testing. After the session your agent is live and ready to use.
         </div>
       </details>
 
       <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
         <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold text-sm select-none">
-          Is it really $0/month?
+          <span data-i18n="faq6Q">Is it really $0/month?</span>
           <svg class="accordion-icon text-slate-500 shrink-0" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
-        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0">
+        <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30/60 pt-4 mt-0" data-i18n="faq6A">
           Yes. After the one-time setup fee, there are zero recurring charges from us. Your AI runs on your hardware using Ollama's open-source models. You pay your own electricity bill and, optionally, a support plan — nothing else.
         </div>
       </details>
@@ -602,17 +606,17 @@
 <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-t border-emerald-900/30/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="fade-up max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight mb-5">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight mb-5" data-i18n="ctaH2">
         Ready to Own Your AI Agent?
       </h2>
-      <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+      <p class="text-slate-400 text-lg mb-10 leading-relaxed" data-i18n="ctaSubtitle">
         Book a free consultation. We'll recommend the right hardware and setup for your needs.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button id="finalBookBtn" class="bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm w-full sm:w-auto">
+        <button id="finalBookBtn" class="bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm w-full sm:w-auto" data-i18n="navCta">
           Text Us
         </button>
-        <a href="cloud.html" class="border border-emerald-500/40 text-slate-100 font-semibold px-8 py-3.5 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer text-sm w-full sm:w-auto text-center no-underline">
+        <a href="cloud.html" class="border border-emerald-500/40 text-slate-100 font-semibold px-8 py-3.5 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer text-sm w-full sm:w-auto text-center no-underline" data-i18n="ctaCompare">
           Compare with Cloud
         </a>
       </div>
@@ -631,43 +635,43 @@
           <img src="logo-crab.png" alt="Nemoclaw" class="h-9 w-9">
           <span class="font-semibold text-slate-100 text-base tracking-tight">The AI 101</span>
         </div>
-        <p class="text-slate-500 text-sm leading-relaxed max-w-xs">AI agent setup as a service. Cloud or local hosting. White-glove deployment.</p>
+        <p class="text-slate-500 text-sm leading-relaxed max-w-xs" data-i18n="footerTagline">AI agent setup as a service. Cloud or local hosting. White-glove deployment.</p>
       </div>
 
       <!-- Pages -->
       <div>
-        <h4 class="text-slate-300 font-semibold text-sm mb-4">Pages</h4>
+        <h4 class="text-slate-300 font-semibold text-sm mb-4" data-i18n="footerPages">Pages</h4>
         <ul class="space-y-2.5 list-none p-0 m-0">
-          <li><a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline">Home</a></li>
-          <li><a href="cloud.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline">Cloud</a></li>
-          <li><a href="local.html" class="text-slate-300 text-sm no-underline">Local</a></li>
+          <li><a href="index.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline" data-i18n="footerHome">Home</a></li>
+          <li><a href="cloud.html" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline" data-i18n="navCloud">Cloud</a></li>
+          <li><a href="local.html" class="text-slate-300 text-sm no-underline" data-i18n="navLocal">Local</a></li>
         </ul>
       </div>
 
       <!-- Resources -->
       <div>
-        <h4 class="text-slate-300 font-semibold text-sm mb-4">Resources</h4>
+        <h4 class="text-slate-300 font-semibold text-sm mb-4" data-i18n="footerResources">Resources</h4>
         <ul class="space-y-2.5 list-none p-0 m-0">
-          <li><a href="index.html#features" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline">Features</a></li>
-          <li><a href="#faq" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline">FAQ</a></li>
-          <li><a href="index.html#deploy" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline">Deploy Options</a></li>
+          <li><a href="index.html#features" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline" data-i18n="navFeatures">Features</a></li>
+          <li><a href="#faq" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline" data-i18n="faqBadge">FAQ</a></li>
+          <li><a href="index.html#deploy" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline" data-i18n="footerDeploy">Deploy Options</a></li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h4 class="text-slate-300 font-semibold text-sm mb-4">Contact</h4>
+        <h4 class="text-slate-300 font-semibold text-sm mb-4" data-i18n="footerContact">Contact</h4>
         <ul class="space-y-2.5 list-none p-0 m-0">
           <li>
             <a id="footerEmail" href="#" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline flex items-center gap-2">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email Us
+              <span data-i18n="footerEmail">Email Us</span>
             </a>
           </li>
           <li>
             <a id="footerBooking" href="#" class="text-slate-500 hover:text-slate-300 text-sm transition-colors duration-200 no-underline flex items-center gap-2">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Text Us
+              <span data-i18n="navCta">Text Us</span>
             </a>
           </li>
         </ul>
@@ -676,8 +680,8 @@
 
     <!-- Bottom bar -->
     <div class="border-t border-emerald-900/30/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-slate-600 text-sm">&#169; 2026 The AI 101. All rights reserved.</p>
-      <p class="text-slate-700 text-xs">Powered by Nemoclaw</p>
+      <p class="text-slate-600 text-sm" data-i18n="footerCopyright">&#169; 2026 The AI 101. All rights reserved.</p>
+      <p class="text-slate-700 text-xs" data-i18n="footerPowered">Powered by Nemoclaw</p>
     </div>
   </div>
 </footer>
@@ -749,6 +753,161 @@
       }
     });
   }, 50);
+
+  // ── i18n ──────────────────────────────────────────────────────────────
+  var translations = {
+    navFeatures:          'Funciones',
+    navCloud:             'Nube',
+    navLocal:             'Local',
+    navCta:               'Envíanos un Mensaje',
+    mobileLangToggle:     'Switch to English',
+
+    heroBadge:            'Opción Autoalojada',
+    heroH1:               'Ejecuta Tu Agente de IA<br class="hidden sm:block"> en Tu Propio Hardware',
+    heroSubtitle:         'Control total, sin cuotas mensuales. Tuyo para siempre. Nosotros hacemos toda la configuración&nbsp;&mdash;&nbsp;tú solo lo usas.',
+    trustLockIn:          'Sin Dependencia del Proveedor',
+    trustDataLocal:       'Tus Datos Permanecen Locales',
+    trustOneTime:         'Configuración Única',
+
+    includedBadge:        'Qué Incluye',
+    includedH2:           'Todo Lo Que Necesitas, Listo para Usar',
+
+    feat1Title:           'Despliegue Completo del Agente Nemoclaw',
+    feat1Desc:            'Más de 300 habilidades activas y configuradas para tus flujos de trabajo',
+    feat2Title:           'Mac Mini con 64GB RAM, 1TB SSD (o Tu Propio Hardware)',
+    feat2Desc:            'Consultoría de hardware incluida — recomendamos las especificaciones correctas',
+    feat3Title:           'IA Autoalojada con Ollama — $0/mes en Costos de API',
+    feat3Desc:            'Qwen, Llama, Mistral se ejecutan completamente en tu máquina',
+    feat4Title:           'Acceso al Panel de Control para Monitoreo y Control',
+    feat4Desc:            'Estado del agente en tiempo real, historial de tareas y métricas de uso',
+    feat5Title:           'Documentación Completa de Configuración y Entrenamiento',
+    feat5Desc:            'Guías paso a paso más una sesión de demostración en vivo',
+    feat6Title:           'Endurecimiento de Seguridad',
+    feat6Desc:            'Sandbox Docker, credenciales cifradas y configuración de firewall',
+    feat7Title:           'Actualizaciones de Software de por Vida Incluidas',
+    feat7Desc:            'Cada nueva habilidad y mejora, entregada automáticamente',
+
+    statMonthlyCost:      'Costo mensual',
+    statActiveSkills:     'Habilidades activas',
+    statYoursToOwn:       'Es tuyo',
+
+    howBadge:             'Cómo Funciona',
+    howH2:                'Tres Pasos para Tu Agente Local',
+    howSubtitle:          'Desde la selección de hardware hasta un agente en funcionamiento — nosotros nos encargamos de cada detalle.',
+    step1Title:           'Elige Tu Hardware',
+    step1Desc:            'Mac Mini, servidor Linux o tu hardware existente. Recomendamos especificaciones según tu carga de trabajo y presupuesto. Sin compras excesivas.',
+    step2Title:           'Nosotros Lo Configuramos',
+    step2Desc:            'Sesión de instalación remota de guante blanco. Desplegamos Nemoclaw, configuramos tus habilidades, conectamos tus integraciones y reforzamos la seguridad. Tú miras o te vas.',
+    step3Title:           'Es Tuyo',
+    step3Desc:            'Sin cuotas recurrentes. Tu agente se ejecuta en tu hardware, tu red, tus reglas. Planes de soporte opcionales disponibles cuando necesites ayuda adicional.',
+
+    compBadge:            'Comparación',
+    compH2:               'Local vs Nube',
+    compSubtitle:         'Ambas opciones ejecutan el mismo agente Nemoclaw. La diferencia está en dónde vive.',
+    tableFeature:         'Característica',
+
+    rowMonthlyCost:       'Costo mensual',
+    rowMonthlyCostLocal:  '$0 después de la configuración',
+    rowMonthlyCostCloud:  'Desde $249.99/mes',
+    rowSetup:             'Configuración',
+    rowSetupLocal:        'Instalación remota de guante blanco',
+    rowSetupCloud:        'Desplegamos en la nube',
+    rowApiCosts:          'Costos de API de IA',
+    rowApiCostsLocal:     '$0 (Ollama autoalojado)',
+    rowApiCostsCloud:     'Pago por uso o clave propia',
+    rowDataLocation:      'Ubicación de datos',
+    rowDataLocationLocal: 'Tu hardware, tu red',
+    rowDataLocationCloud: 'Servidores en la nube seguros',
+    rowMaintenance:       'Mantenimiento',
+    rowMaintenanceLocal:  'Autogestionado (soporte disponible)',
+    rowMaintenanceCloud:  'Totalmente gestionado',
+    rowUptime:            'Disponibilidad',
+    rowUptimeLocal:       'Depende de tu hardware',
+    rowUptimeCloud:       'SLA del 100%',
+    rowScaling:           'Escalabilidad',
+    rowScalingLocal:      'Añade hardware según sea necesario',
+    rowScalingCloud:      'Actualización instantánea',
+
+    pricingBadge:         'Precios',
+    pricingH2:            'Costo Simple y Transparente',
+    pricingOneTime:       'Configuración Única',
+    pricingCustomQuote:   'Cotización Personalizada',
+    pricingQuoteDesc:     'Basado en tu hardware y requisitos',
+    pricingItem1:         'Consultoría y recomendación de hardware',
+    pricingItem2:         'Despliegue completo de Nemoclaw con más de 300 habilidades',
+    pricingItem3:         'Endurecimiento de seguridad (Docker, firewall, cifrado)',
+    pricingItem4:         'Sesión de entrenamiento en vivo con tu equipo',
+    pricingItem5:         'Documentación completa de configuración',
+    pricingItem6:         '30 días de soporte post-configuración incluidos',
+    pricingBtn:           'Envíanos un Mensaje para Cotizar',
+    pricingNoCommit:      'Sin compromiso. Consulta gratuita de 30 minutos.',
+
+    faqBadge:             'Preguntas Frecuentes',
+    faqH2:                'Preguntas Comunes',
+    faq1Q:                '¿Qué hardware necesito?',
+    faq1A:                'El Mac Mini M2/M4 con 64GB RAM es nuestra mejor recomendación — es silencioso, eficiente energéticamente y suficientemente potente para la mayoría de cargas de trabajo. También podemos trabajar con servidores Linux o hardware que ya tengas. Evaluaremos tu caso de uso y recomendaremos en consecuencia.',
+    faq2Q:                '¿Cómo funciona la IA autoalojada?',
+    faq2A:                'Instalamos <span class="text-slate-300 font-medium">Ollama</span> con modelos como Qwen, Llama y Mistral que se ejecutan completamente en tu hardware. Sin claves de API, sin facturas de uso, sin datos saliendo de tu máquina. Los modelos se descargan una vez y se ejecutan localmente a partir de ese momento.',
+    faq3Q:                '¿Qué pasa si algo se rompe?',
+    faq3A:                'Cada instalación incluye 30 días de soporte post-configuración — ayuda por correo electrónico y asíncrona para resolver cualquier problema. Para mayor tranquilidad, hay planes de soporte mensuales opcionales disponibles para que siempre tengas a alguien a quien llamar.',
+    faq4Q:                '¿Puedo agregar IA en la nube más tarde?',
+    faq4A:                'Sí. Nemoclaw admite el <span class="text-slate-300 font-medium">modo híbrido</span> — usa modelos locales para la mayor parte de las tareas (gratis) y enruta el razonamiento complejo a IA en la nube como Claude o GPT cuando sea necesario. Tú controlas las reglas de enrutamiento.',
+    faq5Q:                '¿Cuánto tiempo tarda la configuración?',
+    faq5A:                'Normalmente de 2 a 4 horas para la sesión de instalación remota, incluyendo la configuración de Ollama, las descargas de modelos, la configuración de habilidades y las pruebas de integración. Después de la sesión, tu agente está activo y listo para usar.',
+    faq6Q:                '¿Es realmente $0/mes?',
+    faq6A:                'Sí. Después del pago único de configuración, no hay cargos recurrentes de nuestra parte. Tu IA se ejecuta en tu hardware usando los modelos de código abierto de Ollama. Pagas tu propia factura de electricidad y, opcionalmente, un plan de soporte — nada más.',
+
+    ctaH2:                '¿Listo para Tener Tu Propio Agente de IA?',
+    ctaSubtitle:          'Reserva una consulta gratuita. Recomendaremos el hardware y la configuración adecuados para tus necesidades.',
+    ctaCompare:           'Comparar con la Nube',
+
+    footerTagline:        'Configuración de agente de IA como servicio. Hosting en la nube o local. Despliegue de guante blanco.',
+    footerPages:          'Páginas',
+    footerHome:           'Inicio',
+    footerResources:      'Recursos',
+    footerDeploy:         'Opciones de Despliegue',
+    footerContact:        'Contacto',
+    footerEmail:          'Escríbenos',
+    footerCopyright:      '&#169; 2026 The AI 101. Todos los derechos reservados.',
+    footerPowered:        'Impulsado por Nemoclaw'
+  };
+
+  var currentLang = localStorage.getItem('ai101-lang') || 'en';
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('ai101-lang', lang);
+    document.documentElement.lang = lang;
+    var toggleBtn = document.getElementById('lang-toggle');
+    var toggleBtnMobile = document.getElementById('lang-toggle-mobile');
+    if (lang === 'es') {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (translations[key]) {
+          if (!el.getAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+          el.innerHTML = translations[key];
+        }
+      });
+      if (toggleBtn) toggleBtn.textContent = 'EN';
+      if (toggleBtnMobile) toggleBtnMobile.textContent = 'Switch to English';
+    } else {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var original = el.getAttribute('data-en');
+        if (original) el.innerHTML = original;
+      });
+      if (toggleBtn) toggleBtn.textContent = 'ES';
+      if (toggleBtnMobile) toggleBtnMobile.textContent = 'Cambiar a Español';
+    }
+  }
+
+  function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+
+  document.getElementById('lang-toggle').addEventListener('click', toggleLanguage);
+  if (document.getElementById('lang-toggle-mobile')) {
+    document.getElementById('lang-toggle-mobile').addEventListener('click', toggleLanguage);
+  }
+
+  if (currentLang === 'es') setLanguage('es');
 </script>
 
 </body>
