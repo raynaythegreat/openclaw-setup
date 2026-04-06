@@ -89,6 +89,9 @@
 
     /* All content above background */
     #bg-layer ~ * { position: relative; z-index: 1; }
+    #bg-layer ~ header { z-index: 60; }
+    #bg-layer ~ #mobile-overlay { z-index: 99; }
+    #bg-layer ~ #mobile-drawer { z-index: 100; }
 
     /* ── Fade-in scroll animation ── */
     .fade-in {

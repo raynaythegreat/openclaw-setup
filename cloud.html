@@ -98,6 +98,9 @@
             100% { background-position: 10%; }
         }
         #bg-layer ~ * { position: relative; z-index: 1; }
+        #bg-layer ~ nav { z-index: 60; }
+        #bg-layer ~ #mobileOverlay { z-index: 998; }
+        #bg-layer ~ #mobileDrawer, #bg-layer ~ .mobile-drawer { z-index: 999; }
         @media (prefers-reduced-motion: reduce) { #bg-layer, #bg-layer::after { animation: none; } }
 
         /* Scroll-fade utility */

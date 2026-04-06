@@ -54,6 +54,8 @@
       100% { background-position: 10%; }
     }
     #bg-layer ~ * { position: relative; z-index: 1; }
+    #bg-layer ~ nav { z-index: 60; }
+    #bg-layer ~ #mobileDrawer { z-index: 100; }
     @media (prefers-reduced-motion: reduce) { #bg-layer, #bg-layer::after { animation: none; } }
 
     /* Fade-in animation */
