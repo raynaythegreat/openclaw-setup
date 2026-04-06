@@ -37,7 +37,7 @@
                         sans: ['DM Sans', 'sans-serif'],
                     },
                     colors: {
-                        page: '#0B1120',
+                        page: '#111',
                     },
                     keyframes: {
                         fadeInUp: {
@@ -49,8 +49,8 @@
                             '100%': { opacity: '1' },
                         },
                         pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(14,165,233,0.25)' },
-                            '50%': { boxShadow: '0 0 40px rgba(14,165,233,0.45)' },
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(16,185,129,0.25)' },
+                            '50%': { boxShadow: '0 0 40px rgba(16,185,129,0.45)' },
                         },
                     },
                     animation: {
@@ -66,7 +66,38 @@
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: 'DM Sans', sans-serif; background-color: #0B1120; color: #f1f5f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'DM Sans', sans-serif; background-color: #111; color: #f1f5f9; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* Animated pixel background */
+        #bg-layer {
+            position: fixed; inset: 0; z-index: 0;
+            background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22ht%74p%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2284px%22%20height%3D%2254px%22%20viewBox%3D%22-10%20-10%2064%2034%22%3E%3Crect%20x%3D%2210%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2226%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2226%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"),
+                conic-gradient(#111 0.25turn, #333 0.25turn 0.5turn, #111 0.5turn 0.75turn, #111 0.75turn);
+            background-color: #111;
+            background-size: auto, 4px 4px;
+            background-repeat: repeat;
+            animation: move404 4s linear infinite;
+        }
+        #bg-layer::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(-62.5deg, lime, green, green, green, green, lime, green, green, green, green, lime);
+            mix-blend-mode: multiply;
+            background-size: 400%;
+            background-position: 10%;
+            animation: move-light 5s infinite;
+        }
+        @keyframes move404 {
+            from { background-position: 0 0, 0; }
+            to { background-position: calc(84px * 4) calc(54px * 2), 0; }
+        }
+        @keyframes move-light {
+            0% { background-position: 10%; }
+            50% { background-position: 90%; }
+            100% { background-position: 90%; }
+        }
+        #bg-layer ~ * { position: relative; z-index: 1; }
 
         /* Scroll-fade utility */
         .reveal {
@@ -94,10 +125,13 @@
         .mobile-drawer.active { transform: translateX(0); }
     </style>
 </head>
-<body class="bg-[#0B1120]">
+<body class="bg-[#111]">
+
+<!-- Animated pixel background layer -->
+<div id="bg-layer" aria-hidden="true"></div>
 
 <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
-<nav class="fixed top-4 left-4 right-4 z-50 bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl px-6 py-3">
+<nav class="fixed top-4 left-4 right-4 z-50 bg-[#0a1a0a]/90 backdrop-blur-xl border border-emerald-900/30 rounded-2xl px-6 py-3">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
 
         <!-- Brand -->
@@ -109,17 +143,17 @@
         <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8">
             <a href="index.html#features" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Features</a>
-            <a href="cloud.html" class="text-slate-100 text-sm font-semibold border-b border-sky-500 pb-0.5">Cloud</a>
+            <a href="cloud.html" class="text-slate-100 text-sm font-semibold border-b border-emerald-500 pb-0.5">Cloud</a>
             <a href="local.html" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200">Local</a>
         </div>
 
         <!-- CTA + Hamburger -->
         <div class="flex items-center gap-3">
-            <a href="mailto:theai101shop@gmail.com" class="hidden md:inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25">
+            <a href="mailto:theai101shop@gmail.com" class="hidden md:inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
                 Book a Call
             </a>
-            <button id="mobileMenuBtn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-700 text-slate-400 hover:text-slate-100 hover:border-slate-600 transition-colors" aria-label="Toggle menu">
+            <button id="mobileMenuBtn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-emerald-800/40 text-slate-400 hover:text-slate-100 hover:border-slate-600 transition-colors" aria-label="Toggle menu">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
         </div>
@@ -130,8 +164,8 @@
 <div id="mobileOverlay" class="mobile-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-[998]" onclick="closeMobileMenu()"></div>
 
 <!-- Mobile Drawer -->
-<div id="mobileDrawer" class="mobile-drawer fixed top-0 right-0 w-72 h-full bg-slate-900 border-l border-slate-800 z-[999] px-6 py-6 overflow-y-auto">
-    <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800">
+<div id="mobileDrawer" class="mobile-drawer fixed top-0 right-0 w-72 h-full bg-slate-900 border-l border-emerald-900/30 z-[999] px-6 py-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-emerald-900/30">
         <div class="flex items-center gap-2">
             <img src="logo-crab.png" alt="Nemoclaw" class="h-8 w-8">
             <span class="text-slate-100 font-semibold">The AI 101</span>
@@ -141,12 +175,12 @@
         </button>
     </div>
     <nav class="flex flex-col gap-1">
-        <a href="index.html#features" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
-        <a href="cloud.html" onclick="closeMobileMenu()" class="px-3 py-3 text-sky-400 bg-sky-500/10 rounded-lg text-sm font-semibold">Cloud</a>
-        <a href="local.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-lg text-sm font-medium transition-all duration-200">Local</a>
+        <a href="index.html#features" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200">Features</a>
+        <a href="cloud.html" onclick="closeMobileMenu()" class="px-3 py-3 text-emerald-400 bg-emerald-500/10 rounded-lg text-sm font-semibold">Cloud</a>
+        <a href="local.html" onclick="closeMobileMenu()" class="px-3 py-3 text-slate-400 hover:text-slate-100 hover:bg-emerald-900/30 rounded-lg text-sm font-medium transition-all duration-200">Local</a>
     </nav>
-    <div class="mt-6 pt-6 border-t border-slate-800">
-        <a href="mailto:theai101shop@gmail.com" class="flex items-center justify-center gap-2 w-full bg-sky-500 hover:bg-sky-400 text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200">
+    <div class="mt-6 pt-6 border-t border-emerald-900/30">
+        <a href="mailto:theai101shop@gmail.com" class="flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-3 rounded-lg text-sm transition-all duration-200">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
             Book a Call
         </a>
@@ -157,13 +191,13 @@
 <section class="relative pt-32 pb-20 md:pt-44 md:pb-24 overflow-hidden">
     <!-- Radial glow backdrop -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.13)_0%,transparent_70%)]"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.13)_0%,transparent_70%)]"></div>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <img src="logo-crab.png" alt="Nemoclaw" class="w-20 h-20 mx-auto mb-6 animate-fadeIn" style="animation-delay:0.1s">
 
-        <div class="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-fadeIn" style="animation-delay:0.15s">
+        <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 animate-fadeIn" style="animation-delay:0.15s">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             Cloud Hosting
         </div>
@@ -193,7 +227,7 @@
 
         <!-- Powered by NVIDIA NemoClaw badge -->
         <div class="flex justify-center mt-8">
-          <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-slate-900/80 border border-slate-700 rounded-full px-5 py-2.5 text-sm font-medium text-slate-400 hover:border-[#76B900]/50 hover:text-slate-300 transition-all duration-200 no-underline group">
+          <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-[#0a1a0a]/90 border border-emerald-800/40 rounded-full px-5 py-2.5 text-sm font-medium text-slate-400 hover:border-[#76B900]/50 hover:text-slate-300 transition-all duration-200 no-underline group">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#76B900" aria-hidden="true"><path d="M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.478 0 6.298 2.858 6.298 6.386 0 .07 0 .14-.005.209l1.673 1.21a8.109 8.109 0 0 0 .022-.593c0-4.636-3.63-8.404-8.107-8.62V4.05L5.029 6.424l4.224 2.374h-.305zm0 6.432v1.585l-4.224-2.374 4.224-2.374v1.431a3.724 3.724 0 0 0 3.24-3.704c0-.076 0-.152-.007-.227l1.673 1.21c.01.118.015.237.015.358a5.397 5.397 0 0 1-4.921 5.095zm0-11.18V.914C3.988 1.358 0 5.632 0 10.83c0 .418.027.83.074 1.237l1.66 1.2a8.834 8.834 0 0 1-.075-1.204c0-4.14 2.892-7.606 6.765-8.497l.524-.316z"/></svg>
             Powered by NVIDIA NemoClaw
           </a>
@@ -207,21 +241,21 @@
 
         <!-- Section header -->
         <div class="text-center mb-12 reveal">
-            <p class="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3">Cloud Pricing</p>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">Cloud Pricing</p>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Choose Your Nemoclaw Plan</h2>
             <p class="text-slate-400 text-base max-w-xl mx-auto">Flexible pricing with monthly, yearly, and 2-year billing options. Save more with longer commitments.</p>
         </div>
 
         <!-- Billing Toggle -->
         <div class="flex items-center justify-center gap-2 mb-12 reveal reveal-delay-1">
-            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-sky-500 text-white" data-period="monthly">
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-emerald-500 text-white" data-period="monthly">
                 Monthly
             </button>
-            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-slate-700 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="yearly">
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-emerald-800/40 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="yearly">
                 Yearly
                 <span class="text-green-400 text-xs font-bold">Save 20%</span>
             </button>
-            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-slate-700 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="2year">
+            <button class="billing-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 border border-emerald-800/40 text-slate-400 hover:border-slate-500 flex items-center gap-2" data-period="2year">
                 2-Year
                 <span class="text-green-400 text-xs font-bold">Save 30%</span>
             </button>
@@ -231,9 +265,9 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal reveal-delay-2">
 
             <!-- ── Premium Card ── -->
-            <div class="relative bg-gray-900 border border-sky-500 rounded-xl p-8 shadow-lg shadow-sky-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
+            <div class="relative bg-[#0a1a0a] border border-emerald-500 rounded-xl p-8 shadow-lg shadow-emerald-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
                 <!-- Badge -->
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
                     Recommended
                 </div>
 
@@ -290,15 +324,15 @@
                     </li>
                 </ul>
 
-                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 cursor-pointer">
+                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer">
                     Book a Call
                 </a>
             </div>
 
             <!-- ── Pro Card ── -->
-            <div class="relative bg-gray-900 border border-sky-500 rounded-xl p-8 shadow-lg shadow-sky-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
+            <div class="relative bg-[#0a1a0a] border border-emerald-500 rounded-xl p-8 shadow-lg shadow-emerald-500/10 flex flex-col transition-all duration-300 hover:-translate-y-1">
                 <!-- Badge -->
-                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sky-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-emerald-500 to-purple-500 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">
                     Most Popular
                 </div>
 
@@ -359,13 +393,13 @@
                     </li>
                 </ul>
 
-                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 cursor-pointer">
+                <a href="mailto:theai101shop@gmail.com" class="block text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer">
                     Book a Call
                 </a>
             </div>
 
             <!-- ── Ultra Card ── -->
-            <div class="relative bg-gray-900 border border-slate-800 rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-slate-700">
+            <div class="relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 flex flex-col transition-all duration-300 hover:-translate-y-1 hover:border-emerald-800/40">
 
                 <div class="mb-6">
                     <h3 class="text-slate-100 text-xl font-bold mb-1">Ultra</h3>
@@ -424,7 +458,7 @@
                     </li>
                 </ul>
 
-                <a href="mailto:theai101shop@gmail.com" class="block text-center border border-sky-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-sky-500/10 hover:border-sky-500 transition-all duration-200 cursor-pointer">
+                <a href="mailto:theai101shop@gmail.com" class="block text-center border border-emerald-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 cursor-pointer">
                     Book a Call
                 </a>
             </div>
@@ -440,11 +474,11 @@
 </section>
 
 <!-- ═══════════════════════ WHAT'S INCLUDED ═══════════════════════ -->
-<section id="features" class="py-20 md:py-28 border-t border-slate-800/60">
+<section id="features" class="py-20 md:py-28 border-t border-emerald-900/30/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-14 reveal">
-            <p class="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3">Every Plan</p>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">Every Plan</p>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">What's Included With Every Plan</h2>
             <p class="text-slate-400 text-base max-w-xl mx-auto">No hidden extras. Core features are standard across all cloud tiers.</p>
         </div>
@@ -452,54 +486,54 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- Managed Monitoring -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-1 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-1 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">Managed Monitoring</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">24/7 uptime monitoring with automatic restart on failure. We watch so you don't have to.</p>
             </div>
 
             <!-- Auto-Updates -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-2 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-2 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">Auto-Updates</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">Agent software and integration updates applied automatically, keeping you on the latest stable release.</p>
             </div>
 
             <!-- Backup & Recovery -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-3 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-3 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">Backup &amp; Recovery</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">Daily automated backups with one-click restore. Your agent configuration is always protected.</p>
             </div>
 
             <!-- SSL & Security -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-1 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-1 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">SSL &amp; Security</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">End-to-end encryption, Docker sandboxing, firewall rules, and encrypted credential storage.</p>
             </div>
 
             <!-- Custom Domain -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-2 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-2 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">Custom Domain</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">Point your own domain to your agent dashboard. Full DNS configuration included in setup.</p>
             </div>
 
             <!-- Priority Support -->
-            <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 reveal reveal-delay-3 hover:border-slate-700 transition-colors duration-200">
-                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 reveal reveal-delay-3 hover:border-emerald-800/40 transition-colors duration-200">
+                <div class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 </div>
                 <h3 class="text-slate-100 font-semibold mb-2">Priority Support</h3>
                 <p class="text-slate-500 text-sm leading-relaxed">Direct access to our team for technical issues. Response time guaranteed within your plan SLA.</p>
@@ -510,84 +544,84 @@
 </section>
 
 <!-- ═══════════════════════ FAQ ═══════════════════════ -->
-<section id="faq" class="py-20 md:py-28 border-t border-slate-800/60">
+<section id="faq" class="py-20 md:py-28 border-t border-emerald-900/30/60">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-12 reveal">
-            <p class="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3">FAQ</p>
+            <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3">FAQ</p>
             <h2 class="text-3xl md:text-4xl font-bold text-slate-100">Frequently Asked Questions</h2>
         </div>
 
         <div class="flex flex-col gap-3 reveal reveal-delay-1">
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     What happens after I sign up?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     We book a discovery call to discuss your needs, preferred integrations, and any workflow automations you want. From there, we deploy your agent within 48 hours and walk you through the dashboard.
                 </div>
             </details>
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     Can I upgrade or downgrade later?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     Yes. You can switch tiers at any time. Upgrades take effect immediately; downgrades take effect at the start of the next billing cycle. All your agent configuration, workflows, and memory are preserved.
                 </div>
             </details>
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     What's the uptime guarantee?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     Every cloud plan includes a 100% uptime SLA backed by continuous monitoring and automatic restart on failure. In the unlikely event of extended downtime, we'll apply a credit to your account.
                 </div>
             </details>
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     Do I need my own API keys?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     You can bring your own API keys from OpenAI, Anthropic, Google, xAI, or any other provider. If you'd prefer a recommendation based on your use case and budget, we'll point you in the right direction during the onboarding call.
                 </div>
             </details>
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     What AI models are supported?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     GPT-4, Claude, Gemini, Grok, and self-hosted open-source options (Llama, Mistral, Qwen via Ollama). We configure the right model for each workflow during setup.
                 </div>
             </details>
 
-            <details class="bg-gray-900 border border-slate-800 rounded-xl group hover:border-slate-700 transition-colors duration-200">
+            <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl group hover:border-emerald-800/40 transition-colors duration-200">
                 <summary class="flex items-center justify-between px-6 py-5 text-slate-100 font-medium text-sm select-none">
                     Is my data secure?
                     <span class="faq-chevron ml-4 flex-shrink-0 text-slate-500">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </span>
                 </summary>
-                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+                <div class="px-6 pb-5 text-slate-400 text-sm leading-relaxed border-t border-emerald-900/30 pt-4">
                     All cloud deployments use Docker sandboxing for full process isolation, AES-256 encrypted credential storage, OAuth2 where available, and strict firewall rules. Each tenant runs on its own isolated instance — your data never co-mingles with other customers.
                 </div>
             </details>
@@ -597,19 +631,19 @@
 </section>
 
 <!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
-<section class="py-20 md:py-28 border-t border-slate-800/60">
+<section class="py-20 md:py-28 border-t border-emerald-900/30/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="relative bg-gray-900 border border-slate-800 rounded-2xl px-8 py-16 md:py-20 text-center overflow-hidden reveal">
+        <div class="relative bg-[#0a1a0a] border border-emerald-900/30 rounded-2xl px-8 py-16 md:py-20 text-center overflow-hidden reveal">
             <!-- Background glow -->
             <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(14,165,233,0.12)_0%,transparent_70%)]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.12)_0%,transparent_70%)]"></div>
             </div>
 
             <div class="relative">
-                <p class="text-sky-400 text-xs font-semibold uppercase tracking-widest mb-4">Get Started</p>
+                <p class="text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-4">Get Started</p>
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mb-4">Ready to Get Started?</h2>
                 <p class="text-slate-400 text-base max-w-md mx-auto mb-8">Book a free consultation. We'll recommend the right plan for your needs.</p>
-                <a href="mailto:theai101shop@gmail.com" class="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 cursor-pointer text-sm">
+                <a href="mailto:theai101shop@gmail.com" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 cursor-pointer text-sm">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
                     Book a Call
                 </a>
@@ -619,7 +653,7 @@
 </section>
 
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="border-t border-slate-800/60 py-12">
+<footer class="border-t border-emerald-900/30/60 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
 
@@ -653,14 +687,14 @@
         btn.addEventListener('click', function () {
             // Reset all buttons to inactive state
             document.querySelectorAll('.billing-btn').forEach(b => {
-                b.classList.remove('bg-sky-500', 'text-white');
-                b.classList.add('border', 'border-slate-700', 'text-slate-400');
-                b.classList.remove('border-sky-500');
+                b.classList.remove('bg-emerald-500', 'text-white');
+                b.classList.add('border', 'border-emerald-800/40', 'text-slate-400');
+                b.classList.remove('border-emerald-500');
             });
 
             // Mark active
-            this.classList.add('bg-sky-500', 'text-white');
-            this.classList.remove('border', 'border-slate-700', 'text-slate-400');
+            this.classList.add('bg-emerald-500', 'text-white');
+            this.classList.remove('border', 'border-emerald-800/40', 'text-slate-400');
 
             const period = this.dataset.period;
 

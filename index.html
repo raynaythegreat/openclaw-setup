@@ -40,11 +40,46 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background-color: #0B1120;
+      background-color: #111;
       color: #e2e8f0;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+
+    /* ── Animated pixel background ── */
+    #bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22ht%74p%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2284px%22%20height%3D%2254px%22%20viewBox%3D%22-10%20-10%2064%2034%22%3E%3Crect%20x%3D%2210%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2226%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%222%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%224%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%226%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%228%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2210%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2212%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%222%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%224%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2238%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2214%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2232%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2216%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2230%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2218%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%228%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2210%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2214%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2224%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2226%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2244%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2246%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3Crect%20x%3D%2250%22%20y%3D%2220%22%20width%3D%222%22%20height%3D%222%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E"),
+        conic-gradient(#111 0.25turn, #333 0.25turn 0.5turn, #111 0.5turn 0.75turn, #111 0.75turn);
+      background-color: #111;
+      background-size: auto, 4px 4px;
+      background-repeat: repeat;
+      animation: move404 4s linear infinite;
+    }
+    #bg-layer::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(-62.5deg, lime, green, green, green, green, lime, green, green, green, green, lime);
+      mix-blend-mode: multiply;
+      background-size: 400%;
+      background-position: 10%;
+      animation: move-light 5s infinite;
+    }
+    @keyframes move404 {
+      from { background-position: 0 0, 0; }
+      to { background-position: calc(84px * 4) calc(54px * 2), 0; }
+    }
+    @keyframes move-light {
+      0% { background-position: 10%; }
+      50% { background-position: 90%; }
+      100% { background-position: 90%; }
+    }
+
+    /* All content above background */
+    #bg-layer ~ * { position: relative; z-index: 1; }
 
     /* ── Fade-in scroll animation ── */
     .fade-in {
@@ -77,7 +112,7 @@
       left: 1rem;
       right: 1rem;
       z-index: 50;
-      background: rgba(15, 23, 42, 0.80);
+      background: rgba(10, 15, 10, 0.88);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(51, 65, 85, 0.7);
@@ -86,8 +121,8 @@
       transition: background 0.3s, box-shadow 0.3s;
     }
     #navbar.scrolled {
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+      background: rgba(10, 15, 10, 0.96);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
     }
 
     /* ── Details/summary FAQ chevron ── */
@@ -104,7 +139,7 @@
       transform: rotate(180deg);
     }
     details[open] summary {
-      color: #7dd3fc;
+      color: #6ee7b7;
     }
 
     /* ── Mobile slide drawer ── */
@@ -114,7 +149,7 @@
       right: -100%;
       width: min(300px, 85vw);
       height: 100vh;
-      background: #111827;
+      background: #0a0f0a;
       z-index: 100;
       transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 2rem 1.5rem;
@@ -141,7 +176,7 @@
 
     /* ── Gradient text ── */
     .gradient-heading {
-      background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+      background: linear-gradient(135deg, #e2ffe2 0%, #34d399 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -149,18 +184,18 @@
 
     /* ── Indigo glow on primary buttons ── */
     .btn-primary-glow:hover {
-      box-shadow: 0 8px 30px rgba(14, 165, 233, 0.35);
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.35);
     }
 
     /* ── Featured card scale ── */
     .featured-card {
-      border-color: #0ea5e9 !important;
-      box-shadow: 0 0 40px rgba(14, 165, 233, 0.15);
+      border-color: #10b981 !important;
+      box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
     }
 
     /* ── Possibility card icon hover ── */
     .cap-card:hover .cap-icon {
-      background: #0ea5e9;
+      background: #10b981;
     }
     .cap-card:hover .cap-icon svg {
       stroke: white;
@@ -168,7 +203,7 @@
 
     /* ── Step card icon hover ── */
     .step-card:hover .step-icon {
-      background: #0ea5e9;
+      background: #10b981;
     }
     .step-card:hover .step-icon svg {
       stroke: white;
@@ -176,7 +211,7 @@
 
     /* ── AI option card icon hover ── */
     .ai-card:hover .ai-icon {
-      background: #0ea5e9;
+      background: #10b981;
     }
     .ai-card:hover .ai-icon svg {
       stroke: white;
@@ -188,7 +223,7 @@
       display: inline-block;
       width: 6px;
       height: 6px;
-      background: #0ea5e9;
+      background: #10b981;
       border-radius: 50%;
       margin-right: 0.5rem;
       vertical-align: middle;
@@ -200,7 +235,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      background: linear-gradient(90deg, #10b981, #34d399);
       border-radius: 12px 12px 0 0;
       transform: scaleX(0);
       transition: transform 0.4s ease;
@@ -209,7 +244,7 @@
 
     /* ── Dot grid hero pattern ── */
     .dot-grid {
-      background-image: radial-gradient(rgba(14,165,233,0.15) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(16,185,129,0.15) 1px, transparent 1px);
       background-size: 28px 28px;
     }
 
@@ -230,7 +265,7 @@
       position: absolute;
       inset: -2px;
       border-radius: 14px;
-      background: conic-gradient(from var(--border-angle), #0ea5e9, #38bdf8, #a78bfa, #0ea5e9);
+      background: conic-gradient(from var(--border-angle), #10b981, #34d399, #a78bfa, #10b981);
       animation: borderSpin 4s linear infinite;
       z-index: -1;
     }
@@ -240,14 +275,14 @@
 
     /* ── Glassmorphism testimonial cards ── */
     .glass-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(10, 15, 10, 0.75);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(14, 165, 233, 0.15);
+      border: 1px solid rgba(0, 255, 0, 0.12);
     }
     .glass-card:hover {
-      background: rgba(15, 23, 42, 0.75);
-      border-color: rgba(14, 165, 233, 0.35);
+      background: rgba(10, 15, 10, 0.85);
+      border-color: rgba(0, 255, 0, 0.3);
     }
     .glass-card .quote-mark {
       position: absolute;
@@ -255,7 +290,7 @@
       right: 1.25rem;
       font-size: 3rem;
       line-height: 1;
-      color: rgba(14, 165, 233, 0.12);
+      color: rgba(16, 185, 129, 0.12);
       font-family: Georgia, serif;
       pointer-events: none;
     }
@@ -272,7 +307,7 @@
         left: calc(12.5% + 12px);
         right: calc(12.5% + 12px);
         height: 2px;
-        background: linear-gradient(90deg, rgba(14,165,233,0.5), rgba(56,189,248,0.3), rgba(14,165,233,0.5));
+        background: linear-gradient(90deg, rgba(16,185,129,0.5), rgba(52,211,153,0.3), rgba(16,185,129,0.5));
         z-index: 0;
         transform: translateY(-50%);
       }
@@ -281,7 +316,7 @@
     /* ── Glow line accent for CTA section ── */
     .glow-line {
       height: 2px;
-      background: linear-gradient(90deg, transparent, #0ea5e9, #38bdf8, #0ea5e9, transparent);
+      background: linear-gradient(90deg, transparent, #10b981, #34d399, #10b981, transparent);
       margin: 0 auto 3rem;
       max-width: 300px;
       border-radius: 2px;
@@ -299,14 +334,17 @@
 
     /* ── Step card number pulse on hover ── */
     .step-card:hover .step-number {
-      box-shadow: 0 0 20px rgba(14,165,233,0.5);
+      box-shadow: 0 0 20px rgba(16,185,129,0.5);
     }
   </style>
 </head>
 <body>
 
+<!-- Animated pixel background layer -->
+<div id="bg-layer" aria-hidden="true"></div>
+
 <!-- Skip to main content (accessibility) -->
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-sky-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-emerald-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">
   Skip to main content
 </a>
 
@@ -327,7 +365,7 @@
         <li><a href="#compare" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Cloud</a></li>
         <li><a href="#compare" class="text-slate-400 hover:text-slate-100 text-sm font-medium transition-colors duration-200 no-underline">Local</a></li>
         <li>
-          <a href="#contact" id="nav-cta" class="cursor-pointer bg-sky-500 hover:bg-sky-400 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline">
+          <a href="#contact" id="nav-cta" class="cursor-pointer bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-5 py-2 rounded-full text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline">
             Book a Call
           </a>
         </li>
@@ -364,13 +402,13 @@
   </div>
   <nav aria-label="Mobile navigation">
     <ul class="list-none m-0 p-0 flex flex-col gap-1" role="list">
-      <li><a href="#possibilities" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Features</a></li>
-      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Cloud</a></li>
-      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">Local</a></li>
-      <li><a href="#faq" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-slate-800 transition-colors no-underline">FAQ</a></li>
+      <li><a href="#possibilities" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-emerald-900/30 transition-colors no-underline">Features</a></li>
+      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-emerald-900/30 transition-colors no-underline">Cloud</a></li>
+      <li><a href="#compare" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-emerald-900/30 transition-colors no-underline">Local</a></li>
+      <li><a href="#faq" class="mobile-link block px-3 py-3 text-slate-200 font-semibold text-base rounded-lg hover:bg-emerald-900/30 transition-colors no-underline">FAQ</a></li>
     </ul>
     <div class="mt-6">
-      <a href="#contact" class="mobile-link block w-full text-center bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 no-underline cursor-pointer">
+      <a href="#contact" class="mobile-link block w-full text-center bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 no-underline cursor-pointer">
         Book a Call
       </a>
     </div>
@@ -387,11 +425,11 @@
     <!-- Static radial glow -->
     <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] pointer-events-none"
          aria-hidden="true"
-         style="background: radial-gradient(circle, rgba(14,165,233,0.15), transparent 70%);"></div>
+         style="background: radial-gradient(circle, rgba(16,185,129,0.15), transparent 70%);"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto">
       <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-sky-500/10 border border-sky-500/25 text-sky-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-7">
+      <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-7">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
           <polyline points="22 4 12 14.01 9 11.01"/>
@@ -411,13 +449,13 @@
 
       <!-- CTA buttons -->
       <div class="flex flex-wrap gap-4 justify-center mb-12">
-        <a href="#contact" id="hero-cta" class="cursor-pointer inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline btn-primary-glow motion-reduce:transition-none">
+        <a href="#contact" id="hero-cta" class="cursor-pointer inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline btn-primary-glow motion-reduce:transition-none">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
           Book a Call
         </a>
-        <a href="#compare" class="cursor-pointer inline-flex items-center gap-2 border border-sky-500/40 text-slate-100 font-semibold px-7 py-3.5 rounded-lg hover:bg-sky-500/10 hover:border-sky-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+        <a href="#compare" class="cursor-pointer inline-flex items-center gap-2 border border-emerald-500/40 text-slate-100 font-semibold px-7 py-3.5 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 no-underline motion-reduce:transition-none">
           See Options
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"/>
@@ -448,7 +486,7 @@
 
       <!-- Powered by NVIDIA NemoClaw badge -->
       <div class="flex justify-center mt-8">
-        <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-slate-900/80 border border-slate-700 rounded-full px-5 py-2.5 text-sm font-medium text-slate-400 hover:border-[#76B900]/50 hover:text-slate-300 transition-all duration-200 no-underline group">
+        <a href="https://www.nvidia.com/en-us/ai/nemoclaw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-[#0a1a0a]/90 border border-emerald-800/40 rounded-full px-5 py-2.5 text-sm font-medium text-slate-400 hover:border-[#76B900]/50 hover:text-slate-300 transition-all duration-200 no-underline group">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="#76B900" aria-hidden="true"><path d="M8.948 8.798v-1.43a6.7 6.7 0 0 1 .424-.018c3.478 0 6.298 2.858 6.298 6.386 0 .07 0 .14-.005.209l1.673 1.21a8.109 8.109 0 0 0 .022-.593c0-4.636-3.63-8.404-8.107-8.62V4.05L5.029 6.424l4.224 2.374h-.305zm0 6.432v1.585l-4.224-2.374 4.224-2.374v1.431a3.724 3.724 0 0 0 3.24-3.704c0-.076 0-.152-.007-.227l1.673 1.21c.01.118.015.237.015.358a5.397 5.397 0 0 1-4.921 5.095zm0-11.18V.914C3.988 1.358 0 5.632 0 10.83c0 .418.027.83.074 1.237l1.66 1.2a8.834 8.834 0 0 1-.075-1.204c0-4.14 2.892-7.606 6.765-8.497l.524-.316z"/></svg>
           Powered by NVIDIA NemoClaw
         </a>
@@ -457,10 +495,10 @@
   </section>
 
   <!-- ── STATS / WHAT WE DO ── -->
-  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800">
+  <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-y border-emerald-900/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">What We Do</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">What We Do</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">AI Agents That Actually Work</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
           We deploy autonomous AI agents that take action — not just chat. Email, calendar, social media, code, research, and more. Running 24/7 with complete privacy and security.
@@ -469,26 +507,26 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-grid fade-in">
         <!-- Stat 1 -->
-        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-sky-500/40 transition-all duration-300 overflow-hidden cursor-default">
-          <div class="stat-number text-4xl font-bold text-sky-400 mb-1">48h</div>
+        <div class="stat-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-emerald-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="stat-number text-4xl font-bold text-emerald-400 mb-1">48h</div>
           <div class="text-slate-100 font-semibold mb-1">Cloud Deploy</div>
           <div class="text-slate-500 text-sm">From purchase to live agent</div>
         </div>
         <!-- Stat 2 -->
-        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-sky-500/40 transition-all duration-300 overflow-hidden cursor-default">
-          <div class="stat-number text-4xl font-bold text-sky-400 mb-1">100%</div>
+        <div class="stat-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-emerald-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="stat-number text-4xl font-bold text-emerald-400 mb-1">100%</div>
           <div class="text-slate-100 font-semibold mb-1">Uptime SLA</div>
           <div class="text-slate-500 text-sm">With managed care plans</div>
         </div>
         <!-- Stat 3 -->
-        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-sky-500/40 transition-all duration-300 overflow-hidden cursor-default">
-          <div class="stat-number text-4xl font-bold text-sky-400 mb-1">$0</div>
+        <div class="stat-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-emerald-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="stat-number text-4xl font-bold text-emerald-400 mb-1">$0</div>
           <div class="text-slate-100 font-semibold mb-1">Local API Cost</div>
           <div class="text-slate-500 text-sm">Self-hosted AI forever</div>
         </div>
         <!-- Stat 4 -->
-        <div class="stat-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-sky-500/40 transition-all duration-300 overflow-hidden cursor-default">
-          <div class="stat-number text-4xl font-bold text-sky-400 mb-1">50+</div>
+        <div class="stat-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:-translate-y-1.5 hover:border-emerald-500/40 transition-all duration-300 overflow-hidden cursor-default">
+          <div class="stat-number text-4xl font-bold text-emerald-400 mb-1">50+</div>
           <div class="text-slate-100 font-semibold mb-1">Integrations</div>
           <div class="text-slate-500 text-sm">Email, calendar, social, code</div>
         </div>
@@ -500,7 +538,7 @@
   <section class="py-20 md:py-28" id="possibilities">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Capabilities</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Capabilities</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">What Your AI Agent Can Do</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Your agent handles the tasks that eat up your day — so you can focus on what matters.</p>
       </div>
@@ -508,9 +546,9 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger-grid fade-in">
 
         <!-- Email -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
@@ -520,9 +558,9 @@
         </div>
 
         <!-- Calendar -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
               <line x1="16" y1="2" x2="16" y2="6"/>
               <line x1="8" y1="2" x2="8" y2="6"/>
@@ -534,9 +572,9 @@
         </div>
 
         <!-- Social -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
             </svg>
           </div>
@@ -545,9 +583,9 @@
         </div>
 
         <!-- Code -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <polyline points="16 18 22 12 16 6"/>
               <polyline points="8 6 2 12 8 18"/>
             </svg>
@@ -557,9 +595,9 @@
         </div>
 
         <!-- Research -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default stagger-1">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default stagger-1">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <circle cx="11" cy="11" r="8"/>
               <line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
@@ -569,9 +607,9 @@
         </div>
 
         <!-- Document -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default stagger-2">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default stagger-2">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="16" y1="13" x2="8" y2="13"/>
@@ -583,9 +621,9 @@
         </div>
 
         <!-- Support -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default stagger-3">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default stagger-3">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
@@ -594,9 +632,9 @@
         </div>
 
         <!-- Business -->
-        <div class="cap-card bg-gray-900 border border-slate-800 rounded-xl p-6 hover:-translate-y-1 hover:border-sky-500/40 transition-all duration-300 cursor-default stagger-4">
-          <div class="cap-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="cap-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:-translate-y-1 hover:border-emerald-500/40 transition-all duration-300 cursor-default stagger-4">
+          <div class="cap-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <line x1="12" y1="1" x2="12" y2="23"/>
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
             </svg>
@@ -610,10 +648,10 @@
   </section>
 
   <!-- ── HOSTING OPTIONS ── -->
-  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800" id="compare">
+  <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-y border-emerald-900/30" id="compare">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Hosting Options</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Hosting Options</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Cloud or Local — You Choose</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Both options include full setup, security hardening, and training. Pick what fits your needs.</p>
       </div>
@@ -621,9 +659,9 @@
       <div class="grid md:grid-cols-2 gap-8 fade-in">
 
         <!-- Cloud Card -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
           <div class="mb-5">
-            <span class="inline-block bg-sky-500/15 text-sky-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">Cloud Hosting</span>
+            <span class="inline-block bg-emerald-500/15 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">Cloud Hosting</span>
             <h3 class="text-slate-100 text-2xl font-bold mb-2">Cloud Hosting</h3>
             <p class="text-slate-400 text-sm leading-relaxed">Start fast, scale on demand. We manage everything.</p>
           </div>
@@ -653,13 +691,13 @@
               Lower upfront investment
             </li>
           </ul>
-          <a href="#contact" class="cloud-cta cursor-pointer flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline motion-reduce:transition-none">
+          <a href="#contact" class="cloud-cta cursor-pointer flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline motion-reduce:transition-none">
             Book a Call for Quote
           </a>
         </div>
 
         <!-- Local Card -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
           <div class="mb-5">
             <span class="inline-block bg-slate-700/50 text-slate-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide mb-4">Self-Hosted (Local)</span>
             <h3 class="text-slate-100 text-2xl font-bold mb-2">Self-Hosted (Local)</h3>
@@ -691,7 +729,7 @@
               $0/month ongoing costs
             </li>
           </ul>
-          <a href="#contact" class="local-cta cursor-pointer flex items-center justify-center gap-2 border border-sky-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-sky-500/10 hover:border-sky-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+          <a href="#contact" class="local-cta cursor-pointer flex items-center justify-center gap-2 border border-emerald-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 no-underline motion-reduce:transition-none">
             Book a Call for Quote
           </a>
         </div>
@@ -704,7 +742,7 @@
   <section class="py-20 md:py-28" style="background: rgba(17,24,39,0.3);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">AI Options</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">AI Options</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Choose Your AI Backend</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Subscription-based cloud AI or self-hosted local models — both integrated seamlessly.</p>
       </div>
@@ -712,9 +750,9 @@
       <div class="grid md:grid-cols-2 gap-8 fade-in">
 
         <!-- Cloud AI -->
-        <div class="ai-card bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-          <div class="ai-icon bg-sky-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="ai-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="ai-icon bg-emerald-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
             </svg>
           </div>
@@ -742,15 +780,15 @@
               Instant access to new models
             </li>
           </ul>
-          <a href="#contact" class="cloud-ai-cta cursor-pointer flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline motion-reduce:transition-none">
+          <a href="#contact" class="cloud-ai-cta cursor-pointer flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline motion-reduce:transition-none">
             Book a Call
           </a>
         </div>
 
         <!-- Self-Hosted AI -->
-        <div class="ai-card bg-gray-900 border border-slate-800 rounded-xl p-8 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-          <div class="ai-icon bg-sky-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="ai-card bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-8 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="ai-icon bg-emerald-500/10 rounded-xl w-14 h-14 flex items-center justify-center mb-5 transition-colors duration-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <rect x="2" y="3" width="20" height="14" rx="2"/>
               <path d="M8 21h8"/>
               <path d="M12 17v4"/>
@@ -780,7 +818,7 @@
               Works offline
             </li>
           </ul>
-          <a href="#contact" class="local-ai-cta cursor-pointer flex items-center justify-center gap-2 border border-sky-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-sky-500/10 hover:border-sky-500 transition-all duration-200 no-underline motion-reduce:transition-none">
+          <a href="#contact" class="local-ai-cta cursor-pointer flex items-center justify-center gap-2 border border-emerald-500/40 text-slate-100 font-semibold px-6 py-3 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 no-underline motion-reduce:transition-none">
             Book a Call
           </a>
         </div>
@@ -790,10 +828,10 @@
   </section>
 
   <!-- ── HOW IT WORKS ── -->
-  <section class="py-20 md:py-28 bg-gray-900/50 border-y border-slate-800" id="process">
+  <section class="py-20 md:py-28 bg-[#0a1a0a]/50 border-y border-emerald-900/30" id="process">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">How It Works</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">How It Works</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">From Call to Live in 4 Steps</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">We handle everything. You approve, we execute.</p>
       </div>
@@ -801,10 +839,10 @@
       <div class="process-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-grid fade-in">
 
         <!-- Step 1 -->
-        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
-          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-sky-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-sky-500/30 transition-shadow duration-300">1</div>
-          <div class="step-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="step-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-shadow duration-300">1</div>
+          <div class="step-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
@@ -813,10 +851,10 @@
         </div>
 
         <!-- Step 2 -->
-        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
-          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-sky-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-sky-500/30 transition-shadow duration-300">2</div>
-          <div class="step-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="step-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-shadow duration-300">2</div>
+          <div class="step-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="3"/>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
@@ -826,10 +864,10 @@
         </div>
 
         <!-- Step 3 -->
-        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
-          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-sky-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-sky-500/30 transition-shadow duration-300">3</div>
-          <div class="step-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="step-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-shadow duration-300">3</div>
+          <div class="step-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               <polyline points="9 12 11 14 15 10"/>
             </svg>
@@ -839,10 +877,10 @@
         </div>
 
         <!-- Step 4 -->
-        <div class="step-card relative bg-gray-900 border border-slate-800 rounded-xl p-7 text-center hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
-          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-sky-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-sky-500/30 transition-shadow duration-300">4</div>
-          <div class="step-icon bg-sky-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" aria-hidden="true">
+        <div class="step-card relative bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-7 text-center hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300 pt-10">
+          <div class="step-number absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-emerald-500 text-white text-sm font-bold rounded-full flex items-center justify-center shadow-lg shadow-emerald-500/30 transition-shadow duration-300">4</div>
+          <div class="step-icon bg-emerald-500/10 rounded-xl w-12 h-12 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" aria-hidden="true">
               <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
               <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
               <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
@@ -861,7 +899,7 @@
   <section class="py-20 md:py-28" id="managed-care">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Ongoing Support</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Ongoing Support</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Keep It Running Smoothly</h2>
         <p class="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">Expert monitoring, updates, and priority support. Available for both cloud and local deployments.</p>
       </div>
@@ -870,54 +908,54 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 fade-in">
 
         <!-- Monitoring -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">24/7 Monitoring</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Heartbeat monitoring with automatic alerts. If your agent goes down, we know before you do — and auto-restart kicks in immediately.</p>
         </div>
 
         <!-- Updates & Maintenance -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">Updates &amp; Maintenance</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Agent software updates, integration patches, and security fixes applied automatically. Your agent stays current without you lifting a finger.</p>
         </div>
 
         <!-- Priority Support -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">Priority Support</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Direct access to our team for troubleshooting, configuration changes, and technical questions. Strategy calls available to optimize your setup.</p>
         </div>
 
         <!-- Backup & Recovery -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">Backup &amp; Recovery</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Regular backups of your agent configuration, skills, and data. One-click restore if anything goes wrong. Your setup is always safe.</p>
         </div>
 
         <!-- Monthly Reports -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">Monthly Reports</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Detailed usage reports showing what your agent accomplished, tasks completed, uptime stats, and recommendations for improvement.</p>
         </div>
 
         <!-- Security Hardening -->
-        <div class="bg-gray-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/40 hover:-translate-y-1 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center mb-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl p-6 hover:border-emerald-500/40 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           </div>
           <h3 class="text-slate-100 font-bold text-lg mb-2">Security Hardening</h3>
           <p class="text-slate-400 text-sm leading-relaxed">Ongoing security audits, Docker sandbox updates, credential rotation, firewall rule reviews, and CVE scanning to keep your agent protected.</p>
@@ -928,7 +966,7 @@
       <!-- CTA -->
       <div class="text-center fade-in">
         <p class="text-slate-400 text-sm mb-6 max-w-xl mx-auto">Every setup includes a 30-day support period. After that, ongoing support plans keep your agents monitored, updated, and running smoothly — for both cloud and local deployments.</p>
-        <a href="#contact" class="cursor-pointer inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline">
+        <a href="#contact" class="cursor-pointer inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline">
           Book a Call to Learn More
         </a>
       </div>
@@ -936,10 +974,10 @@
   </section>
 
   <!-- ── TESTIMONIALS ── -->
-  <section class="py-20 md:py-28 bg-gray-900/30 border-y border-slate-800" id="testimonials">
+  <section class="py-20 md:py-28 bg-[#0a1a0a]/30 border-y border-emerald-900/30" id="testimonials">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Testimonials</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">Testimonials</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">What Our Clients Say</h2>
       </div>
 
@@ -1010,14 +1048,14 @@
   <section class="py-20 md:py-28" id="faq">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-14 fade-in">
-        <p class="section-label text-sky-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">FAQ</p>
+        <p class="section-label text-emerald-400 text-xs font-semibold uppercase tracking-widest mb-3 inline-flex items-center">FAQ</p>
         <h2 class="gradient-heading text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
       </div>
 
       <div class="max-w-3xl mx-auto space-y-3 fade-in">
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             What is an AI agent?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1028,8 +1066,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             How long does setup take?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1040,8 +1078,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             Cloud or local — which should I choose?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1052,8 +1090,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             What AI models can I use?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1064,8 +1102,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             How secure is it?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1076,8 +1114,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             What if I need help after setup?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1088,8 +1126,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             Can I switch from Cloud to Local later?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1100,8 +1138,8 @@
           </div>
         </details>
 
-        <details class="bg-gray-900 border border-slate-800 rounded-xl overflow-hidden group hover:border-sky-500/40 transition-colors duration-200">
-          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-sky-300 transition-colors duration-200 select-none">
+        <details class="bg-[#0a1a0a] border border-emerald-900/30 rounded-xl overflow-hidden group hover:border-emerald-500/40 transition-colors duration-200">
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 text-slate-100 font-semibold cursor-pointer hover:text-emerald-300 transition-colors duration-200 select-none">
             Do you offer refunds?
             <svg class="chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
@@ -1121,7 +1159,7 @@
     <!-- Radial glow -->
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none"
          aria-hidden="true"
-         style="background: radial-gradient(circle, rgba(14,165,233,0.12), transparent 70%);"></div>
+         style="background: radial-gradient(circle, rgba(16,185,129,0.12), transparent 70%);"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
       <div class="glow-line" aria-hidden="true"></div>
@@ -1132,13 +1170,13 @@
         Choose cloud or local to get started.
       </p>
       <div class="flex flex-wrap gap-4 justify-center mb-10">
-        <a href="mailto:theai101shop@gmail.com" id="final-cta" class="cursor-pointer inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/25 no-underline text-base motion-reduce:transition-none">
+        <a href="mailto:theai101shop@gmail.com" id="final-cta" class="cursor-pointer inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-emerald-500/25 no-underline text-base motion-reduce:transition-none">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
           Book a Call
         </a>
-        <a href="mailto:theai101shop@gmail.com" class="cursor-pointer inline-flex items-center gap-2 border border-sky-500/40 text-slate-100 font-semibold px-8 py-4 rounded-lg hover:bg-sky-500/10 hover:border-sky-500 transition-all duration-200 no-underline text-base motion-reduce:transition-none">
+        <a href="mailto:theai101shop@gmail.com" class="cursor-pointer inline-flex items-center gap-2 border border-emerald-500/40 text-slate-100 font-semibold px-8 py-4 rounded-lg hover:bg-emerald-500/10 hover:border-emerald-500 transition-all duration-200 no-underline text-base motion-reduce:transition-none">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="M22 7l-10 7L2 7"/>
@@ -1151,7 +1189,7 @@
           <rect x="2" y="4" width="20" height="16" rx="2"/>
           <path d="M22 7l-10 7L2 7"/>
         </svg>
-        <a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-sky-400 transition-colors no-underline">theai101shop@gmail.com</a>
+        <a href="mailto:theai101shop@gmail.com" class="text-slate-500 hover:text-emerald-400 transition-colors no-underline">theai101shop@gmail.com</a>
       </div>
     </div>
   </section>
@@ -1159,7 +1197,7 @@
 </main>
 
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
-<footer class="bg-slate-950 border-t border-slate-800/60">
+<footer class="bg-[#050f05] border-t border-emerald-900/30/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
@@ -1219,7 +1257,7 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t border-slate-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="border-t border-emerald-900/30/60 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-slate-600 text-sm">&copy; 2026 The AI 101. All rights reserved.</p>
       <p class="text-slate-700 text-xs">Powered by Square</p>
     </div>
